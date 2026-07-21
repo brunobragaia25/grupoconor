@@ -1,0 +1,517 @@
+"use client";
+
+import { Layout } from "@/app/components/Layout";
+import { Footer } from "@/app/components/Footer";
+import { colors } from "@/app/styles/design-tokens";
+import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
+import { FadeIn } from "@/app/components/motion/FadeIn";
+
+const brand = "#fa7a22";
+
+const imgLogoWordmark = "/icons/logo-conor-marketing-wordmark-large.svg";
+const imgHeroIllustration = "/image-conor-marketing-hero.svg";
+const imgCtaIllustration = "/image-conor-marketing-cta.svg";
+
+const stats = [
+  { value: "360°", label: "Consultoria completa" },
+  { value: "3x", label: "Média de crescimento em leads" },
+  { value: "90", label: "Dias para primeiros resultados" },
+  { value: "4", label: "Itens de combo disponíveis" },
+];
+
+const combos = [
+  {
+    title: "Criativos",
+    price: "A partir de R$497/mês",
+    description:
+      "Peças visuais profissionais para redes sociais, anúncios e campanhas. Artes estáticas, vídeos curtos e banners otimizados para conversão.",
+    items: [
+      "Posts para Instagram e Facebook",
+      "Vídeos para Reels e TikTok",
+      "Banners para Google Ads",
+      "Artes para WhatsApp",
+    ],
+  },
+  {
+    title: "Tráfego Pago",
+    price: "A partir de R$697/mês",
+    description:
+      "Gestão completa de campanhas pagas no Google, Meta e YouTube. Configuração, otimização e relatórios mensais de performance.",
+    items: [
+      "Campanhas no Google Ads",
+      "Anúncios no Meta (Facebook/Instagram)",
+      "YouTube Ads",
+      "Relatórios mensais de ROI",
+    ],
+  },
+  {
+    title: "Página de Vendas",
+    price: "A partir de R$997/mês",
+    description:
+      "Landing pages de alta conversão para capturar leads e vender seus serviços. Desenvolvida, hospedada e otimizada pela Conor.",
+    items: [
+      "Design profissional",
+      "Integração com WhatsApp e CRM",
+      "SEO básico incluído",
+      "Hospedagem inclusa",
+    ],
+  },
+  {
+    title: "Consultoria & Vendas",
+    price: "A partir de R$997/mês",
+    description:
+      "Mentoria e suporte comercial para ajudar sua central a vender mais. Estratégia de precificação, script de vendas e funil comercial.",
+    items: [
+      "Diagnóstico comercial",
+      "Script de vendas",
+      "Funil de captação",
+      "Acompanhamento mensal",
+    ],
+  },
+];
+
+export default function ConorMarketing() {
+  return (
+    <Layout>
+      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {/* Hero */}
+          <div
+            style={{
+              backgroundImage:
+                "linear-gradient(108deg, #1b1b1b 14.965%, #000000 48.897%, #fa7a22 106.9%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "120px 80px",
+              borderTopLeftRadius: "12px",
+              borderTopRightRadius: "12px",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+                alignItems: "center",
+                maxWidth: "1182px",
+              }}
+            >
+              <img src={imgLogoWordmark} alt="Conor Marketing" style={{ height: "46px" }} />
+              <AnimatedTitle
+                as="p"
+                style={{
+                  fontSize: "64px",
+                  fontWeight: 700,
+                  fontFamily: "var(--font-linear-grotesk)",
+                  color: colors.white,
+                  margin: 0,
+                  lineHeight: "normal",
+                  textAlign: "center",
+                }}
+              >
+                Garantimos ferramentas de captura de leads, marketing,
+                tráfego pago e consultoria 360° para sua central crescer de
+                forma previsível.
+              </AnimatedTitle>
+            </div>
+          </div>
+
+          <div
+            style={{
+              backgroundColor: "rgba(36, 36, 36, 0.75)",
+              borderTopRightRadius: "12px",
+              padding: "96px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "96px",
+            }}
+          >
+            {/* Investimento + Stats */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", gap: "20px" }}>
+                <div
+                  style={{
+                    position: "relative",
+                    borderRadius: "32px",
+                    overflow: "hidden",
+                    width: "45%",
+                    flexShrink: 0,
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "1479px",
+                      height: "825.488px",
+                      left: "-579px",
+                      top: "-109px",
+                      backgroundImage: `url(${imgHeroIllustration})`,
+                      backgroundSize: "1479px 825.488px",
+                    }}
+                  />
+                </div>
+
+                <div
+                  style={{
+                    backgroundColor: colors.black,
+                    borderRadius: "32px",
+                    flex: "1 0 0",
+                    padding: "64px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    gap: "24px",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "14px",
+                      fontFamily: "var(--font-roboto)",
+                      color: colors.text.bodyLight,
+                      margin: 0,
+                      textTransform: "uppercase",
+                      letterSpacing: "1px",
+                    }}
+                  >
+                    Investimento
+                  </p>
+
+                  <div style={{ height: "1px", backgroundColor: "#333333", width: "100%" }} />
+
+                  <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <p
+                      style={{
+                        fontSize: "48px",
+                        fontWeight: 700,
+                        fontFamily: "var(--font-linear-grotesk)",
+                        color: brand,
+                        margin: 0,
+                        lineHeight: "normal",
+                      }}
+                    >
+                      Montado por combo
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "24px",
+                        fontWeight: 600,
+                        fontFamily: "var(--font-linear-grotesk)",
+                        color: colors.white,
+                        margin: 0,
+                        lineHeight: "30px",
+                      }}
+                    >
+                      Escolha os itens que sua central precisa e monte seu
+                      pacote personalizado. Sem preço fixo — você paga só
+                      pelo que usar.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  backgroundColor: "rgba(250, 122, 34, 0.2)",
+                  borderRadius: "32px",
+                  overflow: "hidden",
+                  display: "flex",
+                }}
+              >
+                {stats.map((s, idx) => (
+                  <FadeIn
+                    key={s.label}
+                    delay={idx * 0.08}
+                    style={{
+                      backgroundColor: colors.black,
+                      flex: "1 0 0",
+                      padding: "40px 32px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "8px",
+                      alignItems: "center",
+                      textAlign: "center",
+                      borderLeft: idx > 0 ? "1px solid rgba(250, 122, 34, 0.2)" : "none",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: "48px",
+                        fontWeight: 700,
+                        fontFamily: "var(--font-linear-grotesk)",
+                        color: brand,
+                        lineHeight: "normal",
+                      }}
+                    >
+                      {s.value}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: colors.text.bodyLight,
+                      }}
+                    >
+                      {s.label}
+                    </span>
+                  </FadeIn>
+                ))}
+              </div>
+            </div>
+
+            {/* Itens disponíveis */}
+            <div
+              style={{
+                backgroundColor: colors.black,
+                borderRadius: "32px",
+                padding: "80px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "40px",
+              }}
+            >
+              <div>
+                <p
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    fontFamily: "var(--font-roboto)",
+                    color: brand,
+                    textTransform: "uppercase",
+                    letterSpacing: "2px",
+                    margin: "0 0 10px 0",
+                  }}
+                >
+                  Monte o seu combo
+                </p>
+                <AnimatedTitle
+                  as="h2"
+                  style={{
+                    fontSize: "48px",
+                    fontWeight: 700,
+                    fontFamily: "var(--font-linear-grotesk)",
+                    color: colors.white,
+                    margin: 0,
+                  }}
+                >
+                  Itens disponíveis
+                </AnimatedTitle>
+                <p
+                  style={{
+                    fontSize: "16px",
+                    fontFamily: "var(--font-roboto)",
+                    color: colors.text.bodyLight,
+                    margin: "12px 0 0 0",
+                    lineHeight: "24px",
+                  }}
+                >
+                  Escolha um ou mais itens e monte o pacote ideal para sua
+                  central.
+                </p>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                {[combos.slice(0, 2), combos.slice(2, 4)].map((row, rowIdx) => (
+                  <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+                    {row.map((combo, comboIdx) => (
+                      <FadeIn
+                        key={combo.title}
+                        delay={(rowIdx * 2 + comboIdx) * 0.08}
+                        style={{
+                          backgroundColor: "#171717",
+                          border: "1px solid #272727",
+                          borderRadius: "32px",
+                          flex: "1 0 0",
+                          padding: "48px",
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between",
+                          gap: "40px",
+                        }}
+                      >
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                          <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand }} />
+                          <span
+                            style={{
+                              backgroundColor: "rgba(250, 122, 34, 0.13)",
+                              border: "1px solid rgba(250, 122, 34, 0.27)",
+                              borderRadius: "999px",
+                              padding: "8px 16px",
+                              fontSize: "13px",
+                              fontWeight: 700,
+                              fontFamily: "var(--font-roboto)",
+                              color: brand,
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {combo.price}
+                          </span>
+                        </div>
+
+                        <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+                          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                            <p
+                              style={{
+                                fontSize: "24px",
+                                fontWeight: 700,
+                                fontFamily: "var(--font-linear-grotesk)",
+                                color: brand,
+                                margin: 0,
+                              }}
+                            >
+                              {combo.title}
+                            </p>
+                            <p
+                              style={{
+                                fontSize: "14px",
+                                fontFamily: "var(--font-roboto)",
+                                color: colors.text.bodyLight,
+                                margin: 0,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              {combo.description}
+                            </p>
+                          </div>
+
+                          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                            {combo.items.map((item) => (
+                              <div key={item} style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                                <span style={{ color: brand, fontSize: "14px", fontWeight: 700 }}>✓</span>
+                                <span style={{ fontSize: "14px", fontFamily: "var(--font-roboto)", color: colors.white }}>
+                                  {item}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </FadeIn>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              <button
+                style={{
+                  backgroundColor: brand,
+                  color: colors.white,
+                  border: "none",
+                  borderRadius: "999px",
+                  padding: "14px 49px",
+                  fontSize: "15px",
+                  fontWeight: 700,
+                  fontFamily: "var(--font-roboto)",
+                  letterSpacing: "1.5px",
+                  cursor: "pointer",
+                  width: "fit-content",
+                  transition: "opacity 0.3s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                MONTAR MEU COMBO
+              </button>
+            </div>
+          </div>
+
+          {/* CTA Final */}
+          <div
+            style={{
+              backgroundColor: brand,
+              height: "480px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingLeft: "96px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              position: "relative",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <h2
+                  style={{
+                    fontSize: "48px",
+                    fontWeight: 700,
+                    fontFamily: "var(--font-linear-grotesk)",
+                    color: colors.white,
+                    margin: 0,
+                    lineHeight: "1.1",
+                  }}
+                >
+                  Monte seu combo e
+                  <br />
+                  <span style={{ fontWeight: 900 }}>comece a crescer</span>
+                </h2>
+                <p
+                  style={{
+                    fontSize: "16px",
+                    fontFamily: "var(--font-roboto)",
+                    color: colors.white,
+                    margin: 0,
+                    lineHeight: "28px",
+                    maxWidth: "468px",
+                  }}
+                >
+                  Criativos, tráfego pago, página de vendas ou consultoria.
+                  Escolha o que faz sentido para sua central agora.
+                </p>
+              </div>
+              <button
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "56px",
+                  backgroundColor: "transparent",
+                  color: colors.white,
+                  border: `1px solid ${colors.white}`,
+                  borderRadius: "999px",
+                  fontSize: "15px",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  fontFamily: "var(--font-roboto)",
+                  transition: "opacity 0.3s",
+                  padding: "0 49px",
+                  letterSpacing: "1.5px",
+                  width: "fit-content",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                COMPRAR AGORA
+              </button>
+            </div>
+
+            <div
+              style={{
+                position: "absolute",
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: "904px",
+                overflow: "hidden",
+                pointerEvents: "none",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  width: "904px",
+                  height: "674.987px",
+                  left: "0px",
+                  top: "-140.143px",
+                  backgroundImage: `url(${imgCtaIllustration})`,
+                  backgroundSize: "904px 674.987px",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        <Footer />
+      </div>
+    </Layout>
+  );
+}
