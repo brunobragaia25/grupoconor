@@ -13,6 +13,16 @@ const imgLogoWordmark = "/icons/logo-conor-admin-wordmark-large.svg";
 const imgHeroIllustration = "/image-conor-admin-hero.jpg";
 const imgCtaIllustration = "/image-conor-admin-cta.jpg";
 
+const imgIconCar = "/icons/icon-car.svg";
+const imgIconWhatsapp = "/icons/icon-whatsapp-white.svg";
+const imgIconChartBar = "/icons/icon-chart-bar.svg";
+const imgIconFolderOpen = "/icons/icon-folder-open.svg";
+const imgIconBrowsers = "/icons/icon-browsers.svg";
+const imgIconGearSix = "/icons/icon-gear-six.svg";
+const imgIconHandshake = "/icons/icon-handshake.svg";
+const imgIconHeadset = "/icons/icon-headset.svg";
+const imgIconChartLineUp = "/icons/icon-chart-line-up.svg";
+
 const stats = [
   { value: "3", label: "Módulos integrados" },
   { value: "R$0", label: "Taxa de entrada" },
@@ -66,30 +76,34 @@ const modulos = [
 ];
 
 const integracoes = [
-  { title: "Conor 4 em 1", description: "Integração nativa com o sistema de rastreamento" },
-  { title: "Whatsapp", description: "Envio automático de cobranças e alertas" },
-  { title: "PIX & Boleto", description: "Cobrança automatizada via API bancária" },
-  { title: "Exportação Contábil", description: "Arquivos compatíveis com sistemas contábeis" },
-  { title: "E-mail", description: "Notificações automáticas para clientes" },
-  { title: "API Aberta", description: "Conecte com qualquer sistema via REST API" },
+  { title: "Conor 4 em 1", description: "Integração nativa com o sistema de rastreamento", icon: imgIconCar },
+  { title: "Whatsapp", description: "Envio automático de cobranças e alertas", icon: imgIconWhatsapp },
+  { title: "PIX & Boleto", description: "Cobrança automatizada via API bancária", icon: imgIconChartBar },
+  { title: "Exportação Contábil", description: "Arquivos compatíveis com sistemas contábeis", icon: imgIconFolderOpen },
+  { title: "E-mail", description: "Notificações automáticas para clientes", icon: imgIconBrowsers },
+  { title: "API Aberta", description: "Conecte com qualquer sistema via REST API", icon: imgIconGearSix },
 ];
 
 const suporte = [
   {
     title: "Onboarding guiado",
     description: "Nossa equipe configura o sistema junto com você. Treinamento incluso para toda a equipe.",
+    icon: imgIconHandshake,
   },
   {
     title: "Suporte por Whatsapp",
     description: "Canal direto com nossa equipe de suporte para tirar dúvidas e resolver problemas rapidamente.",
+    icon: imgIconHeadset,
   },
   {
     title: "Vídeos Tutoriais",
     description: "Biblioteca completa de tutoriais em vídeo para cada funcionalidade do sistema.",
+    icon: imgIconFolderOpen,
   },
   {
     title: "Atualizações Gratuitas",
     description: "Novas funcionalidades e melhorias entregues automaticamente sem custo adicional.",
+    icon: imgIconChartLineUp,
   },
 ];
 
@@ -421,7 +435,9 @@ export default function ConorAdmin() {
                           minHeight: "260px",
                         }}
                       >
-                        <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brandAlt }} />
+                        <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brandAlt, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <img src={item.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                        </div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                           <div style={{ width: "40px", height: "3px", backgroundColor: brandAlt, borderRadius: "2px" }} />
                           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -481,7 +497,9 @@ export default function ConorAdmin() {
                       gap: "20px",
                     }}
                   >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(1, 196, 196, 0.13)" }} />
+                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(1, 196, 196, 0.13)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={s.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                    </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                       <p style={{ fontSize: "18px", fontWeight: 600, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
                         {s.title}

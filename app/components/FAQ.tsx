@@ -141,16 +141,36 @@ function FAQCard({ item, isExpanded, onToggle, delay = 0 }: { item: FAQItem; isE
           >
             <span
               style={{
-                color: "#52a4ff",
-                fontSize: "20px",
-                lineHeight: 1,
-                fontFamily: "var(--font-roboto)",
+                position: "relative",
+                width: "16px",
+                height: "16px",
                 display: "inline-block",
                 transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                 transform: isExpanded && item.answer ? "rotate(45deg)" : "rotate(0deg)",
               }}
             >
-              +
+              <span
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: 0,
+                  width: "100%",
+                  height: "2px",
+                  backgroundColor: "#52a4ff",
+                  transform: "translateY(-50%)",
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  top: 0,
+                  height: "100%",
+                  width: "2px",
+                  backgroundColor: "#52a4ff",
+                  transform: "translateX(-50%)",
+                }}
+              />
             </span>
           </button>
         </div>

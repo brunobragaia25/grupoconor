@@ -12,6 +12,11 @@ const imgLogoWordmark = "/icons/logo-conor-marketing-wordmark-large.svg";
 const imgHeroIllustration = "/image-conor-marketing-hero.svg";
 const imgCtaIllustration = "/image-conor-marketing-cta.svg";
 
+const iconCriativos = "/icons/icon-megaphone-simple.svg";
+const iconTrafegoPago = "/icons/icon-chart-line-up.svg";
+const iconPaginaDeVendas = "/icons/icon-browsers.svg";
+const iconConsultoriaVendas = "/icons/icon-handshake.svg";
+
 const stats = [
   { value: "360°", label: "Consultoria completa" },
   { value: "3x", label: "Média de crescimento em leads" },
@@ -22,6 +27,7 @@ const stats = [
 const combos = [
   {
     title: "Criativos",
+    icon: iconCriativos,
     price: "A partir de R$497/mês",
     description:
       "Peças visuais profissionais para redes sociais, anúncios e campanhas. Artes estáticas, vídeos curtos e banners otimizados para conversão.",
@@ -34,6 +40,7 @@ const combos = [
   },
   {
     title: "Tráfego Pago",
+    icon: iconTrafegoPago,
     price: "A partir de R$697/mês",
     description:
       "Gestão completa de campanhas pagas no Google, Meta e YouTube. Configuração, otimização e relatórios mensais de performance.",
@@ -46,6 +53,7 @@ const combos = [
   },
   {
     title: "Página de Vendas",
+    icon: iconPaginaDeVendas,
     price: "A partir de R$997/mês",
     description:
       "Landing pages de alta conversão para capturar leads e vender seus serviços. Desenvolvida, hospedada e otimizada pela Conor.",
@@ -58,6 +66,7 @@ const combos = [
   },
   {
     title: "Consultoria & Vendas",
+    icon: iconConsultoriaVendas,
     price: "A partir de R$997/mês",
     description:
       "Mentoria e suporte comercial para ajudar sua central a vender mais. Estratégia de precificação, script de vendas e funil comercial.",
@@ -330,7 +339,23 @@ export default function ConorMarketing() {
                         }}
                       >
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                          <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand }} />
+                          <div
+                            style={{
+                              width: "48px",
+                              height: "48px",
+                              borderRadius: "12px",
+                              backgroundColor: brand,
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <img
+                              src={combo.icon}
+                              alt=""
+                              style={{ width: "26px", height: "26px" }}
+                            />
+                          </div>
                           <span
                             style={{
                               backgroundColor: "rgba(250, 122, 34, 0.13)",

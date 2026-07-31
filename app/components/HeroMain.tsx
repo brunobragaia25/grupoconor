@@ -132,11 +132,23 @@ export function HeroMain() {
             flexShrink: 0,
             backgroundColor: "#d9d9d9",
             borderRadius: "0 12px 0 64px",
-            backgroundImage: "url(/image-home-hero.svg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            overflow: "hidden",
+            position: "relative",
           }}
-        />
+        >
+          <img
+            src="/image-home-hero.svg"
+            alt=""
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "right center",
+            }}
+          />
+        </div>
       </div>
     </section>
   );

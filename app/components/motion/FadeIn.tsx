@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CSSProperties, ReactNode } from "react";
+import { useMotionDisabled } from "./useMotionDisabled";
 
 interface FadeInProps {
   children: ReactNode;
@@ -14,6 +15,16 @@ interface FadeInProps {
 
 /** Simple fade + slide-up entrance used for cards, sections and general content blocks. */
 export function FadeIn({ children, style, className, delay = 0, y = 24, once = true }: FadeInProps) {
+  const motionDisabled = useMotionDisabled();
+
+  if (motionDisabled) {
+    return (
+      <div style={style} className={className}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       style={style}

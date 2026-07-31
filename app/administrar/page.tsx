@@ -13,6 +13,7 @@ const imgChartBar = "/icons/icon-chart-bar.svg";
 const imgFolderOpen = "/icons/icon-folder-open.svg";
 const imgPackage = "/icons/icon-package-2.svg";
 const imgWhyIllustration = "/image-administrar-why.jpg";
+const imgHeroLogo = "/icon-administrar-hero-logo.svg";
 
 const modules = [
   {
@@ -386,13 +387,40 @@ export default function Administrar() {
                 <div
                   style={{
                     flex: "1 0 0",
+                    height: "590px",
+                    position: "relative",
                     borderRadius: "32px",
                     overflow: "hidden",
-                    backgroundImage: `url(${imgWhyIllustration})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
                   }}
-                />
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "1744px",
+                      height: "974px",
+                      left: "-716px",
+                      top: "-371px",
+                      backgroundImage: `url(${imgWhyIllustration})`,
+                      backgroundSize: "1744px 974px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      bottom: 0,
+                      width: "459px",
+                      height: "128px",
+                      backgroundColor: colors.white,
+                      borderTopLeftRadius: "32px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src={imgHeroLogo} alt="Conor Admin" style={{ width: "345px", height: "62px" }} />
+                  </div>
+                </div>
 
                 <div
                   style={{

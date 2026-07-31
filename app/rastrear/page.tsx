@@ -8,13 +8,16 @@ import { FadeIn } from "@/app/components/motion/FadeIn";
 
 const imgEmergencyShareLarge = "/icons/icon-emergency-share-large.svg";
 const imgHeroIllustration = "/image-rastrear-hero.svg";
-const imgCtaIllustration = "/image-rastrear-cta.svg";
+const imgCtaLayer1 = "/image-rastrear-cta-layer1.svg";
+const imgCtaLayer2 = "/image-rastrear-cta-layer2.svg";
 const imgSpeedometer = "/icons/icon-speedometer.svg";
 const imgShieldWarning = "/icons/icon-shield-warning.svg";
 const imgCar = "/icons/icon-car.svg";
 const imgMapPinLine = "/icons/icon-map-pin-line.svg";
 const imgCompatCircle = "/icons/icon-compat-circle.svg";
-const img4em1Main = "/image-rastrear-4em1.jpg";
+const img4em1Bg = "/image-rastrear-4em1-bg.jpg";
+const img4em1Fg = "/image-rastrear-4em1-fg.jpg";
+const img4em1Logo = "/icon-rastrear-4em1-logo.svg";
 
 const features = [
   {
@@ -502,13 +505,51 @@ export default function Rastrear() {
                 <div
                   style={{
                     flex: "1 0 0",
+                    height: "590px",
+                    position: "relative",
                     borderRadius: "32px",
                     overflow: "hidden",
-                    backgroundImage: `url(${img4em1Main})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
                   }}
-                />
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "1744px",
+                      height: "974px",
+                      left: "-716px",
+                      top: "-371px",
+                      backgroundImage: `url(${img4em1Bg})`,
+                      backgroundSize: "1744px 974px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "1183px",
+                      height: "660px",
+                      left: "-362px",
+                      top: "-70px",
+                      backgroundImage: `url(${img4em1Fg})`,
+                      backgroundSize: "1183px 660px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      bottom: 0,
+                      width: "459px",
+                      height: "128px",
+                      backgroundColor: colors.white,
+                      borderTopLeftRadius: "32px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src={img4em1Logo} alt="Conor 4 em 1" style={{ width: "345px", height: "64px" }} />
+                  </div>
+                </div>
 
                 <div
                   style={{
@@ -627,16 +668,18 @@ export default function Rastrear() {
                 </button>
               </div>
 
-              <img
-                src={imgCtaIllustration}
-                alt=""
-                style={{
-                  height: "480px",
-                  width: "722px",
-                  objectFit: "cover",
-                  flexShrink: 0,
-                }}
-              />
+              <div style={{ width: "722px", height: "480px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
+                <img
+                  src={imgCtaLayer1}
+                  alt=""
+                  style={{ position: "absolute", left: 0, top: 0, width: "707px", height: "480px" }}
+                />
+                <img
+                  src={imgCtaLayer2}
+                  alt=""
+                  style={{ position: "absolute", left: 0, top: "-29.547px", width: "722px", height: "539.093px" }}
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -4,51 +4,60 @@ import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 import { FadeIn } from "./motion/FadeIn";
 
-const imgWhatsapp1 = "/icons/whatsapp-icon.svg";
-const imgWhatsapp2 = "/icons/whatsapp-icon.svg";
-const imgWhatsapp3 = "/icons/whatsapp-icon.svg";
-const imgWhatsapp4 = "/icons/whatsapp-icon.svg";
+const imgBroadcast = "/icons/icon-segment-broadcast.svg";
+const imgShieldCheck = "/icons/icon-segment-shield-check.svg";
+const imgCarBadge = "/icons/icon-segment-car-badge.svg";
+const imgUserCircleCheck = "/icons/icon-segment-user-circle-check.svg";
 
-interface TechCard {
+interface Segment {
   id: number;
   title: string;
-  description: string;
   color: string;
-  whatsappIcon: string;
+  gradientFrom: string;
+  gradientTo: string;
+  icon: string;
+  iconSize: number;
+  /** When true, the icon asset already includes its own gradient square background. */
+  flatIcon?: boolean;
 }
 
-const technologies: TechCard[] = [
+const segments: Segment[] = [
   {
     id: 1,
-    title: "Associação veicular",
-    description:
-      "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país. O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
+    title: "Centrais de Rastreamento",
     color: "#52a4ff",
-    whatsappIcon: imgWhatsapp1,
+    gradientFrom: "#52a4ff",
+    gradientTo: "#0079ff",
+    icon: imgBroadcast,
+    iconSize: 40,
   },
   {
     id: 2,
-    title: "Furto & Roubo",
-    description:
-      "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país. O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
+    title: "Associações de Proteção Veicular - PPM",
     color: "#fa7a22",
-    whatsappIcon: imgWhatsapp2,
+    gradientFrom: "#fa7a22",
+    gradientTo: "#c04e00",
+    icon: imgShieldCheck,
+    iconSize: 48,
   },
   {
     id: 3,
-    title: "Telemetria Avançada",
-    description:
-      "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país. O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
+    title: "Locadoras de veículos e transportadoras",
     color: "#996cfb",
-    whatsappIcon: imgWhatsapp3,
+    gradientFrom: "#996cfb",
+    gradientTo: "#996cfb",
+    icon: imgCarBadge,
+    iconSize: 72,
+    flatIcon: true,
   },
   {
     id: 4,
-    title: "Recuperação Veicular",
-    description:
-      "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país. O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
+    title: "Empreendedores que querem iniciar",
     color: "#dd245c",
-    whatsappIcon: imgWhatsapp4,
+    gradientFrom: "#dd245c",
+    gradientTo: "#c4003b",
+    icon: imgUserCircleCheck,
+    iconSize: 48,
   },
 ];
 
@@ -72,17 +81,17 @@ export function Technologies() {
           as="h2"
           style={{
             fontSize: "48px",
-            fontWeight: 700,
+            fontWeight: 900,
             fontFamily: "var(--font-linear-grotesk)",
             color: colors.white,
             margin: "0 0 12px 0",
           }}
         >
-          Nossas tecnologias
+          Nossos segmentos
         </AnimatedTitle>
         <p
           style={{
-            fontSize: "14px",
+            fontSize: "16px",
             fontFamily: "var(--font-roboto)",
             color: colors.text.bodyLight,
             margin: 0,
@@ -98,115 +107,80 @@ export function Technologies() {
         style={{
           maxWidth: "1494px",
           margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "48px",
+          display: "flex",
+          gap: "20px",
         }}
       >
-        {technologies.map((tech, idx) => (
+        {segments.map((segment, idx) => (
           <FadeIn
-            key={tech.id}
+            key={segment.id}
             delay={idx * 0.08}
             style={{
+              flex: "1 0 0",
               backgroundColor: "#171717",
               border: "1px solid #272727",
               borderRadius: "32px",
-              overflow: "hidden",
-              minHeight: "454px",
+              minHeight: "397px",
               display: "flex",
-              alignItems: "stretch",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              padding: "40px",
             }}
           >
+            {/* Icon badge */}
             <div
               style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                gap: "48px",
-                padding: "48px",
+                alignSelf: "flex-start",
+                padding: "1px",
+                borderRadius: "24px",
+                background: `linear-gradient(180deg, ${segment.color}ff, ${segment.color}00)`,
+                boxShadow: `0 0 19px 0 ${segment.color}26`,
+                flexShrink: 0,
               }}
             >
-              {/* Icon */}
               <div
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "12px",
-                  backgroundColor: tech.color,
-                  flexShrink: 0,
-                }}
-              />
-
-              {/* Content */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "26px",
-                }}
-              >
-                {/* Title */}
-                <h3
-                  style={{
-                    margin: 0,
-                    fontSize: "24px",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    lineHeight: "normal",
-                  }}
-                >
-                  {tech.title}
-                </h3>
-
-                {/* Description */}
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "14px",
-                    fontFamily: "var(--font-roboto)",
-                    color: colors.text.bodyLight,
-                    lineHeight: "18px",
-                  }}
-                >
-                  {tech.description}
-                </p>
-              </div>
-
-              {/* Button */}
-              <button
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "6px",
-                  height: "40px",
-                  backgroundColor: "transparent",
-                  color: tech.color,
-                  border: `1px solid ${tech.color}`,
-                  borderRadius: "999px",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  cursor: "pointer",
-                  fontFamily: "var(--font-roboto)",
-                  transition: "opacity 0.3s",
-                  padding: "0 16px",
-                  whiteSpace: "nowrap",
+                  padding: "12px",
+                  borderRadius: "23px",
+                  backgroundColor: `${segment.color}1f`,
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
-                <img
-                  src={tech.whatsappIcon}
-                  alt="WhatsApp"
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                  }}
-                />
-                <span>Falar com um consultor</span>
-              </button>
+                {segment.flatIcon ? (
+                  <img src={segment.icon} alt="" style={{ width: `${segment.iconSize}px`, height: `${segment.iconSize}px` }} />
+                ) : (
+                  <div
+                    style={{
+                      width: "72px",
+                      height: "72px",
+                      borderRadius: "12px",
+                      background: `linear-gradient(to bottom, ${segment.gradientFrom}, ${segment.gradientTo})`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src={segment.icon} alt="" style={{ width: `${segment.iconSize}px`, height: `${segment.iconSize}px` }} />
+                  </div>
+                )}
+              </div>
             </div>
+
+            {/* Title */}
+            <h3
+              style={{
+                margin: 0,
+                fontSize: "28px",
+                fontWeight: 700,
+                fontFamily: "var(--font-linear-grotesk)",
+                color: colors.white,
+                lineHeight: "1.2",
+              }}
+            >
+              {segment.title}
+            </h3>
           </FadeIn>
         ))}
       </div>

@@ -19,6 +19,7 @@ const cards = [
     description: "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
     buttonText: "Começar a empreender",
     color: "#20c4c3",
+    href: "/comecar-negocio",
     imgType: "iniciando" as const,
   },
   {
@@ -28,6 +29,7 @@ const cards = [
     description: "Segundo o IBGE, a cada hora, 64 veículos são roubados por dia e, em média, 373 mil carros são levados por criminosos no Brasil. Ainda existem oportunidades para expandir.",
     buttonText: "Vamos juntos crescer",
     color: "#fa7a22",
+    href: "/crescer-negocio",
     imgType: "mercado" as const,
   },
   {
@@ -37,6 +39,7 @@ const cards = [
     description: "Monte o combo ideal de Rastreamento Veicular de forma simples, rápida e totalmente personalizada para a sua necessidade. Escolha os recursos certos.",
     buttonText: "Clique e monte seu combo agora",
     color: "#996cfb",
+    href: "/montar-combo",
     imgType: "personalizado" as const,
   },
 ];
@@ -238,7 +241,8 @@ export function HeroSection() {
               </p>
 
               {/* Botão */}
-              <div
+              <a
+                href={card.href}
                 style={{
                   backgroundColor: card.color,
                   display: "inline-flex",
@@ -250,7 +254,11 @@ export function HeroSection() {
                   borderRadius: "4px",
                   cursor: "pointer",
                   flexShrink: 0,
+                  textDecoration: "none",
+                  transition: "opacity 0.3s",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
                 <span
                   style={{
@@ -264,7 +272,7 @@ export function HeroSection() {
                   {card.buttonText}
                 </span>
                 <img src={imgArrow} alt="" style={{ width: "16px", height: "16px", display: "block" }} />
-              </div>
+              </a>
             </div>
           </FadeIn>
         ))}

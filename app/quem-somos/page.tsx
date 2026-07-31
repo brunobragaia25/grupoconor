@@ -7,6 +7,9 @@ import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 
 const imgFundadoresIllustration = "/image-quem-somos-cta.svg";
+const imgHeroIllustration = "/image-banner-quemsomos.png";
+const imgMapPinLine = "/icons/icon-map-pin-line.svg";
+const imgHeadset = "/icons/icon-headset.svg";
 
 const founders = [
   {
@@ -43,20 +46,36 @@ export default function QuemSomos() {
           {/* Hero Section */}
           <div
             style={{
+              position: "relative",
               display: "flex",
               alignItems: "center",
-              padding: "120px 80px",
               borderRadius: "32px",
+              overflow: "hidden",
               backgroundImage:
                 "linear-gradient(106.39deg, rgb(0, 0, 0) 56.293%, rgb(82, 164, 255) 116.82%)",
             }}
           >
+            <img
+              src={imgHeroIllustration}
+              alt=""
+              style={{
+                position: "absolute",
+                right: 0,
+                top: 0,
+                height: "100%",
+                width: "auto",
+                zIndex: 0,
+              }}
+            />
+
             <div
               style={{
                 display: "flex",
                 flex: "1 0 0",
                 alignItems: "flex-start",
-                justifyContent: "space-between",
+                padding: "64px 80px",
+                position: "relative",
+                zIndex: 1,
               }}
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -344,8 +363,13 @@ export default function QuemSomos() {
                       height: "48px",
                       borderRadius: "50%",
                       backgroundColor: "#52a4ff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
-                  />
+                  >
+                    <img src={imgMapPinLine} alt="" style={{ width: "24px", height: "24px" }} />
+                  </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <p
                       style={{
@@ -394,8 +418,13 @@ export default function QuemSomos() {
                       height: "48px",
                       borderRadius: "50%",
                       backgroundColor: "#52a4ff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
-                  />
+                  >
+                    <img src={imgHeadset} alt="" style={{ width: "24px", height: "24px" }} />
+                  </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <p
                       style={{

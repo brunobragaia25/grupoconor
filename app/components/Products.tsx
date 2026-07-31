@@ -13,7 +13,6 @@ interface ProductCard {
   whatsapp: string;
   eyebrow: string;
   href: string;
-  price?: { entrada: string; mensal: string };
   features: { label?: string; value: string }[];
 }
 
@@ -27,7 +26,6 @@ const products: ProductCard[] = [
     whatsapp: "/icons/product-whatsapp/4em1.svg",
     eyebrow: "Ative seu software",
     href: "/conor-4em1",
-    price: { entrada: "R$3.000", mensal: "+ R$600" },
     features: [
       { label: "Software 1:", value: "Recuperação veicular;" },
       { label: "Software 2:", value: "Telemetria avançada;" },
@@ -44,7 +42,6 @@ const products: ProductCard[] = [
     whatsapp: "/icons/product-whatsapp/admin.svg",
     eyebrow: "Zero de entrada",
     href: "/conor-admin",
-    price: { entrada: "", mensal: "+ R$0,75" },
     features: [
       { label: "Gestão 1:", value: "Financeira" },
       { label: "Gestão 2:", value: "Administrativa" },
@@ -74,7 +71,6 @@ const products: ProductCard[] = [
     whatsapp: "/icons/product-whatsapp/seguro.svg",
     eyebrow: "Ative seu seguro",
     href: "/conor-seguro",
-    price: { entrada: "R$3.000", mensal: "+ R$350" },
     features: [{ value: "Preço fixo" }, { value: "Sem carência" }, { value: "Sem mínimo" }],
   },
   {
@@ -86,7 +82,6 @@ const products: ProductCard[] = [
     whatsapp: "/icons/product-whatsapp/assist.svg",
     eyebrow: "Ative sua assistência",
     href: "/conor-assist",
-    price: { entrada: "R$1.000", mensal: "+ R$550" },
     features: [
       { value: "Preço fixo" },
       { value: "Atendimento em todo Brasil" },
@@ -147,33 +142,11 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
               {product.eyebrow}
             </p>
 
-            {product.price && (
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {product.price.entrada && (
-                  <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                    <span style={{ fontSize: "32px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
-                      {product.price.entrada}
-                    </span>
-                    <span style={{ fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: product.color }}>
-                      de entrada
-                    </span>
-                  </div>
-                )}
-                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                  <span style={{ fontSize: "32px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
-                    {product.price.mensal}
-                  </span>
-                  <span style={{ fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: product.color }}>
-                    {product.id === 2 ? "por item rastreado" : "por mês"}
-                  </span>
-                </div>
-              </div>
-            )}
-
             <ul
               style={{
                 margin: 0,
-                paddingLeft: "21px",
+                padding: 0,
+                listStyle: "none",
                 display: "flex",
                 flexDirection: "column",
                 gap: "8px",
@@ -182,8 +155,12 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
               }}
             >
               {product.features.map((feature) => (
-                <li key={feature.value} style={{ color: colors.text.bodyLight, lineHeight: "18px" }}>
-                  {feature.label && <span style={{ color: product.color, fontWeight: 700 }}>{feature.label}</span>} {feature.value}
+                <li key={feature.value} style={{ display: "flex", gap: "8px", color: colors.text.bodyLight, lineHeight: "18px" }}>
+                  <span style={{ color: product.color, fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <span>
+                    {feature.label && <span style={{ color: product.color, fontWeight: 700 }}>{feature.label} </span>}
+                    {feature.value}
+                  </span>
                 </li>
               ))}
             </ul>

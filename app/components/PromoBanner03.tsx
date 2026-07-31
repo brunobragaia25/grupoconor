@@ -3,7 +3,7 @@
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 
-const imgIllustration = "/image-promo-banner-03.svg";
+const imgIllustration = "/image-promo-banner-03-final.png";
 const imgWhatsapp = "/icons/whatsapp-icon.svg";
 const imgKeyboardDoubleArrowRight = "/icons/keyboard_double_arrow_right.svg";
 
@@ -25,29 +25,21 @@ export function PromoBanner03() {
           backgroundColor: "#dd245c",
           borderRadius: "32px",
           overflow: "hidden",
-          height: "254px",
+          height: "320px",
         }}
       >
         {/* Left side - Illustration */}
         <div
           style={{
             flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             overflow: "hidden",
             position: "relative",
           }}
         >
           <img
             src={imgIllustration}
-            alt="Decoração"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
+            alt=""
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
           />
         </div>
 

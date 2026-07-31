@@ -12,7 +12,12 @@ const imgCtaIllustration = "/image-montar-cta.svg";
 const imgMapPinLine = "/icons/icon-map-pin-line-2.svg";
 const imgGearSix = "/icons/icon-gear-six.svg";
 const imgWifiHigh = "/icons/icon-wifi-high.svg";
-const imgEstoqueIllustration = "/image-montar-estoque.jpg";
+const imgEstoqueIllustration = "/image-montar-produto-relacionado.jpg";
+const imgEstoqueLogo = "/icon-montar-produto-relacionado-logo.svg";
+const imgPackage = "/icons/icon-package.svg";
+const imgPackage2 = "/icons/icon-package-2.svg";
+const imgChartLineUp = "/icons/icon-chart-line-up.svg";
+const imgHandshake = "/icons/icon-handshake.svg";
 
 function WhatsappIcon({ color }: { color: string }) {
   return (
@@ -109,56 +114,56 @@ const hardware = [
 const pricingTiers = [
   {
     title: "1-10 unidades",
-    price: "R$ 500,00",
+    icon: imgPackage,
+    description:
+      "Ideal para quem está começando a montar sua central de rastreamento e precisa de um lote inicial de equipamentos.",
     buttonLabel: "Montar pedido",
     buttonStyle: "outline" as const,
     popular: false,
     rows: [
       { label: "Quantidade:", value: "1-10 unidades" },
-      { label: "Valor unitário:", value: "R$ 500,00" },
-      { label: "Mensalidade:", value: "R$ 79,90/mês" },
       { label: "Prazo:", value: "7 dias úteis" },
       { label: "Garantia:", value: "12 meses" },
     ],
   },
   {
     title: "11-50 unidades",
-    price: "R$ 450,00",
+    icon: imgPackage2,
+    description:
+      "Para operações em crescimento que já têm uma base de clientes e precisam escalar a instalação de rastreadores.",
     buttonLabel: "Montar pedido",
     buttonStyle: "solid" as const,
     popular: true,
     rows: [
       { label: "Quantidade:", value: "11-50 unidades" },
-      { label: "Valor unitário:", value: "R$ 450,00" },
-      { label: "Mensalidade:", value: "R$ 69,90/mês" },
       { label: "Prazo:", value: "5 dias úteis" },
       { label: "Garantia:", value: "12 meses" },
     ],
   },
   {
     title: "51-100 unidades",
-    price: "R$ 400,00",
+    icon: imgChartLineUp,
+    description:
+      "Para centrais de rastreamento consolidadas que precisam de um volume maior de equipamentos com prazo reduzido.",
     buttonLabel: "Montar pedido",
     buttonStyle: "outline" as const,
     popular: false,
     rows: [
       { label: "Quantidade:", value: "51-100 unidades" },
-      { label: "Valor unitário:", value: "R$ 400,00" },
-      { label: "Mensalidade:", value: "R$ 59,90/mês" },
       { label: "Prazo:", value: "3 dias úteis" },
       { label: "Garantia:", value: "12 meses" },
     ],
   },
   {
     title: "+100 unidades",
-    price: "Consulte",
+    icon: imgHandshake,
+    description:
+      "Para grandes operações e parceiros que precisam de um volume sob medida. Fale com nosso time comercial.",
     buttonLabel: "Falar com consultor",
     buttonStyle: "outline" as const,
     popular: false,
     rows: [
       { label: "Quantidade:", value: "+100 unidades" },
-      { label: "Valor unitário:", value: "Consulte" },
-      { label: "Mensalidade:", value: "Consulte" },
       { label: "Prazo:", value: "Sob demanda" },
       { label: "Garantia:", value: "12 meses" },
     ],
@@ -466,7 +471,7 @@ export default function Montar() {
                     lineHeight: "normal",
                   }}
                 >
-                  Tabela de preços
+                  Escolha a quantidade ideal
                 </AnimatedTitle>
                 <p
                   style={{
@@ -477,7 +482,7 @@ export default function Montar() {
                     lineHeight: "28px",
                   }}
                 >
-                  Quanto maior a quantidade, melhor o preço. Todos incluem garantia de 12 meses.
+                  Escolha a faixa de quantidade ideal para o seu negócio. Todos incluem garantia de 12 meses.
                 </p>
               </div>
 
@@ -504,20 +509,33 @@ export default function Montar() {
                           position: "absolute",
                           top: "20px",
                           right: "20px",
-                          backgroundColor: "#2a2a2a",
-                          border: "1px solid #3a3a3a",
+                          backgroundColor: "#52a4ff",
                           borderRadius: "999px",
                           padding: "5px 13px",
                           fontSize: "10px",
-                          color: colors.text.bodyLight,
+                          fontWeight: 700,
+                          color: colors.white,
                           fontFamily: "var(--font-roboto)",
+                          boxShadow: "0 0 12px 0 rgba(82, 164, 255, 0.5)",
                         }}
                       >
                         ★ POPULAR
                       </div>
                     )}
 
-                    <div style={{ width: "36px", height: "36px", borderRadius: "8px", backgroundColor: "#52a4ff" }} />
+                    <div
+                      style={{
+                        width: "36px",
+                        height: "36px",
+                        borderRadius: "8px",
+                        backgroundColor: "#52a4ff",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <img src={tier.icon} alt="" style={{ width: "20px", height: "20px" }} />
+                    </div>
 
                     <p
                       style={{
@@ -531,36 +549,17 @@ export default function Montar() {
                       {tier.title}
                     </p>
 
-                    <div>
-                      <p
-                        style={{
-                          fontSize: "11px",
-                          fontFamily: "var(--font-roboto)",
-                          color: colors.text.bodyLight,
-                          margin: "0 0 4px 0",
-                          textTransform: "uppercase",
-                          letterSpacing: "1px",
-                        }}
-                      >
-                        Valor unitário
-                      </p>
-                      <p
-                        style={{
-                          fontSize: "42px",
-                          fontWeight: 700,
-                          fontFamily: "var(--font-linear-grotesk)",
-                          color: colors.white,
-                          margin: 0,
-                        }}
-                      >
-                        {tier.price}
-                        {tier.price !== "Consulte" && (
-                          <span style={{ fontSize: "14px", fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}>
-                            {" "}/un.
-                          </span>
-                        )}
-                      </p>
-                    </div>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        fontFamily: "var(--font-roboto)",
+                        color: colors.text.bodyLight,
+                        margin: 0,
+                        lineHeight: "22px",
+                      }}
+                    >
+                      {tier.description}
+                    </p>
 
                     <button
                       style={{
@@ -638,13 +637,40 @@ export default function Montar() {
                 <div
                   style={{
                     flex: "1 0 0",
+                    height: "400px",
+                    position: "relative",
                     borderRadius: "32px",
                     overflow: "hidden",
-                    backgroundImage: `url(${imgEstoqueIllustration})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
                   }}
-                />
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "1003px",
+                      height: "560px",
+                      left: "-246px",
+                      top: "-160px",
+                      backgroundImage: `url(${imgEstoqueIllustration})`,
+                      backgroundSize: "1003px 560px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      bottom: 0,
+                      width: "459px",
+                      height: "128px",
+                      backgroundColor: colors.white,
+                      borderTopLeftRadius: "32px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src={imgEstoqueLogo} alt="Conor Estoque" style={{ width: "387px", height: "64px" }} />
+                  </div>
+                </div>
 
                 <div
                   style={{

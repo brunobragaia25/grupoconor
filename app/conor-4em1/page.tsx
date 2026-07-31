@@ -12,6 +12,11 @@ const imgLogoWordmark = "/icons/logo-conor-4em1-wordmark-large.svg";
 const imgHeroIllustration = "/image-conor-4em1-hero.jpg";
 const imgCtaIllustration = "/image-conor-4em1-cta.svg";
 
+const iconRecuperacaoVeicular = "/icons/icon-map-pin-line.svg";
+const iconTelemetriaAvancada = "/icons/icon-speedometer.svg";
+const iconFurtoRoubo = "/icons/icon-shield-warning.svg";
+const iconAssociacaoVeicular = "/icons/icon-shield-check.svg";
+
 const stats = [
   { value: "4", label: "Funcionalidades incluídas" },
   { value: "30s", label: "Atualização de posição" },
@@ -22,6 +27,7 @@ const stats = [
 const funcionalidades = [
   {
     title: "Recuperação Veicular",
+    icon: iconRecuperacaoVeicular,
     description:
       "Sistema integrado com autoridades para rastreamento e recuperação de veículos furtados ou roubados. Tempo médio de recuperação abaixo da média nacional.",
     items: [
@@ -33,6 +39,7 @@ const funcionalidades = [
   },
   {
     title: "Telemetria Avançada",
+    icon: iconTelemetriaAvancada,
     description:
       "Dados em tempo real sobre o comportamento do veículo e do motorista. Reduza acidentes, custos de manutenção e consumo de combustível.",
     items: [
@@ -44,6 +51,7 @@ const funcionalidades = [
   },
   {
     title: "Furto & Roubo",
+    icon: iconFurtoRoubo,
     description:
       "Alertas imediatos em caso de movimentação suspeita, saída de cerca virtual ou acionamento do botão de pânico pelo motorista.",
     items: [
@@ -55,6 +63,7 @@ const funcionalidades = [
   },
   {
     title: "Associação Veicular",
+    icon: iconAssociacaoVeicular,
     description:
       "Sua central pode se associar a redes de proteção veicular e oferecer esse serviço aos clientes como uma camada extra de cobertura.",
     items: [
@@ -452,7 +461,19 @@ export default function Conor4Em1() {
                           gap: "40px",
                         }}
                       >
-                        <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand }} />
+                        <div
+                          style={{
+                            width: "48px",
+                            height: "48px",
+                            borderRadius: "12px",
+                            backgroundColor: brand,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <img src={f.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                        </div>
 
                         <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

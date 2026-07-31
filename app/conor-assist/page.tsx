@@ -12,6 +12,15 @@ const imgLogoWordmark = "/icons/logo-conor-assist-wordmark-large.svg";
 const imgHeroIllustration = "/image-conor-assist-hero.jpg";
 const imgCtaIllustration = "/image-conor-assist-cta.svg";
 
+const iconCar = "/icons/icon-car.svg";
+const iconGearSix = "/icons/icon-gear-six.svg";
+const iconHeadset = "/icons/icon-headset.svg";
+const iconGift = "/icons/icon-gift.svg";
+const iconServiceHeadset = "/icons/icon-service-headset.svg";
+const iconWhatsapp = "/icons/icon-whatsapp-orange.svg";
+const iconCompatCircle = "/icons/icon-compat-circle.svg";
+const iconBrowsers = "/icons/icon-browsers.svg";
+
 const stats = [
   { value: "24h", label: "Atendimento contínuo" },
   { value: "100%", label: "Digital e sem papel" },
@@ -35,21 +44,25 @@ const escopo = [
     title: "Assistência Veicular",
     description:
       "Guincho, pane seca, troca de pneu, chaveiro e socorro mecânico para os veículos rastreados pelos seus clientes.",
+    icon: iconCar,
   },
   {
     title: "Assistência Residencial",
     description:
       "Eletricista, encanador, chaveiro e vidraceiro para emergências no imóvel dos segurados.",
+    icon: iconGearSix,
   },
   {
     title: "Telemedicina",
     description:
       "Consultas por videochamada com médicos especialistas, sem limite de uso, para o segurado e dependentes.",
+    icon: iconHeadset,
   },
   {
     title: "Clube de Benefícios",
     description:
       "Descontos em farmácias, academias, restaurantes e lojas parceiras em todo o Brasil.",
+    icon: iconGift,
   },
 ];
 
@@ -58,21 +71,25 @@ const canais = [
     title: "Central Telefônica",
     description:
       "Atendimento via 0800 disponível 24h por dia, 7 dias por semana, para seus clientes acionarem qualquer serviço.",
+    icon: iconServiceHeadset,
   },
   {
     title: "WhatsApp",
     description:
       "Canal direto via WhatsApp para solicitação rápida de assistência e acompanhamento em tempo real.",
+    icon: iconWhatsapp,
   },
   {
     title: "Aplicativo Mobile",
     description:
       "App disponível para iOS e Android onde o cliente aciona serviços, acompanha o status e acessa o clube de benefícios.",
+    icon: iconCompatCircle,
   },
   {
     title: "Portal Web",
     description:
       "Painel exclusivo para gestores da central acompanhar acionamentos, relatórios e performance do serviço.",
+    icon: iconBrowsers,
   },
 ];
 
@@ -535,7 +552,9 @@ export default function ConorAssist() {
                       gap: "40px",
                     }}
                   >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand }} />
+                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={c.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                    </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                       <div style={{ width: "40px", height: "3px", backgroundColor: brand, borderRadius: "2px" }} />
                       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -644,7 +663,9 @@ export default function ConorAssist() {
                       gap: "20px",
                     }}
                   >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(153, 108, 251, 0.13)" }} />
+                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(153, 108, 251, 0.13)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={c.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                    </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                       <p
                         style={{

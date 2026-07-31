@@ -12,6 +12,14 @@ const imgLogoWordmark = "/icons/logo-conor-estoque-wordmark-large.svg";
 const imgHeroIllustration = "/image-conor-estoque-hero.jpg";
 const imgCtaIllustration = "/image-conor-estoque-cta.png";
 
+const imgIconTracker4g = "/icons/icon-map-pin-line.svg";
+const imgIconTracker2g = "/icons/icon-map-pin-line-2.svg";
+const imgIconChip = "/icons/icon-wifi-high.svg";
+const imgIconDelivery = "/icons/icon-package.svg";
+const imgIconWarranty = "/icons/icon-shield-check.svg";
+const imgIconInstallSupport = "/icons/icon-gear-six.svg";
+const imgIconFastSwap = "/icons/icon-speedometer.svg";
+
 const stats = [
   { value: "4G", label: "Tecnologia disponível" },
   { value: "12m", label: "Garantia dos equipamentos" },
@@ -62,6 +70,7 @@ const pricingTiers = [
 const hardware = [
   {
     badge: "Mais vendido",
+    icon: imgIconTracker4g,
     label: "SUNTECH · Rastreador 4G",
     name: "ST4215U",
     description:
@@ -76,6 +85,7 @@ const hardware = [
   },
   {
     badge: "Econômico",
+    icon: imgIconTracker2g,
     label: "SUNTECH · Rastreador 2G",
     name: "ST310UC2",
     description:
@@ -90,6 +100,7 @@ const hardware = [
   },
   {
     badge: "Cobertura nacional",
+    icon: imgIconChip,
     label: "VIVO · Chip M2M",
     name: "Chip Vivo 20Mb",
     description:
@@ -107,18 +118,22 @@ const hardware = [
 const logistica = [
   {
     title: "Prazo de entrega",
+    icon: imgIconDelivery,
     description: "5 a 10 dias úteis para todo o Brasil via transportadora rastreável.",
   },
   {
     title: "Garantia",
+    icon: imgIconWarranty,
     description: "12 meses de garantia contra defeitos de fabricação em todos os equipamentos.",
   },
   {
     title: "Suporte de Instalação",
+    icon: imgIconInstallSupport,
     description: "Em caso de defeito dentro da garantia, realizamos a troca em até 48 horas úteis.",
   },
   {
     title: "Troca em até 48h",
+    icon: imgIconFastSwap,
     description: "Em caso de defeito dentro da garantia, realizamos a troca em até 48 horas úteis.",
   },
 ];
@@ -497,7 +512,9 @@ export default function ConorEstoque() {
                   >
                     <div style={{ borderBottom: "1px solid rgba(221, 36, 92, 0.13)", padding: "32px", display: "flex", flexDirection: "column", gap: "0" }}>
                       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-                        <div style={{ width: "56px", height: "56px", borderRadius: "12px", backgroundColor: "rgba(221, 36, 92, 0.13)" }} />
+                        <div style={{ width: "56px", height: "56px", borderRadius: "12px", backgroundColor: "rgba(221, 36, 92, 0.13)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <img src={h.icon} alt="" style={{ width: "32px", height: "32px" }} />
+                        </div>
                         <span
                           style={{
                             backgroundColor: "rgba(221, 36, 92, 0.13)",
@@ -736,7 +753,9 @@ export default function ConorEstoque() {
                       gap: "40px",
                     }}
                   >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand }} />
+                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={item.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                    </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                       <div style={{ width: "40px", height: "3px", backgroundColor: brand, borderRadius: "2px" }} />
                       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>

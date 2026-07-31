@@ -11,6 +11,14 @@ const brand = "#fec22d";
 const imgLogoWordmark = "/icons/logo-conor-seguro-wordmark-large.svg";
 const imgHeroIllustration = "/image-conor-seguro-hero.jpg";
 const imgCtaIllustration = "/image-conor-seguro-cta.svg";
+const imgIconShieldWarning = "/icons/icon-shield-warning.svg";
+const imgIconShieldCheck = "/icons/icon-shield-check.svg";
+const imgIconHandshake = "/icons/icon-handshake.svg";
+const imgIconSegmentShieldCheck = "/icons/icon-segment-shield-check.svg";
+const imgIconCar = "/icons/icon-car.svg";
+const imgIconGearSix = "/icons/icon-gear-six.svg";
+const imgIconHeadset = "/icons/icon-headset.svg";
+const imgIconFolderOpen = "/icons/icon-folder-open.svg";
 
 const stats = [
   { value: "24h", label: "Assistência disponível" },
@@ -34,18 +42,22 @@ const coberturas = [
   {
     title: "Morte Acidental",
     description: "Indenização à família do segurado em caso de morte causada por acidente.",
+    icon: imgIconShieldWarning,
   },
   {
     title: "Invalidez Permanente",
     description: "Cobertura para invalidez total ou parcial decorrente de acidente.",
+    icon: imgIconShieldCheck,
   },
   {
     title: "Auxilio Funeral",
     description: "Cobertura das despesas funerárias do segurado e dependentes.",
+    icon: imgIconHandshake,
   },
   {
     title: "Doenças Graves",
     description: "Proteção financeira em diagnósticos de doenças graves previamente listadas.",
+    icon: imgIconSegmentShieldCheck,
   },
 ];
 
@@ -53,18 +65,22 @@ const assistencia = [
   {
     title: "Assistência Veicular",
     description: "Guincho, pane seca, troca de pneu, chaveiro e socorro mecânico em qualquer lugar do Brasil.",
+    icon: imgIconCar,
   },
   {
     title: "Assistência Residencial",
     description: "Eletricista, encanador, chaveiro e vidraceiro para emergências no imóvel do segurado.",
+    icon: imgIconGearSix,
   },
   {
     title: "Telemedicina",
     description: "Consultas médicas por videochamada com clínicos gerais e especialistas, sem limite de uso.",
+    icon: imgIconHeadset,
   },
   {
     title: "Orientação Jurídica",
     description: "Suporte jurídico por telefone para tirar dúvidas legais sem sair de casa.",
+    icon: imgIconFolderOpen,
   },
 ];
 
@@ -515,7 +531,9 @@ export default function ConorSeguro() {
                       gap: "40px",
                     }}
                   >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand }} />
+                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: brand, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={c.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                    </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                       <div style={{ width: "40px", height: "3px", backgroundColor: brand, borderRadius: "2px" }} />
                       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -624,7 +642,9 @@ export default function ConorSeguro() {
                       gap: "20px",
                     }}
                   >
-                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(254, 194, 45, 0.13)" }} />
+                    <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(254, 194, 45, 0.13)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <img src={a.icon} alt="" style={{ width: "26px", height: "26px" }} />
+                    </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                       <p
                         style={{

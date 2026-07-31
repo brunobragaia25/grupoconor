@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CSSProperties, ElementType } from "react";
+import { CSSProperties, ElementType, createElement } from "react";
+import { useMotionDisabled } from "./useMotionDisabled";
 
 type Segment = string | { text: string; color?: string; weight?: number };
 
@@ -27,7 +28,30 @@ export function AnimatedTitle({
   className,
   once = true,
 }: AnimatedTitleProps) {
+  const motionDisabled = useMotionDisabled();
   const segments: Segment[] = typeof children === "string" ? [children] : children;
+
+  if (motionDisabled) {
+    const plainText = segments
+      .map((seg) => (typeof seg === "string" ? seg : seg.text))
+      .join("");
+    const hasColorSegments = segments.some((seg) => typeof seg !== "string" && seg.color);
+    return createElement(
+      Tag,
+      { style, className },
+      hasColorSegments
+        ? segments.map((seg, i) =>
+            typeof seg === "string" ? (
+              seg
+            ) : (
+              <span key={i} style={{ color: seg.color, fontWeight: seg.weight }}>
+                {seg.text}
+              </span>
+            )
+          )
+        : plainText
+    );
+  }
 
   // Flatten segments into individual words, each carrying its segment's color/weight.
   const words: { text: string; color?: string; weight?: number; spaceAfter: boolean }[] = [];

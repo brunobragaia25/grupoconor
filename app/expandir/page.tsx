@@ -13,7 +13,8 @@ const imgMegaphoneSimple = "/icons/icon-megaphone-simple.svg";
 const imgBrowsers = "/icons/icon-browsers.svg";
 const imgChartLineUp = "/icons/icon-chart-line-up.svg";
 const imgHandshake = "/icons/icon-handshake.svg";
-const imgMarketingIllustration = "/image-expandir-marketing.jpg";
+const imgMarketingIllustration = "/image-expandir-produto-relacionado.jpg";
+const imgMarketingLogo = "/icon-expandir-produto-relacionado-logo.svg";
 const imgWhatsappOrange = "/icons/icon-whatsapp-orange.svg";
 
 const features = [
@@ -549,13 +550,40 @@ export default function Expandir() {
                 <div
                   style={{
                     flex: "1 0 0",
+                    height: "433px",
+                    position: "relative",
                     borderRadius: "32px",
                     overflow: "hidden",
-                    backgroundImage: `url(${imgMarketingIllustration})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
                   }}
-                />
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "971px",
+                      height: "542px",
+                      left: "-224px",
+                      top: "-109px",
+                      backgroundImage: `url(${imgMarketingIllustration})`,
+                      backgroundSize: "971px 542px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      bottom: 0,
+                      width: "459px",
+                      height: "128px",
+                      backgroundColor: colors.white,
+                      borderTopLeftRadius: "32px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src={imgMarketingLogo} alt="Conor Marketing" style={{ width: "366px", height: "53px" }} />
+                  </div>
+                </div>
 
                 <div
                   style={{
