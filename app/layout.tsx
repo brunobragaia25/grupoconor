@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -92,6 +93,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col text-white" style={{ backgroundColor: "#1b1b1b" }}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
