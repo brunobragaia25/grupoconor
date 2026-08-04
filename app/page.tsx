@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Layout } from "./components/Layout";
 import { HeroMain } from "./components/HeroMain";
 import { HeroSection } from "./components/HeroSection";
@@ -11,6 +12,13 @@ import { FAQ } from "./components/FAQ";
 import { PromoBanner03 } from "./components/PromoBanner03";
 import { Footer } from "./components/Footer";
 import { colors } from "@/app/styles/design-tokens";
+
+export const metadata: Metadata = {
+  title: "Grupo Conor: Soluções para Central de Rastreamento",
+  description:
+    "Tecnologia avançada, suporte consultivo e benefícios exclusivos para elevar a performance e os resultados da sua central de rastreamento veicular.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

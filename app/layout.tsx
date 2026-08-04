@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -31,12 +30,38 @@ const linearGrotesk = localFont({
   fallback: ["Inter", "sans-serif"],
 });
 
+const siteUrl = "https://www.grupoconor.com.br";
+
 export const metadata: Metadata = {
-  title: "Grupo Conor - Soluções em Rastreamento Veicular",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Grupo Conor - Soluções para Centrais de Rastreamento Veicular",
+    template: "%s | Grupo Conor",
+  },
   description:
-    "Plataforma completa de rastreamento veicular e gestão de frota com tecnologia integrada",
+    "Tecnologia, gestão e suporte consultivo para quem monta, administra, fideliza e expande uma central de rastreamento veicular.",
   keywords:
-    "rastreamento veicular, gestão de frota, telemetria, logística",
+    "rastreamento veicular, gestão de frota, telemetria, central de rastreamento, seguro veicular, assistência 24h",
+  authors: [{ name: "Grupo Conor" }],
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Grupo Conor",
+    title: "Grupo Conor - Soluções para Centrais de Rastreamento Veicular",
+    description:
+      "Tecnologia, gestão e suporte consultivo para quem monta, administra, fideliza e expande uma central de rastreamento veicular.",
+    url: siteUrl,
+    images: [{ url: "/icon.png", width: 512, height: 512, alt: "Grupo Conor" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Grupo Conor - Soluções para Centrais de Rastreamento Veicular",
+    description:
+      "Tecnologia, gestão e suporte consultivo para quem monta, administra, fideliza e expande uma central de rastreamento veicular.",
+    images: ["/icon.png"],
+  },
 };
 
 export default function RootLayout({
@@ -44,15 +69,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Grupo Conor",
+    url: siteUrl,
+    logo: `${siteUrl}/icon.png`,
+    description:
+      "Tecnologia, gestão e suporte consultivo para quem monta, administra, fideliza e expande uma central de rastreamento veicular.",
+  };
+
   return (
     <html
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${linearGrotesk.variable} h-full antialiased`}
     >
       <head>
-        <Script
-          src="https://mcp.figma.com/mcp/html-to-design/capture.js"
-          async
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col text-white" style={{ backgroundColor: "#1b1b1b" }}>
