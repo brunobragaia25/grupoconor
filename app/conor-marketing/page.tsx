@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const brand = "#fa7a22";
 
@@ -82,7 +83,7 @@ const combos = [
 export default function ConorMarketing() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -92,10 +93,10 @@ export default function ConorMarketing() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "120px 80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
             }}
+            className="px-6 py-16 md:px-20 md:py-[120px]"
           >
             <div
               style={{
@@ -106,11 +107,10 @@ export default function ConorMarketing() {
                 maxWidth: "1182px",
               }}
             >
-              <img src={imgLogoWordmark} alt="Conor Marketing" style={{ height: "46px" }} />
+              <img src={imgLogoWordmark} alt="Conor Marketing" style={{ height: "46px", maxWidth: "100%" }} />
               <AnimatedTitle
                 as="p"
                 style={{
-                  fontSize: "64px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -118,6 +118,7 @@ export default function ConorMarketing() {
                   lineHeight: "normal",
                   textAlign: "center",
                 }}
+                className="text-3xl md:text-[64px]"
               >
                 Garantimos ferramentas de captura de leads, marketing,
                 tráfego pago e consultoria 360° para sua central crescer de
@@ -130,48 +131,35 @@ export default function ConorMarketing() {
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderTopRightRadius: "12px",
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
             }}
+            className="px-6 py-16 md:px-24 md:py-24"
           >
             {/* Investimento + Stats */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ display: "flex", gap: "20px" }}>
-                <div
-                  style={{
-                    position: "relative",
-                    borderRadius: "32px",
-                    overflow: "hidden",
-                    width: "45%",
-                    flexShrink: 0,
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      width: "1479px",
-                      height: "825.488px",
-                      left: "-579px",
-                      top: "-109px",
-                      backgroundImage: `url(${imgHeroIllustration})`,
-                      backgroundSize: "1479px 825.488px",
-                    }}
-                  />
-                </div>
+              <div className="flex flex-col md:flex-row gap-5">
+                <CroppedIllustration
+                  src={imgHeroIllustration}
+                  alt=""
+                  aspectRatio={4 / 3}
+                  objectPosition="39% 13%"
+                  borderRadius="32px"
+                  className="w-full md:w-[45%] flex-shrink-0"
+                />
 
                 <div
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
+                  className="p-8 md:p-16"
                 >
                   <p
                     style={{
@@ -191,13 +179,13 @@ export default function ConorMarketing() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <p
                       style={{
-                        fontSize: "48px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         margin: 0,
                         lineHeight: "normal",
                       }}
+                      className="text-3xl md:text-[48px]"
                     >
                       Montado por combo
                     </p>
@@ -226,6 +214,7 @@ export default function ConorMarketing() {
                   overflow: "hidden",
                   display: "flex",
                 }}
+                className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
                   <FadeIn
@@ -245,12 +234,12 @@ export default function ConorMarketing() {
                   >
                     <span
                       style={{
-                        fontSize: "48px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         lineHeight: "normal",
                       }}
+                      className="text-3xl md:text-[48px]"
                     >
                       {s.value}
                     </span>
@@ -273,11 +262,11 @@ export default function ConorMarketing() {
               style={{
                 backgroundColor: colors.black,
                 borderRadius: "32px",
-                padding: "80px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "40px",
               }}
+              className="p-8 md:p-20"
             >
               <div>
                 <p
@@ -296,12 +285,12 @@ export default function ConorMarketing() {
                 <AnimatedTitle
                   as="h2"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
                     margin: 0,
                   }}
+                  className="text-3xl md:text-[48px]"
                 >
                   Itens disponíveis
                 </AnimatedTitle>
@@ -321,7 +310,7 @@ export default function ConorMarketing() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {[combos.slice(0, 2), combos.slice(2, 4)].map((row, rowIdx) => (
-                  <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+                  <div key={rowIdx} className="flex flex-col sm:flex-row gap-5">
                     {row.map((combo, comboIdx) => (
                       <FadeIn
                         key={combo.title}
@@ -443,27 +432,26 @@ export default function ConorMarketing() {
           <div
             style={{
               backgroundColor: brand,
-              height: "480px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingLeft: "96px",
               borderRadius: "20px",
               overflow: "hidden",
               position: "relative",
             }}
+            className="flex-col md:flex-row px-6 py-10 md:px-24 md:py-0 md:h-[480px] gap-8 md:gap-0"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <h2
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
                     margin: 0,
                     lineHeight: "1.1",
                   }}
+                  className="text-3xl md:text-[48px]"
                 >
                   Monte seu combo e
                   <br />
@@ -509,29 +497,14 @@ export default function ConorMarketing() {
               </button>
             </div>
 
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "904px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  width: "904px",
-                  height: "674.987px",
-                  left: "0px",
-                  top: "-140.143px",
-                  backgroundImage: `url(${imgCtaIllustration})`,
-                  backgroundSize: "904px 674.987px",
-                }}
-              />
-            </div>
+            <CroppedIllustration
+              src={imgCtaIllustration}
+              alt=""
+              aspectRatio={904 / 480}
+              objectPosition="0% 21%"
+              className="w-full md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[904px] md:h-full"
+              style={{ pointerEvents: "none" }}
+            />
           </div>
         </div>
 

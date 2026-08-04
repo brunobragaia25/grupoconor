@@ -124,9 +124,9 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
         }}
       />
       <div
+        className="p-6 md:px-12 md:py-16"
         style={{
           backgroundColor: colors.black,
-          padding: "64px 48px",
           display: "flex",
           flexDirection: "column",
           gap: "28px",
@@ -166,7 +166,7 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
             </ul>
           </div>
 
-          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+          <div className="flex-col md:flex-row items-start md:items-center" style={{ display: "flex", gap: "12px" }}>
             <a
               href={product.href}
               style={{
@@ -224,16 +224,16 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
 export function Products() {
   return (
     <section
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
       }}
     >
       <div style={{ maxWidth: "1494px", margin: "0 auto 40px" }}>
         <AnimatedTitle
           as="h2"
+          className="text-3xl md:text-[48px]"
           style={{
-            fontSize: "48px",
             fontWeight: 900,
             fontFamily: "var(--font-linear-grotesk)",
             color: colors.white,
@@ -247,7 +247,7 @@ export function Products() {
 
       <div style={{ maxWidth: "1494px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "20px" }}>
         {[products.slice(0, 3), products.slice(3, 6)].map((row, rowIdx) => (
-          <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+          <div key={rowIdx} className="flex-col md:flex-row" style={{ display: "flex", gap: "20px" }}>
             {row.map((product, idx) => (
               <ProductCardView key={product.id} product={product} delay={idx * 0.08} />
             ))}

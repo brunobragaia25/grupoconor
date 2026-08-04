@@ -10,13 +10,14 @@ const imgKeyboardDoubleArrowRight = "/icons/keyboard_double_arrow_right.svg";
 export function PromoBanner03() {
   return (
     <section
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
         marginBottom: "96px",
       }}
     >
       <div
+        className="flex-col md:flex-row h-auto md:h-[320px]"
         style={{
           maxWidth: "1494px",
           margin: "0 auto",
@@ -25,11 +26,11 @@ export function PromoBanner03() {
           backgroundColor: "#dd245c",
           borderRadius: "32px",
           overflow: "hidden",
-          height: "320px",
         }}
       >
         {/* Left side - Illustration */}
         <div
+          className="h-[200px] md:h-auto"
           style={{
             flex: 1,
             overflow: "hidden",
@@ -45,6 +46,7 @@ export function PromoBanner03() {
 
         {/* Right side - Content */}
         <div
+          className="p-6 md:p-12"
           style={{
             flex: 1,
             display: "flex",
@@ -52,7 +54,6 @@ export function PromoBanner03() {
             gap: "24px",
             alignItems: "flex-start",
             justifyContent: "center",
-            padding: "48px",
           }}
         >
           <p

@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgHeroIcon = "/icon-montar-combo-hero.svg";
 const imgHeroIllustration = "/image-montar-combo-hero.jpg";
@@ -43,6 +44,7 @@ function ComboVenn({ activeGroup }: { activeGroup: "iniciante" | "existente" }) 
   const isIniciante = activeGroup === "iniciante";
 
   return (
+    <div className="overflow-x-auto max-w-full">
     <div style={{ position: "relative", width: "560px", height: "480px", flexShrink: 0 }}>
       {/* Seguro + Assist */}
       <div
@@ -149,6 +151,7 @@ function ComboVenn({ activeGroup }: { activeGroup: "iniciante" | "existente" }) 
         <img src={imgVennCenter} alt="" style={{ width: "100%", height: "100%" }} />
       </div>
     </div>
+    </div>
   );
 }
 
@@ -212,30 +215,28 @@ const existentePricing = [
 export default function MontarCombo() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
+            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
             style={{
               backgroundColor: "#996cfb",
               minHeight: "620px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
               overflow: "hidden",
               position: "relative",
             }}
           >
-            <div style={{ display: "flex", gap: "80px", alignItems: "center", width: "100%", position: "relative", zIndex: 1 }}>
-              <div style={{ display: "flex", gap: "40px", alignItems: "flex-start", flex: "1 0 0" }}>
+            <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
+              <div className="flex gap-6 md:gap-10 items-start flex-1">
                 <img src={imgHeroIcon} alt="" style={{ width: "64px", height: "57px", flexShrink: 0 }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px", flex: "1 0 0" }}>
                   <AnimatedTitle
                     as="h1"
+                    className="text-3xl md:text-[56px]"
                     style={{
-                      fontSize: "56px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
@@ -263,28 +264,22 @@ export default function MontarCombo() {
                 </div>
               </div>
 
-              <div style={{ width: "740px", height: "620px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
-                <div
-                  style={{
-                    position: "absolute",
-                    width: "748px",
-                    height: "748px",
-                    left: "-2px",
-                    top: "-60px",
-                    backgroundImage: `url(${imgHeroIllustration})`,
-                    backgroundSize: "748px 748px",
-                  }}
-                />
-              </div>
+              <CroppedIllustration
+                src={imgHeroIllustration}
+                alt=""
+                aspectRatio={740 / 620}
+                objectPosition="0.3% 8%"
+                className="w-full md:w-[740px]"
+              />
             </div>
           </div>
 
           <div
+            className="px-6 py-12 md:p-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
@@ -293,16 +288,15 @@ export default function MontarCombo() {
             {/* Para quem está começando */}
             <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
               <FadeIn
+                className="flex-col md:flex-row px-6 py-10 md:p-16 gap-10 md:gap-16"
                 style={{
                   backgroundColor: colors.white,
                   borderRadius: "32px",
-                  padding: "64px",
                   display: "flex",
-                  gap: "64px",
                   alignItems: "center",
                 }}
               >
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "719px" }}>
+                <div className="w-full md:w-[719px]" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <p
                     style={{
                       fontSize: "12px",
@@ -317,8 +311,8 @@ export default function MontarCombo() {
                   </p>
                   <AnimatedTitle
                     as="h2"
+                    className="text-3xl md:text-[48px]"
                     style={{
-                      fontSize: "48px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.black,
@@ -352,7 +346,7 @@ export default function MontarCombo() {
                 <ComboVenn activeGroup="iniciante" />
               </FadeIn>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {iniciantePricing.map((product, idx) => (
                   <FadeIn
                     key={product.title}
@@ -374,16 +368,16 @@ export default function MontarCombo() {
                       }}
                     />
                     <div
+                      className="p-6 md:p-10"
                       style={{
                         backgroundColor: colors.black,
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "20px",
                         flex: 1,
                       }}
                     >
-                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, height: "32px" }} />
+                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, maxWidth: "100%", height: "32px" }} />
                       <div style={{ height: "1px", backgroundColor: "#333333", width: "100%" }} />
                       <p
                         style={{
@@ -421,13 +415,12 @@ export default function MontarCombo() {
               </div>
 
               <FadeIn
+                className="flex-col md:flex-row items-start md:items-center px-6 py-8 md:px-12 md:py-8 gap-6 md:gap-0"
                 style={{
                   backgroundColor: "#171717",
                   border: "1px solid #272727",
                   borderRadius: "24px",
-                  padding: "33px 49px",
                   display: "flex",
-                  alignItems: "center",
                   justifyContent: "space-between",
                 }}
               >
@@ -489,18 +482,17 @@ export default function MontarCombo() {
             {/* Para quem já tem uma base de clientes */}
             <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
               <FadeIn
+                className="flex-col md:flex-row px-6 py-10 md:p-16 gap-10 md:gap-16"
                 style={{
                   backgroundColor: colors.white,
                   borderRadius: "32px",
-                  padding: "64px",
                   display: "flex",
-                  gap: "64px",
                   alignItems: "center",
                 }}
               >
                 <ComboVenn activeGroup="existente" />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "719px" }}>
+                <div className="w-full md:w-[719px]" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <p
                     style={{
                       fontSize: "12px",
@@ -515,8 +507,8 @@ export default function MontarCombo() {
                   </p>
                   <AnimatedTitle
                     as="h2"
+                    className="text-3xl md:text-[48px]"
                     style={{
-                      fontSize: "48px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.black,
@@ -542,7 +534,7 @@ export default function MontarCombo() {
                 </div>
               </FadeIn>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {existentePricing.map((product, idx) => (
                   <FadeIn
                     key={product.title}
@@ -564,16 +556,16 @@ export default function MontarCombo() {
                       }}
                     />
                     <div
+                      className="p-6 md:p-10"
                       style={{
                         backgroundColor: colors.black,
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "20px",
                         flex: 1,
                       }}
                     >
-                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, height: "32px" }} />
+                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, maxWidth: "100%", height: "32px" }} />
                       <div style={{ height: "1px", backgroundColor: "#333333", width: "100%" }} />
                       <p
                         style={{
@@ -617,16 +609,10 @@ export default function MontarCombo() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#996cfb",
-                height: "480px",
                 boxSizing: "border-box",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -634,8 +620,8 @@ export default function MontarCombo() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -683,19 +669,13 @@ export default function MontarCombo() {
                 </button>
               </div>
 
-              <div style={{ width: "722px", height: "480px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
-                <div
-                  style={{
-                    position: "absolute",
-                    width: "722px",
-                    height: "722px",
-                    left: 0,
-                    top: "-15px",
-                    backgroundImage: `url(${imgCtaIllustration})`,
-                    backgroundSize: "722px 722px",
-                  }}
-                />
-              </div>
+              <CroppedIllustration
+                src={imgCtaIllustration}
+                alt=""
+                aspectRatio={722 / 480}
+                objectPosition="0% 6%"
+                className="w-full md:w-[722px]"
+              />
             </div>
           </div>
         </div>

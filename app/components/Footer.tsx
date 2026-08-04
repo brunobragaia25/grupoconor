@@ -15,12 +15,9 @@ const imgLanguage =
 export function Footer() {
   return (
     <footer
+      className="px-4 py-8 md:px-24 md:py-12"
       style={{
         backgroundColor: colors.background.grayUltraHigh,
-        paddingLeft: "96px",
-        paddingRight: "96px",
-        paddingTop: "48px",
-        paddingBottom: "48px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -29,21 +26,21 @@ export function Footer() {
     >
       {/* Container */}
       <div
+        className="mt-12 md:mt-24"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           width: "100%",
-          marginTop: "96px",
         }}
       >
         {/* Footer Header - Logo */}
         <div
+          className="pb-12 md:pb-24"
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            paddingBottom: "96px",
             width: "100%",
           }}
         >
@@ -59,24 +56,23 @@ export function Footer() {
 
         {/* Menus */}
         <div
+          className="flex-col md:flex-row gap-8 md:gap-0 py-6 md:py-8"
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
-            paddingTop: "32px",
-            paddingBottom: "32px",
             width: "100%",
             maxWidth: "1494px",
           }}
         >
           {/* Menu 1 - Empresa */}
           <div
+            className="w-full md:w-[270px]"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "6px",
               alignItems: "flex-start",
-              width: "270px",
             }}
           >
             <div style={{ paddingBottom: "24px", width: "100%" }}>
@@ -144,12 +140,12 @@ export function Footer() {
 
           {/* Menu 2 - Produtos */}
           <div
+            className="w-full md:w-[268px]"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "6px",
               alignItems: "flex-start",
-              width: "268px",
             }}
           >
             <div style={{ paddingBottom: "24px", width: "100%" }}>
@@ -193,12 +189,12 @@ export function Footer() {
 
           {/* Menu 3 - Serviços */}
           <div
+            className="w-full md:w-[268px]"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "6px",
               alignItems: "flex-start",
-              width: "268px",
             }}
           >
             <div style={{ paddingBottom: "24px", width: "100%" }}>
@@ -241,12 +237,12 @@ export function Footer() {
 
           {/* Menu 4 - Tecnologia */}
           <div
+            className="w-full md:w-[268px]"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "6px",
               alignItems: "flex-start",
-              width: "268px",
             }}
           >
             <div style={{ paddingBottom: "24px", width: "100%" }}>
@@ -289,22 +285,20 @@ export function Footer() {
 
         {/* Social Media & Info Section */}
         <div
+          className="gap-8 md:gap-12 pb-16 md:pb-[126px] pt-6 md:pt-8"
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "48px",
             alignItems: "flex-start",
-            paddingBottom: "126px",
-            paddingTop: "32px",
             width: "100%",
             maxWidth: "1494px",
           }}
         >
           {/* Social Media Icons */}
           <div
+            className="gap-8 md:gap-16"
             style={{
               display: "flex",
-              gap: "64px",
               alignItems: "center",
             }}
           >
@@ -396,10 +390,10 @@ export function Footer() {
 
             {/* Bottom Footer */}
             <div
+              className="flex-col md:flex-row items-start md:items-center gap-3 md:gap-0"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "center",
                 width: "100%",
                 maxWidth: "1494px",
               }}

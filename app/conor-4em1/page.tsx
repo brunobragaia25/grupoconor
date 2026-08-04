@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const brand = "#40c6ee";
 
@@ -78,7 +79,7 @@ const funcionalidades = [
 export default function Conor4Em1() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -88,10 +89,10 @@ export default function Conor4Em1() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "120px 80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
             }}
+            className="px-6 py-16 md:px-20 md:py-[120px]"
           >
             <div
               style={{
@@ -102,10 +103,9 @@ export default function Conor4Em1() {
                 maxWidth: "1182px",
               }}
             >
-              <img src={imgLogoWordmark} alt="Conor 4 em 1" style={{ height: "59px" }} />
+              <img src={imgLogoWordmark} alt="Conor 4 em 1" style={{ height: "59px", maxWidth: "100%" }} />
               <p
                 style={{
-                  fontSize: "64px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -113,6 +113,7 @@ export default function Conor4Em1() {
                   lineHeight: "normal",
                   textAlign: "center",
                 }}
+                className="text-3xl md:text-[64px]"
               >
                 Garantimos rastreamento em tempo real via satélite,
                 telemetria avançada e suporte humanizado para sua central de
@@ -125,15 +126,15 @@ export default function Conor4Em1() {
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderTopRightRadius: "12px",
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
             }}
+            className="px-6 py-16 md:px-24 md:py-24"
           >
             {/* Investimento + Stats */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 <div
                   style={{
                     borderRadius: "32px",
@@ -141,9 +142,9 @@ export default function Conor4Em1() {
                     backgroundImage: `url(${imgHeroIllustration})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    width: "45%",
                     flexShrink: 0,
                   }}
+                  className="w-full md:w-[45%] h-64 md:h-auto"
                 />
 
                 <div
@@ -151,12 +152,12 @@ export default function Conor4Em1() {
                     backgroundColor: colors.black,
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
+                  className="p-8 md:p-16"
                 >
                   <p
                     style={{
@@ -177,13 +178,13 @@ export default function Conor4Em1() {
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <p
                         style={{
-                          fontSize: "64px",
                           fontWeight: 700,
                           fontFamily: "var(--font-linear-grotesk)",
                           color: brand,
                           margin: 0,
                           lineHeight: "normal",
                         }}
+                        className="text-4xl md:text-[64px]"
                       >
                         R$3.000
                       </p>
@@ -236,6 +237,7 @@ export default function Conor4Em1() {
                   overflow: "hidden",
                   display: "flex",
                 }}
+                className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
                   <FadeIn
@@ -255,12 +257,12 @@ export default function Conor4Em1() {
                   >
                     <span
                       style={{
-                        fontSize: "48px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         lineHeight: "normal",
                       }}
+                      className="text-3xl md:text-[48px]"
                     >
                       {s.value}
                     </span>
@@ -279,7 +281,7 @@ export default function Conor4Em1() {
             </div>
 
             {/* Planos */}
-            <div style={{ display: "flex", gap: "40px" }}>
+            <div className="flex flex-col md:flex-row gap-10">
               <div
                 style={{
                   flex: "1 0 0",
@@ -310,7 +312,7 @@ export default function Conor4Em1() {
                 </div>
                 <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 0" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <p style={{ margin: 0, fontSize: "56px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }}>
+                    <p style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }} className="text-4xl md:text-[56px]">
                       R$3.000
                     </p>
                     <p style={{ margin: 0, fontSize: "18px", fontFamily: "var(--font-roboto)", color: colors.white }}>
@@ -370,7 +372,7 @@ export default function Conor4Em1() {
                 </div>
                 <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 0" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                    <p style={{ margin: 0, fontSize: "56px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }}>
+                    <p style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }} className="text-4xl md:text-[56px]">
                       R$2.500
                     </p>
                     <p style={{ margin: 0, fontSize: "18px", fontFamily: "var(--font-roboto)", color: colors.white }}>
@@ -417,18 +419,19 @@ export default function Conor4Em1() {
                 >
                   Tudo em um único sistema
                 </p>
-                <AnimatedTitle
-                  as="h2"
-                  style={{
-                    fontSize: "48px",
-                    fontWeight: 900,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                  }}
-                >
-                  As 4 funcionalidades
-                </AnimatedTitle>
+                <div className="text-3xl md:text-[48px]">
+                  <AnimatedTitle
+                    as="h2"
+                    style={{
+                      fontWeight: 900,
+                      fontFamily: "var(--font-linear-grotesk)",
+                      color: colors.white,
+                      margin: 0,
+                    }}
+                  >
+                    As 4 funcionalidades
+                  </AnimatedTitle>
+                </div>
                 <p
                   style={{
                     fontSize: "16px",
@@ -444,7 +447,7 @@ export default function Conor4Em1() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {[funcionalidades.slice(0, 2), funcionalidades.slice(2, 4)].map((row, rowIdx) => (
-                  <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+                  <div key={rowIdx} className="flex flex-col sm:flex-row gap-5">
                     {row.map((f, idx) => (
                       <FadeIn
                         key={f.title}
@@ -532,31 +535,31 @@ export default function Conor4Em1() {
           <div
             style={{
               backgroundColor: brand,
-              height: "480px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingLeft: "96px",
               borderRadius: "20px",
               overflow: "hidden",
               position: "relative",
             }}
+            className="flex-col md:flex-row px-6 py-10 md:px-24 md:py-0 md:h-[480px] gap-8 md:gap-0"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <AnimatedTitle
-                  as="h2"
-                  style={{
-                    fontSize: "48px",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                    lineHeight: "1.1",
-                  }}
-                >
-                  {["O essencial do rastreamento em ", { text: "um único sistema", weight: 900 }]}
-                </AnimatedTitle>
+                <div className="text-3xl md:text-[48px]">
+                  <AnimatedTitle
+                    as="h2"
+                    style={{
+                      fontWeight: 700,
+                      fontFamily: "var(--font-linear-grotesk)",
+                      color: colors.white,
+                      margin: 0,
+                      lineHeight: "1.1",
+                    }}
+                  >
+                    {["O essencial do rastreamento em ", { text: "um único sistema", weight: 900 }]}
+                  </AnimatedTitle>
+                </div>
                 <p
                   style={{
                     fontSize: "16px",
@@ -571,7 +574,7 @@ export default function Conor4Em1() {
                   iniciante com hardware incluso.
                 </p>
               </div>
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col sm:flex-row gap-5">
                 <button
                   style={{
                     display: "flex",
@@ -623,29 +626,14 @@ export default function Conor4Em1() {
               </div>
             </div>
 
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "904px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  width: "1619.2px",
-                  height: "1209px",
-                  left: "-497px",
-                  top: "-339px",
-                  backgroundImage: `url(${imgCtaIllustration})`,
-                  backgroundSize: "1619.2px 1209px",
-                }}
-              />
-            </div>
+            <CroppedIllustration
+              src={imgCtaIllustration}
+              alt=""
+              aspectRatio={904 / 480}
+              objectPosition="31% 28%"
+              className="w-full md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[904px] md:h-full"
+              style={{ pointerEvents: "none" }}
+            />
           </div>
         </div>
 

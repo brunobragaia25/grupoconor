@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgLoupeLarge = "/icons/icon-loupe-large.svg";
 const imgHeroIllustration = "/image-expandir-hero.svg";
@@ -126,26 +127,20 @@ const methodology = [
 export default function Expandir() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
+            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
-              minHeight: "620px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
-              overflow: "hidden",
-              position: "relative",
             }}
           >
             <div
+              className="flex flex-col md:flex-row gap-5 md:gap-10"
               style={{
-                display: "flex",
-                gap: "40px",
                 alignItems: "flex-start",
                 position: "relative",
                 zIndex: 1,
@@ -159,8 +154,8 @@ export default function Expandir() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
@@ -191,55 +186,39 @@ export default function Expandir() {
             </div>
 
             <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "740px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
+              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
+                className="absolute inset-0 bg-cover bg-center md:w-[1405px] md:h-[1049.07px] md:left-[-299px] md:top-[-217px] md:bg-auto"
                 style={{
-                  position: "absolute",
-                  width: "1405px",
-                  height: "1049.07px",
-                  left: "-299px",
-                  top: "-217px",
                   backgroundImage: `url(${imgHeroIllustration})`,
-                  backgroundSize: "1405px 1049.07px",
                 }}
               />
             </div>
           </div>
 
           <div
+            className="px-4 py-10 md:p-[96px] flex flex-col gap-16 md:gap-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "96px",
             }}
           >
             {/* Features 2x2 */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {[features.slice(0, 2), features.slice(2, 4)].map((row, rowIdx) => (
-                <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+                <div key={rowIdx} className="flex flex-col md:flex-row gap-5">
                   {row.map((feature, idx) => (
                     <FadeIn
                       key={feature.title}
                       delay={idx * 0.08}
+                      className="p-6 md:p-12"
                       style={{
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderRadius: "32px",
                         flex: "1 0 0",
-                        padding: "48px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "40px",
@@ -316,8 +295,8 @@ export default function Expandir() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -340,7 +319,7 @@ export default function Expandir() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {creatives.map((item, idx) => (
                   <FadeIn
                     key={item.title}
@@ -399,28 +378,27 @@ export default function Expandir() {
             </div>
 
             {/* Stats */}
-            <div style={{ display: "flex", gap: "20px", textAlign: "center" }}>
+            <div className="flex flex-col md:flex-row gap-5 text-center">
               {stats.map((stat, idx) => (
                 <FadeIn
                   key={stat.label}
                   delay={idx * 0.08}
+                  className="px-6 md:px-12 py-10 md:py-0 md:h-[320px]"
                   style={{
                     backgroundColor: "#52a4ff",
                     flex: "1 0 0",
-                    height: "320px",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "20px",
-                    padding: "0 48px",
                     borderRadius: "32px",
                   }}
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
                     <p
+                      className="text-5xl md:text-[72px]"
                       style={{
-                        fontSize: "72px",
                         fontWeight: 900,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: colors.white,
@@ -463,8 +441,8 @@ export default function Expandir() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -487,17 +465,17 @@ export default function Expandir() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
                 {methodology.map((step, idx) => (
                   <FadeIn
                     key={step.title}
                     delay={idx * 0.08}
+                    className="p-8 md:p-16"
                     style={{
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
                       flex: "1 0 0",
-                      padding: "64px",
                       display: "flex",
                       flexDirection: "column",
                       gap: "26px",
@@ -534,8 +512,8 @@ export default function Expandir() {
             <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[56px]"
                 style={{
-                  fontSize: "56px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -546,52 +524,24 @@ export default function Expandir() {
                 Produto relacionado
               </AnimatedTitle>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    height: "433px",
-                    position: "relative",
-                    borderRadius: "32px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      width: "971px",
-                      height: "542px",
-                      left: "-224px",
-                      top: "-109px",
-                      backgroundImage: `url(${imgMarketingIllustration})`,
-                      backgroundSize: "971px 542px",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      right: 0,
-                      bottom: 0,
-                      width: "459px",
-                      height: "128px",
-                      backgroundColor: colors.white,
-                      borderTopLeftRadius: "32px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <img src={imgMarketingLogo} alt="Conor Marketing" style={{ width: "366px", height: "53px" }} />
-                  </div>
-                </div>
+              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                <CroppedIllustration
+                  src={imgMarketingIllustration}
+                  alt="Conor Marketing"
+                  aspectRatio={971 / 542}
+                  objectPosition="23% 20%"
+                  borderRadius="32px"
+                  className="flex-1 md:h-[433px]"
+                  logo={{ src: imgMarketingLogo, aspectRatio: 366 / 53, widthFraction: 0.47 }}
+                />
 
                 <div
+                  className="p-8 md:p-16"
                   style={{
                     flex: "1 0 0",
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "28px",
@@ -687,15 +637,9 @@ export default function Expandir() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #ffc196, #fa7a22 43.269%)",
-                height: "480px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -703,8 +647,8 @@ export default function Expandir() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -755,11 +699,11 @@ export default function Expandir() {
               <img
                 src={imgCtaIllustration}
                 alt=""
+                className="w-full h-auto md:h-[480px] md:w-[722px]"
                 style={{
-                  height: "480px",
-                  width: "722px",
                   objectFit: "cover",
                   flexShrink: 0,
+                  maxWidth: "100%",
                 }}
               />
             </div>

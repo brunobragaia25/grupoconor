@@ -53,12 +53,12 @@ const casesData = [
 export default function Cases() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
         <div
+          className="px-6 py-12 md:p-24"
           style={{
             backgroundColor: "rgba(36, 36, 36, 0.75)",
             borderRadius: "12px",
-            padding: "96px",
             display: "flex",
             flexDirection: "column",
             gap: "96px",
@@ -66,10 +66,8 @@ export default function Cases() {
         >
           {/* Hero Section */}
           <div
+            className="flex items-center px-6 py-12 md:px-20 md:py-[120px]"
             style={{
-              display: "flex",
-              alignItems: "center",
-              padding: "120px 80px",
               borderRadius: "32px",
               backgroundImage:
                 "linear-gradient(106.39deg, rgb(0, 0, 0) 56.293%, rgb(82, 164, 255) 116.82%)",
@@ -86,8 +84,8 @@ export default function Cases() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[72px]"
                   style={{
-                    fontSize: "72px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -133,9 +131,9 @@ export default function Cases() {
                 >
                   {/* Vídeo - full width */}
                   <div
+                    className="h-[280px] md:h-[640px]"
                     style={{
                       width: "100%",
-                      height: "640px",
                       backgroundColor: colors.black,
                       display: "flex",
                       alignItems: "center",
@@ -150,18 +148,16 @@ export default function Cases() {
 
                   {/* Info */}
                   <div
+                    className="flex flex-col md:flex-row md:items-stretch"
                     style={{
-                      display: "flex",
-                      alignItems: "stretch",
                       borderTop: "1px solid #272727",
                     }}
                   >
                     {/* Company */}
                     <div
+                      className="w-full md:w-[300px] p-6 md:p-10"
                       style={{
-                        width: "300px",
                         flexShrink: 0,
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "16px",
@@ -199,13 +195,10 @@ export default function Cases() {
 
                     {/* Challenge + Solution */}
                     <div
+                      className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 p-6 md:p-10"
                       style={{
                         flex: 1,
                         minWidth: 0,
-                        padding: "40px",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "40px",
                         borderRight: "1px solid #272727",
                       }}
                     >
@@ -264,10 +257,9 @@ export default function Cases() {
 
                     {/* Result */}
                     <div
+                      className="w-full md:w-[280px] p-6 md:p-10"
                       style={{
-                        width: "280px",
                         flexShrink: 0,
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "8px",
@@ -328,31 +320,25 @@ export default function Cases() {
 
           {/* CTA Final */}
           <div
+            className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
             style={{
               backgroundColor: "#52a4ff",
-              height: "480px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              paddingLeft: "96px",
-              paddingTop: "96px",
-              paddingBottom: "96px",
               borderRadius: "20px",
               overflow: "hidden",
             }}
           >
             <div
+              className="max-w-[564px]"
               style={{
                 display: "flex",
                 flexDirection: "column",
                 gap: "24px",
-                width: "564px",
               }}
             >
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[48px]"
                 style={{
-                  fontSize: "48px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -404,9 +390,8 @@ export default function Cases() {
             <img
               src={imgCtaIllustration}
               alt=""
+              className="w-full h-auto max-w-[300px] md:h-[536px] md:w-[718px]"
               style={{
-                height: "536px",
-                width: "718px",
                 objectFit: "cover",
                 flexShrink: 0,
               }}

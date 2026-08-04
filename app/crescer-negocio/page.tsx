@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgLoupeLarge = "/icons/icon-crescer-hero.svg";
 const imgHeroIllustration = "/image-crescer-negocio-hero.jpg";
@@ -99,30 +100,28 @@ const products = [
 export default function CrescerNegocio() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
+            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
             style={{
               backgroundColor: "#fa7a22",
               minHeight: "560px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
               overflow: "hidden",
               position: "relative",
             }}
           >
-            <div style={{ display: "flex", gap: "80px", alignItems: "center", width: "100%", position: "relative", zIndex: 1 }}>
-              <div style={{ display: "flex", gap: "40px", alignItems: "flex-start", flex: "1 0 0" }}>
+            <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
+              <div className="flex gap-6 md:gap-10 items-start flex-1">
                 <img src={imgLoupeLarge} alt="" style={{ width: "64px", height: "64px", flexShrink: 0 }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px", flex: "1 0 0" }}>
                   <AnimatedTitle
                     as="h1"
+                    className="text-3xl md:text-[56px]"
                     style={{
-                      fontSize: "56px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
@@ -149,28 +148,22 @@ export default function CrescerNegocio() {
                 </div>
               </div>
 
-              <div style={{ width: "740px", height: "620px", flexShrink: 0, overflow: "hidden", position: "relative" }}>
-                <div
-                  style={{
-                    position: "absolute",
-                    width: "742px",
-                    height: "742px",
-                    left: "-2px",
-                    top: "-96px",
-                    backgroundImage: `url(${imgHeroIllustration})`,
-                    backgroundSize: "742px 742px",
-                  }}
-                />
-              </div>
+              <CroppedIllustration
+                src={imgHeroIllustration}
+                alt=""
+                aspectRatio={740 / 620}
+                objectPosition="0.3% 12.9%"
+                className="w-full md:w-[740px]"
+              />
             </div>
           </div>
 
           <div
+            className="px-6 py-12 md:p-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
@@ -181,8 +174,8 @@ export default function CrescerNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -206,17 +199,17 @@ export default function CrescerNegocio() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {opportunityStats.map((stat, idx) => (
                   <FadeIn
                     key={stat.label}
                     delay={idx * 0.08}
+                    className="p-8 md:p-12"
                     style={{
                       flex: 1,
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      padding: "48px",
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
@@ -256,8 +249,8 @@ export default function CrescerNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -282,17 +275,17 @@ export default function CrescerNegocio() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:flex gap-5">
                 {pillars.map((pillar, idx) => (
                   <FadeIn
                     key={pillar.title}
                     delay={idx * 0.06}
+                    className="px-6 py-8 md:px-6 md:py-8"
                     style={{
                       flex: 1,
                       backgroundColor: pillar.highlight ? "#fa7a22" : "#171717",
                       border: pillar.highlight ? "none" : "1px solid #272727",
                       borderRadius: "24px",
-                      padding: "32px 24px",
                       display: "flex",
                       flexDirection: "column",
                       gap: "16px",
@@ -331,8 +324,8 @@ export default function CrescerNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -343,7 +336,7 @@ export default function CrescerNegocio() {
                 </AnimatedTitle>
               </div>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {products.map((product, idx) => (
                   <FadeIn
                     key={product.title}
@@ -365,16 +358,16 @@ export default function CrescerNegocio() {
                       }}
                     />
                     <div
+                      className="p-6 md:p-10"
                       style={{
                         backgroundColor: colors.black,
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "20px",
                         flex: 1,
                       }}
                     >
-                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, height: "32px" }} />
+                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, maxWidth: "100%", height: "32px" }} />
                       <div style={{ height: "1px", backgroundColor: "#333333", width: "100%" }} />
 
                       <p
@@ -445,13 +438,13 @@ export default function CrescerNegocio() {
             </div>
 
             {/* Prova social */}
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="flex flex-col md:flex-row gap-5">
               <FadeIn
+                className="h-[200px] md:h-[260px]"
                 style={{
                   flex: 1,
                   backgroundColor: "#fa7a22",
                   borderRadius: "32px",
-                  height: "260px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -468,11 +461,11 @@ export default function CrescerNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.08}
+                className="h-[200px] md:h-[260px]"
                 style={{
                   flex: 1,
                   backgroundColor: "#fa7a22",
                   borderRadius: "32px",
-                  height: "260px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -489,11 +482,11 @@ export default function CrescerNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.16}
+                className="h-[200px] md:h-[260px]"
                 style={{
                   flex: 1,
                   backgroundColor: "#fa7a22",
                   borderRadius: "32px",
-                  height: "260px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -512,16 +505,10 @@ export default function CrescerNegocio() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#fa7a22",
-                height: "480px",
                 boxSizing: "border-box",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -529,8 +516,8 @@ export default function CrescerNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -553,7 +540,7 @@ export default function CrescerNegocio() {
                   O setor rastreia menos de 5% da frota brasileira. Ainda
                   existem milhões de oportunidades para você conquistar.
                 </p>
-                <div style={{ display: "flex", gap: "16px" }}>
+                <div className="flex flex-wrap gap-4">
                   <button
                     style={{
                       display: "flex",
@@ -601,27 +588,30 @@ export default function CrescerNegocio() {
                 </div>
               </div>
 
-              <div style={{ width: "722px", height: "480px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
+              <div
+                className="w-full md:w-[722px]"
+                style={{ aspectRatio: "722 / 480", flexShrink: 0, position: "relative", overflow: "hidden" }}
+              >
                 <div
                   style={{
                     position: "absolute",
-                    width: "722px",
-                    height: "539.093px",
+                    width: "100%",
+                    height: `${(539.093 / 480) * 100}%`,
                     left: 0,
-                    top: "-29.547px",
+                    top: `${(-29.547 / 480) * 100}%`,
                     backgroundImage: `url(${imgCtaIllustrationBack})`,
-                    backgroundSize: "722px 539.093px",
+                    backgroundSize: "100% 100%",
                   }}
                 />
                 <div
                   style={{
                     position: "absolute",
-                    width: "722px",
-                    height: "722px",
+                    width: "100%",
+                    height: `${(722 / 480) * 100}%`,
                     left: 0,
-                    top: "-68.688px",
+                    top: `${(-68.688 / 480) * 100}%`,
                     backgroundImage: `url(${imgCtaIllustrationFront})`,
-                    backgroundSize: "722px 722px",
+                    backgroundSize: "100% 100%",
                   }}
                 />
               </div>

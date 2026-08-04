@@ -47,9 +47,9 @@ const cards = [
 export function HeroSection() {
   return (
     <section
+      className="px-4 py-12 md:px-24 md:py-24"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "96px 96px",
         display: "flex",
         flexDirection: "column",
         gap: "40px",
@@ -70,11 +70,11 @@ export function HeroSection() {
       >
         <AnimatedTitle
           as="p"
+          className="text-3xl md:text-[48px]"
           style={{
             margin: 0,
             fontFamily: "var(--font-linear-grotesk)",
             fontWeight: 900,
-            fontSize: "48px",
             lineHeight: 1,
             color: colors.white,
             width: "100%",
@@ -99,6 +99,7 @@ export function HeroSection() {
 
       {/* Cards */}
       <div
+        className="flex-col md:flex-row"
         style={{
           display: "flex",
           gap: "20px",
@@ -175,10 +176,10 @@ export function HeroSection() {
 
             {/* Conteúdo */}
             <div
+              className="p-6 md:p-12"
               style={{
                 backgroundColor: "#000000",
                 borderRadius: "0 0 32px 32px",
-                padding: "48px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "32px",
@@ -212,11 +213,11 @@ export function HeroSection() {
 
               {/* Heading */}
               <p
+                className="text-2xl md:text-[36px]"
                 style={{
                   margin: 0,
                   fontFamily: "var(--font-linear-grotesk)",
                   fontWeight: 900,
-                  fontSize: "36px",
                   lineHeight: "1.2",
                   color: card.color,
                   width: "100%",

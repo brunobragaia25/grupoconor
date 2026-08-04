@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgStorefront = "/icon-storefront.svg";
 const imgHeroIllustration = "/image-comecar-negocio-hero.jpg";
@@ -152,30 +153,28 @@ const comboProducts = [
 export default function ComecarNegocio() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
+            className="flex flex-col md:flex-row items-center md:items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
             style={{
               backgroundColor: "#20c4c3",
               minHeight: "560px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
               overflow: "hidden",
               position: "relative",
             }}
           >
-            <div style={{ display: "flex", gap: "80px", alignItems: "center", width: "100%", position: "relative", zIndex: 1 }}>
-              <div style={{ display: "flex", gap: "40px", alignItems: "flex-start", flex: "1 0 0" }}>
+            <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
+              <div className="flex gap-6 md:gap-10 items-start flex-1">
                 <img src={imgStorefront} alt="" style={{ width: "64px", height: "59px", flexShrink: 0 }} />
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px", flex: "1 0 0" }}>
                   <AnimatedTitle
                     as="h1"
+                    className="text-3xl md:text-[56px]"
                     style={{
-                      fontSize: "56px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
@@ -202,36 +201,22 @@ export default function ComecarNegocio() {
                 </div>
               </div>
 
-              <div
-                style={{
-                  width: "740px",
-                  height: "620px",
-                  flexShrink: 0,
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    width: "802px",
-                    height: "802px",
-                    left: "-31px",
-                    top: "-25px",
-                    backgroundImage: `url(${imgHeroIllustration})`,
-                    backgroundSize: "802px 802px",
-                  }}
-                />
-              </div>
+              <CroppedIllustration
+                src={imgHeroIllustration}
+                alt=""
+                aspectRatio={740 / 620}
+                objectPosition="3.9% 3.1%"
+                className="w-full md:w-[740px]"
+              />
             </div>
           </div>
 
           <div
+            className="px-6 py-12 md:p-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
@@ -242,8 +227,8 @@ export default function ComecarNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -267,17 +252,17 @@ export default function ComecarNegocio() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {marketStats.map((stat, idx) => (
                   <FadeIn
                     key={stat.label}
                     delay={idx * 0.08}
+                    className="p-8 md:p-12"
                     style={{
                       flex: 1,
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      padding: "48px",
                       display: "flex",
                       flexDirection: "column",
                       gap: "12px",
@@ -312,16 +297,16 @@ export default function ComecarNegocio() {
 
             {/* Retorno do investimento */}
             <FadeIn
+              className="p-6 md:p-14"
               style={{
                 backgroundColor: "#f5f1e6",
                 borderRadius: "24px",
-                padding: "56px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "40px",
               }}
             >
-              <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "40px" }}>
+              <div className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <p
                     style={{
@@ -368,7 +353,7 @@ export default function ComecarNegocio() {
 
               <div style={{ height: "1px", backgroundColor: "rgba(0,0,0,0.1)", width: "100%" }} />
 
-              <div style={{ display: "flex", gap: "64px" }}>
+              <div className="flex flex-col md:flex-row gap-10 md:gap-16">
                 {roiColumns.map((column) => (
                   <div key={column.heading} style={{ flex: 1, display: "flex", flexDirection: "column", gap: "24px" }}>
                     <p
@@ -461,14 +446,11 @@ export default function ComecarNegocio() {
               </div>
 
               <div
+                className="flex flex-col md:flex-row items-start md:items-center px-6 py-6 md:px-8 md:py-6 gap-4 md:gap-6"
                 style={{
                   backgroundColor: colors.black,
                   borderRadius: "12px",
-                  padding: "24px 32px",
-                  display: "flex",
-                  alignItems: "center",
                   justifyContent: "space-between",
-                  gap: "24px",
                 }}
               >
                 <div>
@@ -517,8 +499,8 @@ export default function ComecarNegocio() {
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[48px]"
                 style={{
-                  fontSize: "48px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -529,17 +511,17 @@ export default function ComecarNegocio() {
                 Ajudamos você
               </AnimatedTitle>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:flex gap-5">
                 {pillars.map((pillar, idx) => (
                   <FadeIn
                     key={pillar.title}
                     delay={idx * 0.06}
+                    className="px-6 py-8 md:px-6 md:py-8"
                     style={{
                       flex: 1,
                       backgroundColor: pillar.highlight ? "#20c4c3" : "#171717",
                       border: pillar.highlight ? "none" : "1px solid #272727",
                       borderRadius: "24px",
-                      padding: "32px 24px",
                       display: "flex",
                       flexDirection: "column",
                       gap: "16px",
@@ -578,8 +560,8 @@ export default function ComecarNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -601,7 +583,7 @@ export default function ComecarNegocio() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 {comboProducts.map((product, idx) => (
                   <FadeIn
                     key={product.title}
@@ -623,16 +605,16 @@ export default function ComecarNegocio() {
                       }}
                     />
                     <div
+                      className="p-6 md:p-10"
                       style={{
                         backgroundColor: colors.black,
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "20px",
                         flex: 1,
                       }}
                     >
-                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, height: "32px" }} />
+                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, maxWidth: "100%", height: "32px" }} />
                       <div style={{ height: "1px", backgroundColor: "#333333", width: "100%" }} />
                       <p
                         style={{
@@ -668,13 +650,11 @@ export default function ComecarNegocio() {
               </div>
 
               <FadeIn
+                className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 px-6 py-8 md:px-12 md:py-8"
                 style={{
                   backgroundColor: "#171717",
                   border: "1px solid #272727",
                   borderRadius: "24px",
-                  padding: "32px 48px",
-                  display: "flex",
-                  alignItems: "center",
                   justifyContent: "space-between",
                 }}
               >
@@ -734,13 +714,13 @@ export default function ComecarNegocio() {
             </div>
 
             {/* Prova social */}
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="flex flex-col md:flex-row gap-5">
               <FadeIn
+                className="h-[200px] md:h-[260px]"
                 style={{
                   flex: 1,
                   backgroundColor: "#20c4c3",
                   borderRadius: "32px",
-                  height: "260px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -757,11 +737,11 @@ export default function ComecarNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.08}
+                className="h-[200px] md:h-[260px]"
                 style={{
                   flex: 1,
                   backgroundColor: "#20c4c3",
                   borderRadius: "32px",
-                  height: "260px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -778,11 +758,11 @@ export default function ComecarNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.16}
+                className="h-[200px] md:h-[260px]"
                 style={{
                   flex: 1,
                   backgroundColor: "#20c4c3",
                   borderRadius: "32px",
-                  height: "260px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -801,16 +781,10 @@ export default function ComecarNegocio() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#20c4c3",
-                height: "480px",
                 boxSizing: "border-box",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -818,8 +792,8 @@ export default function ComecarNegocio() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -842,7 +816,7 @@ export default function ComecarNegocio() {
                   Oportunidade de mercado: 117,8 milhões de veículos ainda não
                   são rastreados em todo o Brasil.
                 </p>
-                <div style={{ display: "flex", gap: "16px" }}>
+                <div className="flex flex-wrap gap-4">
                   <button
                     style={{
                       display: "flex",
@@ -890,27 +864,30 @@ export default function ComecarNegocio() {
                 </div>
               </div>
 
-              <div style={{ width: "722px", height: "480px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
+              <div
+                className="w-full md:w-[722px]"
+                style={{ aspectRatio: "722 / 480", flexShrink: 0, position: "relative", overflow: "hidden" }}
+              >
                 <div
                   style={{
                     position: "absolute",
-                    width: "722px",
-                    height: "539.093px",
+                    width: "100%",
+                    height: `${(539.093 / 480) * 100}%`,
                     left: 0,
-                    top: "-29.547px",
+                    top: `${(-29.547 / 480) * 100}%`,
                     backgroundImage: `url(${imgCtaIllustrationBack})`,
-                    backgroundSize: "722px 539.093px",
+                    backgroundSize: "100% 100%",
                   }}
                 />
                 <div
                   style={{
                     position: "absolute",
-                    width: "750px",
-                    height: "750px",
-                    left: "-14px",
-                    top: "-71.781px",
+                    width: `${(750 / 722) * 100}%`,
+                    height: `${(750 / 480) * 100}%`,
+                    left: `${(-14 / 722) * 100}%`,
+                    top: `${(-71.781 / 480) * 100}%`,
                     backgroundImage: `url(${imgCtaIllustrationFront})`,
-                    backgroundSize: "750px 750px",
+                    backgroundSize: "100% 100%",
                   }}
                 />
               </div>

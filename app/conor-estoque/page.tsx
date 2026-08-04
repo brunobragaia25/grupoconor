@@ -141,7 +141,7 @@ const logistica = [
 export default function ConorEstoque() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -151,10 +151,10 @@ export default function ConorEstoque() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "120px 80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
             }}
+            className="px-6 py-16 md:px-20 md:py-[120px]"
           >
             <div
               style={{
@@ -165,10 +165,9 @@ export default function ConorEstoque() {
                 maxWidth: "1182px",
               }}
             >
-              <img src={imgLogoWordmark} alt="Conor Estoque" style={{ height: "53px" }} />
+              <img src={imgLogoWordmark} alt="Conor Estoque" style={{ height: "53px", maxWidth: "100%" }} />
               <p
                 style={{
-                  fontSize: "64px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -176,6 +175,7 @@ export default function ConorEstoque() {
                   lineHeight: "normal",
                   textAlign: "center",
                 }}
+                className="text-3xl md:text-[64px]"
               >
                 Hardware essencial para montar ou expandir seu negócio de
                 rastreamento. Compre na quantidade que precisa ou alugue
@@ -188,15 +188,15 @@ export default function ConorEstoque() {
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderTopRightRadius: "12px",
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
             }}
+            className="px-6 py-16 md:px-24 md:py-24"
           >
             {/* Já tenho central / Estou começando + Stats */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 <div
                   style={{
                     borderRadius: "32px",
@@ -204,9 +204,9 @@ export default function ConorEstoque() {
                     backgroundImage: `url(${imgHeroIllustration})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    width: "45%",
                     flexShrink: 0,
                   }}
+                  className="w-full md:w-[45%] h-64 md:h-auto"
                 />
 
                 <div
@@ -214,11 +214,11 @@ export default function ConorEstoque() {
                     backgroundColor: colors.black,
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "20px",
                   }}
+                  className="p-8 md:p-16"
                 >
                   <div
                     style={{
@@ -291,6 +291,7 @@ export default function ConorEstoque() {
                   overflow: "hidden",
                   display: "flex",
                 }}
+                className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
                   <FadeIn
@@ -310,12 +311,12 @@ export default function ConorEstoque() {
                   >
                     <span
                       style={{
-                        fontSize: "48px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         lineHeight: "normal",
                       }}
+                      className="text-3xl md:text-[48px]"
                     >
                       {s.value}
                     </span>
@@ -332,12 +333,12 @@ export default function ConorEstoque() {
               style={{
                 backgroundColor: colors.black,
                 borderRadius: "32px",
-                padding: "80px",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 gap: "64px",
               }}
+              className="p-8 md:p-20"
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", alignItems: "center", textAlign: "center" }}>
                 <p
@@ -353,7 +354,7 @@ export default function ConorEstoque() {
                 >
                   Compra avulsa
                 </p>
-                <AnimatedTitle as="h2" style={{ fontSize: "48px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
+                <AnimatedTitle as="h2" style={{ fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }} className="text-3xl md:text-[48px]">
                   Tabela de preços
                 </AnimatedTitle>
                 <p style={{ fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, margin: 0 }}>
@@ -361,7 +362,7 @@ export default function ConorEstoque() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 w-full">
                 {pricingTiers.map((tier, idx) => (
                   <FadeIn
                     key={tier.title}
@@ -487,7 +488,7 @@ export default function ConorEstoque() {
                 >
                   Hardware disponível
                 </p>
-                <AnimatedTitle as="h2" style={{ fontSize: "48px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
+                <AnimatedTitle as="h2" style={{ fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }} className="text-3xl md:text-[48px]">
                   Equipamentos
                 </AnimatedTitle>
                 <p style={{ fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, margin: 0 }}>
@@ -495,7 +496,7 @@ export default function ConorEstoque() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col md:flex-row gap-5 w-full">
                 {hardware.map((h, idx) => (
                   <FadeIn
                     key={h.name}
@@ -569,7 +570,7 @@ export default function ConorEstoque() {
             </div>
 
             {/* Kit iniciante */}
-            <div style={{ display: "flex", gap: "96px", alignItems: "center" }}>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-24 md:items-center">
               <div style={{ display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 0" }}>
                 <p
                   style={{
@@ -585,19 +586,20 @@ export default function ConorEstoque() {
                   Para iniciantes
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                  <AnimatedTitle
-                    as="h2"
-                    style={{
-                      fontSize: "40px",
-                      fontWeight: 700,
-                      fontFamily: "var(--font-linear-grotesk)",
-                      color: colors.white,
-                      margin: 0,
-                      lineHeight: "1.1",
-                    }}
-                  >
-                    Kit com 10 rastreadores prontos para usar
-                  </AnimatedTitle>
+                  <div className="text-2xl md:text-[40px]">
+                    <AnimatedTitle
+                      as="h2"
+                      style={{
+                        fontWeight: 700,
+                        fontFamily: "var(--font-linear-grotesk)",
+                        color: colors.white,
+                        margin: 0,
+                        lineHeight: "1.1",
+                      }}
+                    >
+                      Kit com 10 rastreadores prontos para usar
+                    </AnimatedTitle>
+                  </div>
                   <p style={{ fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, margin: 0, lineHeight: "28px" }}>
                     Comece seu negócio de rastreamento sem precisar comprar cada item separadamente.
                   </p>
@@ -731,12 +733,12 @@ export default function ConorEstoque() {
                 >
                   Logística e suporte
                 </p>
-                <AnimatedTitle as="h2" style={{ fontSize: "48px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
+                <AnimatedTitle as="h2" style={{ fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }} className="text-3xl md:text-[48px]">
                   Entrega, garantia e suporte técnico
                 </AnimatedTitle>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col sm:flex-row gap-5 w-full">
                 {logistica.map((item, idx) => (
                   <FadeIn
                     key={item.title}
@@ -777,31 +779,31 @@ export default function ConorEstoque() {
           <div
             style={{
               background: "linear-gradient(90deg, #dd245c, #dd245c)",
-              height: "480px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingLeft: "96px",
               borderRadius: "20px",
               overflow: "hidden",
               position: "relative",
             }}
+            className="flex-col md:flex-row px-6 py-10 md:px-24 md:py-0 md:h-[480px] gap-8 md:gap-0"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <AnimatedTitle
-                  as="h2"
-                  style={{
-                    fontSize: "48px",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                    lineHeight: "1.1",
-                  }}
-                >
-                  {["Monte seu combo e ", { text: "comece a rastrear", weight: 900 }]}
-                </AnimatedTitle>
+                <div className="text-3xl md:text-[48px]">
+                  <AnimatedTitle
+                    as="h2"
+                    style={{
+                      fontWeight: 700,
+                      fontFamily: "var(--font-linear-grotesk)",
+                      color: colors.white,
+                      margin: 0,
+                      lineHeight: "1.1",
+                    }}
+                  >
+                    {["Monte seu combo e ", { text: "comece a rastrear", weight: 900 }]}
+                  </AnimatedTitle>
+                </div>
                 <p
                   style={{
                     fontSize: "16px",
@@ -847,12 +849,11 @@ export default function ConorEstoque() {
               src={imgCtaIllustration}
               alt=""
               style={{
-                height: "480px",
-                width: "904px",
                 objectFit: "cover",
                 objectPosition: "60% center",
                 flexShrink: 0,
               }}
+              className="w-full h-64 md:h-[480px] md:w-[904px]"
             />
           </div>
         </div>

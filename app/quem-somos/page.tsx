@@ -32,12 +32,12 @@ const founders = [
 export default function QuemSomos() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
         <div
+          className="px-6 py-12 md:p-24"
           style={{
             backgroundColor: "rgba(36, 36, 36, 0.75)",
             borderRadius: "12px",
-            padding: "96px",
             display: "flex",
             flexDirection: "column",
             gap: "96px",
@@ -45,6 +45,7 @@ export default function QuemSomos() {
         >
           {/* Hero Section */}
           <div
+            className="min-h-[500px] md:min-h-0"
             style={{
               position: "relative",
               display: "flex",
@@ -58,6 +59,7 @@ export default function QuemSomos() {
             <img
               src={imgHeroIllustration}
               alt=""
+              className="opacity-30 md:opacity-100"
               style={{
                 position: "absolute",
                 right: 0,
@@ -69,11 +71,11 @@ export default function QuemSomos() {
             />
 
             <div
+              className="px-6 py-12 md:px-20 md:py-16"
               style={{
                 display: "flex",
                 flex: "1 0 0",
                 alignItems: "flex-start",
-                padding: "64px 80px",
                 position: "relative",
                 zIndex: 1,
               }}
@@ -81,8 +83,8 @@ export default function QuemSomos() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[72px]"
                   style={{
-                    fontSize: "72px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -112,7 +114,7 @@ export default function QuemSomos() {
           </div>
 
           {/* Sobre Nós */}
-          <div style={{ display: "flex", gap: "64px", alignItems: "center" }}>
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
             <div
               style={{
                 display: "flex",
@@ -123,8 +125,8 @@ export default function QuemSomos() {
             >
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[48px]"
                 style={{
-                  fontSize: "48px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -176,11 +178,10 @@ export default function QuemSomos() {
             </div>
 
             <div
+              className="w-full md:w-[699px] h-[300px] md:h-[480px]"
               style={{
                 backgroundColor: colors.black,
                 borderRadius: "32px",
-                height: "480px",
-                width: "699px",
                 flexShrink: 0,
                 display: "flex",
                 alignItems: "center",
@@ -195,7 +196,7 @@ export default function QuemSomos() {
           </div>
 
           {/* Stats */}
-          <div style={{ display: "flex", gap: "20px", textAlign: "center" }}>
+          <div className="flex flex-col md:flex-row gap-5 text-center">
             {[
               { number: "+80 mil", label: "Veículos rastreados" },
               { number: "+350", label: "cliente em todo o Brasil" },
@@ -204,21 +205,20 @@ export default function QuemSomos() {
               <FadeIn
                 key={stat.label}
                 delay={idx * 0.08}
+                className="h-[220px] md:h-[320px] px-6 md:px-12"
                 style={{
                   backgroundColor: "#52a4ff",
                   flex: "1 0 0",
-                  height: "320px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "0 48px",
                   borderRadius: "32px",
                 }}
               >
                 <p
+                  className="text-4xl md:text-[72px]"
                   style={{
-                    fontSize: "72px",
                     fontWeight: 900,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -229,8 +229,8 @@ export default function QuemSomos() {
                   {stat.number}
                 </p>
                 <p
+                  className="text-xl md:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -248,8 +248,8 @@ export default function QuemSomos() {
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
             <AnimatedTitle
               as="h2"
+              className="text-3xl md:text-[48px]"
               style={{
-                fontSize: "48px",
                 fontWeight: 900,
                 fontFamily: "var(--font-linear-grotesk)",
                 color: colors.white,
@@ -260,11 +260,12 @@ export default function QuemSomos() {
               Nossos fundadores
             </AnimatedTitle>
 
-            <div style={{ display: "flex", gap: "20px", height: "480px" }}>
+            <div className="flex flex-col md:flex-row gap-5 md:h-[480px]">
               {founders.map((founder, idx) => (
                 <FadeIn
                   key={founder.name}
                   delay={idx * 0.08}
+                  className="p-10 md:p-16"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
@@ -275,7 +276,6 @@ export default function QuemSomos() {
                     flexDirection: "column",
                     justifyContent: "flex-end",
                     gap: "20px",
-                    padding: "64px",
                   }}
                 >
                   <h3
@@ -314,8 +314,8 @@ export default function QuemSomos() {
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
             <AnimatedTitle
               as="h2"
+              className="text-3xl md:text-[48px]"
               style={{
-                fontSize: "48px",
                 fontWeight: 900,
                 fontFamily: "var(--font-linear-grotesk)",
                 color: colors.white,
@@ -326,8 +326,8 @@ export default function QuemSomos() {
               Nossa localização
             </AnimatedTitle>
 
-            <div style={{ display: "flex", gap: "40px", alignItems: "center" }}>
-              <div style={{ flex: "1 0 0", alignSelf: "stretch" }}>
+            <div className="flex flex-col md:flex-row gap-10 items-stretch md:items-center">
+              <div className="min-h-[280px]" style={{ flex: "1 0 0", alignSelf: "stretch" }}>
                 <div
                   style={{
                     backgroundColor: colors.black,
@@ -347,11 +347,11 @@ export default function QuemSomos() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <div
+                  className="p-6 md:p-10"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    padding: "40px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "20px",
@@ -401,11 +401,11 @@ export default function QuemSomos() {
                 </div>
 
                 <div
+                  className="p-6 md:p-10"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    padding: "40px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "20px",
@@ -460,31 +460,25 @@ export default function QuemSomos() {
 
           {/* CTA Final */}
           <div
+            className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
             style={{
               backgroundColor: "#52a4ff",
-              height: "480px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              paddingLeft: "96px",
-              paddingTop: "96px",
-              paddingBottom: "96px",
               borderRadius: "20px",
               overflow: "hidden",
             }}
           >
             <div
+              className="max-w-[564px]"
               style={{
                 display: "flex",
                 flexDirection: "column",
                 gap: "24px",
-                width: "564px",
               }}
             >
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[48px]"
                 style={{
-                  fontSize: "48px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -536,9 +530,8 @@ export default function QuemSomos() {
             <img
               src={imgFundadoresIllustration}
               alt=""
+              className="w-full h-auto max-w-[300px] md:h-[536px] md:w-[718px]"
               style={{
-                height: "536px",
-                width: "718px",
                 objectFit: "cover",
                 flexShrink: 0,
               }}

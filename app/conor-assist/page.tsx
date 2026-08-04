@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const brand = "#996cfb";
 
@@ -105,7 +106,7 @@ const sla = [
 export default function ConorAssist() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -115,10 +116,10 @@ export default function ConorAssist() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "120px 80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
             }}
+            className="px-6 py-16 md:px-20 md:py-[120px]"
           >
             <div
               style={{
@@ -129,23 +130,24 @@ export default function ConorAssist() {
                 maxWidth: "1182px",
               }}
             >
-              <img src={imgLogoWordmark} alt="Conor Assist" style={{ height: "62px" }} />
-              <AnimatedTitle
-                as="p"
-                style={{
-                  fontSize: "64px",
-                  fontWeight: 700,
-                  fontFamily: "var(--font-linear-grotesk)",
-                  color: colors.white,
-                  margin: 0,
-                  lineHeight: "normal",
-                  textAlign: "center",
-                }}
-              >
-                Assistência 24h + Benefícios para sua empresa de
-                rastreamento. Ofereça mais valor aos seus clientes sem
-                aumentar sua estrutura.
-              </AnimatedTitle>
+              <img src={imgLogoWordmark} alt="Conor Assist" style={{ height: "62px", maxWidth: "100%" }} />
+              <div className="text-3xl md:text-[64px]">
+                <AnimatedTitle
+                  as="p"
+                  style={{
+                    fontWeight: 700,
+                    fontFamily: "var(--font-linear-grotesk)",
+                    color: colors.white,
+                    margin: 0,
+                    lineHeight: "normal",
+                    textAlign: "center",
+                  }}
+                >
+                  Assistência 24h + Benefícios para sua empresa de
+                  rastreamento. Ofereça mais valor aos seus clientes sem
+                  aumentar sua estrutura.
+                </AnimatedTitle>
+              </div>
             </div>
           </div>
 
@@ -153,15 +155,15 @@ export default function ConorAssist() {
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderTopRightRadius: "12px",
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
             }}
+            className="px-6 py-16 md:px-24 md:py-24"
           >
             {/* Investimento + Stats */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 <div
                   style={{
                     borderRadius: "32px",
@@ -169,9 +171,9 @@ export default function ConorAssist() {
                     backgroundImage: `url(${imgHeroIllustration})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    width: "45%",
                     flexShrink: 0,
                   }}
+                  className="w-full md:w-[45%] h-64 md:h-auto"
                 />
 
                 <div
@@ -179,12 +181,12 @@ export default function ConorAssist() {
                     backgroundColor: colors.black,
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
+                  className="p-8 md:p-16"
                 >
                   <p
                     style={{
@@ -205,13 +207,13 @@ export default function ConorAssist() {
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <p
                         style={{
-                          fontSize: "64px",
                           fontWeight: 700,
                           fontFamily: "var(--font-linear-grotesk)",
                           color: brand,
                           margin: 0,
                           lineHeight: "normal",
                         }}
+                        className="text-4xl md:text-[64px]"
                       >
                         R$1.000
                       </p>
@@ -278,6 +280,7 @@ export default function ConorAssist() {
                   overflow: "hidden",
                   display: "flex",
                 }}
+                className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
                   <FadeIn
@@ -297,12 +300,12 @@ export default function ConorAssist() {
                   >
                     <span
                       style={{
-                        fontSize: "48px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         lineHeight: "normal",
                       }}
+                      className="text-3xl md:text-[48px]"
                     >
                       {s.value}
                     </span>
@@ -325,10 +328,10 @@ export default function ConorAssist() {
               style={{
                 backgroundColor: colors.black,
                 borderRadius: "32px",
-                padding: "80px",
                 display: "flex",
                 gap: "40px",
               }}
+              className="flex-col md:flex-row p-8 md:p-20"
             >
               <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "40px" }}>
                 <div>
@@ -347,13 +350,13 @@ export default function ConorAssist() {
                   </p>
                   <h2
                     style={{
-                      fontSize: "48px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
                       margin: 0,
                       lineHeight: "1.1",
                     }}
+                    className="text-3xl md:text-[48px]"
                   >
                     O que está
                     <br />
@@ -521,21 +524,22 @@ export default function ConorAssist() {
                 >
                   Escopo do atendimento
                 </p>
-                <AnimatedTitle
-                  as="h2"
-                  style={{
-                    fontSize: "48px",
-                    fontWeight: 900,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                  }}
-                >
-                  O que sua central oferece
-                </AnimatedTitle>
+                <div className="text-3xl md:text-[48px]">
+                  <AnimatedTitle
+                    as="h2"
+                    style={{
+                      fontWeight: 900,
+                      fontFamily: "var(--font-linear-grotesk)",
+                      color: colors.white,
+                      margin: 0,
+                    }}
+                  >
+                    O que sua central oferece
+                  </AnimatedTitle>
+                </div>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col sm:flex-row gap-5 w-full">
                 {escopo.map((c, idx) => (
                   <FadeIn
                     key={c.title}
@@ -589,9 +593,9 @@ export default function ConorAssist() {
           </div>
 
           {/* Canais de Suporte */}
-          <div style={{ backgroundColor: colors.black, padding: "96px" }}>
-            <div style={{ display: "flex", gap: "96px", alignItems: "flex-start" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px", width: "462px", flexShrink: 0 }}>
+          <div style={{ backgroundColor: colors.black }} className="px-6 py-16 md:p-24">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-24 md:items-start">
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px", flexShrink: 0 }} className="md:w-[462px]">
                 <p
                   style={{
                     fontSize: "12px",
@@ -608,12 +612,12 @@ export default function ConorAssist() {
                 <AnimatedTitle
                   as="h2"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
                     margin: 0,
                   }}
+                  className="text-3xl md:text-[48px]"
                 >
                   {["Canais de ", { text: "Suporte", color: brand }]}
                 </AnimatedTitle>
@@ -648,7 +652,7 @@ export default function ConorAssist() {
                 </div>
               </div>
 
-              <div style={{ flex: "1 0 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div style={{ flex: "1 0 0" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {canais.map((c, idx) => (
                   <FadeIn
                     key={c.title}
@@ -697,7 +701,7 @@ export default function ConorAssist() {
           </div>
 
           {/* SLA de atendimento */}
-          <div style={{ backgroundColor: colors.black, padding: "96px", display: "flex", flexDirection: "column", gap: "64px" }}>
+          <div style={{ backgroundColor: colors.black, display: "flex", flexDirection: "column", gap: "64px" }} className="px-6 py-16 md:p-24">
             <div style={{ display: "flex", flexDirection: "column", gap: "10px", alignItems: "center", textAlign: "center" }}>
               <p
                 style={{
@@ -714,8 +718,8 @@ export default function ConorAssist() {
               </p>
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[48px]"
                 style={{
-                  fontSize: "48px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -752,10 +756,10 @@ export default function ConorAssist() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "24px 40px",
                     backgroundColor: idx % 2 === 1 ? "rgba(255, 255, 255, 0.02)" : "transparent",
                     borderBottom: idx < sla.length - 1 ? "1px solid rgba(255, 255, 255, 0.07)" : "none",
                   }}
+                  className="px-6 py-6 md:px-10"
                 >
                   <p style={{ margin: 0, fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.white }}>
                     {row.label}
@@ -783,27 +787,26 @@ export default function ConorAssist() {
           <div
             style={{
               backgroundColor: brand,
-              height: "480px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingLeft: "96px",
               borderRadius: "20px",
               overflow: "hidden",
               position: "relative",
             }}
+            className="flex-col md:flex-row px-6 py-10 md:px-24 md:py-0 md:h-[480px] gap-8 md:gap-0"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <h2
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
                     margin: 0,
                     lineHeight: "1.1",
                   }}
+                  className="text-3xl md:text-[48px]"
                 >
                   Eleve o nível da sua central
                   <br />
@@ -849,29 +852,14 @@ export default function ConorAssist() {
               </button>
             </div>
 
-            <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "904px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  width: "1505.36px",
-                  height: "1124px",
-                  left: "0px",
-                  top: "-374px",
-                  backgroundImage: `url(${imgCtaIllustration})`,
-                  backgroundSize: "1505.36px 1124px",
-                }}
-              />
-            </div>
+            <CroppedIllustration
+              src={imgCtaIllustration}
+              alt=""
+              aspectRatio={904 / 480}
+              objectPosition="0% 33%"
+              className="w-full md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[904px] md:h-full"
+              style={{ pointerEvents: "none" }}
+            />
           </div>
         </div>
 

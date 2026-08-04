@@ -116,26 +116,20 @@ const whyItems = [
 export default function Rastrear() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
+            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
-              minHeight: "620px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
-              overflow: "hidden",
-              position: "relative",
             }}
           >
             <div
+              className="flex flex-col md:flex-row gap-5 md:gap-10"
               style={{
-                display: "flex",
-                gap: "40px",
                 alignItems: "flex-start",
                 position: "relative",
                 zIndex: 1,
@@ -149,8 +143,8 @@ export default function Rastrear() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
@@ -180,55 +174,39 @@ export default function Rastrear() {
             </div>
 
             <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "740px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
+              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
+                className="absolute inset-0 bg-cover bg-center md:w-[1336.61px] md:h-[998px] md:left-[-506px] md:top-[-199px] md:bg-auto"
                 style={{
-                  position: "absolute",
-                  width: "1336.61px",
-                  height: "998px",
-                  left: "-506px",
-                  top: "-199px",
                   backgroundImage: `url(${imgHeroIllustration})`,
-                  backgroundSize: "1336.61px 998px",
                 }}
               />
             </div>
           </div>
 
           <div
+            className="px-4 py-10 md:p-[96px] flex flex-col gap-16 md:gap-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "96px",
             }}
           >
             {/* Features 2x2 */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {[features.slice(0, 2), features.slice(2, 4)].map((row, rowIdx) => (
-                <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+                <div key={rowIdx} className="flex flex-col md:flex-row gap-5">
                   {row.map((feature, idx) => (
                     <FadeIn
                       key={feature.title}
                       delay={idx * 0.08}
+                      className="p-6 md:p-12"
                       style={{
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderRadius: "32px",
                         flex: "1 0 0",
-                        padding: "48px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "40px",
@@ -301,12 +279,12 @@ export default function Rastrear() {
             </div>
 
             {/* Compatibilidade de Veículos */}
-            <div style={{ display: "flex", gap: "64px", alignItems: "flex-start" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "40px", width: "392px", flexShrink: 0 }}>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+              <div className="md:w-[392px]" style={{ display: "flex", flexDirection: "column", gap: "40px", flexShrink: 0 }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -330,11 +308,9 @@ export default function Rastrear() {
               </div>
 
               <div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-5"
                 style={{
                   flex: "1 0 0",
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "20px",
                 }}
               >
                 {compatibility.map((item, idx) => (
@@ -396,12 +372,13 @@ export default function Rastrear() {
             </div>
 
             {/* Veja a plataforma em ação */}
-            <div style={{ display: "flex", gap: "64px", alignItems: "center" }}>
-              <div style={{ display: "flex", flex: "1 0 0", gap: "20px", alignItems: "center" }}>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16 md:items-center">
+              <div className="flex flex-col md:flex-row gap-5" style={{ flex: "1 0 0", alignItems: "center" }}>
                 {screenshots.map((screenshot, idx) => (
                   <FadeIn
                     key={screenshot.title}
                     delay={idx * 0.08}
+                    className="w-full"
                     style={{
                       backgroundColor: "#d9d9d9",
                       border: "1px solid #272727",
@@ -454,11 +431,11 @@ export default function Rastrear() {
                 ))}
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "40px", width: "462px", flexShrink: 0, alignItems: "flex-end", textAlign: "right" }}>
+              <div className="md:w-[462px] items-center md:items-end text-center md:text-right" style={{ display: "flex", flexDirection: "column", gap: "40px", flexShrink: 0 }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -486,8 +463,8 @@ export default function Rastrear() {
             <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[56px]"
                 style={{
-                  fontSize: "56px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -501,36 +478,26 @@ export default function Rastrear() {
                 ]}
               </AnimatedTitle>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
                 <div
+                  className="h-[320px] md:h-[590px]"
                   style={{
                     flex: "1 0 0",
-                    height: "590px",
                     position: "relative",
                     borderRadius: "32px",
                     overflow: "hidden",
                   }}
                 >
                   <div
+                    className="absolute inset-0 bg-cover bg-center md:w-[1744px] md:h-[974px] md:left-[-716px] md:top-[-371px] md:bg-auto"
                     style={{
-                      position: "absolute",
-                      width: "1744px",
-                      height: "974px",
-                      left: "-716px",
-                      top: "-371px",
                       backgroundImage: `url(${img4em1Bg})`,
-                      backgroundSize: "1744px 974px",
                     }}
                   />
                   <div
+                    className="absolute inset-0 bg-contain bg-center bg-no-repeat md:w-[1183px] md:h-[660px] md:left-[-362px] md:top-[-70px] md:bg-auto"
                     style={{
-                      position: "absolute",
-                      width: "1183px",
-                      height: "660px",
-                      left: "-362px",
-                      top: "-70px",
                       backgroundImage: `url(${img4em1Fg})`,
-                      backgroundSize: "1183px 660px",
                     }}
                   />
                   <div
@@ -547,16 +514,14 @@ export default function Rastrear() {
                       justifyContent: "center",
                     }}
                   >
-                    <img src={img4em1Logo} alt="Conor 4 em 1" style={{ width: "345px", height: "64px" }} />
+                    <img src={img4em1Logo} alt="Conor 4 em 1" className="w-[220px] h-auto md:w-[345px] md:h-[64px]" style={{ maxWidth: "80%" }} />
                   </div>
                 </div>
 
                 <div
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-5"
                   style={{
                     flex: "1 0 0",
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "20px",
                   }}
                 >
                   {whyItems.map((item, idx) => (
@@ -603,15 +568,9 @@ export default function Rastrear() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #6ebbf8, #52a4ff 43.269%)",
-                height: "480px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -619,8 +578,8 @@ export default function Rastrear() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -668,16 +627,18 @@ export default function Rastrear() {
                 </button>
               </div>
 
-              <div style={{ width: "722px", height: "480px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
+              <div className="w-full h-[260px] md:w-[722px] md:h-[480px]" style={{ flexShrink: 0, position: "relative", overflow: "hidden" }}>
                 <img
                   src={imgCtaLayer1}
                   alt=""
-                  style={{ position: "absolute", left: 0, top: 0, width: "707px", height: "480px" }}
+                  className="w-full h-full md:w-[707px] md:h-[480px]"
+                  style={{ position: "absolute", left: 0, top: 0, objectFit: "cover" }}
                 />
                 <img
                   src={imgCtaLayer2}
                   alt=""
-                  style={{ position: "absolute", left: 0, top: "-29.547px", width: "722px", height: "539.093px" }}
+                  className="w-full h-full md:w-[722px] md:h-[539.093px] md:top-[-29.547px]"
+                  style={{ position: "absolute", left: 0, top: 0, objectFit: "cover" }}
                 />
               </div>
             </div>

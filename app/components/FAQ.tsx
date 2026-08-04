@@ -58,17 +58,16 @@ function FAQCard({ item, isExpanded, onToggle, delay = 0 }: { item: FAQItem; isE
       }}
     >
       <div
+        className="gap-6 md:gap-12 p-6 md:p-12"
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "48px",
-          padding: "48px",
         }}
       >
         <div
+          className="gap-6 md:gap-12"
           style={{
             display: "flex",
-            gap: "48px",
             alignItems: "flex-start",
             justifyContent: "space-between",
           }}
@@ -184,9 +183,9 @@ export function FAQ() {
 
   return (
     <section
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
       }}
     >
       <div
@@ -202,9 +201,9 @@ export function FAQ() {
         {/* Title */}
         <AnimatedTitle
           as="h2"
+          className="text-3xl md:text-[48px]"
           style={{
             margin: 0,
-            fontSize: "48px",
             fontWeight: 700,
             fontFamily: "var(--font-linear-grotesk)",
             lineHeight: "normal",

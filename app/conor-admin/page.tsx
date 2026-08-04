@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const brand = "#01c4c4";
 const brandAlt = "#20c4c3";
@@ -110,7 +111,7 @@ const suporte = [
 export default function ConorAdmin() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -120,10 +121,10 @@ export default function ConorAdmin() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "120px 80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
             }}
+            className="px-6 py-16 md:px-20 md:py-[120px]"
           >
             <div
               style={{
@@ -134,10 +135,9 @@ export default function ConorAdmin() {
                 maxWidth: "1182px",
               }}
             >
-              <img src={imgLogoWordmark} alt="Conor Admin" style={{ height: "58px" }} />
+              <img src={imgLogoWordmark} alt="Conor Admin" style={{ height: "58px", maxWidth: "100%" }} />
               <p
                 style={{
-                  fontSize: "64px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -145,6 +145,7 @@ export default function ConorAdmin() {
                   lineHeight: "normal",
                   textAlign: "center",
                 }}
+                className="text-3xl md:text-[64px]"
               >
                 Assistência 24h + Benefícios para sua empresa de
                 rastreamento. Ofereça mais valor aos seus clientes sem
@@ -157,15 +158,15 @@ export default function ConorAdmin() {
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderTopRightRadius: "12px",
-              padding: "96px",
               display: "flex",
               flexDirection: "column",
               gap: "96px",
             }}
+            className="px-6 py-16 md:px-24 md:py-24"
           >
             {/* Investimento + Stats */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ display: "flex", gap: "20px" }}>
+              <div className="flex flex-col md:flex-row gap-5">
                 <div
                   style={{
                     borderRadius: "32px",
@@ -173,9 +174,9 @@ export default function ConorAdmin() {
                     backgroundImage: `url(${imgHeroIllustration})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
-                    width: "45%",
                     flexShrink: 0,
                   }}
+                  className="w-full md:w-[45%] h-64 md:h-auto"
                 />
 
                 <div
@@ -183,12 +184,12 @@ export default function ConorAdmin() {
                     backgroundColor: colors.black,
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
+                  className="p-8 md:p-16"
                 >
                   <p
                     style={{
@@ -208,13 +209,13 @@ export default function ConorAdmin() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <p
                       style={{
-                        fontSize: "64px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         margin: 0,
                         lineHeight: "normal",
                       }}
+                      className="text-4xl md:text-[64px]"
                     >
                       Zero de entrada
                     </p>
@@ -265,6 +266,7 @@ export default function ConorAdmin() {
                   overflow: "hidden",
                   display: "flex",
                 }}
+                className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
                   <FadeIn
@@ -284,12 +286,12 @@ export default function ConorAdmin() {
                   >
                     <span
                       style={{
-                        fontSize: "48px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: brand,
                         lineHeight: "normal",
                       }}
+                      className="text-3xl md:text-[48px]"
                     >
                       {s.value}
                     </span>
@@ -306,12 +308,12 @@ export default function ConorAdmin() {
               style={{
                 backgroundColor: "#1b1b1b",
                 borderRadius: "32px",
-                padding: "96px 0",
                 display: "flex",
                 flexDirection: "column",
                 gap: "64px",
                 alignItems: "center",
               }}
+              className="py-16 md:py-24"
             >
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", alignItems: "center", textAlign: "center" }}>
                 <p
@@ -327,7 +329,7 @@ export default function ConorAdmin() {
                 >
                   Tudo integrado
                 </p>
-                <AnimatedTitle as="h2" style={{ fontSize: "48px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
+                <AnimatedTitle as="h2" style={{ fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }} className="text-3xl md:text-[48px]">
                   Os 3 módulos em detalhes
                 </AnimatedTitle>
                 <p style={{ fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, margin: 0 }}>
@@ -335,7 +337,7 @@ export default function ConorAdmin() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "24px", width: "100%", padding: "0 96px" }}>
+              <div className="flex flex-col md:flex-row gap-6 w-full px-6 md:px-24">
                 {modulos.map((m, idx) => (
                   <FadeIn
                     key={m.number}
@@ -390,7 +392,7 @@ export default function ConorAdmin() {
                   >
                     Conectado com o que você já usa
                   </p>
-                  <AnimatedTitle as="h2" style={{ fontSize: "48px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
+                  <AnimatedTitle as="h2" style={{ fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }} className="text-3xl md:text-[48px]">
                     Integrações Nativas
                   </AnimatedTitle>
                   <p style={{ fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, margin: 0, lineHeight: "28px" }}>
@@ -417,7 +419,7 @@ export default function ConorAdmin() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
                 {[integracoes.slice(0, 3), integracoes.slice(3, 6)].map((row, rowIdx) => (
-                  <div key={rowIdx} style={{ display: "flex", gap: "20px" }}>
+                  <div key={rowIdx} className="flex flex-col sm:flex-row gap-5">
                     {row.map((item, idx) => (
                       <FadeIn
                         key={item.title}
@@ -458,9 +460,9 @@ export default function ConorAdmin() {
           </div>
 
           {/* Suporte Completo */}
-          <div style={{ backgroundColor: colors.black, padding: "96px" }}>
-            <div style={{ display: "flex", gap: "96px", alignItems: "flex-start" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px", width: "462px", flexShrink: 0 }}>
+          <div style={{ backgroundColor: colors.black }} className="px-6 py-16 md:p-24">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-24 md:items-start">
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px", flexShrink: 0 }} className="md:w-[462px]">
                 <p
                   style={{
                     fontSize: "12px",
@@ -474,7 +476,7 @@ export default function ConorAdmin() {
                 >
                   Incluso no plano
                 </p>
-                <AnimatedTitle as="h2" style={{ fontSize: "48px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }}>
+                <AnimatedTitle as="h2" style={{ fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white, margin: 0 }} className="text-3xl md:text-[48px]">
                   {["Suporte ", { text: "Completo", color: brand }]}
                 </AnimatedTitle>
                 <p style={{ fontSize: "16px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, margin: 0, lineHeight: "24px" }}>
@@ -482,7 +484,7 @@ export default function ConorAdmin() {
                 </p>
               </div>
 
-              <div style={{ flex: "1 0 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div style={{ flex: "1 0 0" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {suporte.map((s, idx) => (
                   <FadeIn
                     key={s.title}
@@ -518,31 +520,31 @@ export default function ConorAdmin() {
           <div
             style={{
               backgroundColor: brand,
-              height: "480px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingLeft: "96px",
               borderRadius: "20px",
               overflow: "hidden",
               position: "relative",
             }}
+            className="flex-col md:flex-row px-6 py-10 md:px-24 md:py-0 md:h-[480px] gap-8 md:gap-0"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <AnimatedTitle
-                  as="h2"
-                  style={{
-                    fontSize: "48px",
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                    lineHeight: "1.1",
-                  }}
-                >
-                  {["Gerencie sua central ", { text: "com inteligência", weight: 900 }]}
-                </AnimatedTitle>
+                <div className="text-3xl md:text-[48px]">
+                  <AnimatedTitle
+                    as="h2"
+                    style={{
+                      fontWeight: 700,
+                      fontFamily: "var(--font-linear-grotesk)",
+                      color: colors.white,
+                      margin: 0,
+                      lineHeight: "1.1",
+                    }}
+                  >
+                    {["Gerencie sua central ", { text: "com inteligência", weight: 900 }]}
+                  </AnimatedTitle>
+                </div>
                 <p
                   style={{
                     fontSize: "16px",
@@ -587,12 +589,11 @@ export default function ConorAdmin() {
               src={imgCtaIllustration}
               alt=""
               style={{
-                height: "480px",
-                width: "904px",
                 objectFit: "cover",
                 objectPosition: "center",
                 flexShrink: 0,
               }}
+              className="w-full h-64 md:h-[480px] md:w-[904px]"
             />
           </div>
         </div>

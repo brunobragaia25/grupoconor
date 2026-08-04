@@ -76,12 +76,13 @@ export function CounterSection() {
   return (
     <section
       ref={sectionRef}
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
       }}
     >
       <div
+        className="flex-col md:flex-row"
         style={{
           maxWidth: "1494px",
           margin: "0 auto",
@@ -92,11 +93,11 @@ export function CounterSection() {
       >
         {/* Counter 1 */}
         <FadeIn
+          className="h-[220px] md:h-[320px] px-4"
           style={{
             flex: 1,
             backgroundColor: "#52a4ff",
             borderRadius: "32px",
-            height: "320px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -104,10 +105,10 @@ export function CounterSection() {
             textAlign: "center",
           }}
         >
-          <p style={{ margin: 0, fontSize: "72px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
+          <p className="text-4xl md:text-[72px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
             +{counter1}
           </p>
-          <p style={{ margin: 0, fontSize: "40px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
+          <p className="text-xl md:text-[40px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
             clientes em todo Brasil
           </p>
         </FadeIn>
@@ -127,10 +128,10 @@ export function CounterSection() {
             textAlign: "center",
           }}
         >
-          <p style={{ margin: 0, fontSize: "72px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
+          <p className="text-4xl md:text-[72px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
             +{counter2.toLocaleString("pt-BR")}
           </p>
-          <p style={{ margin: 0, fontSize: "40px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
+          <p className="text-xl md:text-[40px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", lineHeight: "normal", color: colors.white }}>
             veículos rastreados
           </p>
         </FadeIn>

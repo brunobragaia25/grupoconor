@@ -64,9 +64,9 @@ const segments: Segment[] = [
 export function Technologies() {
   return (
     <section
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
       }}
     >
       {/* Header */}
@@ -79,8 +79,8 @@ export function Technologies() {
       >
         <AnimatedTitle
           as="h2"
+          className="text-3xl md:text-[48px]"
           style={{
-            fontSize: "48px",
             fontWeight: 900,
             fontFamily: "var(--font-linear-grotesk)",
             color: colors.white,
@@ -104,6 +104,7 @@ export function Technologies() {
 
       {/* Grid */}
       <div
+        className="flex-col md:flex-row"
         style={{
           maxWidth: "1494px",
           margin: "0 auto",

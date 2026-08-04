@@ -6,6 +6,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgHeartSmileLarge = "/icons/icon-heart-smile-large.svg";
 const imgHeroIllustration = "/image-fidelizar-hero.svg";
@@ -98,7 +99,7 @@ function RelatedFeatureCard({
 export default function Fidelizar() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div
           style={{
             display: "flex",
@@ -107,22 +108,16 @@ export default function Fidelizar() {
         >
           {/* Hero Section */}
           <div
+            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
-              minHeight: "620px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
-              overflow: "hidden",
-              position: "relative",
             }}
           >
             <div
+              className="flex flex-col md:flex-row gap-5 md:gap-10"
               style={{
-                display: "flex",
-                gap: "40px",
                 alignItems: "center",
                 position: "relative",
                 zIndex: 1,
@@ -136,8 +131,8 @@ export default function Fidelizar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
@@ -167,53 +162,37 @@ export default function Fidelizar() {
             </div>
 
             <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "740px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
+              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
+                className="absolute inset-0 bg-cover bg-center md:w-[4077.83px] md:h-[2276px] md:left-[-1697px] md:top-[-838px] md:bg-auto"
                 style={{
-                  position: "absolute",
-                  width: "4077.83px",
-                  height: "2276px",
-                  left: "-1697px",
-                  top: "-838px",
                   backgroundImage: `url(${imgHeroIllustration})`,
-                  backgroundSize: "4077.83px 2276px",
                 }}
               />
             </div>
           </div>
 
           <div
+            className="px-4 py-10 md:p-[96px] flex flex-col gap-16 md:gap-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "96px",
             }}
           >
             {/* Pilares */}
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="flex flex-col md:flex-row gap-5">
               {pillars.map((pillar, idx) => (
                 <FadeIn
                   key={pillar.title}
                   delay={idx * 0.08}
+                  className="p-6 md:p-12"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "48px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -262,13 +241,13 @@ export default function Fidelizar() {
             </div>
 
             {/* Como funciona */}
-            <div style={{ display: "flex", gap: "64px", alignItems: "stretch" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "40px", width: "392px" }}>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
+              <div className="md:w-[392px]" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                   <AnimatedTitle
                     as="h2"
+                    className="text-3xl md:text-[56px]"
                     style={{
-                      fontSize: "56px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
@@ -293,6 +272,7 @@ export default function Fidelizar() {
                   </p>
                 </div>
                 <div
+                  className="min-h-[240px] md:min-h-0"
                   style={{
                     backgroundColor: "#d9d9d9",
                     borderRadius: "32px",
@@ -306,11 +286,11 @@ export default function Fidelizar() {
                   <FadeIn
                     key={step}
                     delay={idx * 0.08}
+                    className="flex-col sm:flex-row gap-4 sm:gap-10"
                     style={{
                       backgroundColor: colors.black,
                       borderRadius: "32px",
                       display: "flex",
-                      gap: "40px",
                       alignItems: "center",
                       padding: "32px",
                     }}
@@ -346,8 +326,8 @@ export default function Fidelizar() {
             <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[56px]"
                 style={{
-                  fontSize: "56px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -360,55 +340,26 @@ export default function Fidelizar() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
                 {/* Bloco 1: Conor Seguro */}
-                <div style={{ display: "flex", gap: "20px", width: "100%" }}>
-                  <FadeIn
-                    style={{
-                      width: "737px",
-                      height: "638px",
-                      flexShrink: 0,
-                      position: "relative",
-                      borderRadius: "32px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        width: "1419px",
-                        height: "792px",
-                        left: "-582px",
-                        top: "-141px",
-                        backgroundImage: `url(${imgRelacionadosSeguro})`,
-                        backgroundSize: "1419px 792px",
-                      }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        right: 0,
-                        bottom: 0,
-                        width: "459px",
-                        height: "128px",
-                        backgroundColor: colors.white,
-                        borderTopLeftRadius: "32px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <img src={imgRelacionadosSeguroLogo} alt="Conor Seguro" style={{ width: "357px", height: "62px" }} />
-                    </div>
-                  </FadeIn>
+                <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                  <CroppedIllustration
+                    src={imgRelacionadosSeguro}
+                    alt="Conor Seguro"
+                    aspectRatio={1419 / 792}
+                    objectPosition="41% 18%"
+                    borderRadius="32px"
+                    className="md:w-[737px] md:h-[638px] md:flex-shrink-0"
+                    logo={{ src: imgRelacionadosSeguroLogo, aspectRatio: 357 / 62, widthFraction: 0.32 }}
+                  />
 
-                  <div style={{ flex: "1 0 0", height: "638px", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div style={{ flex: "1 0 0", display: "flex", gap: "20px" }}>
+                  <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 0", gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
                         <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 0" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%", justifyContent: "flex-end" }} />
                         </FadeIn>
                       ))}
                     </div>
-                    <div style={{ flex: "1 0 0", display: "flex", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 0", gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
                         <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 0" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
@@ -419,8 +370,8 @@ export default function Fidelizar() {
                 </div>
 
                 {/* Bloco 2: Conor Assist */}
-                <div style={{ display: "flex", gap: "20px", width: "100%" }}>
-                  <div style={{ flex: "1 0 0", height: "590px", display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                  <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "20px" }}>
                     <FadeIn style={{ flex: "1 0 0" }}>
                       <RelatedFeatureCard
                         title={assistFeatures[0].title}
@@ -429,7 +380,7 @@ export default function Fidelizar() {
                         style={{ height: "100%" }}
                       />
                     </FadeIn>
-                    <div style={{ flex: "1 0 0", display: "flex", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 0", gap: "20px" }}>
                       {assistFeatures.slice(1, 3).map((feature, idx) => (
                         <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 0" }}>
                           <RelatedFeatureCard
@@ -443,59 +394,24 @@ export default function Fidelizar() {
                     </div>
                   </div>
 
-                  <FadeIn
-                    style={{
-                      width: "737px",
-                      height: "590px",
-                      flexShrink: 0,
-                      position: "relative",
-                      borderRadius: "32px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        width: "1480px",
-                        height: "826px",
-                        left: "-388px",
-                        top: "-236px",
-                        backgroundImage: `url(${imgRelacionadosAssist})`,
-                        backgroundSize: "1480px 826px",
-                      }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        right: 0,
-                        bottom: 0,
-                        width: "459px",
-                        height: "128px",
-                        backgroundColor: colors.white,
-                        borderTopLeftRadius: "32px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <img src={imgRelacionadosAssistLogo} alt="Conor Assist" style={{ width: "321px", height: "62px" }} />
-                    </div>
-                  </FadeIn>
+                  <CroppedIllustration
+                    src={imgRelacionadosAssist}
+                    alt="Conor Assist"
+                    aspectRatio={1480 / 826}
+                    objectPosition="26% 29%"
+                    borderRadius="32px"
+                    className="md:w-[737px] md:h-[590px] md:flex-shrink-0"
+                    logo={{ src: imgRelacionadosAssistLogo, aspectRatio: 321 / 62, widthFraction: 0.32 }}
+                  />
                 </div>
               </div>
             </div>
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #54a8fd, #52a4ff 43.269%)",
-                height: "480px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -503,8 +419,8 @@ export default function Fidelizar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -555,11 +471,11 @@ export default function Fidelizar() {
               <img
                 src={imgCtaIllustration}
                 alt=""
+                className="w-full h-auto md:h-[480px] md:w-[707px]"
                 style={{
-                  height: "480px",
-                  width: "707px",
                   objectFit: "cover",
                   flexShrink: 0,
+                  maxWidth: "100%",
                 }}
               />
             </div>

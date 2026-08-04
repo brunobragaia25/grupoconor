@@ -7,24 +7,22 @@ const imgArrow = "/icons/keyboard_double_arrow_down.svg";
 export function HeroMain() {
   return (
     <section
+      className="px-4 py-10 md:pl-20 md:py-0 md:h-[620px]"
       style={{
         backgroundColor: "#ffffff",
         width: "100%",
-        height: "620px",
         display: "flex",
         alignItems: "center",
-        paddingLeft: "80px",
         borderRadius: "12px 12px 0 0",
         overflow: "hidden",
         boxSizing: "border-box",
       }}
     >
       <div
+        className="flex-col md:flex-row gap-8 md:gap-20"
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "80px",
-          height: "100%",
           width: "100%",
           minWidth: 0,
         }}
@@ -51,14 +49,13 @@ export function HeroMain() {
           >
             <AnimatedTitle
               as="p"
+              className="text-3xl md:text-[56px] w-full md:w-[716px]"
               style={{
                 margin: 0,
                 fontFamily: "var(--font-linear-grotesk)",
                 fontWeight: 700,
-                fontSize: "56px",
                 lineHeight: "1.1",
                 color: "#484848",
-                width: "716px",
                 wordBreak: "break-word",
               }}
             >
@@ -69,6 +66,7 @@ export function HeroMain() {
             </AnimatedTitle>
 
             <p
+              className="w-full md:w-[592px]"
               style={{
                 margin: 0,
                 fontFamily: "var(--font-roboto)",
@@ -76,7 +74,6 @@ export function HeroMain() {
                 fontSize: "18px",
                 lineHeight: "28px",
                 color: "#484848",
-                width: "592px",
               }}
             >
               Oferecemos tecnologias avançadas, suporte consultivo e benefícios exclusivos para ajudar você a atingir o máximo potencial do seu negócio de rastreamento e segurança patrimonial.
@@ -126,9 +123,8 @@ export function HeroMain() {
 
         {/* Coluna direita — ilustração */}
         <div
+          className="w-full h-[280px] md:w-[740px] md:h-full"
           style={{
-            width: "740px",
-            height: "100%",
             flexShrink: 0,
             backgroundColor: "#d9d9d9",
             borderRadius: "0 12px 0 64px",

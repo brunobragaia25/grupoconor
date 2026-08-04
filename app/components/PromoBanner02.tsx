@@ -8,12 +8,13 @@ const imgIllustration = "/image-promo-banner-02-final.png";
 export function PromoBanner02() {
   return (
     <section
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
       }}
     >
       <div
+        className="flex-col md:flex-row"
         style={{
           maxWidth: "1494px",
           margin: "0 auto",
@@ -27,6 +28,7 @@ export function PromoBanner02() {
       >
         {/* Lado esquerdo - Conteúdo */}
         <div
+          className="p-6 md:p-12"
           style={{
             flex: 1,
             display: "flex",
@@ -34,7 +36,6 @@ export function PromoBanner02() {
             gap: "24px",
             alignItems: "flex-start",
             justifyContent: "center",
-            padding: "48px",
           }}
         >
           <p
@@ -54,14 +55,13 @@ export function PromoBanner02() {
 
           <AnimatedTitle
             as="h2"
+            className="text-xl md:text-[28px] w-full md:w-[600px]"
             style={{
               margin: 0,
-              fontSize: "28px",
               fontWeight: 700,
               fontFamily: "var(--font-linear-grotesk)",
               lineHeight: "normal",
               maxWidth: "600px",
-              width: "600px",
               color: colors.black,
             }}
           >
@@ -103,6 +103,7 @@ export function PromoBanner02() {
 
         {/* Lado direito - Ilustração */}
         <div
+          className="h-[200px] md:h-auto"
           style={{
             flex: 1,
             overflow: "hidden",

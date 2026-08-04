@@ -97,26 +97,20 @@ const benefits = [
 export default function Administrar() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
+            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
-              minHeight: "620px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
-              overflow: "hidden",
-              position: "relative",
             }}
           >
             <div
+              className="flex flex-col md:flex-row gap-5 md:gap-10"
               style={{
-                display: "flex",
-                gap: "40px",
                 alignItems: "flex-start",
                 position: "relative",
                 zIndex: 1,
@@ -130,8 +124,8 @@ export default function Administrar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
@@ -161,53 +155,37 @@ export default function Administrar() {
             </div>
 
             <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "740px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
+              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
+                className="absolute inset-0 bg-cover bg-center md:w-[2129.464px] md:h-[1590px] md:left-[-695px] md:top-[-604px] md:bg-auto"
                 style={{
-                  position: "absolute",
-                  width: "2129.464px",
-                  height: "1590px",
-                  left: "-695px",
-                  top: "-604px",
                   backgroundImage: `url(${imgHeroIllustration})`,
-                  backgroundSize: "2129.464px 1590px",
                 }}
               />
             </div>
           </div>
 
           <div
+            className="px-4 py-10 md:p-[96px] flex flex-col gap-16 md:gap-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "96px",
             }}
           >
             {/* Módulos */}
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="flex flex-col md:flex-row gap-5">
               {modules.map((module, idx) => (
                 <FadeIn
                   key={module.title}
                   delay={idx * 0.08}
+                  className="p-6 md:p-12"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "48px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -279,12 +257,12 @@ export default function Administrar() {
             </div>
 
             {/* Veja como funciona */}
-            <div style={{ display: "flex", gap: "64px", alignItems: "center" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "40px", width: "392px", flexShrink: 0 }}>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-16 md:items-center">
+              <div className="md:w-[392px]" style={{ display: "flex", flexDirection: "column", gap: "40px", flexShrink: 0 }}>
                 <AnimatedTitle
                   as="p"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -307,11 +285,12 @@ export default function Administrar() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", flex: "1 0 0", gap: "20px", alignItems: "center" }}>
+              <div className="flex flex-col md:flex-row gap-5" style={{ flex: "1 0 0", alignItems: "center" }}>
                 {screenshots.map((screenshot, idx) => (
                   <FadeIn
                     key={screenshot.title}
                     delay={idx * 0.08}
+                    className="w-full"
                     style={{
                       backgroundColor: "#d9d9d9",
                       border: "1px solid #272727",
@@ -369,8 +348,8 @@ export default function Administrar() {
             <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
               <AnimatedTitle
                 as="p"
+                className="text-3xl md:text-[56px]"
                 style={{
-                  fontSize: "56px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -384,7 +363,7 @@ export default function Administrar() {
                 ]}
               </AnimatedTitle>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
                 <CroppedIllustration
                   src={imgWhyIllustration}
                   alt="Conor Admin"
@@ -396,22 +375,20 @@ export default function Administrar() {
                 />
 
                 <div
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-5"
                   style={{
                     flex: "1 0 0",
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "20px",
                   }}
                 >
                   {benefits.map((benefit, idx) => (
                     <FadeIn
                       key={benefit.title}
                       delay={idx * 0.08}
+                      className="p-8 md:p-16"
                       style={{
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderRadius: "32px",
-                        padding: "64px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "26px",
@@ -447,15 +424,9 @@ export default function Administrar() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #008382, #20c4c3 43.269%)",
-                height: "480px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -463,8 +434,8 @@ export default function Administrar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -515,11 +486,11 @@ export default function Administrar() {
               <img
                 src={imgCtaIllustration}
                 alt=""
+                className="w-full h-auto md:h-[480px] md:w-[722px]"
                 style={{
-                  height: "480px",
-                  width: "722px",
                   objectFit: "cover",
                   flexShrink: 0,
+                  maxWidth: "100%",
                 }}
               />
             </div>

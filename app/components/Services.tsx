@@ -62,6 +62,7 @@ function ServiceCard({ service, delay = 0 }: { service: ServiceCard; delay?: num
   return (
     <FadeIn
       delay={delay}
+      className="h-auto md:h-[480px]"
       style={{
         backgroundColor: "#171717",
         border: "1px solid #272727",
@@ -69,16 +70,15 @@ function ServiceCard({ service, delay = 0 }: { service: ServiceCard; delay?: num
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
-        height: "480px",
       }}
     >
       <div
+        className="p-6 md:p-16 gap-8 md:gap-0"
         style={{
           flex: 1,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "64px",
         }}
       >
         {/* Icon badge */}
@@ -153,9 +153,9 @@ function ServiceCard({ service, delay = 0 }: { service: ServiceCard; delay?: num
 export function Services() {
   return (
     <section
+      className="px-4 py-10 md:px-12 md:py-12"
       style={{
         backgroundColor: colors.background.dark,
-        padding: "48px 48px",
       }}
     >
       {/* Title */}
@@ -168,8 +168,8 @@ export function Services() {
       >
         <AnimatedTitle
           as="h2"
+          className="text-3xl md:text-[48px]"
           style={{
-            fontSize: "48px",
             fontWeight: 900,
             fontFamily: "var(--font-linear-grotesk)",
             color: colors.white,
@@ -192,6 +192,7 @@ export function Services() {
       >
         {/* First Row - 2 cards */}
         <div
+          className="flex-col md:flex-row"
           style={{
             display: "flex",
             gap: "20px",
@@ -206,6 +207,7 @@ export function Services() {
 
         {/* Second Row - 3 cards */}
         <div
+          className="flex-col md:flex-row"
           style={{
             display: "flex",
             gap: "20px",

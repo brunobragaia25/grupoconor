@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgRocketLarge = "/icons/icon-rocket-large.svg";
 const imgHeroIllustration = "/image-montar-hero.svg";
@@ -173,26 +174,20 @@ const pricingTiers = [
 export default function Montar() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark, paddingRight: "32px" }}>
+      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
+            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
-              minHeight: "620px",
-              display: "flex",
-              alignItems: "center",
-              paddingLeft: "80px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
-              overflow: "hidden",
-              position: "relative",
             }}
           >
             <div
+              className="flex flex-col md:flex-row gap-5 md:gap-10"
               style={{
-                display: "flex",
-                gap: "40px",
                 alignItems: "flex-start",
                 position: "relative",
                 zIndex: 1,
@@ -206,8 +201,8 @@ export default function Montar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
+                  className="text-4xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
@@ -237,53 +232,37 @@ export default function Montar() {
             </div>
 
             <div
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                bottom: 0,
-                width: "740px",
-                overflow: "hidden",
-                pointerEvents: "none",
-              }}
+              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
+                className="absolute inset-0 bg-cover bg-center md:w-[1141.07px] md:h-[852px] md:left-[-200.536px] md:top-[-116px] md:bg-auto"
                 style={{
-                  position: "absolute",
-                  width: "1141.07px",
-                  height: "852px",
-                  left: "-200.536px",
-                  top: "-116px",
                   backgroundImage: `url(${imgHeroIllustration})`,
-                  backgroundSize: "1141.07px 852px",
                 }}
               />
             </div>
           </div>
 
           <div
+            className="px-4 py-10 md:p-[96px] flex flex-col gap-16 md:gap-24"
             style={{
               backgroundColor: "rgba(36, 36, 36, 0.75)",
               borderRadius: "12px",
               borderTopLeftRadius: 0,
-              padding: "96px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "96px",
             }}
           >
             {/* 3 Feature Cards */}
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="flex flex-col md:flex-row gap-5">
               {features.map((feature, idx) => (
                 <FadeIn
                   key={feature.title}
                   delay={idx * 0.08}
+                  className="p-6 md:p-12"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
                     flex: "1 0 0",
-                    padding: "48px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "40px",
@@ -358,8 +337,8 @@ export default function Montar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -382,7 +361,7 @@ export default function Montar() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
                 {hardware.map((product, idx) => (
                   <FadeIn
                     key={product.name}
@@ -462,8 +441,8 @@ export default function Montar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[56px]"
                   style={{
-                    fontSize: "56px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -486,7 +465,7 @@ export default function Montar() {
                 </p>
               </div>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row gap-5" style={{ width: "100%" }}>
                 {pricingTiers.map((tier, idx) => (
                   <FadeIn
                     key={tier.title}
@@ -621,8 +600,8 @@ export default function Montar() {
             <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
               <AnimatedTitle
                 as="h2"
+                className="text-3xl md:text-[56px]"
                 style={{
-                  fontSize: "56px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
@@ -633,52 +612,24 @@ export default function Montar() {
                 Produto relacionado
               </AnimatedTitle>
 
-              <div style={{ display: "flex", gap: "20px", width: "100%" }}>
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    height: "400px",
-                    position: "relative",
-                    borderRadius: "32px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      width: "1003px",
-                      height: "560px",
-                      left: "-246px",
-                      top: "-160px",
-                      backgroundImage: `url(${imgEstoqueIllustration})`,
-                      backgroundSize: "1003px 560px",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      right: 0,
-                      bottom: 0,
-                      width: "459px",
-                      height: "128px",
-                      backgroundColor: colors.white,
-                      borderTopLeftRadius: "32px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <img src={imgEstoqueLogo} alt="Conor Estoque" style={{ width: "387px", height: "64px" }} />
-                  </div>
-                </div>
+              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                <CroppedIllustration
+                  src={imgEstoqueIllustration}
+                  alt="Conor Estoque"
+                  aspectRatio={1003 / 560}
+                  objectPosition="25% 29%"
+                  borderRadius="32px"
+                  className="flex-1 md:h-[400px]"
+                  logo={{ src: imgEstoqueLogo, aspectRatio: 387 / 64, widthFraction: 0.46 }}
+                />
 
                 <div
+                  className="p-8 md:p-16"
                   style={{
                     flex: "1 0 0",
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    padding: "64px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "28px",
@@ -772,15 +723,9 @@ export default function Montar() {
 
             {/* CTA Final */}
             <div
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #670a24, #e01e5a 43.269%)",
-                height: "480px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                paddingLeft: "96px",
-                paddingTop: "96px",
-                paddingBottom: "96px",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
@@ -788,8 +733,8 @@ export default function Montar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
+                  className="text-3xl md:text-[48px]"
                   style={{
-                    fontSize: "48px",
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
@@ -840,11 +785,11 @@ export default function Montar() {
               <img
                 src={imgCtaIllustration}
                 alt=""
+                className="w-full h-auto md:h-[480px] md:w-[722px]"
                 style={{
-                  height: "480px",
-                  width: "722px",
                   objectFit: "cover",
                   flexShrink: 0,
+                  maxWidth: "100%",
                 }}
               />
             </div>
