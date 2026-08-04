@@ -19,7 +19,7 @@ export function HeroMain() {
       }}
     >
       <div
-        className="flex-col md:flex-row gap-8 md:gap-20"
+        className="flex-col md:flex-row gap-8 md:gap-20 md:h-full"
         style={{
           display: "flex",
           alignItems: "center",
@@ -49,7 +49,7 @@ export function HeroMain() {
           >
             <AnimatedTitle
               as="p"
-              className="text-3xl md:text-[56px] w-full md:w-[716px]"
+              className="text-3xl md:text-[56px] w-full md:max-w-[716px]"
               style={{
                 margin: 0,
                 fontFamily: "var(--font-linear-grotesk)",
@@ -66,7 +66,7 @@ export function HeroMain() {
             </AnimatedTitle>
 
             <p
-              className="w-full md:w-[592px]"
+              className="w-full md:max-w-[592px]"
               style={{
                 margin: 0,
                 fontFamily: "var(--font-roboto)",
@@ -123,9 +123,8 @@ export function HeroMain() {
 
         {/* Coluna direita — ilustração */}
         <div
-          className="w-full h-[280px] md:w-[740px] md:h-full"
+          className="w-full h-[280px] md:flex-1 md:max-w-[740px] md:min-w-0 md:h-full"
           style={{
-            flexShrink: 0,
             backgroundColor: "#d9d9d9",
             borderRadius: "0 12px 0 64px",
             overflow: "hidden",
