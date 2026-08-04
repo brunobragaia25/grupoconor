@@ -2,21 +2,79 @@
 
 import { colors } from "../styles/design-tokens";
 
-export function Navbar() {
+interface NavbarProps {
+  onMenuClick: () => void;
+  menuOpen: boolean;
+}
+
+export function Navbar({ onMenuClick, menuOpen }: NavbarProps) {
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8"
       style={{
         height: "72px",
-        paddingLeft: "32px",
-        paddingRight: "32px",
         backgroundColor: "#000000",
         borderBottom: "1px solid #242424",
       }}
     >
+      {/* Hamburger (mobile only) */}
+      <button
+        className="flex md:hidden items-center justify-center order-1"
+        aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+        onClick={onMenuClick}
+        style={{
+          width: "40px",
+          height: "40px",
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          flexShrink: 0,
+        }}
+      >
+        <div style={{ position: "relative", width: "20px", height: "16px" }}>
+          <span
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              height: "2px",
+              backgroundColor: colors.white,
+              top: menuOpen ? "7px" : "0px",
+              transform: menuOpen ? "rotate(45deg)" : "rotate(0deg)",
+              transition: "top 0.2s, transform 0.2s",
+            }}
+          />
+          <span
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              height: "2px",
+              backgroundColor: colors.white,
+              top: "7px",
+              opacity: menuOpen ? 0 : 1,
+              transition: "opacity 0.2s",
+            }}
+          />
+          <span
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              height: "2px",
+              backgroundColor: colors.white,
+              top: menuOpen ? "7px" : "14px",
+              transform: menuOpen ? "rotate(-45deg)" : "rotate(0deg)",
+              transition: "top 0.2s, transform 0.2s",
+            }}
+          />
+        </div>
+      </button>
+
       {/* Logo */}
       <a
         href="/"
+        className="order-2 md:order-1"
         style={{
           height: "26px",
           display: "flex",
@@ -37,11 +95,12 @@ export function Navbar() {
 
       {/* CTA Button */}
       <button
+        className="order-3 md:order-2"
         style={{
           display: "flex",
           alignItems: "center",
           gap: "6px",
-          padding: "12px 16px",
+          padding: "10px 12px",
           backgroundColor: "transparent",
           color: colors.white,
           border: `1px solid ${colors.text.bodyLight}`,
@@ -51,6 +110,7 @@ export function Navbar() {
           cursor: "pointer",
           fontFamily: "var(--font-roboto)",
           transition: "all 0.3s",
+          whiteSpace: "nowrap",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.borderColor = colors.white;
@@ -66,7 +126,7 @@ export function Navbar() {
           alt="WhatsApp"
           style={{ width: "16px", height: "16px", flexShrink: 0 }}
         />
-        Falar agora no WhatsApp
+        <span className="hidden sm:inline">Falar agora no WhatsApp</span>
       </button>
     </nav>
   );

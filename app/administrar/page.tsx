@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 
 const imgBookmarkLarge = "/icons/icon-bookmark-large.svg";
 const imgHeroIllustration = "/image-administrar-hero.svg";
@@ -384,43 +385,15 @@ export default function Administrar() {
               </AnimatedTitle>
 
               <div style={{ display: "flex", gap: "20px", width: "100%" }}>
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    height: "590px",
-                    position: "relative",
-                    borderRadius: "32px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      width: "1744px",
-                      height: "974px",
-                      left: "-716px",
-                      top: "-371px",
-                      backgroundImage: `url(${imgWhyIllustration})`,
-                      backgroundSize: "1744px 974px",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      right: 0,
-                      bottom: 0,
-                      width: "459px",
-                      height: "128px",
-                      backgroundColor: colors.white,
-                      borderTopLeftRadius: "32px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <img src={imgHeroLogo} alt="Conor Admin" style={{ width: "345px", height: "62px" }} />
-                  </div>
-                </div>
+                <CroppedIllustration
+                  src={imgWhyIllustration}
+                  alt="Conor Admin"
+                  aspectRatio={1744 / 974}
+                  objectPosition="41% 38%"
+                  borderRadius="32px"
+                  className="flex-1"
+                  logo={{ src: imgHeroLogo, aspectRatio: 345 / 62, widthFraction: 0.36 }}
+                />
 
                 <div
                   style={{
