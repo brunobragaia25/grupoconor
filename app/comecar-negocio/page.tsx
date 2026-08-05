@@ -786,7 +786,7 @@ export default function ComecarNegocio() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="md:flex-shrink-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -862,8 +862,8 @@ export default function ComecarNegocio() {
               </div>
 
               <div
-                className="w-full md:w-[722px]"
-                style={{ aspectRatio: "722 / 480", flexShrink: 0, position: "relative", overflow: "hidden" }}
+                className="w-full md:flex-1 md:min-w-0 md:max-w-[722px]"
+                style={{ aspectRatio: "722 / 480", position: "relative", overflow: "hidden" }}
               >
                 <div
                   style={{
