@@ -609,7 +609,7 @@ export default function MontarCombo() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
+              className="flex flex-col md:flex-row items-stretch justify-between px-6 py-12 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#996cfb",
                 boxSizing: "border-box",
@@ -617,7 +617,7 @@ export default function MontarCombo() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -669,13 +669,20 @@ export default function MontarCombo() {
                 </button>
               </div>
 
-              <CroppedIllustration
-                src={imgCtaIllustration}
-                alt=""
-                aspectRatio={722 / 480}
-                objectPosition="0% 6%"
-                className="w-full md:w-[722px]"
-              />
+              <div className="w-full h-[280px] md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto" style={{ position: "relative", overflow: "hidden" }}>
+                <img
+                  src={imgCtaIllustration}
+                  alt=""
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "0% 6%",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

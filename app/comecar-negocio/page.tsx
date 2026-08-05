@@ -778,7 +778,7 @@ export default function ComecarNegocio() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
+              className="flex flex-col md:flex-row items-stretch justify-between px-6 py-12 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#20c4c3",
                 boxSizing: "border-box",
@@ -786,7 +786,7 @@ export default function ComecarNegocio() {
                 overflow: "hidden",
               }}
             >
-              <div className="md:flex-shrink-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -862,29 +862,25 @@ export default function ComecarNegocio() {
               </div>
 
               <div
-                className="w-full md:flex-1 md:min-w-0 md:max-w-[722px]"
-                style={{ aspectRatio: "722 / 480", position: "relative", overflow: "hidden" }}
+                className="w-full h-[280px] md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto"
+                style={{ position: "relative", overflow: "hidden" }}
               >
                 <div
                   style={{
                     position: "absolute",
-                    width: "100%",
-                    height: `${(539.093 / 480) * 100}%`,
-                    left: 0,
-                    top: `${(-29.547 / 480) * 100}%`,
+                    inset: 0,
                     backgroundImage: `url(${imgCtaIllustrationBack})`,
-                    backgroundSize: "100% 100%",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
                 />
                 <div
                   style={{
                     position: "absolute",
-                    width: `${(750 / 722) * 100}%`,
-                    height: `${(750 / 480) * 100}%`,
-                    left: `${(-14 / 722) * 100}%`,
-                    top: `${(-71.781 / 480) * 100}%`,
+                    inset: 0,
                     backgroundImage: `url(${imgCtaIllustrationFront})`,
-                    backgroundSize: "100% 100%",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
                 />
               </div>

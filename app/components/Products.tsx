@@ -4,11 +4,19 @@ import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 import { FadeIn } from "./motion/FadeIn";
 
+interface IllustrationLayer {
+  src: string;
+  left: string;
+  top: string;
+  width: string;
+  height: string;
+}
+
 interface ProductCard {
   id: number;
   logo: string;
   logoWidth: number;
-  image: string;
+  layers: IllustrationLayer[];
   color: string;
   whatsapp: string;
   eyebrow: string;
@@ -21,7 +29,9 @@ const products: ProductCard[] = [
     id: 1,
     logo: "/icons/product-logos/4em1.svg",
     logoWidth: 174,
-    image: "/image-product-4em1.jpg",
+    layers: [
+      { src: "/products/illus-4em1.png", left: "-87.66%", top: "-58%", width: "190.38%", height: "190.04%" },
+    ],
     color: "#40c6ee",
     whatsapp: "/icons/product-whatsapp/4em1.svg",
     eyebrow: "Ative seu software",
@@ -37,7 +47,9 @@ const products: ProductCard[] = [
     id: 2,
     logo: "/icons/product-logos/admin.svg",
     logoWidth: 178,
-    image: "/image-product-admin.jpg",
+    layers: [
+      { src: "/products/illus-admin.png", left: "-120.43%", top: "-138.82%", width: "271.11%", height: "270.48%" },
+    ],
     color: "#01c4c4",
     whatsapp: "/icons/product-whatsapp/admin.svg",
     eyebrow: "Zero de entrada",
@@ -52,7 +64,9 @@ const products: ProductCard[] = [
     id: 3,
     logo: "/icons/product-logos/estoque.svg",
     logoWidth: 195,
-    image: "/image-product-estoque.jpg",
+    layers: [
+      { src: "/products/illus-estoque.png", left: "-88.38%", top: "-89.74%", width: "206.95%", height: "206.64%" },
+    ],
     color: "#e01e5a",
     whatsapp: "/icons/product-whatsapp/estoque.svg",
     eyebrow: "Compre rastreadores e chips na quantidade que precisa",
@@ -66,7 +80,9 @@ const products: ProductCard[] = [
     id: 4,
     logo: "/icons/product-logos/seguro.svg",
     logoWidth: 184,
-    image: "/image-product-seguro.jpg",
+    layers: [
+      { src: "/products/illus-seguro.png", left: "-63.14%", top: "-72.03%", width: "172.08%", height: "171.96%" },
+    ],
     color: "#ffc301",
     whatsapp: "/icons/product-whatsapp/seguro.svg",
     eyebrow: "Ative seu seguro",
@@ -77,7 +93,9 @@ const products: ProductCard[] = [
     id: 5,
     logo: "/icons/product-logos/assist.svg",
     logoWidth: 166,
-    image: "/image-product-assist.jpg",
+    layers: [
+      { src: "/products/illus-assist.png", left: "-63.27%", top: "-82.36%", width: "220.77%", height: "220.66%" },
+    ],
     color: "#996cfb",
     whatsapp: "/icons/product-whatsapp/assist.svg",
     eyebrow: "Ative sua assistência",
@@ -92,7 +110,10 @@ const products: ProductCard[] = [
     id: 6,
     logo: "/icons/product-logos/marketing.svg",
     logoWidth: 221,
-    image: "/image-product-marketing.jpg",
+    layers: [
+      { src: "/products/illus-marketing-1.png", left: "-88.38%", top: "-89.74%", width: "206.95%", height: "206.64%" },
+      { src: "/products/illus-marketing-2.png", left: "-23.38%", top: "-23.32%", width: "123.38%", height: "123.25%" },
+    ],
     color: "#fa7a22",
     whatsapp: "/icons/product-whatsapp/marketing.svg",
     eyebrow: "Ative o seu marketing e monte o seu combo",
@@ -118,11 +139,28 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
         style={{
           display: "block",
           height: "271px",
-          backgroundImage: `url(${product.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          position: "relative",
+          overflow: "hidden",
+          backgroundColor: colors.background.grayUltraHigh,
         }}
-      />
+      >
+        {product.layers.map((layer, idx) => (
+          <img
+            key={idx}
+            src={layer.src}
+            alt=""
+            style={{
+              position: "absolute",
+              left: layer.left,
+              top: layer.top,
+              width: layer.width,
+              height: layer.height,
+              maxWidth: "none",
+              objectFit: "cover",
+            }}
+          />
+        ))}
+      </a>
       <div
         className="p-6 md:px-12 md:py-16"
         style={{
