@@ -93,9 +93,9 @@ export function CounterSection() {
       >
         {/* Counter 1 */}
         <FadeIn
-          className="h-[220px] md:h-[320px] px-4"
+          className="h-[220px] md:h-[320px] px-4 w-full md:w-auto"
           style={{
-            flex: 1,
+            flex: "1 1 auto",
             backgroundColor: "#52a4ff",
             borderRadius: "32px",
             display: "flex",
@@ -116,8 +116,9 @@ export function CounterSection() {
         {/* Counter 2 */}
         <FadeIn
           delay={0.1}
+          className="w-full md:w-auto"
           style={{
-            flex: 1,
+            flex: "1 1 auto",
             backgroundColor: "#52a4ff",
             borderRadius: "32px",
             height: "320px",

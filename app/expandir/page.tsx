@@ -218,7 +218,7 @@ export default function Expandir() {
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderRadius: "32px",
-                        flex: "1 0 0",
+                        flex: "1 0 auto", width: "100%",
                         display: "flex",
                         flexDirection: "column",
                         gap: "40px",
@@ -386,7 +386,7 @@ export default function Expandir() {
                   className="px-6 md:px-12 py-10 md:py-0 md:h-[320px]"
                   style={{
                     backgroundColor: "#52a4ff",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -475,7 +475,7 @@ export default function Expandir() {
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       display: "flex",
                       flexDirection: "column",
                       gap: "26px",
@@ -538,7 +538,7 @@ export default function Expandir() {
                 <div
                   className="p-8 md:p-16"
                   style={{
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",

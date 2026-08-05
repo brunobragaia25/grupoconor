@@ -117,7 +117,7 @@ export function Technologies() {
             key={segment.id}
             delay={idx * 0.08}
             style={{
-              flex: "1 0 0",
+              flex: "1 0 auto", width: "100%",
               backgroundColor: "#171717",
               border: "1px solid #272727",
               borderRadius: "32px",

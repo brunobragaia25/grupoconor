@@ -153,7 +153,7 @@ export default function ConorMarketing() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -222,7 +222,7 @@ export default function ConorMarketing() {
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -319,7 +319,7 @@ export default function ConorMarketing() {
                           backgroundColor: "#171717",
                           border: "1px solid #272727",
                           borderRadius: "32px",
-                          flex: "1 0 0",
+                          flex: "1 0 auto", width: "100%",
                           padding: "48px",
                           display: "flex",
                           flexDirection: "column",

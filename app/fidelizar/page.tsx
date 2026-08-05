@@ -192,7 +192,7 @@ export default function Fidelizar() {
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -276,12 +276,12 @@ export default function Fidelizar() {
                   style={{
                     backgroundColor: "#d9d9d9",
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                   }}
                 />
               </div>
 
-              <div style={{ display: "flex", flex: "1 0 0", flexDirection: "column", gap: "20px", justifyContent: "center" }}>
+              <div style={{ display: "flex", flex: "1 0 auto", width: "100%", flexDirection: "column", gap: "20px", justifyContent: "center" }}>
                 {steps.map((step, idx) => (
                   <FadeIn
                     key={step}
@@ -302,7 +302,7 @@ export default function Fidelizar() {
                         fontFamily: "var(--font-roboto)",
                         color: colors.text.bodyLight,
                         margin: 0,
-                        flex: "1 0 0",
+                        flex: "1 0 auto", width: "100%",
                       }}
                     >
                       Passo 0{step}
@@ -351,17 +351,17 @@ export default function Fidelizar() {
                     logo={{ src: imgRelacionadosSeguroLogo, aspectRatio: 357 / 62, widthFraction: 0.32 }}
                   />
 
-                  <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 0", gap: "20px" }}>
+                  <div style={{ flex: "1 0 auto", width: "100%", display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 auto", width: "100%", gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
-                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 0" }}>
+                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 auto", width: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%", justifyContent: "flex-end" }} />
                         </FadeIn>
                       ))}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 0", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 auto", width: "100%", gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
-                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 0" }}>
+                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 auto", width: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
@@ -371,8 +371,8 @@ export default function Fidelizar() {
 
                 {/* Bloco 2: Conor Assist */}
                 <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
-                  <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <FadeIn style={{ flex: "1 0 0" }}>
+                  <div style={{ flex: "1 0 auto", width: "100%", display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <FadeIn style={{ flex: "1 0 auto", width: "100%" }}>
                       <RelatedFeatureCard
                         title={assistFeatures[0].title}
                         description={assistFeatures[0].description}
@@ -380,9 +380,9 @@ export default function Fidelizar() {
                         style={{ height: "100%" }}
                       />
                     </FadeIn>
-                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 0", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 auto", width: "100%", gap: "20px" }}>
                       {assistFeatures.slice(1, 3).map((feature, idx) => (
-                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 0" }}>
+                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 auto", width: "100%" }}>
                           <RelatedFeatureCard
                             title={feature.title}
                             description={feature.description}

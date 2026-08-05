@@ -170,7 +170,7 @@ export default function ComecarNegocio() {
             <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
               <div className="flex gap-6 md:gap-10 items-start flex-1">
                 <img src={imgStorefront} alt="" style={{ width: "64px", height: "59px", flexShrink: 0 }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px", flex: "1 0 0" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px", flex: "1 0 auto", width: "100%" }}>
                   <AnimatedTitle
                     as="h1"
                     className="text-3xl md:text-[56px]"
@@ -588,8 +588,9 @@ export default function ComecarNegocio() {
                   <FadeIn
                     key={product.title}
                     delay={idx * 0.08}
+                    className="w-full md:w-auto"
                     style={{
-                      flex: 1,
+                      flex: "1 1 auto",
                       borderRadius: "32px",
                       overflow: "hidden",
                       display: "flex",
@@ -716,9 +717,9 @@ export default function ComecarNegocio() {
             {/* Prova social */}
             <div className="flex flex-col md:flex-row gap-5">
               <FadeIn
-                className="h-[200px] md:h-[260px]"
+                className="h-[200px] md:h-[260px] w-full md:w-auto"
                 style={{
-                  flex: 1,
+                  flex: "1 1 auto",
                   backgroundColor: "#20c4c3",
                   borderRadius: "32px",
                   display: "flex",
@@ -737,9 +738,9 @@ export default function ComecarNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.08}
-                className="h-[200px] md:h-[260px]"
+                className="h-[200px] md:h-[260px] w-full md:w-auto"
                 style={{
-                  flex: 1,
+                  flex: "1 1 auto",
                   backgroundColor: "#20c4c3",
                   borderRadius: "32px",
                   display: "flex",
@@ -758,9 +759,9 @@ export default function ComecarNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.16}
-                className="h-[200px] md:h-[260px]"
+                className="h-[200px] md:h-[260px] w-full md:w-auto"
                 style={{
-                  flex: 1,
+                  flex: "1 1 auto",
                   backgroundColor: "#20c4c3",
                   borderRadius: "32px",
                   display: "flex",

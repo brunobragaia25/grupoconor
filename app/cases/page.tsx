@@ -76,7 +76,7 @@ export default function Cases() {
             <div
               style={{
                 display: "flex",
-                flex: "1 0 0",
+                flex: "1 0 auto", width: "100%",
                 alignItems: "flex-start",
                 justifyContent: "space-between",
               }}

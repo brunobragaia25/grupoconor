@@ -183,7 +183,7 @@ export default function ConorAdmin() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -274,7 +274,7 @@ export default function ConorAdmin() {
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -345,7 +345,7 @@ export default function ConorAdmin() {
                     style={{
                       backgroundColor: colors.black,
                       borderRadius: "20px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "40px",
                       display: "flex",
                       flexDirection: "column",
@@ -428,7 +428,7 @@ export default function ConorAdmin() {
                           backgroundColor: "#171717",
                           border: "1px solid #272727",
                           borderRadius: "32px",
-                          flex: "1 0 0",
+                          flex: "1 0 auto", width: "100%",
                           padding: "48px",
                           display: "flex",
                           flexDirection: "column",
@@ -484,7 +484,7 @@ export default function ConorAdmin() {
                 </p>
               </div>
 
-              <div style={{ flex: "1 0 0" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div style={{ flex: "1 0 auto", width: "100%" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {suporte.map((s, idx) => (
                   <FadeIn
                     key={s.title}

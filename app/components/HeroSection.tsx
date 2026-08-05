@@ -111,8 +111,9 @@ export function HeroSection() {
           <FadeIn
             key={card.id}
             delay={idx * 0.1}
+            className="w-full md:w-auto"
             style={{
-              flex: 1,
+              flex: "1 1 auto",
               display: "flex",
               flexDirection: "column",
               borderRadius: "8px",

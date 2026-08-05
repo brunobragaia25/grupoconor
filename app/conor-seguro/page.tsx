@@ -160,7 +160,7 @@ export default function ConorSeguro() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -268,7 +268,7 @@ export default function ConorSeguro() {
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -313,7 +313,7 @@ export default function ConorSeguro() {
               }}
               className="flex-col md:flex-row p-8 md:p-20"
             >
-              <div style={{ flex: "1 0 0", display: "flex", flexDirection: "column", gap: "40px" }}>
+              <div style={{ flex: "1 0 auto", width: "100%", display: "flex", flexDirection: "column", gap: "40px" }}>
                 <div>
                   <p
                     style={{
@@ -393,7 +393,7 @@ export default function ConorSeguro() {
 
               <div
                 style={{
-                  flex: "1 0 0",
+                  flex: "1 0 auto", width: "100%",
                   backgroundColor: colors.black,
                   border: "1px solid rgba(254, 194, 45, 0.2)",
                   borderRadius: "16px",
@@ -439,7 +439,7 @@ export default function ConorSeguro() {
                     display: "flex",
                     flexDirection: "column",
                     gap: "16px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     justifyContent: "space-between",
                   }}
                 >
@@ -525,7 +525,7 @@ export default function ConorSeguro() {
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "48px",
                       display: "flex",
                       flexDirection: "column",
@@ -629,7 +629,7 @@ export default function ConorSeguro() {
                 </div>
               </div>
 
-              <div style={{ flex: "1 0 0" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div style={{ flex: "1 0 auto", width: "100%" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {assistencia.map((a, idx) => (
                   <FadeIn
                     key={a.title}

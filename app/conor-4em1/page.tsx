@@ -151,7 +151,7 @@ export default function Conor4Em1() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -245,7 +245,7 @@ export default function Conor4Em1() {
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -284,7 +284,7 @@ export default function Conor4Em1() {
             <div className="flex flex-col md:flex-row gap-10">
               <div
                 style={{
-                  flex: "1 0 0",
+                  flex: "1 0 auto", width: "100%",
                   backgroundColor: colors.black,
                   border: "1px solid rgba(64, 198, 238, 0.2)",
                   borderRadius: "16px",
@@ -310,7 +310,7 @@ export default function Conor4Em1() {
                     Para centrais já estabelecidas que querem o sistema completo.
                   </p>
                 </div>
-                <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 0" }}>
+                <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 auto", width: "100%" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                     <p style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }} className="text-4xl md:text-[56px]">
                       R$3.000
@@ -344,7 +344,7 @@ export default function Conor4Em1() {
 
               <div
                 style={{
-                  flex: "1 0 0",
+                  flex: "1 0 auto", width: "100%",
                   backgroundColor: colors.black,
                   border: "1px solid rgba(64, 198, 238, 0.2)",
                   borderRadius: "16px",
@@ -370,7 +370,7 @@ export default function Conor4Em1() {
                     Inclui 10 rastreadores + chips + software. Ideal para quem está começando.
                   </p>
                 </div>
-                <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 0" }}>
+                <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 auto", width: "100%" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                     <p style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }} className="text-4xl md:text-[56px]">
                       R$2.500
@@ -456,7 +456,7 @@ export default function Conor4Em1() {
                           backgroundColor: "#171717",
                           border: "1px solid #272727",
                           borderRadius: "32px",
-                          flex: "1 0 0",
+                          flex: "1 0 auto", width: "100%",
                           padding: "48px",
                           display: "flex",
                           flexDirection: "column",

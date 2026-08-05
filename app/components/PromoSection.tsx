@@ -30,9 +30,9 @@ export function PromoSection() {
       >
         {/* Lado esquerdo - Ilustração */}
         <div
-          className="h-[200px] md:h-auto"
+          className="h-[200px] md:h-auto w-full md:w-auto"
           style={{
-            flex: 1,
+            flex: "1 1 auto",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -54,9 +54,9 @@ export function PromoSection() {
 
         {/* Lado direito - Conteúdo */}
         <div
-          className="p-6 md:p-12"
+          className="p-6 md:p-12 w-full md:w-auto"
           style={{
-            flex: 1,
+            flex: "1 1 auto",
             display: "flex",
             flexDirection: "column",
             gap: "24px",

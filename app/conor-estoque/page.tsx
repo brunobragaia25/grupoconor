@@ -213,7 +213,7 @@ export default function ConorEstoque() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     gap: "20px",
@@ -228,7 +228,7 @@ export default function ConorEstoque() {
                       display: "flex",
                       flexDirection: "column",
                       gap: "20px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       justifyContent: "center",
                     }}
                   >
@@ -259,7 +259,7 @@ export default function ConorEstoque() {
                       display: "flex",
                       flexDirection: "column",
                       gap: "20px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       justifyContent: "center",
                     }}
                   >
@@ -299,7 +299,7 @@ export default function ConorEstoque() {
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -371,7 +371,7 @@ export default function ConorEstoque() {
                       backgroundColor: "#1b1b1b",
                       border: tier.highlight ? `1px solid ${brand}` : "1px solid #2a2a2a",
                       borderRadius: "16px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "33px",
                       display: "flex",
                       flexDirection: "column",
@@ -505,7 +505,7 @@ export default function ConorEstoque() {
                       backgroundColor: colors.black,
                       border: "1px solid rgba(221, 36, 92, 0.2)",
                       borderRadius: "16px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
@@ -571,7 +571,7 @@ export default function ConorEstoque() {
 
             {/* Kit iniciante */}
             <div className="flex flex-col md:flex-row gap-10 md:gap-24 md:items-center">
-              <div style={{ display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 0" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 auto", width: "100%" }}>
                 <p
                   style={{
                     fontSize: "12px",
@@ -627,7 +627,7 @@ export default function ConorEstoque() {
 
               <div
                 style={{
-                  flex: "1 0 0",
+                  flex: "1 0 auto", width: "100%",
                   backgroundColor: "#1b1b1b",
                   border: "1px solid #2a2a2a",
                   borderRadius: "16px",
@@ -747,7 +747,7 @@ export default function ConorEstoque() {
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "48px",
                       display: "flex",
                       flexDirection: "column",

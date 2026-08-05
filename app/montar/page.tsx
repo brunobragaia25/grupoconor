@@ -262,7 +262,7 @@ export default function Montar() {
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     gap: "40px",
@@ -370,7 +370,7 @@ export default function Montar() {
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
@@ -474,7 +474,7 @@ export default function Montar() {
                       backgroundColor: "#111111",
                       border: "1px solid #2a2a2a",
                       borderRadius: "16px",
-                      flex: "1 0 0",
+                      flex: "1 0 auto", width: "100%",
                       padding: "33px",
                       display: "flex",
                       flexDirection: "column",
@@ -626,7 +626,7 @@ export default function Montar() {
                 <div
                   className="p-8 md:p-16"
                   style={{
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",

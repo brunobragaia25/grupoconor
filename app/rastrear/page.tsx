@@ -206,7 +206,7 @@ export default function Rastrear() {
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderRadius: "32px",
-                        flex: "1 0 0",
+                        flex: "1 0 auto", width: "100%",
                         display: "flex",
                         flexDirection: "column",
                         gap: "40px",
@@ -310,7 +310,7 @@ export default function Rastrear() {
               <div
                 className="grid grid-cols-1 sm:grid-cols-2 gap-5"
                 style={{
-                  flex: "1 0 0",
+                  flex: "1 0 auto", width: "100%",
                 }}
               >
                 {compatibility.map((item, idx) => (
@@ -373,7 +373,7 @@ export default function Rastrear() {
 
             {/* Veja a plataforma em ação */}
             <div className="flex flex-col md:flex-row gap-10 md:gap-16 md:items-center">
-              <div className="flex flex-col md:flex-row gap-5" style={{ flex: "1 0 0", alignItems: "center" }}>
+              <div className="flex flex-col md:flex-row gap-5" style={{ flex: "1 0 auto", width: "100%", alignItems: "center" }}>
                 {screenshots.map((screenshot, idx) => (
                   <FadeIn
                     key={screenshot.title}
@@ -482,7 +482,7 @@ export default function Rastrear() {
                 <div
                   className="h-[320px] md:h-[590px]"
                   style={{
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                     position: "relative",
                     borderRadius: "32px",
                     overflow: "hidden",
@@ -521,7 +521,7 @@ export default function Rastrear() {
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 gap-5"
                   style={{
-                    flex: "1 0 0",
+                    flex: "1 0 auto", width: "100%",
                   }}
                 >
                   {whyItems.map((item, idx) => (

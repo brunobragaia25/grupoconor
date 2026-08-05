@@ -29,8 +29,9 @@ export function HeroMain() {
       >
         {/* Coluna esquerda — texto */}
         <div
+          className="w-full md:w-auto"
           style={{
-            flex: 1,
+            flex: "1 1 auto",
             display: "flex",
             flexDirection: "column",
             gap: "40px",
