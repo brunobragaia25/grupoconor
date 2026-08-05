@@ -117,7 +117,7 @@ export default function CrescerNegocio() {
             <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
               <div className="flex gap-6 md:gap-10 items-start flex-1">
                 <img src={imgLoupeLarge} alt="" style={{ width: "64px", height: "64px", flexShrink: 0 }} />
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px", flex: "1 0 auto", width: "100%" }}>
+                <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <AnimatedTitle
                     as="h1"
                     className="text-3xl md:text-[56px]"
@@ -341,9 +341,8 @@ export default function CrescerNegocio() {
                   <FadeIn
                     key={product.title}
                     delay={idx * 0.08}
-                    className="w-full md:w-auto"
+                    className="w-full md:flex-1 md:w-auto md:min-w-0"
                     style={{
-                      flex: "1 1 auto",
                       borderRadius: "32px",
                       overflow: "hidden",
                       display: "flex",
@@ -441,9 +440,8 @@ export default function CrescerNegocio() {
             {/* Prova social */}
             <div className="flex flex-col md:flex-row gap-5">
               <FadeIn
-                className="h-[200px] md:h-[260px] w-full md:w-auto"
+                className="h-[200px] md:h-[260px] w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
-                  flex: "1 1 auto",
                   backgroundColor: "#fa7a22",
                   borderRadius: "32px",
                   display: "flex",
@@ -462,9 +460,8 @@ export default function CrescerNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.08}
-                className="h-[200px] md:h-[260px] w-full md:w-auto"
+                className="h-[200px] md:h-[260px] w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
-                  flex: "1 1 auto",
                   backgroundColor: "#fa7a22",
                   borderRadius: "32px",
                   display: "flex",
@@ -483,9 +480,8 @@ export default function CrescerNegocio() {
               </FadeIn>
               <FadeIn
                 delay={0.16}
-                className="h-[200px] md:h-[260px] w-full md:w-auto"
+                className="h-[200px] md:h-[260px] w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
-                  flex: "1 1 auto",
                   backgroundColor: "#fa7a22",
                   borderRadius: "32px",
                   display: "flex",

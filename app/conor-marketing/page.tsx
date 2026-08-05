@@ -153,13 +153,12 @@ export default function ConorMarketing() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
-                  className="p-8 md:p-16"
+                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                 >
                   <p
                     style={{
@@ -217,12 +216,11 @@ export default function ConorMarketing() {
                 className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={s.label}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -312,14 +310,13 @@ export default function ConorMarketing() {
                 {[combos.slice(0, 2), combos.slice(2, 4)].map((row, rowIdx) => (
                   <div key={rowIdx} className="flex flex-col sm:flex-row gap-5">
                     {row.map((combo, comboIdx) => (
-                      <FadeIn
+                      <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                         key={combo.title}
                         delay={(rowIdx * 2 + comboIdx) * 0.08}
                         style={{
                           backgroundColor: "#171717",
                           border: "1px solid #272727",
                           borderRadius: "32px",
-                          flex: "1 0 auto", width: "100%",
                           padding: "48px",
                           display: "flex",
                           flexDirection: "column",

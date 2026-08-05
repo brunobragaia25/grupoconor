@@ -183,13 +183,12 @@ export default function ConorAdmin() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
-                  className="p-8 md:p-16"
+                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                 >
                   <p
                     style={{
@@ -269,12 +268,11 @@ export default function ConorAdmin() {
                 className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={s.label}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -339,13 +337,12 @@ export default function ConorAdmin() {
 
               <div className="flex flex-col md:flex-row gap-6 w-full px-6 md:px-24">
                 {modulos.map((m, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={m.number}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
                       borderRadius: "20px",
-                      flex: "1 0 auto", width: "100%",
                       padding: "40px",
                       display: "flex",
                       flexDirection: "column",
@@ -421,14 +418,13 @@ export default function ConorAdmin() {
                 {[integracoes.slice(0, 3), integracoes.slice(3, 6)].map((row, rowIdx) => (
                   <div key={rowIdx} className="flex flex-col sm:flex-row gap-5">
                     {row.map((item, idx) => (
-                      <FadeIn
+                      <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                         key={item.title}
                         delay={idx * 0.08}
                         style={{
                           backgroundColor: "#171717",
                           border: "1px solid #272727",
                           borderRadius: "32px",
-                          flex: "1 0 auto", width: "100%",
                           padding: "48px",
                           display: "flex",
                           flexDirection: "column",
@@ -484,7 +480,7 @@ export default function ConorAdmin() {
                 </p>
               </div>
 
-              <div style={{ flex: "1 0 auto", width: "100%" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:flex-1 md:w-auto md:min-w-0">
                 {suporte.map((s, idx) => (
                   <FadeIn
                     key={s.title}

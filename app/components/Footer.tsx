@@ -162,15 +162,16 @@ export function Footer() {
               </h3>
             </div>
             {[
-              "Conor 4 em 1",
-              "Conor Admin",
-              "Conor Assist",
-              "Conor Estoque",
-              "Conor Seguro",
-              "Conor Marketing",
+              { label: "Conor 4 em 1", href: "/conor-4em1" },
+              { label: "Conor Admin", href: "/conor-admin" },
+              { label: "Conor Assist", href: "/conor-assist" },
+              { label: "Conor Estoque", href: "/conor-estoque" },
+              { label: "Conor Seguro", href: "/conor-seguro" },
+              { label: "Conor Marketing", href: "/conor-marketing" },
             ].map((item) => (
-              <p
-                key={item}
+              <a
+                key={item.label}
+                href={item.href}
                 style={{
                   margin: 0,
                   fontSize: "14px",
@@ -180,10 +181,15 @@ export function Footer() {
                   height: "40px",
                   display: "flex",
                   alignItems: "center",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "opacity 0.3s",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
-                {item}
-              </p>
+                {item.label}
+              </a>
             ))}
           </div>
 
@@ -364,7 +370,7 @@ export function Footer() {
               }}
             >
               <img
-                src={imgLanguage}
+                src="/icons/icon-map-pin-line.svg"
                 alt="Location"
                 style={{
                   width: "14px",
@@ -398,9 +404,11 @@ export function Footer() {
                 maxWidth: "1494px",
               }}
             >
-              <p
+              <div
                 style={{
-                  margin: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
                   fontSize: "12px",
                   fontWeight: 400,
                   fontFamily: "var(--font-roboto)",
@@ -408,8 +416,14 @@ export function Footer() {
                   lineHeight: "18px",
                 }}
               >
-                © 2025 Grupo Conor. Todos os direitos reservados.
-              </p>
+                <span>Desenvolvido por</span>
+                <img
+                  src="/icons/logo-devz-design.svg"
+                  alt="Devz Design"
+                  style={{ height: "16px", width: "auto", flexShrink: 0 }}
+                />
+                <span>© 2026 Grupo Conor. Todos os direitos reservados.</span>
+              </div>
               <p
                 style={{
                   margin: 0,

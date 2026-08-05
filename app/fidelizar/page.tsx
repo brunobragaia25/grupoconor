@@ -187,12 +187,11 @@ export default function Fidelizar() {
                 <FadeIn
                   key={pillar.title}
                   delay={idx * 0.08}
-                  className="p-6 md:p-12"
+                  className="p-6 md:p-12 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -272,16 +271,15 @@ export default function Fidelizar() {
                   </p>
                 </div>
                 <div
-                  className="min-h-[240px] md:min-h-0"
+                  className="min-h-[240px] md:min-h-0 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#d9d9d9",
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                   }}
                 />
               </div>
 
-              <div style={{ display: "flex", flex: "1 0 auto", width: "100%", flexDirection: "column", gap: "20px", justifyContent: "center" }}>
+              <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center" }}>
                 {steps.map((step, idx) => (
                   <FadeIn
                     key={step}
@@ -296,13 +294,12 @@ export default function Fidelizar() {
                     }}
                   >
                     <img src={imgStepCircle} alt="" style={{ width: "64px", height: "64px", flexShrink: 0 }} />
-                    <p
+                    <p className="w-full md:flex-1 md:w-auto md:min-w-0"
                       style={{
                         fontSize: "14px",
                         fontFamily: "var(--font-roboto)",
                         color: colors.text.bodyLight,
                         margin: 0,
-                        flex: "1 0 auto", width: "100%",
                       }}
                     >
                       Passo 0{step}
@@ -347,21 +344,21 @@ export default function Fidelizar() {
                     aspectRatio={1419 / 792}
                     objectPosition="41% 18%"
                     borderRadius="32px"
-                    className="md:w-[737px] md:h-[638px] md:flex-shrink-0"
+                    className="w-full md:w-[737px] md:h-[638px] md:flex-shrink-0"
                     logo={{ src: imgRelacionadosSeguroLogo, aspectRatio: 357 / 62, widthFraction: 0.32 }}
                   />
 
-                  <div style={{ flex: "1 0 auto", width: "100%", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 auto", width: "100%", gap: "20px" }}>
+                  <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
-                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 auto", width: "100%" }}>
+                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%", justifyContent: "flex-end" }} />
                         </FadeIn>
                       ))}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 auto", width: "100%", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
-                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 auto", width: "100%" }}>
+                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
@@ -371,8 +368,8 @@ export default function Fidelizar() {
 
                 {/* Bloco 2: Conor Assist */}
                 <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
-                  <div style={{ flex: "1 0 auto", width: "100%", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <FadeIn style={{ flex: "1 0 auto", width: "100%" }}>
+                  <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" style={{  }}>
                       <RelatedFeatureCard
                         title={assistFeatures[0].title}
                         description={assistFeatures[0].description}
@@ -380,9 +377,9 @@ export default function Fidelizar() {
                         style={{ height: "100%" }}
                       />
                     </FadeIn>
-                    <div className="grid grid-cols-1 sm:grid-cols-2" style={{ flex: "1 0 auto", width: "100%", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {assistFeatures.slice(1, 3).map((feature, idx) => (
-                        <FadeIn key={feature.title} delay={idx * 0.08} style={{ flex: "1 0 auto", width: "100%" }}>
+                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
                           <RelatedFeatureCard
                             title={feature.title}
                             description={feature.description}
@@ -400,7 +397,7 @@ export default function Fidelizar() {
                     aspectRatio={1480 / 826}
                     objectPosition="26% 29%"
                     borderRadius="32px"
-                    className="md:w-[737px] md:h-[590px] md:flex-shrink-0"
+                    className="w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
                     logo={{ src: imgRelacionadosAssistLogo, aspectRatio: 321 / 62, widthFraction: 0.32 }}
                   />
                 </div>

@@ -180,13 +180,12 @@ export default function ConorAssist() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
-                  className="p-8 md:p-16"
+                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                 >
                   <p
                     style={{
@@ -283,12 +282,11 @@ export default function ConorAssist() {
                 className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={s.label}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -333,7 +331,7 @@ export default function ConorAssist() {
               }}
               className="flex-col md:flex-row p-8 md:p-20"
             >
-              <div style={{ flex: "1 0 auto", width: "100%", display: "flex", flexDirection: "column", gap: "40px" }}>
+              <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                 <div>
                   <p
                     style={{
@@ -411,9 +409,8 @@ export default function ConorAssist() {
                 </div>
               </div>
 
-              <div
+              <div className="w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
-                  flex: "1 0 auto", width: "100%",
                   backgroundColor: colors.black,
                   border: "1px solid rgba(153, 108, 251, 0.2)",
                   borderRadius: "16px",
@@ -453,13 +450,12 @@ export default function ConorAssist() {
                     Plano Centrais de Rastreamento
                   </p>
                 </div>
-                <div
+                <div className="w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     padding: "40px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "16px",
-                    flex: "1 0 auto", width: "100%",
                     justifyContent: "space-between",
                   }}
                 >
@@ -541,14 +537,13 @@ export default function ConorAssist() {
 
               <div className="flex flex-col sm:flex-row gap-5 w-full">
                 {escopo.map((c, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={c.title}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 auto", width: "100%",
                       padding: "48px",
                       display: "flex",
                       flexDirection: "column",
@@ -652,7 +647,7 @@ export default function ConorAssist() {
                 </div>
               </div>
 
-              <div style={{ flex: "1 0 auto", width: "100%" }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:flex-1 md:w-auto md:min-w-0">
                 {canais.map((c, idx) => (
                   <FadeIn
                     key={c.title}

@@ -257,12 +257,11 @@ export default function Montar() {
                 <FadeIn
                   key={feature.title}
                   delay={idx * 0.08}
-                  className="p-6 md:p-12"
+                  className="p-6 md:p-12 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     gap: "40px",
@@ -363,14 +362,13 @@ export default function Montar() {
 
               <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
                 {hardware.map((product, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={product.name}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 auto", width: "100%",
                       overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
@@ -467,14 +465,13 @@ export default function Montar() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row gap-5" style={{ width: "100%" }}>
                 {pricingTiers.map((tier, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={tier.title}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: "#111111",
                       border: "1px solid #2a2a2a",
                       borderRadius: "16px",
-                      flex: "1 0 auto", width: "100%",
                       padding: "33px",
                       display: "flex",
                       flexDirection: "column",
@@ -624,9 +621,8 @@ export default function Montar() {
                 />
 
                 <div
-                  className="p-8 md:p-16"
+                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
-                    flex: "1 0 auto", width: "100%",
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",

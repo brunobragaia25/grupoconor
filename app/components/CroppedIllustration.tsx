@@ -50,7 +50,6 @@ export function CroppedIllustration({
       style={{
         position: "relative",
         overflow: "hidden",
-        width: "100%",
         aspectRatio: `${aspectRatio}`,
         borderRadius,
         ...style,

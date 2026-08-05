@@ -73,10 +73,9 @@ export default function Cases() {
                 "linear-gradient(106.39deg, rgb(0, 0, 0) 56.293%, rgb(82, 164, 255) 116.82%)",
             }}
           >
-            <div
+            <div className="w-full md:flex-1 md:w-auto md:min-w-0"
               style={{
                 display: "flex",
-                flex: "1 0 auto", width: "100%",
                 alignItems: "flex-start",
                 justifyContent: "space-between",
               }}

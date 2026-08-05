@@ -213,12 +213,11 @@ export default function Expandir() {
                     <FadeIn
                       key={feature.title}
                       delay={idx * 0.08}
-                      className="p-6 md:p-12"
+                      className="p-6 md:p-12 w-full md:flex-1 md:w-auto md:min-w-0"
                       style={{
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderRadius: "32px",
-                        flex: "1 0 auto", width: "100%",
                         display: "flex",
                         flexDirection: "column",
                         gap: "40px",
@@ -383,10 +382,9 @@ export default function Expandir() {
                 <FadeIn
                   key={stat.label}
                   delay={idx * 0.08}
-                  className="px-6 md:px-12 py-10 md:py-0 md:h-[320px]"
+                  className="px-6 md:px-12 py-10 md:py-0 md:h-[320px] w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#52a4ff",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -470,12 +468,11 @@ export default function Expandir() {
                   <FadeIn
                     key={step.title}
                     delay={idx * 0.08}
-                    className="p-8 md:p-16"
+                    className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                     style={{
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 auto", width: "100%",
                       display: "flex",
                       flexDirection: "column",
                       gap: "26px",
@@ -536,9 +533,8 @@ export default function Expandir() {
                 />
 
                 <div
-                  className="p-8 md:p-16"
+                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
-                    flex: "1 0 auto", width: "100%",
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",

@@ -180,12 +180,11 @@ export default function Administrar() {
                 <FadeIn
                   key={module.title}
                   delay={idx * 0.08}
-                  className="p-6 md:p-12"
+                  className="p-6 md:p-12 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
@@ -285,7 +284,7 @@ export default function Administrar() {
                 </p>
               </div>
 
-              <div className="flex flex-col md:flex-row gap-5" style={{ flex: "1 0 auto", width: "100%", alignItems: "center" }}>
+              <div className="flex flex-col md:flex-row gap-5 w-full md:flex-1 md:w-auto md:min-w-0" style={{ alignItems: "center" }}>
                 {screenshots.map((screenshot, idx) => (
                   <FadeIn
                     key={screenshot.title}
@@ -375,10 +374,7 @@ export default function Administrar() {
                 />
 
                 <div
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-5"
-                  style={{
-                    flex: "1 0 auto", width: "100%",
-                  }}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
                 >
                   {benefits.map((benefit, idx) => (
                     <FadeIn

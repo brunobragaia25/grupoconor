@@ -151,13 +151,12 @@ export default function Conor4Em1() {
                   style={{
                     backgroundColor: colors.black,
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
                     gap: "24px",
                   }}
-                  className="p-8 md:p-16"
+                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                 >
                   <p
                     style={{
@@ -240,12 +239,11 @@ export default function Conor4Em1() {
                 className="flex-col sm:flex-row"
               >
                 {stats.map((s, idx) => (
-                  <FadeIn
+                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                     key={s.label}
                     delay={idx * 0.08}
                     style={{
                       backgroundColor: colors.black,
-                      flex: "1 0 auto", width: "100%",
                       padding: "40px 32px",
                       display: "flex",
                       flexDirection: "column",
@@ -282,9 +280,8 @@ export default function Conor4Em1() {
 
             {/* Planos */}
             <div className="flex flex-col md:flex-row gap-10">
-              <div
+              <div className="w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
-                  flex: "1 0 auto", width: "100%",
                   backgroundColor: colors.black,
                   border: "1px solid rgba(64, 198, 238, 0.2)",
                   borderRadius: "16px",
@@ -310,7 +307,7 @@ export default function Conor4Em1() {
                     Para centrais já estabelecidas que querem o sistema completo.
                   </p>
                 </div>
-                <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 auto", width: "100%" }}>
+                <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                     <p style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }} className="text-4xl md:text-[56px]">
                       R$3.000
@@ -342,9 +339,8 @@ export default function Conor4Em1() {
                 </div>
               </div>
 
-              <div
+              <div className="w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
-                  flex: "1 0 auto", width: "100%",
                   backgroundColor: colors.black,
                   border: "1px solid rgba(64, 198, 238, 0.2)",
                   borderRadius: "16px",
@@ -370,7 +366,7 @@ export default function Conor4Em1() {
                     Inclui 10 rastreadores + chips + software. Ideal para quem está começando.
                   </p>
                 </div>
-                <div style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px", flex: "1 0 auto", width: "100%" }}>
+                <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ padding: "40px", display: "flex", flexDirection: "column", gap: "40px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                     <p style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: brand, lineHeight: "normal" }} className="text-4xl md:text-[56px]">
                       R$2.500
@@ -449,14 +445,13 @@ export default function Conor4Em1() {
                 {[funcionalidades.slice(0, 2), funcionalidades.slice(2, 4)].map((row, rowIdx) => (
                   <div key={rowIdx} className="flex flex-col sm:flex-row gap-5">
                     {row.map((f, idx) => (
-                      <FadeIn
+                      <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
                         key={f.title}
                         delay={idx * 0.08}
                         style={{
                           backgroundColor: "#171717",
                           border: "1px solid #272727",
                           borderRadius: "32px",
-                          flex: "1 0 auto", width: "100%",
                           padding: "48px",
                           display: "flex",
                           flexDirection: "column",

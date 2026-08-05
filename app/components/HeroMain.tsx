@@ -29,9 +29,9 @@ export function HeroMain() {
       >
         {/* Coluna esquerda — texto */}
         <div
-          className="w-full md:w-auto"
+          className="w-full md:max-w-[716px] md:min-w-0"
           style={{
-            flex: "1 1 auto",
+            flexShrink: 1,
             display: "flex",
             flexDirection: "column",
             gap: "40px",
@@ -124,7 +124,7 @@ export function HeroMain() {
 
         {/* Coluna direita — ilustração */}
         <div
-          className="w-full h-[280px] md:flex-1 md:max-w-[740px] md:min-w-0 md:h-full"
+          className="w-full h-[280px] md:flex-1 md:min-w-0 md:h-full"
           style={{
             backgroundColor: "#d9d9d9",
             borderRadius: "0 12px 0 64px",

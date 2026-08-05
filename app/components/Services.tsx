@@ -199,7 +199,7 @@ export function Services() {
           }}
         >
           {servicesFirstRow.map((service, idx) => (
-            <div key={service.id} style={{ flex: "1 0 auto", width: "100%" }}>
+            <div key={service.id} className="w-full md:flex-1 md:w-auto md:min-w-0">
               <ServiceCard service={service} delay={idx * 0.08} />
             </div>
           ))}
@@ -214,7 +214,7 @@ export function Services() {
           }}
         >
           {servicesSecondRow.map((service, idx) => (
-            <div key={service.id} style={{ flex: "1 0 auto", width: "100%" }}>
+            <div key={service.id} className="w-full md:flex-1 md:w-auto md:min-w-0">
               <ServiceCard service={service} delay={idx * 0.08} />
             </div>
           ))}

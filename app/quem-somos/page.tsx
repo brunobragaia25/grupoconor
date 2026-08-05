@@ -71,10 +71,9 @@ export default function QuemSomos() {
             />
 
             <div
-              className="px-6 py-12 md:px-20 md:py-16"
+              className="px-6 py-12 md:px-20 md:py-16 w-full md:flex-1 md:w-auto md:min-w-0"
               style={{
                 display: "flex",
-                flex: "1 0 auto", width: "100%",
                 alignItems: "flex-start",
                 position: "relative",
                 zIndex: 1,
@@ -115,10 +114,9 @@ export default function QuemSomos() {
 
           {/* Sobre Nós */}
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-            <div
+            <div className="w-full md:flex-1 md:w-auto md:min-w-0"
               style={{
                 display: "flex",
-                flex: "1 0 auto", width: "100%",
                 flexDirection: "column",
                 gap: "24px",
               }}
@@ -205,10 +203,9 @@ export default function QuemSomos() {
               <FadeIn
                 key={stat.label}
                 delay={idx * 0.08}
-                className="h-[220px] md:h-[320px] px-6 md:px-12"
+                className="h-[220px] md:h-[320px] px-6 md:px-12 w-full md:flex-1 md:w-auto md:min-w-0"
                 style={{
                   backgroundColor: "#52a4ff",
-                  flex: "1 0 auto", width: "100%",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -265,12 +262,11 @@ export default function QuemSomos() {
                 <FadeIn
                   key={founder.name}
                   delay={idx * 0.08}
-                  className="p-10 md:p-16"
+                  className="p-10 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    flex: "1 0 auto", width: "100%",
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
@@ -327,7 +323,7 @@ export default function QuemSomos() {
             </AnimatedTitle>
 
             <div className="flex flex-col md:flex-row gap-10 items-stretch md:items-center">
-              <div className="min-h-[280px]" style={{ flex: "1 0 auto", width: "100%", alignSelf: "stretch" }}>
+              <div className="min-h-[280px] w-full md:flex-1 md:w-auto md:min-w-0" style={{ alignSelf: "stretch" }}>
                 <div
                   style={{
                     backgroundColor: colors.black,

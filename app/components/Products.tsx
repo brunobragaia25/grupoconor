@@ -105,9 +105,8 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
   return (
     <FadeIn
       delay={delay}
+      className="w-full md:flex-1 md:w-auto md:min-w-0"
       style={{
-        flex: "1 0 auto",
-        width: "100%",
         borderRadius: "32px",
         overflow: "hidden",
         display: "flex",

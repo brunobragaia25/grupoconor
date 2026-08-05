@@ -116,8 +116,8 @@ export function Technologies() {
           <FadeIn
             key={segment.id}
             delay={idx * 0.08}
+            className="w-full md:flex-1 md:w-auto md:min-w-0"
             style={{
-              flex: "1 0 auto", width: "100%",
               backgroundColor: "#171717",
               border: "1px solid #272727",
               borderRadius: "32px",

@@ -84,7 +84,7 @@ function FAQCard({ item, isExpanded, onToggle, delay = 0 }: { item: FAQItem; isE
             <h3
               style={{
                 margin: 0,
-                fontSize: "24px",
+                fontSize: "20px",
                 fontWeight: 700,
                 fontFamily: "var(--font-linear-grotesk)",
                 color: colors.white,
