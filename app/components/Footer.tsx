@@ -108,34 +108,36 @@ export function Footer() {
             >
               Quem somos
             </a>
-            <p
-              style={{
-                margin: 0,
-                fontSize: "14px",
-                fontWeight: 500,
-                fontFamily: "var(--font-roboto)",
-                color: colors.white,
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              Manual do colaborador
-            </p>
-            <p
-              style={{
-                margin: 0,
-                fontSize: "14px",
-                fontWeight: 500,
-                fontFamily: "var(--font-roboto)",
-                color: colors.white,
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              Trabalhe conosco
-            </p>
+            {[
+              { label: "Fidelizar", href: "/fidelizar" },
+              { label: "Administrar", href: "/administrar" },
+              { label: "Rastrear", href: "/rastrear" },
+              { label: "Montar", href: "/montar" },
+              { label: "Expandir", href: "/expandir" },
+              { label: "Cases", href: "/cases" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                style={{
+                  margin: 0,
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontFamily: "var(--font-roboto)",
+                  color: colors.white,
+                  height: "40px",
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "opacity 0.3s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
           {/* Menu 2 - Produtos */}
