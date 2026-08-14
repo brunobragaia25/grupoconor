@@ -378,7 +378,7 @@ export default function MontarCombo() {
                       <img
                         src={product.cardImage}
                         alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-none"
+                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
                         style={{
                           "--crop-l": product.imageCrop.left,
                           "--crop-t": product.imageCrop.top,
@@ -586,7 +586,7 @@ export default function MontarCombo() {
                       <img
                         src={product.cardImage}
                         alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-none"
+                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
                         style={{
                           "--crop-l": product.imageCrop.left,
                           "--crop-t": product.imageCrop.top,
