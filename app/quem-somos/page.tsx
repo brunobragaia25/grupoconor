@@ -329,15 +329,23 @@ export default function QuemSomos() {
                     backgroundColor: colors.black,
                     borderRadius: "32px",
                     height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: colors.text.bodyLight,
-                    fontSize: "16px",
-                    fontFamily: "var(--font-roboto)",
+                    overflow: "hidden",
                   }}
                 >
-                  [Mapa Google Maps ou similar]
+                  <iframe
+                    title="Mapa - Grupo Conor"
+                    src="https://www.google.com/maps?q=Av.%20Pres.%20Tancredo%20Neves%2C%202640%2C%20Belo%20Horizonte%20-%20MG%2C%2031330-472&output=embed"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      minHeight: "280px",
+                      border: 0,
+                      display: "block",
+                    }}
+                  />
                 </div>
               </div>
 
@@ -456,7 +464,7 @@ export default function QuemSomos() {
 
           {/* CTA Final */}
           <div
-            className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center md:items-stretch justify-between px-6 py-12 md:p-0 gap-8 md:gap-0 md:h-[480px]"
             style={{
               backgroundColor: "#52a4ff",
               borderRadius: "20px",
@@ -464,10 +472,11 @@ export default function QuemSomos() {
             }}
           >
             <div
-              className="max-w-[564px]"
+              className="max-w-[564px] md:pl-24 md:py-24"
               style={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "center",
                 gap: "24px",
               }}
             >
@@ -523,15 +532,27 @@ export default function QuemSomos() {
               </button>
             </div>
 
-            <img
-              src={imgFundadoresIllustration}
-              alt=""
-              className="w-full h-auto max-w-[300px] md:h-[536px] md:w-[718px]"
-              style={{
-                objectFit: "cover",
-                flexShrink: 0,
-              }}
-            />
+            {/* Ilustração — crop do Figma (270:2835): janela 722x480,
+                arte 717.857x536 deslocada +4.75 / -30 */}
+            <div
+              className="w-full h-[240px] md:h-full md:w-[722px] md:flex-shrink-0"
+              style={{ position: "relative", overflow: "hidden" }}
+            >
+              <img
+                src={imgFundadoresIllustration}
+                alt=""
+                style={{
+                  position: "absolute",
+                  left: `${(4.75 / 722) * 100}%`,
+                  top: `${(-30 / 480) * 100}%`,
+                  width: `${(717.857 / 722) * 100}%`,
+                  height: `${(536 / 480) * 100}%`,
+                  maxWidth: "none",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
+            </div>
           </div>
         </div>
 

@@ -525,11 +525,23 @@ export default function Expandir() {
                 <CroppedIllustration
                   src={imgMarketingIllustration}
                   alt="Conor Marketing"
-                  aspectRatio={971 / 542}
-                  objectPosition="23% 20%"
+                  aspectRatio={737 / 433}
+                  crop={{
+                    widthFraction: 971 / 737,
+                    heightFraction: 542 / 433,
+                    offsetXFraction: -224 / 737,
+                    offsetYFraction: -109 / 433,
+                  }}
                   borderRadius="32px"
-                  className="flex-1 md:h-[433px]"
-                  logo={{ src: imgMarketingLogo, aspectRatio: 366 / 53, widthFraction: 0.47 }}
+                  className="w-full md:flex-1 md:w-auto md:min-w-0"
+                  logo={{
+                    src: imgMarketingLogo,
+                    aspectRatio: 366 / 53,
+                    widthFraction: 459 / 737,
+                    boxAspectRatio: 459 / 128,
+                    artWidthFraction: 366.346 / 459,
+                    cornerRadius: "32px",
+                  }}
                 />
 
                 <div
@@ -633,7 +645,7 @@ export default function Expandir() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #ffc196, #fa7a22 43.269%)",
                 borderRadius: "20px",

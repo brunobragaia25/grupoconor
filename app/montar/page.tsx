@@ -613,11 +613,23 @@ export default function Montar() {
                 <CroppedIllustration
                   src={imgEstoqueIllustration}
                   alt="Conor Estoque"
-                  aspectRatio={1003 / 560}
-                  objectPosition="25% 29%"
+                  aspectRatio={737 / 400}
+                  crop={{
+                    widthFraction: 1003 / 737,
+                    heightFraction: 560 / 400,
+                    offsetXFraction: -246 / 737,
+                    offsetYFraction: -160 / 400,
+                  }}
                   borderRadius="32px"
-                  className="flex-1 md:h-[400px]"
-                  logo={{ src: imgEstoqueLogo, aspectRatio: 387 / 64, widthFraction: 0.46 }}
+                  className="w-full md:w-[737px] md:h-[400px] md:flex-shrink-0"
+                  logo={{
+                    src: imgEstoqueLogo,
+                    aspectRatio: 387 / 64,
+                    widthFraction: 459 / 737,
+                    boxAspectRatio: 459 / 128,
+                    artWidthFraction: 387 / 459,
+                    cornerRadius: "32px",
+                  }}
                 />
 
                 <div
@@ -719,7 +731,7 @@ export default function Montar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #670a24, #e01e5a 43.269%)",
                 borderRadius: "20px",

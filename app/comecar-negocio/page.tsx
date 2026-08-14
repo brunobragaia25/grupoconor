@@ -125,7 +125,10 @@ const comboProducts = [
     logo: imgLogoEstoque,
     logoWidth: 195,
     image: imgProductEstoque,
+    // Enquadramento da foto no topo do card (crop do Figma 396:1224)
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
     color: "#e01e5a",
+    checkColor: "#dd245c",
     title: "Alugue 10 rastreadores e chips prontos para uso",
     items: [
       "Rastreadores SUNTECH ST4215U (4G) e ST310UC2 (2G)",
@@ -136,7 +139,9 @@ const comboProducts = [
     logo: imgLogo4em1,
     logoWidth: 174,
     image: imgProduct4em1,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
     color: "#40c6ee",
+    checkColor: "#52a4ff",
     title: "O que é essencial para o seu rastreamento?",
     items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
   },
@@ -144,7 +149,9 @@ const comboProducts = [
     logo: imgLogoAdmin,
     logoWidth: 178,
     image: imgProductAdmin,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
     color: "#01c4c4",
+    checkColor: "#67d2c4",
     title: "Software de gestão do seu negócio",
     items: ["Financeiro", "Administrativo", "Estoque"],
   },
@@ -157,7 +164,7 @@ export default function ComecarNegocio() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center md:items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center md:items-center px-6 py-10 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0"
             style={{
               backgroundColor: "#20c4c3",
               minHeight: "560px",
@@ -596,14 +603,21 @@ export default function ComecarNegocio() {
                       flexDirection: "column",
                     }}
                   >
-                    <div
-                      style={{
-                        height: "180px",
-                        backgroundImage: `url(${product.image})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
+                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                      <img
+                        src={product.image}
+                        alt=""
+                        style={{
+                          position: "absolute",
+                          left: product.imageCrop.left,
+                          top: product.imageCrop.top,
+                          width: product.imageCrop.width,
+                          height: "auto",
+                          maxWidth: "none",
+                          display: "block",
+                        }}
+                      />
+                    </div>
                     <div
                       className="p-6 md:p-10"
                       style={{
@@ -630,17 +644,30 @@ export default function ComecarNegocio() {
                       <ul
                         style={{
                           margin: 0,
-                          paddingLeft: "18px",
+                          padding: 0,
+                          listStyle: "none",
                           display: "flex",
                           flexDirection: "column",
                           gap: "8px",
                           fontSize: "13px",
+                          lineHeight: "19.5px",
                           fontFamily: "var(--font-roboto)",
                         }}
                       >
                         {product.items.map((item) => (
-                          <li key={item} style={{ color: colors.text.bodyLight }}>
-                            {item}
+                          <li
+                            key={item}
+                            style={{
+                              color: colors.text.bodyLight,
+                              display: "flex",
+                              gap: "8px",
+                              alignItems: "flex-start",
+                            }}
+                          >
+                            <span style={{ color: product.checkColor, fontWeight: 700, flexShrink: 0 }}>
+                              ✓
+                            </span>
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>

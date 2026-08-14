@@ -3,7 +3,7 @@
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 
-const imgIllustration = "/image-promo-banner-02-final.png";
+const imgIllustration = "/image-ctahome-02.png";
 
 export function PromoBanner02() {
   return (
@@ -102,16 +102,23 @@ export function PromoBanner02() {
 
         {/* Lado direito - Ilustração */}
         <div
-          className="h-[200px] md:h-auto w-full md:flex-1 md:w-auto md:min-w-0"
+          className="h-[200px] md:h-auto w-full md:w-1/2 md:flex-none md:min-w-0"
           style={{
             overflow: "hidden",
             position: "relative",
+            aspectRatio: "747 / 320",
           }}
         >
           <img
             src={imgIllustration}
             alt=""
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
           />
         </div>
       </div>

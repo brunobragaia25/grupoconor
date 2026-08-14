@@ -7,7 +7,7 @@ const imgArrow = "/icons/keyboard_double_arrow_down.svg";
 export function HeroMain() {
   return (
     <section
-      className="px-4 py-10 md:pl-20 md:py-0 md:h-[620px]"
+      className="px-4 py-10 md:pl-20 md:pr-0 md:py-0 md:h-[620px]"
       style={{
         backgroundColor: "#ffffff",
         width: "100%",

@@ -160,7 +160,10 @@ const iniciantePricing = [
     logo: imgLogoEstoque,
     logoWidth: 195,
     color: "#e01e5a",
+    checkColor: "#dd245c",
     cardImage: imgCardEstoque,
+    // Crops do Figma 395:348 (faixa 477x180)
+    imageCrop: { width: "111.74%", left: "-5.87%", top: "-43.75%" },
     title: "Alugue 10 rastreadores e chips prontos para uso",
     items: ["Rastreadores SUNTECH ST4215U (4G) e ST310UC2 (2G)", "Chip Vivo 20Mb"],
   },
@@ -168,7 +171,9 @@ const iniciantePricing = [
     logo: imgLogo4em1,
     logoWidth: 174,
     color: "#40c6ee",
+    checkColor: "#52a4ff",
     cardImage: imgCard4em1,
+    imageCrop: { width: "121.7%", left: "-10.85%", top: "-40%" },
     title: "O que é essencial para o seu rastreamento?",
     items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
   },
@@ -176,7 +181,9 @@ const iniciantePricing = [
     logo: imgLogoAdmin,
     logoWidth: 178,
     color: "#01c4c4",
+    checkColor: "#67d2c4",
     cardImage: imgCardAdmin,
+    imageCrop: { width: "148.74%", left: "-28.14%", top: "-82.22%" },
     title: "Software de gestão do seu negócio",
     items: ["Financeiro", "Administrativo", "Estoque"],
   },
@@ -188,6 +195,7 @@ const existentePricing = [
     logoWidth: 184,
     color: "#ffc301",
     cardImage: imgCardSeguro,
+    imageCrop: { width: "174.84%", left: "-64.15%", top: "-101.39%" },
     title: "Ative seu escritório",
     price: "R$3.000 de entrada + R$350 por mês",
     items: ["Preço fixo", "Sem carência", "Sem mínimo"],
@@ -197,6 +205,7 @@ const existentePricing = [
     logoWidth: 166,
     color: "#996cfb",
     cardImage: imgCardAssist,
+    imageCrop: { width: "224.32%", left: "-64.36%", top: "-124.17%" },
     title: "Ative sua solução",
     price: "R$1.000 de entrada + R$550 por mês",
     items: ["Preço fixo", "Atendimento em todo Brasil", "Para centrais de rastreamento"],
@@ -206,6 +215,7 @@ const existentePricing = [
     logoWidth: 221,
     color: "#fa7a22",
     cardImage: imgCardMarketing,
+    imageCrop: { width: "125.37%", left: "-23.69%", top: "-35.28%" },
     title: "Ative o seu marketing",
     price: "Monte o seu combo",
     items: ["Criativos", "Tráfego pago", "Página de vendas"],
@@ -219,7 +229,7 @@ export default function MontarCombo() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0"
             style={{
               backgroundColor: "#996cfb",
               minHeight: "620px",
@@ -359,14 +369,21 @@ export default function MontarCombo() {
                       flexDirection: "column",
                     }}
                   >
-                    <div
-                      style={{
-                        height: "180px",
-                        backgroundImage: `url(${product.cardImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
+                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                      <img
+                        src={product.cardImage}
+                        alt=""
+                        style={{
+                          position: "absolute",
+                          left: product.imageCrop.left,
+                          top: product.imageCrop.top,
+                          width: product.imageCrop.width,
+                          height: "auto",
+                          maxWidth: "none",
+                          display: "block",
+                        }}
+                      />
+                    </div>
                     <div
                       className="p-6 md:p-10"
                       style={{
@@ -404,8 +421,20 @@ export default function MontarCombo() {
                         }}
                       >
                         {product.items.map((item) => (
-                          <li key={item} style={{ color: colors.text.bodyLight }}>
-                            {item}
+                          <li
+                            key={item}
+                            style={{
+                              color: colors.text.bodyLight,
+                              display: "flex",
+                              gap: "8px",
+                              alignItems: "flex-start",
+                              lineHeight: "19.5px",
+                            }}
+                          >
+                            <span style={{ color: product.checkColor, fontWeight: 700, flexShrink: 0 }}>
+                              ✓
+                            </span>
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -547,14 +576,21 @@ export default function MontarCombo() {
                       flexDirection: "column",
                     }}
                   >
-                    <div
-                      style={{
-                        height: "180px",
-                        backgroundImage: `url(${product.cardImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
+                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                      <img
+                        src={product.cardImage}
+                        alt=""
+                        style={{
+                          position: "absolute",
+                          left: product.imageCrop.left,
+                          top: product.imageCrop.top,
+                          width: product.imageCrop.width,
+                          height: "auto",
+                          maxWidth: "none",
+                          display: "block",
+                        }}
+                      />
+                    </div>
                     <div
                       className="p-6 md:p-10"
                       style={{

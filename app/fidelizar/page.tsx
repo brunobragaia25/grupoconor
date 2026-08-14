@@ -341,11 +341,23 @@ export default function Fidelizar() {
                   <CroppedIllustration
                     src={imgRelacionadosSeguro}
                     alt="Conor Seguro"
-                    aspectRatio={1419 / 792}
-                    objectPosition="41% 18%"
+                    aspectRatio={737 / 638}
+                    crop={{
+                      widthFraction: 1419 / 737,
+                      heightFraction: 792 / 638,
+                      offsetXFraction: -582 / 737,
+                      offsetYFraction: -141 / 638,
+                    }}
                     borderRadius="32px"
                     className="w-full md:w-[737px] md:h-[638px] md:flex-shrink-0"
-                    logo={{ src: imgRelacionadosSeguroLogo, aspectRatio: 357 / 62, widthFraction: 0.32 }}
+                    logo={{
+                      src: imgRelacionadosSeguroLogo,
+                      aspectRatio: 357 / 62,
+                      widthFraction: 459 / 737,
+                      boxAspectRatio: 459 / 128,
+                      artWidthFraction: 357 / 459,
+                      cornerRadius: "32px",
+                    }}
                   />
 
                   <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -394,11 +406,23 @@ export default function Fidelizar() {
                   <CroppedIllustration
                     src={imgRelacionadosAssist}
                     alt="Conor Assist"
-                    aspectRatio={1480 / 826}
-                    objectPosition="26% 29%"
+                    aspectRatio={737 / 590}
+                    crop={{
+                      widthFraction: 1480 / 737,
+                      heightFraction: 826 / 590,
+                      offsetXFraction: -388 / 737,
+                      offsetYFraction: -236 / 590,
+                    }}
                     borderRadius="32px"
                     className="w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
-                    logo={{ src: imgRelacionadosAssistLogo, aspectRatio: 321 / 62, widthFraction: 0.32 }}
+                    logo={{
+                      src: imgRelacionadosAssistLogo,
+                      aspectRatio: 321 / 62,
+                      widthFraction: 459 / 737,
+                      boxAspectRatio: 459 / 128,
+                      artWidthFraction: 321 / 459,
+                      cornerRadius: "32px",
+                    }}
                   />
                 </div>
               </div>
@@ -406,7 +430,7 @@ export default function Fidelizar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #54a8fd, #52a4ff 43.269%)",
                 borderRadius: "20px",

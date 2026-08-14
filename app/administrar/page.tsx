@@ -366,11 +366,23 @@ export default function Administrar() {
                 <CroppedIllustration
                   src={imgWhyIllustration}
                   alt="Conor Admin"
-                  aspectRatio={1744 / 974}
-                  objectPosition="41% 38%"
+                  aspectRatio={737 / 590}
+                  crop={{
+                    widthFraction: 1744 / 737,
+                    heightFraction: 974 / 590,
+                    offsetXFraction: -716 / 737,
+                    offsetYFraction: -371 / 590,
+                  }}
                   borderRadius="32px"
-                  className="flex-1"
-                  logo={{ src: imgHeroLogo, aspectRatio: 345 / 62, widthFraction: 0.36 }}
+                  className="w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
+                  logo={{
+                    src: imgHeroLogo,
+                    aspectRatio: 345 / 62,
+                    widthFraction: 459 / 737,
+                    boxAspectRatio: 459 / 128,
+                    artWidthFraction: 345 / 459,
+                    cornerRadius: "32px",
+                  }}
                 />
 
                 <div
@@ -420,7 +432,7 @@ export default function Administrar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #008382, #20c4c3 43.269%)",
                 borderRadius: "20px",

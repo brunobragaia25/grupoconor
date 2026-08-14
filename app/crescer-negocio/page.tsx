@@ -67,6 +67,8 @@ const products = [
     logoWidth: 184,
     color: "#ffc301",
     cardImage: imgCardSeguro,
+    // Enquadramento da foto (crop do Figma 388:4334, relativo à faixa 477x180)
+    imageCrop: { width: "174.84%", left: "-64.15%", top: "-101.39%" },
     whatsapp: imgWhatsappSeguro,
     title: "Ative seu escritório",
     price: "R$3.000 de entrada + R$350 por mês",
@@ -78,6 +80,7 @@ const products = [
     logoWidth: 166,
     color: "#996cfb",
     cardImage: imgCardAssist,
+    imageCrop: { width: "224.32%", left: "-64.36%", top: "-124.17%" },
     whatsapp: imgWhatsappAssist,
     title: "Ative sua solução",
     price: "R$1.000 de entrada + R$550 por mês",
@@ -89,6 +92,7 @@ const products = [
     logoWidth: 221,
     color: "#fa7a22",
     cardImage: imgCardMarketing,
+    imageCrop: { width: "125.37%", left: "-23.69%", top: "-35.28%" },
     whatsapp: imgWhatsappMarketing,
     title: "Ative o seu marketing",
     price: "Monte o seu combo",
@@ -104,7 +108,7 @@ export default function CrescerNegocio() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0"
             style={{
               backgroundColor: "#fa7a22",
               minHeight: "560px",
@@ -349,14 +353,21 @@ export default function CrescerNegocio() {
                       flexDirection: "column",
                     }}
                   >
-                    <div
-                      style={{
-                        height: "180px",
-                        backgroundImage: `url(${product.cardImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
+                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                      <img
+                        src={product.cardImage}
+                        alt=""
+                        style={{
+                          position: "absolute",
+                          left: product.imageCrop.left,
+                          top: product.imageCrop.top,
+                          width: product.imageCrop.width,
+                          height: "auto",
+                          maxWidth: "none",
+                          display: "block",
+                        }}
+                      />
+                    </div>
                     <div
                       className="p-6 md:p-10"
                       style={{

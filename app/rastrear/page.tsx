@@ -477,24 +477,40 @@ export default function Rastrear() {
               </AnimatedTitle>
 
               <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                {/* Crop do Figma (176:9774): viewport 737x590 sobre duas camadas */}
                 <div
-                  className="h-[320px] md:h-[590px] w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
                   style={{
                     position: "relative",
+                    aspectRatio: `${737 / 590}`,
                     borderRadius: "32px",
                     overflow: "hidden",
                   }}
                 >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center md:w-[1744px] md:h-[974px] md:left-[-716px] md:top-[-371px] md:bg-auto"
+                  <img
+                    src={img4em1Bg}
+                    alt=""
                     style={{
-                      backgroundImage: `url(${img4em1Bg})`,
+                      position: "absolute",
+                      left: `${(-716 / 737) * 100}%`,
+                      top: `${(-371 / 590) * 100}%`,
+                      width: `${(1744 / 737) * 100}%`,
+                      height: "auto",
+                      maxWidth: "none",
+                      display: "block",
                     }}
                   />
-                  <div
-                    className="absolute inset-0 bg-contain bg-center bg-no-repeat md:w-[1183px] md:h-[660px] md:left-[-362px] md:top-[-70px] md:bg-auto"
+                  <img
+                    src={img4em1Fg}
+                    alt=""
                     style={{
-                      backgroundImage: `url(${img4em1Fg})`,
+                      position: "absolute",
+                      left: `${(-362 / 737) * 100}%`,
+                      top: `${(-70 / 590) * 100}%`,
+                      width: `${(1183 / 737) * 100}%`,
+                      height: "auto",
+                      maxWidth: "none",
+                      display: "block",
                     }}
                   />
                   <div
@@ -502,8 +518,8 @@ export default function Rastrear() {
                       position: "absolute",
                       right: 0,
                       bottom: 0,
-                      width: "459px",
-                      height: "128px",
+                      width: `${(459 / 737) * 100}%`,
+                      aspectRatio: `${459 / 128}`,
                       backgroundColor: colors.white,
                       borderTopLeftRadius: "32px",
                       display: "flex",
@@ -511,7 +527,11 @@ export default function Rastrear() {
                       justifyContent: "center",
                     }}
                   >
-                    <img src={img4em1Logo} alt="Conor 4 em 1" className="w-[220px] h-auto md:w-[345px] md:h-[64px]" style={{ maxWidth: "80%" }} />
+                    <img
+                      src={img4em1Logo}
+                      alt="Conor 4 em 1"
+                      style={{ width: `${(345 / 459) * 100}%`, height: "auto", display: "block" }}
+                    />
                   </div>
                 </div>
 
@@ -564,7 +584,7 @@ export default function Rastrear() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #6ebbf8, #52a4ff 43.269%)",
                 borderRadius: "20px",
