@@ -101,7 +101,7 @@ export default function Administrar() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
-            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
+            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
               borderTopLeftRadius: "12px",
@@ -155,10 +155,10 @@ export default function Administrar() {
             </div>
 
             <div
-              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center md:w-[2129.464px] md:h-[1590px] md:left-[-695px] md:top-[-604px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[2129.464px] md:h-[1590px] md:left-[-695px] md:top-[-604px] md:bg-auto"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -432,14 +432,14 @@ export default function Administrar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #008382, #20c4c3 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -494,9 +494,8 @@ export default function Administrar() {
               <img
                 src={imgCtaIllustration}
                 alt=""
-                className="w-full h-auto md:h-[480px] md:w-[722px]"
+                className="w-full h-auto aspect-[722/539] object-contain md:aspect-auto md:object-cover md:h-[480px] md:w-[722px]"
                 style={{
-                  objectFit: "cover",
                   flexShrink: 0,
                   maxWidth: "100%",
                 }}

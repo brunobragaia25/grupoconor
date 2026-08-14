@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -108,10 +109,9 @@ export default function CrescerNegocio() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center px-6 py-10 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center px-0 pt-10 pb-0 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0 md:min-h-[560px]"
             style={{
               backgroundColor: "#fa7a22",
-              minHeight: "560px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
               overflow: "hidden",
@@ -119,8 +119,13 @@ export default function CrescerNegocio() {
             }}
           >
             <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
-              <div className="flex gap-6 md:gap-10 items-start flex-1">
-                <img src={imgLoupeLarge} alt="" style={{ width: "64px", height: "64px", flexShrink: 0 }} />
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start flex-1 px-6 md:px-0">
+                <img
+                  src={imgLoupeLarge}
+                  alt=""
+                  className="w-[40px] h-[40px] md:w-[64px] md:h-[64px]"
+                  style={{ flexShrink: 0 }}
+                />
                 <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <AnimatedTitle
                     as="h1"
@@ -357,15 +362,16 @@ export default function CrescerNegocio() {
                       <img
                         src={product.cardImage}
                         alt=""
+                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-none"
                         style={{
-                          position: "absolute",
-                          left: product.imageCrop.left,
-                          top: product.imageCrop.top,
-                          width: product.imageCrop.width,
-                          height: "auto",
+                          "--crop-l": product.imageCrop.left,
+                          "--crop-t": product.imageCrop.top,
+                          "--crop-w": product.imageCrop.width,
+                          // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
+                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
                           maxWidth: "none",
                           display: "block",
-                        }}
+                        } as CSSProperties}
                       />
                     </div>
                     <div
@@ -462,10 +468,10 @@ export default function CrescerNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "56px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
+                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   +80 mil
                 </p>
-                <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
+                <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   veículos rastreados
                 </p>
               </FadeIn>
@@ -482,10 +488,10 @@ export default function CrescerNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "56px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
+                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   +350
                 </p>
-                <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
+                <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   clientes em todo Brasil
                 </p>
               </FadeIn>
@@ -502,10 +508,10 @@ export default function CrescerNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "56px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
+                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   Nota 10
                 </p>
-                <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
+                <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   NPS para o suporte
                 </p>
               </FadeIn>
@@ -513,7 +519,7 @@ export default function CrescerNegocio() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-stretch justify-between px-6 py-12 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
+              className="flex flex-col md:flex-row items-stretch justify-between px-0 pt-12 pb-0 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#fa7a22",
                 boxSizing: "border-box",
@@ -521,7 +527,7 @@ export default function CrescerNegocio() {
                 overflow: "hidden",
               }}
             >
-              <div className="md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
+              <div className="px-6 md:px-0 md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -548,8 +554,9 @@ export default function CrescerNegocio() {
                   O setor rastreia menos de 5% da frota brasileira. Ainda
                   existem milhões de oportunidades para você conquistar.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
                   <button
+                    className="w-full md:w-auto"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -572,6 +579,7 @@ export default function CrescerNegocio() {
                     Vamos juntos crescer
                   </button>
                   <button
+                    className="w-full md:w-auto"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -597,7 +605,7 @@ export default function CrescerNegocio() {
               </div>
 
               <div
-                className="w-full h-[280px] md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto"
+                className="w-full aspect-[722/539] md:aspect-auto md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto"
                 style={{ position: "relative", overflow: "hidden" }}
               >
                 <div

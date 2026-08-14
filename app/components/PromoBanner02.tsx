@@ -70,6 +70,7 @@ export function PromoBanner02() {
 
           {/* Button Tertiary — branco */}
           <button
+            className="text-[12px] md:text-[14px] px-3 md:px-5 w-full md:w-auto"
             style={{
               display: "flex",
               alignItems: "center",
@@ -81,11 +82,9 @@ export function PromoBanner02() {
               border: `1px solid ${colors.white}`,
               borderRadius: "999px",
               fontWeight: 500,
-              fontSize: "14px",
               cursor: "pointer",
               fontFamily: "var(--font-roboto)",
               transition: "opacity 0.3s",
-              padding: "0 20px",
               whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}

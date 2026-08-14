@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 import { FadeIn } from "./motion/FadeIn";
@@ -116,54 +117,59 @@ export function Technologies() {
           <FadeIn
             key={segment.id}
             delay={idx * 0.08}
-            className="w-full md:flex-1 md:w-auto md:min-w-0"
+            className="w-full md:flex-1 md:w-auto md:min-w-0 min-h-[200px] md:min-h-[397px] p-6 md:p-10 gap-6 md:gap-0"
             style={{
               backgroundColor: "#171717",
               border: "1px solid #272727",
               borderRadius: "32px",
-              minHeight: "397px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              padding: "40px",
             }}
           >
             {/* Icon badge */}
             <div
+              className="rounded-[17px] md:rounded-[24px]"
               style={{
                 alignSelf: "flex-start",
                 padding: "1px",
-                borderRadius: "24px",
                 background: `linear-gradient(180deg, ${segment.color}ff, ${segment.color}00)`,
                 boxShadow: `0 0 19px 0 ${segment.color}26`,
                 flexShrink: 0,
               }}
             >
               <div
+                className="p-2 md:p-3 rounded-[16px] md:rounded-[23px]"
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "12px",
-                  borderRadius: "23px",
                   backgroundColor: `${segment.color}1f`,
                 }}
               >
                 {segment.flatIcon ? (
-                  <img src={segment.icon} alt="" style={{ width: `${segment.iconSize}px`, height: `${segment.iconSize}px` }} />
+                  <img
+                    src={segment.icon}
+                    alt=""
+                    className="w-[calc(var(--icon-size)*0.65)] h-[calc(var(--icon-size)*0.65)] md:w-[var(--icon-size)] md:h-[var(--icon-size)]"
+                    style={{ "--icon-size": `${segment.iconSize}px` } as CSSProperties}
+                  />
                 ) : (
                   <div
+                    className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[8px] md:rounded-[12px]"
                     style={{
-                      width: "72px",
-                      height: "72px",
-                      borderRadius: "12px",
                       background: `linear-gradient(to bottom, ${segment.gradientFrom}, ${segment.gradientTo})`,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                     }}
                   >
-                    <img src={segment.icon} alt="" style={{ width: `${segment.iconSize}px`, height: `${segment.iconSize}px` }} />
+                    <img
+                      src={segment.icon}
+                      alt=""
+                      className="w-[calc(var(--icon-size)*0.65)] h-[calc(var(--icon-size)*0.65)] md:w-[var(--icon-size)] md:h-[var(--icon-size)]"
+                      style={{ "--icon-size": `${segment.iconSize}px` } as CSSProperties}
+                    />
                   </div>
                 )}
               </div>
@@ -171,9 +177,9 @@ export function Technologies() {
 
             {/* Title */}
             <h3
+              className="text-[20px] md:text-[28px]"
               style={{
                 margin: 0,
-                fontSize: "28px",
                 fontWeight: 700,
                 fontFamily: "var(--font-linear-grotesk)",
                 color: colors.white,

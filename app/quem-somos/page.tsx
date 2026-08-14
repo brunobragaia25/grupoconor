@@ -45,11 +45,10 @@ export default function QuemSomos() {
         >
           {/* Hero Section */}
           <div
-            className="min-h-[500px] md:min-h-0"
+            className="flex-col md:flex-row items-stretch md:items-center md:min-h-0"
             style={{
               position: "relative",
               display: "flex",
-              alignItems: "center",
               borderRadius: "32px",
               overflow: "hidden",
               backgroundImage:
@@ -59,19 +58,12 @@ export default function QuemSomos() {
             <img
               src={imgHeroIllustration}
               alt=""
-              className="opacity-30 md:opacity-100"
-              style={{
-                position: "absolute",
-                right: 0,
-                top: 0,
-                height: "100%",
-                width: "auto",
-                zIndex: 0,
-              }}
+              className="order-2 md:order-none relative w-full h-[200px] object-cover object-right md:absolute md:right-0 md:top-0 md:h-full md:w-auto"
+              style={{ zIndex: 0 }}
             />
 
             <div
-              className="px-6 py-12 md:px-20 md:py-16 w-full md:flex-1 md:w-auto md:min-w-0"
+              className="order-1 md:order-none px-6 py-12 md:px-20 md:py-16 w-full md:flex-1 md:w-auto md:min-w-0"
               style={{
                 display: "flex",
                 alignItems: "flex-start",
@@ -262,12 +254,11 @@ export default function QuemSomos() {
                 <FadeIn
                   key={founder.name}
                   delay={idx * 0.08}
-                  className="p-10 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="p-6 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0 h-[320px] md:h-full"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
                     borderRadius: "32px",
-                    height: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "flex-end",
@@ -464,7 +455,7 @@ export default function QuemSomos() {
 
           {/* CTA Final */}
           <div
-            className="flex flex-col md:flex-row items-center md:items-stretch justify-between px-6 py-12 md:p-0 gap-8 md:gap-0 md:h-[480px]"
+            className="flex flex-col md:flex-row items-center md:items-stretch justify-between px-0 pt-12 pb-0 md:p-0 gap-8 md:gap-0 md:h-[480px]"
             style={{
               backgroundColor: "#52a4ff",
               borderRadius: "20px",
@@ -472,7 +463,7 @@ export default function QuemSomos() {
             }}
           >
             <div
-              className="max-w-[564px] md:pl-24 md:py-24"
+              className="max-w-[564px] px-6 md:px-0 md:pl-24 md:py-24"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -535,7 +526,7 @@ export default function QuemSomos() {
             {/* Ilustração — crop do Figma (270:2835): janela 722x480,
                 arte 717.857x536 deslocada +4.75 / -30 */}
             <div
-              className="w-full h-[240px] md:h-full md:w-[722px] md:flex-shrink-0"
+              className="w-full aspect-[722/480] md:aspect-auto md:h-full md:w-[722px] md:flex-shrink-0"
               style={{ position: "relative", overflow: "hidden" }}
             >
               <img
