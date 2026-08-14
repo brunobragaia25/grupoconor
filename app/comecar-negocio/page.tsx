@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -125,7 +126,10 @@ const comboProducts = [
     logo: imgLogoEstoque,
     logoWidth: 195,
     image: imgProductEstoque,
+    // Enquadramento da foto no topo do card (crop do Figma 396:1224)
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
     color: "#e01e5a",
+    checkColor: "#dd245c",
     title: "Alugue 10 rastreadores e chips prontos para uso",
     items: [
       "Rastreadores SUNTECH ST4215U (4G) e ST310UC2 (2G)",
@@ -136,7 +140,9 @@ const comboProducts = [
     logo: imgLogo4em1,
     logoWidth: 174,
     image: imgProduct4em1,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
     color: "#40c6ee",
+    checkColor: "#52a4ff",
     title: "O que é essencial para o seu rastreamento?",
     items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
   },
@@ -144,7 +150,9 @@ const comboProducts = [
     logo: imgLogoAdmin,
     logoWidth: 178,
     image: imgProductAdmin,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
     color: "#01c4c4",
+    checkColor: "#67d2c4",
     title: "Software de gestão do seu negócio",
     items: ["Financeiro", "Administrativo", "Estoque"],
   },
@@ -157,10 +165,9 @@ export default function ComecarNegocio() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center md:items-center px-6 py-10 md:pl-20 md:py-0 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center md:items-center px-0 pt-10 pb-0 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0 md:min-h-[560px]"
             style={{
               backgroundColor: "#20c4c3",
-              minHeight: "560px",
               borderTopLeftRadius: "12px",
               borderTopRightRadius: "12px",
               overflow: "hidden",
@@ -168,8 +175,13 @@ export default function ComecarNegocio() {
             }}
           >
             <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
-              <div className="flex gap-6 md:gap-10 items-start flex-1">
-                <img src={imgStorefront} alt="" style={{ width: "64px", height: "59px", flexShrink: 0 }} />
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start flex-1 px-6 md:px-0">
+                <img
+                  src={imgStorefront}
+                  alt=""
+                  className="w-[40px] h-[37px] md:w-[64px] md:h-[59px]"
+                  style={{ flexShrink: 0 }}
+                />
                 <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <AnimatedTitle
                     as="h1"
@@ -306,8 +318,8 @@ export default function ComecarNegocio() {
                 gap: "40px",
               }}
             >
-              <div className="flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 md:gap-10 text-center md:text-left">
+                <div className="items-center md:items-start" style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <p
                     style={{
                       fontSize: "12px",
@@ -323,8 +335,8 @@ export default function ComecarNegocio() {
                   </p>
                   <AnimatedTitle
                     as="h2"
+                    className="text-[26px] md:text-[32px] leading-[1.15] md:leading-normal"
                     style={{
-                      fontSize: "32px",
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.black,
@@ -335,12 +347,12 @@ export default function ComecarNegocio() {
                   </AnimatedTitle>
                 </div>
                 <p
+                  className="text-center md:text-right"
                   style={{
                     fontSize: "13px",
                     fontFamily: "var(--font-roboto)",
                     color: "#6b6b6b",
                     margin: 0,
-                    textAlign: "right",
                     maxWidth: "280px",
                     lineHeight: "20px",
                     flexShrink: 0,
@@ -596,14 +608,22 @@ export default function ComecarNegocio() {
                       flexDirection: "column",
                     }}
                   >
-                    <div
-                      style={{
-                        height: "180px",
-                        backgroundImage: `url(${product.image})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
+                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                      <img
+                        src={product.image}
+                        alt=""
+                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
+                        style={{
+                          "--crop-l": product.imageCrop.left,
+                          "--crop-t": product.imageCrop.top,
+                          "--crop-w": product.imageCrop.width,
+                          // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
+                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
+                          maxWidth: "none",
+                          display: "block",
+                        } as CSSProperties}
+                      />
+                    </div>
                     <div
                       className="p-6 md:p-10"
                       style={{
@@ -630,17 +650,30 @@ export default function ComecarNegocio() {
                       <ul
                         style={{
                           margin: 0,
-                          paddingLeft: "18px",
+                          padding: 0,
+                          listStyle: "none",
                           display: "flex",
                           flexDirection: "column",
                           gap: "8px",
                           fontSize: "13px",
+                          lineHeight: "19.5px",
                           fontFamily: "var(--font-roboto)",
                         }}
                       >
                         {product.items.map((item) => (
-                          <li key={item} style={{ color: colors.text.bodyLight }}>
-                            {item}
+                          <li
+                            key={item}
+                            style={{
+                              color: colors.text.bodyLight,
+                              display: "flex",
+                              gap: "8px",
+                              alignItems: "flex-start",
+                            }}
+                          >
+                            <span style={{ color: product.checkColor, fontWeight: 700, flexShrink: 0 }}>
+                              ✓
+                            </span>
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -727,10 +760,10 @@ export default function ComecarNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "56px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
+                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
                   +80 mil
                 </p>
-                <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
+                <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
                   veículos rastreados
                 </p>
               </FadeIn>
@@ -747,10 +780,10 @@ export default function ComecarNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "56px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
+                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
                   +350
                 </p>
-                <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
+                <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
                   clientes em todo Brasil
                 </p>
               </FadeIn>
@@ -767,10 +800,10 @@ export default function ComecarNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p style={{ margin: 0, fontSize: "56px", fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
+                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
                   Nota 10
                 </p>
-                <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
+                <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.black }}>
                   NPS para o suporte
                 </p>
               </FadeIn>
@@ -778,7 +811,7 @@ export default function ComecarNegocio() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-stretch justify-between px-6 py-12 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
+              className="flex flex-col md:flex-row items-stretch justify-between px-0 pt-12 pb-0 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
               style={{
                 backgroundColor: "#20c4c3",
                 boxSizing: "border-box",
@@ -786,7 +819,7 @@ export default function ComecarNegocio() {
                 overflow: "hidden",
               }}
             >
-              <div className="md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
+              <div className="px-6 md:px-0 md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -813,8 +846,9 @@ export default function ComecarNegocio() {
                   Oportunidade de mercado: 117,8 milhões de veículos ainda não
                   são rastreados em todo o Brasil.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
                   <button
+                    className="w-full md:w-auto"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -837,6 +871,7 @@ export default function ComecarNegocio() {
                     Monte seu negócio já
                   </button>
                   <button
+                    className="w-full md:w-auto"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -862,7 +897,7 @@ export default function ComecarNegocio() {
               </div>
 
               <div
-                className="w-full h-[280px] md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto"
+                className="w-full aspect-[722/539] md:aspect-auto md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto"
                 style={{ position: "relative", overflow: "hidden" }}
               >
                 <div

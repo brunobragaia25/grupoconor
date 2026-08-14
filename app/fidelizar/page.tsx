@@ -108,7 +108,7 @@ export default function Fidelizar() {
         >
           {/* Hero Section */}
           <div
-            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
+            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
               borderTopLeftRadius: "12px",
@@ -116,9 +116,8 @@ export default function Fidelizar() {
             }}
           >
             <div
-              className="flex flex-col md:flex-row gap-5 md:gap-10"
+              className="flex flex-col md:flex-row gap-5 md:gap-10 items-start md:items-center"
               style={{
-                alignItems: "center",
                 position: "relative",
                 zIndex: 1,
               }}
@@ -162,10 +161,10 @@ export default function Fidelizar() {
             </div>
 
             <div
-              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center md:w-[4077.83px] md:h-[2276px] md:left-[-1697px] md:top-[-838px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[4077.83px] md:h-[2276px] md:left-[-1697px] md:top-[-838px] md:bg-auto"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -341,11 +340,23 @@ export default function Fidelizar() {
                   <CroppedIllustration
                     src={imgRelacionadosSeguro}
                     alt="Conor Seguro"
-                    aspectRatio={1419 / 792}
-                    objectPosition="41% 18%"
+                    aspectRatio={737 / 638}
+                    crop={{
+                      widthFraction: 1419 / 737,
+                      heightFraction: 792 / 638,
+                      offsetXFraction: -582 / 737,
+                      offsetYFraction: -141 / 638,
+                    }}
                     borderRadius="32px"
                     className="w-full md:w-[737px] md:h-[638px] md:flex-shrink-0"
-                    logo={{ src: imgRelacionadosSeguroLogo, aspectRatio: 357 / 62, widthFraction: 0.32 }}
+                    logo={{
+                      src: imgRelacionadosSeguroLogo,
+                      aspectRatio: 357 / 62,
+                      widthFraction: 459 / 737,
+                      boxAspectRatio: 459 / 128,
+                      artWidthFraction: 357 / 459,
+                      cornerRadius: "32px",
+                    }}
                   />
 
                   <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -368,7 +379,7 @@ export default function Fidelizar() {
 
                 {/* Bloco 2: Conor Assist */}
                 <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
-                  <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  <div className="order-2 md:order-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" style={{  }}>
                       <RelatedFeatureCard
                         title={assistFeatures[0].title}
@@ -394,11 +405,23 @@ export default function Fidelizar() {
                   <CroppedIllustration
                     src={imgRelacionadosAssist}
                     alt="Conor Assist"
-                    aspectRatio={1480 / 826}
-                    objectPosition="26% 29%"
+                    aspectRatio={737 / 590}
+                    crop={{
+                      widthFraction: 1480 / 737,
+                      heightFraction: 826 / 590,
+                      offsetXFraction: -388 / 737,
+                      offsetYFraction: -236 / 590,
+                    }}
                     borderRadius="32px"
-                    className="w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
-                    logo={{ src: imgRelacionadosAssistLogo, aspectRatio: 321 / 62, widthFraction: 0.32 }}
+                    className="order-1 md:order-2 w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
+                    logo={{
+                      src: imgRelacionadosAssistLogo,
+                      aspectRatio: 321 / 62,
+                      widthFraction: 459 / 737,
+                      boxAspectRatio: 459 / 128,
+                      artWidthFraction: 321 / 459,
+                      cornerRadius: "32px",
+                    }}
                   />
                 </div>
               </div>
@@ -406,14 +429,14 @@ export default function Fidelizar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #54a8fd, #52a4ff 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -468,9 +491,8 @@ export default function Fidelizar() {
               <img
                 src={imgCtaIllustration}
                 alt=""
-                className="w-full h-auto md:h-[480px] md:w-[707px]"
+                className="w-full h-auto aspect-[707/480] object-contain md:aspect-auto md:object-cover md:h-[480px] md:w-[707px]"
                 style={{
-                  objectFit: "cover",
                   flexShrink: 0,
                   maxWidth: "100%",
                 }}

@@ -3,7 +3,7 @@
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 
-const imgIllustration = "/image-promo-banner-02-final.png";
+const imgIllustration = "/image-ctahome-02.png";
 
 export function PromoBanner02() {
   return (
@@ -70,6 +70,7 @@ export function PromoBanner02() {
 
           {/* Button Tertiary — branco */}
           <button
+            className="text-[12px] md:text-[14px] px-3 md:px-5 w-full md:w-auto"
             style={{
               display: "flex",
               alignItems: "center",
@@ -81,11 +82,9 @@ export function PromoBanner02() {
               border: `1px solid ${colors.white}`,
               borderRadius: "999px",
               fontWeight: 500,
-              fontSize: "14px",
               cursor: "pointer",
               fontFamily: "var(--font-roboto)",
               transition: "opacity 0.3s",
-              padding: "0 20px",
               whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
@@ -102,16 +101,23 @@ export function PromoBanner02() {
 
         {/* Lado direito - Ilustração */}
         <div
-          className="h-[200px] md:h-auto w-full md:flex-1 md:w-auto md:min-w-0"
+          className="h-[200px] md:h-auto w-full md:w-1/2 md:flex-none md:min-w-0"
           style={{
             overflow: "hidden",
             position: "relative",
+            aspectRatio: "747 / 320",
           }}
         >
           <img
             src={imgIllustration}
             alt=""
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
           />
         </div>
       </div>

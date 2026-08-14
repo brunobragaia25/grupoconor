@@ -131,7 +131,7 @@ export default function Expandir() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
-            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
+            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
               borderTopLeftRadius: "12px",
@@ -186,10 +186,10 @@ export default function Expandir() {
             </div>
 
             <div
-              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center md:w-[1405px] md:h-[1049.07px] md:left-[-299px] md:top-[-217px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1405px] md:h-[1049.07px] md:left-[-299px] md:top-[-217px] md:bg-auto"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -323,25 +323,24 @@ export default function Expandir() {
                   <FadeIn
                     key={item.title}
                     delay={idx * 0.08}
+                    className="w-full flex-none h-[360px] md:[flex:1_0_0] md:h-[560px]"
                     style={{
                       backgroundColor: "#d9d9d9",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 0",
-                      height: "560px",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "flex-end",
                     }}
                   >
                     <div
+                      className="p-6 md:p-10"
                       style={{
                         backgroundColor: "#171717",
                         border: "1px solid #272727",
                         borderTop: "none",
                         borderBottomLeftRadius: "32px",
                         borderBottomRightRadius: "32px",
-                        padding: "40px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "10px",
@@ -395,7 +394,7 @@ export default function Expandir() {
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
                     <p
-                      className="text-5xl md:text-[72px]"
+                      className="text-[36px] md:text-[72px]"
                       style={{
                         fontWeight: 900,
                         fontFamily: "var(--font-linear-grotesk)",
@@ -407,8 +406,8 @@ export default function Expandir() {
                       {stat.number}
                     </p>
                     <p
+                      className="text-[24px] md:text-[40px]"
                       style={{
-                        fontSize: "40px",
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",
                         color: colors.white,
@@ -525,11 +524,23 @@ export default function Expandir() {
                 <CroppedIllustration
                   src={imgMarketingIllustration}
                   alt="Conor Marketing"
-                  aspectRatio={971 / 542}
-                  objectPosition="23% 20%"
+                  aspectRatio={737 / 433}
+                  crop={{
+                    widthFraction: 971 / 737,
+                    heightFraction: 542 / 433,
+                    offsetXFraction: -224 / 737,
+                    offsetYFraction: -109 / 433,
+                  }}
                   borderRadius="32px"
-                  className="flex-1 md:h-[433px]"
-                  logo={{ src: imgMarketingLogo, aspectRatio: 366 / 53, widthFraction: 0.47 }}
+                  className="w-full md:flex-1 md:w-auto md:min-w-0"
+                  logo={{
+                    src: imgMarketingLogo,
+                    aspectRatio: 366 / 53,
+                    widthFraction: 459 / 737,
+                    boxAspectRatio: 459 / 128,
+                    artWidthFraction: 366.346 / 459,
+                    cornerRadius: "32px",
+                  }}
                 />
 
                 <div
@@ -583,8 +594,9 @@ export default function Expandir() {
                     ))}
                   </ul>
 
-                  <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <div className="flex-col md:flex-row items-stretch md:items-center" style={{ display: "flex", gap: "12px" }}>
                     <button
+                      className="w-full md:w-auto"
                       style={{
                         backgroundColor: "#fa7a22",
                         color: colors.white,
@@ -604,6 +616,7 @@ export default function Expandir() {
                       Saiba mais
                     </button>
                     <button
+                      className="w-full md:w-auto justify-center md:justify-start"
                       style={{
                         backgroundColor: "transparent",
                         color: "#fa7a22",
@@ -633,14 +646,14 @@ export default function Expandir() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #ffc196, #fa7a22 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -695,9 +708,8 @@ export default function Expandir() {
               <img
                 src={imgCtaIllustration}
                 alt=""
-                className="w-full h-auto md:h-[480px] md:w-[722px]"
+                className="w-full h-auto aspect-[722/539] object-contain md:aspect-auto md:object-cover md:h-[480px] md:w-[722px]"
                 style={{
-                  objectFit: "cover",
                   flexShrink: 0,
                   maxWidth: "100%",
                 }}

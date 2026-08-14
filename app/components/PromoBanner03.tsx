@@ -3,7 +3,7 @@
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 
-const imgIllustration = "/image-promo-banner-03-final.png";
+const imgIllustration = "/image-ctahome-03.png";
 const imgWhatsapp = "/icons/whatsapp-icon.svg";
 const imgKeyboardDoubleArrowRight = "/icons/keyboard_double_arrow_right.svg";
 
@@ -17,7 +17,7 @@ export function PromoBanner03() {
       }}
     >
       <div
-        className="flex-col md:flex-row h-auto md:h-[320px]"
+        className="flex-col md:flex-row h-auto"
         style={{
           maxWidth: "1494px",
           margin: "0 auto",
@@ -30,10 +30,11 @@ export function PromoBanner03() {
       >
         {/* Left side - Illustration */}
         <div
-          className="h-[200px] md:h-auto w-full md:flex-1 md:w-auto md:min-w-0"
+          className="h-[200px] md:h-auto w-full md:w-1/2 md:flex-none md:min-w-0"
           style={{
             overflow: "hidden",
             position: "relative",
+            aspectRatio: "747 / 320",
           }}
         >
           <img
@@ -89,6 +90,7 @@ export function PromoBanner03() {
           </AnimatedTitle>
 
           <button
+            className="text-[12px] md:text-[14px] px-3 md:px-5 w-full md:w-auto"
             style={{
               display: "flex",
               alignItems: "center",
@@ -100,11 +102,9 @@ export function PromoBanner03() {
               border: `1px solid ${colors.white}`,
               borderRadius: "999px",
               fontWeight: 500,
-              fontSize: "14px",
               cursor: "pointer",
               fontFamily: "var(--font-roboto)",
               transition: "opacity 0.3s",
-              padding: "0 20px",
               minWidth: "fit-content",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}

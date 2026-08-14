@@ -178,7 +178,7 @@ export default function Montar() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
-            className="flex items-center overflow-hidden relative px-4 md:pl-20 min-h-[420px] md:min-h-[620px]"
+            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[620px]"
             style={{
               backgroundColor: "#52a4ff",
               borderTopLeftRadius: "12px",
@@ -232,10 +232,10 @@ export default function Montar() {
             </div>
 
             <div
-              className="absolute right-0 top-0 bottom-0 w-[220px] md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center md:w-[1141.07px] md:h-[852px] md:left-[-200.536px] md:top-[-116px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1141.07px] md:h-[852px] md:left-[-200.536px] md:top-[-116px] md:bg-auto"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -374,8 +374,8 @@ export default function Montar() {
                       flexDirection: "column",
                     }}
                   >
-                    <div style={{ backgroundColor: "#d9d9d9", height: "358px" }} />
-                    <div style={{ padding: "48px", display: "flex", flexDirection: "column", gap: "16px" }}>
+                    <div className="h-[180px] md:h-[358px]" style={{ backgroundColor: "#d9d9d9" }} />
+                    <div className="p-6 md:p-12" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <p
                         style={{
                           fontSize: "12px",
@@ -613,11 +613,23 @@ export default function Montar() {
                 <CroppedIllustration
                   src={imgEstoqueIllustration}
                   alt="Conor Estoque"
-                  aspectRatio={1003 / 560}
-                  objectPosition="25% 29%"
+                  aspectRatio={737 / 400}
+                  crop={{
+                    widthFraction: 1003 / 737,
+                    heightFraction: 560 / 400,
+                    offsetXFraction: -246 / 737,
+                    offsetYFraction: -160 / 400,
+                  }}
                   borderRadius="32px"
-                  className="flex-1 md:h-[400px]"
-                  logo={{ src: imgEstoqueLogo, aspectRatio: 387 / 64, widthFraction: 0.46 }}
+                  className="w-full md:w-[737px] md:h-[400px] md:flex-shrink-0"
+                  logo={{
+                    src: imgEstoqueLogo,
+                    aspectRatio: 387 / 64,
+                    widthFraction: 459 / 737,
+                    boxAspectRatio: 459 / 128,
+                    artWidthFraction: 387 / 459,
+                    cornerRadius: "32px",
+                  }}
                 />
 
                 <div
@@ -669,8 +681,9 @@ export default function Montar() {
                     ))}
                   </ul>
 
-                  <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <div className="flex-col md:flex-row items-stretch md:items-center" style={{ display: "flex", gap: "12px" }}>
                     <button
+                      className="w-full md:w-auto"
                       style={{
                         backgroundColor: "#e01e5a",
                         color: colors.white,
@@ -690,6 +703,7 @@ export default function Montar() {
                       Saiba mais
                     </button>
                     <button
+                      className="w-full md:w-auto justify-center md:justify-start"
                       style={{
                         backgroundColor: "transparent",
                         color: "#e01e5a",
@@ -719,14 +733,14 @@ export default function Montar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-6 py-10 md:pl-24 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #670a24, #e01e5a 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -781,9 +795,8 @@ export default function Montar() {
               <img
                 src={imgCtaIllustration}
                 alt=""
-                className="w-full h-auto md:h-[480px] md:w-[722px]"
+                className="w-full h-auto aspect-[722/539] object-contain md:aspect-auto md:object-cover md:h-[480px] md:w-[722px]"
                 style={{
-                  objectFit: "cover",
                   flexShrink: 0,
                   maxWidth: "100%",
                 }}

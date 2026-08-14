@@ -136,9 +136,9 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
     >
       <a
         href={product.href}
+        className="h-[180px] md:h-[271px]"
         style={{
           display: "block",
-          height: "271px",
           position: "relative",
           overflow: "hidden",
           backgroundColor: colors.background.grayUltraHigh,
@@ -204,9 +204,10 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
             </ul>
           </div>
 
-          <div className="flex-col md:flex-row items-start md:items-center" style={{ display: "flex", gap: "12px" }}>
+          <div className="flex-col md:flex-row items-stretch md:items-center w-full md:w-auto" style={{ display: "flex", gap: "12px" }}>
             <a
               href={product.href}
+              className="w-full md:w-auto"
               style={{
                 backgroundColor: product.color,
                 color: colors.white,
@@ -230,6 +231,7 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
               Saiba mais
             </a>
             <button
+              className="w-full md:w-auto justify-center md:justify-start"
               style={{
                 backgroundColor: "transparent",
                 color: product.color,

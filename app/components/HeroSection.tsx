@@ -244,6 +244,7 @@ export function HeroSection() {
               {/* Botão */}
               <a
                 href={card.href}
+                className="w-full md:w-auto"
                 style={{
                   backgroundColor: card.color,
                   display: "inline-flex",

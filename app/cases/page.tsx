@@ -319,7 +319,7 @@ export default function Cases() {
 
           {/* CTA Final */}
           <div
-            className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pt-24 md:pb-24 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pr-0 md:pt-24 md:pb-24 gap-8 md:gap-0"
             style={{
               backgroundColor: "#52a4ff",
               borderRadius: "20px",

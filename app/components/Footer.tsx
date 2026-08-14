@@ -355,29 +355,29 @@ export function Footer() {
 
           {/* Footer Info */}
           <div
+            className="items-center md:items-start text-center md:text-left"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "24px",
-              alignItems: "flex-start",
               width: "100%",
             }}
           >
             {/* Address */}
             <div
+              className="flex-col md:flex-row items-center md:items-start justify-center md:justify-start"
               style={{
                 display: "flex",
                 gap: "6px",
-                alignItems: "flex-start",
               }}
             >
               <img
                 src="/icons/icon-map-pin-line.svg"
                 alt="Location"
+                className="mt-0 md:mt-[2px]"
                 style={{
                   width: "14px",
                   height: "14px",
-                  marginTop: "2px",
                   flexShrink: 0,
                 }}
               />
@@ -398,7 +398,7 @@ export function Footer() {
 
             {/* Bottom Footer */}
             <div
-              className="flex-col md:flex-row items-start md:items-center gap-3 md:gap-0"
+              className="flex-col md:flex-row items-center md:items-center gap-3 md:gap-0"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -407,10 +407,9 @@ export function Footer() {
               }}
             >
               <div
+                className="flex-col md:flex-row items-center md:items-center gap-1 md:gap-[6px]"
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
                   fontSize: "12px",
                   fontWeight: 400,
                   fontFamily: "var(--font-roboto)",
@@ -418,18 +417,20 @@ export function Footer() {
                   lineHeight: "18px",
                 }}
               >
-                <span>Desenvolvido por</span>
-                <img
-                  src="/icons/logo-devz-design.svg"
-                  alt="Devz Design"
-                  style={{ height: "16px", width: "auto", flexShrink: 0 }}
-                />
+                <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <span>Desenvolvido por</span>
+                  <img
+                    src="/icons/logo-devz-design.svg"
+                    alt="Devz Design"
+                    style={{ height: "16px", width: "auto", flexShrink: 0 }}
+                  />
+                </span>
                 <span>© 2026 Grupo Conor. Todos os direitos reservados.</span>
               </div>
               <p
+                className="text-[14px] md:text-[16px]"
                 style={{
                   margin: 0,
-                  fontSize: "16px",
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
