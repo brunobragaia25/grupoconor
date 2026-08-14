@@ -132,7 +132,7 @@ const comboProducts = [
     checkColor: "#dd245c",
     title: "Alugue 10 rastreadores e chips prontos para uso",
     items: [
-      "Rastreadores SUNTECH ST4215U (4G) e ST310UC2 (2G)",
+      "Rastreador J16 Original e Tag BLE",
       "Chip Vivo 20Mb",
     ],
   },

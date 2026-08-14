@@ -4,8 +4,8 @@ import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 import { FadeIn } from "./motion/FadeIn";
 
-const imgCpu = "/icons/icon-service-cpu.svg";
-const imgCrosshair = "/icons/icon-service-crosshair.svg";
+const imgSimCard = "/icons/icon-service-sim-card.svg";
+const imgTracker = "/icons/icon-segment-broadcast.svg";
 const imgLockOpen = "/icons/icon-service-lock-open.svg";
 const imgHeadset = "/icons/icon-service-headset.svg";
 const imgArrowClockwise = "/icons/icon-service-arrow-clockwise.svg";
@@ -23,14 +23,14 @@ const servicesFirstRow: ServiceCard[] = [
     title: "Venda de chips",
     description:
       "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
-    icon: imgCpu,
+    icon: imgSimCard,
   },
   {
     id: 2,
     title: "Venda & locações de rastreadores",
     description:
       "O mercado rastreia menos de 5% da frota brasileira. Isso significa que, nos dias de hoje, cerca de 117,8 milhões de veículos ainda não possuem rastreamento no país.",
-    icon: imgCrosshair,
+    icon: imgTracker,
   },
 ];
 

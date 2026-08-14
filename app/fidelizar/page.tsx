@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
@@ -15,7 +16,6 @@ const imgShieldCheck = "/icons/icon-shield-check.svg";
 const imgPackage = "/icons/icon-package.svg";
 const imgHeadset = "/icons/icon-headset.svg";
 const imgGift = "/icons/icon-gift.svg";
-const imgStepCircle = "/icons/icon-step-circle.svg";
 const imgRelacionadosSeguro = "/image-fidelizar-relacionados-seguro.jpg";
 const imgRelacionadosSeguroLogo = "/icon-fidelizar-relacionados-seguro-logo2.svg";
 const imgRelacionadosAssist = "/image-fidelizar-relacionados-assist.jpg";
@@ -44,23 +44,188 @@ const pillars = [
   },
 ];
 
-const steps = [1, 2, 3, 4, 5];
-
-const loremDescription =
-  "Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..Lorem ipsum..";
+const steps = [
+  {
+    title: "Diagnóstico da sua base",
+    description:
+      "Entendemos o perfil dos seus clientes, o tamanho da base e onde estão as maiores perdas — cancelamento, inadimplência ou falta de diferencial frente à concorrência.",
+  },
+  {
+    title: "Montagem do programa",
+    description:
+      "Definimos juntos quais benefícios entram na sua oferta: seguro, assistência 24h, estoque de equipamentos e vantagens exclusivas, no formato e no preço que fazem sentido para o seu negócio.",
+  },
+  {
+    title: "Ativação",
+    description:
+      "Cuidamos de contrato, configuração e liberação dos serviços. Você não precisa desenvolver nada: a estrutura já está pronta e roda por trás da sua marca.",
+  },
+  {
+    title: "Treinamento do seu time",
+    description:
+      "Preparamos quem vende e quem atende, com material de apoio e argumentos prontos para apresentar o programa à base atual e aos novos clientes.",
+  },
+  {
+    title: "Acompanhamento e resultados",
+    description:
+      "Suporte consultivo contínuo, com acompanhamento de retenção e ajustes no programa conforme os números da sua operação.",
+  },
+];
 
 const seguroFeatures = [
-  { title: "Recuperação Veicular", description: loremDescription },
-  { title: "Telemetria avançada", description: loremDescription },
-  { title: "Homologação STC", description: loremDescription },
-  { title: "Associação Veicular", description: loremDescription },
+  {
+    title: "Recuperação Veicular",
+    description:
+      "Em caso de furto ou roubo, o acionamento é imediato: equipe especializada trabalha junto com o rastreamento para localizar e recuperar o veículo do seu cliente.",
+  },
+  {
+    title: "Telemetria avançada",
+    description:
+      "Dados de rota, velocidade e comportamento de condução em tempo real. Mais informação para reduzir riscos, orientar o cliente e diminuir sinistros na sua base.",
+  },
+  {
+    title: "Homologação STC",
+    description:
+      "Equipamentos homologados no padrão exigido por seguradoras e gerenciadoras de risco — sua porta de entrada para frotas e cargas.",
+  },
+  {
+    title: "Associação Veicular",
+    description:
+      "Alternativa ao seguro tradicional, com mensalidade acessível e proteção por rateio. Amplia o leque de opções que a sua central oferece a cada perfil de cliente.",
+  },
 ];
 
 const assistFeatures = [
-  { title: "Financeira", description: loremDescription },
-  { title: "Admnistrativa", description: loremDescription },
-  { title: "Estoque", description: loremDescription },
+  {
+    title: "Financeira",
+    description:
+      "Cobrança recorrente, controle de inadimplência e conciliação das mensalidades da sua base — o financeiro da central rodando sem planilha e sem retrabalho.",
+  },
+  {
+    title: "Administrativa",
+    description:
+      "Contratos, cadastros e rotinas do dia a dia centralizados em um só lugar, com apoio da nossa equipe para o seu time focar em vender e atender.",
+  },
+  {
+    title: "Estoque",
+    description:
+      "Controle de rastreadores e chips por status: em estoque, instalado, em manutenção ou retornado. Você sabe exatamente onde está cada equipamento.",
+  },
 ];
+
+const accent = "#52a4ff";
+
+function StepsTimeline() {
+  const [activeStep, setActiveStep] = useState(0);
+  /** Pausa o ciclo automático assim que o visitante escolhe um passo. */
+  const [autoPlay, setAutoPlay] = useState(true);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    const timer = setInterval(() => {
+      setActiveStep((current) => (current + 1) % steps.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [autoPlay]);
+
+  const selectStep = (idx: number) => {
+    setAutoPlay(false);
+    setActiveStep(idx);
+  };
+
+  return (
+    <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column" }}>
+      {steps.map((step, idx) => {
+        const isActive = idx === activeStep;
+        const isLast = idx === steps.length - 1;
+
+        return (
+          <FadeIn key={step.title} delay={idx * 0.08} style={{ display: "flex", gap: "20px" }}>
+            {/* Coluna da numeração */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
+              <button
+                onClick={() => selectStep(idx)}
+                aria-label={`Passo 0${idx + 1}`}
+                aria-current={isActive}
+                className="w-[44px] h-[44px] md:w-[56px] md:h-[56px]"
+                style={{
+                  borderRadius: "999px",
+                  border: `2px solid ${accent}`,
+                  backgroundColor: isActive ? accent : "#171717",
+                  color: isActive ? colors.black : colors.white,
+                  fontFamily: "var(--font-linear-grotesk)",
+                  fontWeight: 700,
+                  fontSize: "16px",
+                  cursor: "pointer",
+                  flexShrink: 0,
+                  transition: "background-color 0.3s, color 0.3s",
+                }}
+              >
+                0{idx + 1}
+              </button>
+              {!isLast && (
+                <div
+                  style={{
+                    width: "2px",
+                    flex: 1,
+                    minHeight: "20px",
+                    backgroundColor: `${accent}4d`,
+                  }}
+                />
+              )}
+            </div>
+
+            {/* Card do passo */}
+            <button
+              onClick={() => selectStep(idx)}
+              className="p-5 md:px-8 md:py-6"
+              style={{
+                flex: 1,
+                minWidth: 0,
+                marginBottom: isLast ? 0 : "20px",
+                textAlign: "left",
+                borderRadius: "16px",
+                border: `1px solid ${isActive ? accent : "#272727"}`,
+                backgroundColor: isActive ? `${accent}26` : colors.black,
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "column",
+                gap: isActive ? "8px" : 0,
+                transition: "background-color 0.3s, border-color 0.3s",
+              }}
+            >
+              <span
+                className="text-[16px] md:text-[18px]"
+                style={{
+                  fontFamily: "var(--font-linear-grotesk)",
+                  fontWeight: 700,
+                  color: isActive ? colors.white : colors.text.bodyLight,
+                  transition: "color 0.3s",
+                }}
+              >
+                {step.title}
+              </span>
+              {isActive && (
+                <span
+                  style={{
+                    fontFamily: "var(--font-roboto)",
+                    fontSize: "14px",
+                    lineHeight: "22px",
+                    color: colors.white,
+                  }}
+                >
+                  {step.description}
+                </span>
+              )}
+            </button>
+          </FadeIn>
+        );
+      })}
+    </div>
+  );
+}
 
 function RelatedFeatureCard({
   title,
@@ -264,58 +429,15 @@ export default function Fidelizar() {
                       lineHeight: "28px",
                     }}
                   >
-                    [CONTEÚDO A PREENCHER] Explicação detalhada de como
-                    funciona o programa de fidelização, etapas e benefícios
-                    incrementais.
+                    Do primeiro diagnóstico até o acompanhamento dos
+                    resultados, cuidamos da estrutura para que você ofereça
+                    seguro, assistência 24h e benefícios exclusivos aos seus
+                    clientes — sem precisar montar nada do zero.
                   </p>
                 </div>
-                <div
-                  className="min-h-[240px] md:min-h-0 w-full md:flex-1 md:w-auto md:min-w-0"
-                  style={{
-                    backgroundColor: "#d9d9d9",
-                    borderRadius: "32px",
-                  }}
-                />
               </div>
 
-              <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center" }}>
-                {steps.map((step, idx) => (
-                  <FadeIn
-                    key={step}
-                    delay={idx * 0.08}
-                    className="flex-col sm:flex-row gap-4 sm:gap-10"
-                    style={{
-                      backgroundColor: colors.black,
-                      borderRadius: "32px",
-                      display: "flex",
-                      alignItems: "center",
-                      padding: "32px",
-                    }}
-                  >
-                    <img src={imgStepCircle} alt="" style={{ width: "64px", height: "64px", flexShrink: 0 }} />
-                    <p className="w-full md:flex-1 md:w-auto md:min-w-0"
-                      style={{
-                        fontSize: "14px",
-                        fontFamily: "var(--font-roboto)",
-                        color: colors.text.bodyLight,
-                        margin: 0,
-                      }}
-                    >
-                      Passo 0{step}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontFamily: "var(--font-roboto)",
-                        color: colors.text.bodyLight,
-                        margin: 0,
-                      }}
-                    >
-                      [CONTEÚDO A PREENCHER] Descrição do passo {step}
-                    </p>
-                  </FadeIn>
-                ))}
-              </div>
+              <StepsTimeline />
             </div>
 
             {/* Produtos Relacionados */}

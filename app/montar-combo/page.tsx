@@ -166,7 +166,7 @@ const iniciantePricing = [
     // Crops do Figma 395:348 (faixa 477x180)
     imageCrop: { width: "111.74%", left: "-5.87%", top: "-43.75%" },
     title: "Alugue 10 rastreadores e chips prontos para uso",
-    items: ["Rastreadores SUNTECH ST4215U (4G) e ST310UC2 (2G)", "Chip Vivo 20Mb"],
+    items: ["Rastreador J16 Original e Tag BLE", "Chip Vivo 20Mb"],
   },
   {
     logo: imgLogo4em1,
@@ -199,6 +199,7 @@ const existentePricing = [
     imageCrop: { width: "174.84%", left: "-64.15%", top: "-101.39%" },
     title: "Ative seu escritório",
     price: "R$3.000 de entrada + R$350 por mês",
+    buttonLabel: "Montar pedido",
     items: ["Preço fixo", "Sem carência", "Sem mínimo"],
   },
   {
@@ -209,6 +210,7 @@ const existentePricing = [
     imageCrop: { width: "224.32%", left: "-64.36%", top: "-124.17%" },
     title: "Ative sua solução",
     price: "R$1.000 de entrada + R$550 por mês",
+    buttonLabel: "Comprar agora",
     items: ["Preço fixo", "Atendimento em todo Brasil", "Para centrais de rastreamento"],
   },
   {
@@ -219,6 +221,7 @@ const existentePricing = [
     imageCrop: { width: "125.37%", left: "-23.69%", top: "-35.28%" },
     title: "Ative o seu marketing",
     price: "Monte o seu combo",
+    buttonLabel: "Comprar agora",
     items: ["Criativos", "Tráfego pago", "Página de vendas"],
   },
 ];
@@ -301,17 +304,9 @@ export default function MontarCombo() {
             }}
           >
             {/* Para quem está começando */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
-              <FadeIn
-                className="flex-col md:flex-row px-6 py-10 md:p-16 gap-10 md:gap-16"
-                style={{
-                  backgroundColor: colors.white,
-                  borderRadius: "32px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <div className="w-full md:w-[719px]" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+              <FadeIn>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <p
                     style={{
                       fontSize: "12px",
@@ -330,7 +325,7 @@ export default function MontarCombo() {
                     style={{
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
-                      color: colors.black,
+                      color: colors.white,
                       margin: 0,
                       lineHeight: "1.2",
                     }}
@@ -341,7 +336,7 @@ export default function MontarCombo() {
                     style={{
                       fontSize: "16px",
                       fontFamily: "var(--font-roboto)",
-                      color: colors.black,
+                      color: colors.text.bodyLight,
                       margin: 0,
                       lineHeight: "28px",
                     }}
@@ -349,16 +344,7 @@ export default function MontarCombo() {
                     Construa seu negócio de rastreamento com Conor Admin, Conor
                     4 em 1 e Conor Estoque
                   </p>
-                  <p style={{ margin: 0, lineHeight: "28px" }}>
-                    <span style={{ fontSize: "32px", color: colors.black, fontFamily: "var(--font-roboto)" }}>a partir de </span>
-                    <span style={{ fontSize: "32px", fontWeight: 700, color: "#996cfb", fontFamily: "var(--font-roboto)" }}>
-                      R$2.500
-                    </span>
-                    <span style={{ fontSize: "32px", color: "#996cfb", fontFamily: "var(--font-roboto)" }}>.</span>
-                  </p>
                 </div>
-
-                <ComboVenn activeGroup="iniciante" />
               </FadeIn>
 
               <div className="flex flex-col md:flex-row gap-5">
@@ -449,85 +435,36 @@ export default function MontarCombo() {
                 ))}
               </div>
 
-              <FadeIn
-                className="flex-col md:flex-row items-start md:items-center px-6 py-8 md:px-12 md:py-8 gap-6 md:gap-0"
-                style={{
-                  backgroundColor: "#171717",
-                  border: "1px solid #272727",
-                  borderRadius: "24px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div>
-                  <p
-                    style={{
-                      fontSize: "13px",
-                      fontFamily: "var(--font-roboto)",
-                      color: colors.text.bodyLight,
-                      margin: "0 0 4px 0",
-                      textTransform: "uppercase",
-                      letterSpacing: "1px",
-                    }}
-                  >
-                    Entrada
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "32px",
-                      fontWeight: 700,
-                      fontFamily: "var(--font-linear-grotesk)",
-                      color: colors.white,
-                      margin: 0,
-                    }}
-                  >
-                    R$2.500{" "}
-                    <span style={{ fontSize: "16px", fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}>
-                      + R$35,90 mensais
-                    </span>
-                  </p>
-                </div>
+              <FadeIn style={{ display: "flex", justifyContent: "center" }}>
                 <button
+                  className="w-full md:w-auto h-[56px] md:h-[64px] text-[16px] md:text-[18px] px-8 md:px-14"
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "6px",
-                    height: "48px",
+                    gap: "10px",
                     backgroundColor: "#996cfb",
                     color: colors.white,
                     border: "none",
                     borderRadius: "999px",
-                    fontSize: "14px",
                     fontWeight: 700,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
                     transition: "opacity 0.3s",
-                    padding: "0 28px",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
                   onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                 >
-                  <img src={imgCartIcon} alt="" style={{ width: "16px", height: "16px" }} />
+                  <img src={imgCartIcon} alt="" style={{ width: "20px", height: "20px" }} />
                   Comprar combo
                 </button>
               </FadeIn>
             </div>
 
             {/* Para quem já tem uma base de clientes */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
-              <FadeIn
-                className="flex-col md:flex-row px-6 py-10 md:p-16 gap-10 md:gap-16"
-                style={{
-                  backgroundColor: colors.white,
-                  borderRadius: "32px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <ComboVenn activeGroup="existente" />
-
-                <div className="w-full md:w-[719px]" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+              <FadeIn>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <p
                     style={{
                       fontSize: "12px",
@@ -546,7 +483,7 @@ export default function MontarCombo() {
                     style={{
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
-                      color: colors.black,
+                      color: colors.white,
                       margin: 0,
                       lineHeight: "1.2",
                     }}
@@ -557,7 +494,7 @@ export default function MontarCombo() {
                     style={{
                       fontSize: "16px",
                       fontFamily: "var(--font-roboto)",
-                      color: colors.black,
+                      color: colors.text.bodyLight,
                       margin: 0,
                       lineHeight: "28px",
                     }}
@@ -644,6 +581,29 @@ export default function MontarCombo() {
                           </li>
                         ))}
                       </ul>
+                      <button
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          width: "100%",
+                          height: "48px",
+                          backgroundColor: product.color,
+                          color: colors.black,
+                          border: "none",
+                          borderRadius: "999px",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          cursor: "pointer",
+                          fontFamily: "var(--font-roboto)",
+                          transition: "opacity 0.3s",
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+                        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                      >
+                        {product.buttonLabel}
+                      </button>
                     </div>
                   </FadeIn>
                 ))}

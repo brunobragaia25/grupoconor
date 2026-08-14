@@ -19,6 +19,9 @@ const imgPackage = "/icons/icon-package.svg";
 const imgPackage2 = "/icons/icon-package-2.svg";
 const imgChartLineUp = "/icons/icon-chart-line-up.svg";
 const imgHandshake = "/icons/icon-handshake.svg";
+const imgFotoJ16 = "/foto-j16.png";
+const imgFotoChip = "/foto-chip.png";
+const imgFotoTag = "/foto-tag.png";
 
 function WhatsappIcon({ color }: { color: string }) {
   return (
@@ -36,11 +39,11 @@ const features = [
     icon: imgMapPinLine,
     title: "Rastreadores",
     description:
-      "Escolha entre as melhores marcas do mercado. SUNTECH ST4215U (4G) e ST310UC2 (2G) com tecnologia de ponta e confiabilidade comprovada.",
+      "Escolha entre as melhores marcas do mercado. Rastreador J16 Original e Tag BLE com tecnologia de ponta e confiabilidade comprovada.",
     checkColor: "#40c6ee",
     items: [
-      "SUNTECH ST4215U - Rastreador 4G",
-      "SUNTECH ST310UC2 - Rastreador 2G",
+      "Rastreador J16 Original - 4G",
+      "Tag BLE - identificação por Bluetooth",
       "Tecnologia GPS/GNSS de alta precisão",
       "Compatível com todos os veículos",
     ],
@@ -76,31 +79,36 @@ const features = [
 const hardware = [
   {
     label: "Rastreador 4G",
-    name: "SUNTECH ST4215U",
-    description:
-      "Rastreador de última geração com conectividade 4G. Ideal para áreas com cobertura avançada e necessidade de dados em tempo real.",
+    name: "Rastreador J16",
+    image: imgFotoJ16,
+    description: "Tecnologia pronta para sua operação",
     items: [
-      "Conectividade 4G/3G/2G",
-      "GPS/GNSS de alta precisão",
-      "Bateria com longa duração",
-      "Compatibilidade universal",
+      "Chipset SIMCOM A7670SA (CAT1) com firmware customizado",
+      "Comunicação 4G estável com fallback em 2G",
+      "Módulo GNSS Quectel — alta precisão de localização",
+      "Estável com multioperadoras — troca de operadora remota",
+      "Sentinela via Lara e configurador exclusivo",
+      "Manutenção nacional — garantia e suporte em todo o Brasil",
     ],
   },
   {
-    label: "Rastreador 2G",
-    name: "SUNTECH ST310UC2",
-    description:
-      "Rastreador robusto com conectividade 2G. Cobertura confiável em todo Brasil com excelente relação custo-benefício.",
+    label: "Rastreamento Bluetooth",
+    name: "Tag BLE",
+    image: imgFotoTag,
+    description: "Rastreamento por Bluetooth de longo alcance",
     items: [
-      "Conectividade 2G/GPRS",
-      "Alcance em áreas remotas",
-      "Baixo consumo de dados",
-      "Durabilidade comprovada",
+      "Ideal para motos, equipamentos e ativos sem porta OBD",
+      "Bluetooth Low Energy — bateria de longa duração",
+      "Localização precisa em áreas urbanas e confinadas",
+      "Discreto e de fácil instalação em qualquer superfície",
+      "Integrado ao mesmo painel da plataforma OBD",
+      "Alertas de movimentação e saída de cerca virtual",
     ],
   },
   {
     label: "Conectividade 20Mb",
     name: "Chip Vivo",
+    image: imgFotoChip,
     description:
       "Plano de dados de 20Mb com cobertura nacional. Acesso sem limitações à plataforma Conor e sistemas integrados.",
     items: [
@@ -374,7 +382,25 @@ export default function Montar() {
                       flexDirection: "column",
                     }}
                   >
-                    <div className="h-[180px] md:h-[358px]" style={{ backgroundColor: "#d9d9d9" }} />
+                    <div
+                      className="h-[180px] md:h-[358px]"
+                      style={{
+                        backgroundColor: "image" in product && product.image ? colors.white : "#d9d9d9",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        overflow: "hidden",
+                        flexShrink: 0,
+                      }}
+                    >
+                      {"image" in product && product.image && (
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+                        />
+                      )}
+                    </div>
                     <div className="p-6 md:p-12" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                       <p
                         style={{

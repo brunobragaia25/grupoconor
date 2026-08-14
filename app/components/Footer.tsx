@@ -7,6 +7,13 @@ const imgYoutube = "/icons/youtube.svg";
 const imgFacebook = "/icons/facebook.svg";
 const imgInsta = "/icons/insta.svg";
 const imgLinkedin = "/icons/linkedin.svg";
+
+const socialLinks = [
+  { label: "YouTube", icon: imgYoutube, href: "https://www.youtube.com/@grupoconor749" },
+  { label: "Facebook", icon: imgFacebook, href: "https://www.facebook.com/grupoconor/" },
+  { label: "Instagram", icon: imgInsta, href: "https://www.instagram.com/grupoconor/" },
+  { label: "LinkedIn", icon: imgLinkedin, href: "https://br.linkedin.com/company/grupoconor" },
+];
 const imgLine2 =
   "https://www.figma.com/api/mcp/asset/96f7c149-8656-495d-84b1-08f02c15f823";
 const imgLanguage =
@@ -310,34 +317,22 @@ export function Footer() {
               alignItems: "center",
             }}
           >
-            <a href="#" style={{ cursor: "pointer", opacity: 0.8 }}>
-              <img
-                src={imgYoutube}
-                alt="YouTube"
-                style={{ width: "16px", height: "16px" }}
-              />
-            </a>
-            <a href="#" style={{ cursor: "pointer", opacity: 0.8 }}>
-              <img
-                src={imgFacebook}
-                alt="Facebook"
-                style={{ width: "16px", height: "16px" }}
-              />
-            </a>
-            <a href="#" style={{ cursor: "pointer", opacity: 0.8 }}>
-              <img
-                src={imgInsta}
-                alt="Instagram"
-                style={{ width: "16px", height: "16px" }}
-              />
-            </a>
-            <a href="#" style={{ cursor: "pointer", opacity: 0.8 }}>
-              <img
-                src={imgLinkedin}
-                alt="LinkedIn"
-                style={{ width: "16px", height: "16px" }}
-              />
-            </a>
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                style={{ cursor: "pointer", opacity: 0.8 }}
+              >
+                <img
+                  src={social.icon}
+                  alt={social.label}
+                  style={{ width: "16px", height: "16px" }}
+                />
+              </a>
+            ))}
           </div>
 
           {/* Divider Line */}
@@ -419,11 +414,21 @@ export function Footer() {
               >
                 <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                   <span>Desenvolvido por</span>
-                  <img
-                    src="/icons/logo-devz-design.svg"
-                    alt="Devz Design"
-                    style={{ height: "16px", width: "auto", flexShrink: 0 }}
-                  />
+                  <a
+                    href="https://www.devzdesign.com.br/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Devz Design"
+                    style={{ display: "flex", alignItems: "center", cursor: "pointer", transition: "opacity 0.3s" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  >
+                    <img
+                      src="/icons/logo-devz-design.svg"
+                      alt="Devz Design"
+                      style={{ height: "16px", width: "auto", flexShrink: 0 }}
+                    />
+                  </a>
                 </span>
                 <span>© 2026 Grupo Conor. Todos os direitos reservados.</span>
               </div>

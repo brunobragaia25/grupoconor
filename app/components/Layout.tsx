@@ -24,7 +24,7 @@ export function Layout({ children }: LayoutProps) {
 
         {/* Main Content */}
         <main
-          className="min-w-0 md:ml-[200px]"
+          className="min-w-0 flex-1 md:ml-[200px]"
           style={{
             marginTop: layout.navbar.height,
           }}

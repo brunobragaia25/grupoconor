@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SimCard" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+<path d="M152,32H64a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V80Z"/>
+<rect x="92" y="120" width="72" height="72" rx="8"/>
+<line x1="128" y1="120" x2="128" y2="192"/>
+<line x1="92" y1="156" x2="164" y2="156"/>
+</g>
+</svg>
