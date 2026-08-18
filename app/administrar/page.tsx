@@ -15,6 +15,8 @@ const imgFolderOpen = "/icons/icon-folder-open.svg";
 const imgPackage = "/icons/icon-package-2.svg";
 const imgWhyIllustration = "/image-administrar-why.jpg";
 const imgHeroLogo = "/icon-administrar-hero-logo.svg";
+const imgDashboardPrincipal = "/foto-dash-administrar.png";
+const imgRelatorios = "/foto-relatorios-administrar.png";
 
 const modules = [
   {
@@ -63,11 +65,13 @@ const screenshots = [
     title: "Dashboard Principal",
     description:
       "Visualize todos os dados importantes da sua operação em uma única tela. Acompanhe métricas em tempo real.",
+    image: imgDashboardPrincipal,
   },
   {
     title: "Relatórios & Análises",
     description:
       "Gere relatórios detalhados e personalizados para análises profundas do seu negócio.",
+    image: imgRelatorios,
   },
 ];
 
@@ -291,16 +295,26 @@ export default function Administrar() {
                     delay={idx * 0.08}
                     className="w-full"
                     style={{
-                      backgroundColor: "#d9d9d9",
                       border: "1px solid #272727",
                       borderRadius: "32px",
-                      flex: "1 0 0",
-                      height: "560px",
+                      overflow: "hidden",
+                      flex: "1 1 auto",
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "flex-end",
                     }}
                   >
+                    <div
+                      style={{
+                        backgroundColor: "#d9d9d9",
+                        backgroundImage: screenshot.image ? `url(${screenshot.image})` : undefined,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        aspectRatio: screenshot.image ? "1241 / 945" : undefined,
+                        height: screenshot.image ? undefined : "560px",
+                        width: "100%",
+                      }}
+                    />
                     <div
                       style={{
                         backgroundColor: "#171717",
