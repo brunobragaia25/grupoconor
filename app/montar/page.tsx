@@ -126,13 +126,15 @@ const pricingTiers = [
     icon: imgPackage,
     description:
       "Ideal para quem está começando a montar sua central de rastreamento e precisa de um lote inicial de equipamentos.",
-    buttonLabel: "Montar pedido",
+    buttonLabel: "Falar com consultor",
     buttonStyle: "outline" as const,
     popular: false,
     rows: [
       { label: "Quantidade:", value: "1-10 unidades" },
       { label: "Prazo:", value: "7 dias úteis" },
       { label: "Garantia:", value: "12 meses" },
+      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
+      { label: "Chip Vivo 20Mb:", value: "R$5,00 por chip" },
     ],
   },
   {
@@ -140,13 +142,15 @@ const pricingTiers = [
     icon: imgPackage2,
     description:
       "Para operações em crescimento que já têm uma base de clientes e precisam escalar a instalação de rastreadores.",
-    buttonLabel: "Montar pedido",
+    buttonLabel: "Falar com consultor",
     buttonStyle: "solid" as const,
     popular: true,
     rows: [
       { label: "Quantidade:", value: "11-50 unidades" },
       { label: "Prazo:", value: "5 dias úteis" },
       { label: "Garantia:", value: "12 meses" },
+      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
+      { label: "Chip Vivo 20Mb:", value: "R$4,50 por chip" },
     ],
   },
   {
@@ -154,13 +158,15 @@ const pricingTiers = [
     icon: imgChartLineUp,
     description:
       "Para centrais de rastreamento consolidadas que precisam de um volume maior de equipamentos com prazo reduzido.",
-    buttonLabel: "Montar pedido",
+    buttonLabel: "Falar com consultor",
     buttonStyle: "outline" as const,
     popular: false,
     rows: [
       { label: "Quantidade:", value: "51-100 unidades" },
       { label: "Prazo:", value: "3 dias úteis" },
       { label: "Garantia:", value: "12 meses" },
+      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
+      { label: "Chip Vivo 20Mb:", value: "R$3,90 por chip" },
     ],
   },
   {
@@ -175,6 +181,8 @@ const pricingTiers = [
       { label: "Quantidade:", value: "+100 unidades" },
       { label: "Prazo:", value: "Sob demanda" },
       { label: "Garantia:", value: "12 meses" },
+      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
+      { label: "Chip Vivo 20Mb:", value: "R$3,40 por chip" },
     ],
   },
 ];
@@ -495,14 +503,17 @@ export default function Montar() {
                     key={tier.title}
                     delay={idx * 0.08}
                     style={{
-                      backgroundColor: "#111111",
-                      border: "1px solid #2a2a2a",
+                      backgroundColor: tier.popular ? "#151b24" : "#111111",
+                      border: tier.popular ? "1px solid #52a4ff" : "1px solid #2a2a2a",
                       borderRadius: "16px",
                       padding: "33px",
                       display: "flex",
                       flexDirection: "column",
                       gap: "24px",
                       position: "relative",
+                      boxShadow: tier.popular ? "0 0 32px 0 rgba(82, 164, 255, 0.25)" : undefined,
+                      transform: tier.popular ? "scale(1.03)" : undefined,
+                      zIndex: tier.popular ? 1 : undefined,
                     }}
                   >
                     {tier.popular && (
