@@ -14,7 +14,9 @@ const imgSpeedometer = "/icons/icon-speedometer.svg";
 const imgShieldWarning = "/icons/icon-shield-warning.svg";
 const imgCar = "/icons/icon-car.svg";
 const imgMapPinLine = "/icons/icon-map-pin-line.svg";
-const imgCompatCircle = "/icons/icon-compat-circle.svg";
+const imgTruck = "/icons/icon-truck.svg";
+const imgMotorcycle = "/icons/icon-motorcycle.svg";
+const imgBus = "/icons/icon-bus.svg";
 const img4em1Bg = "/image-rastrear-4em1-bg.jpg";
 const img4em1Fg = "/image-rastrear-4em1-fg.jpg";
 const img4em1Logo = "/icon-rastrear-4em1-logo.svg";
@@ -71,10 +73,10 @@ const features = [
 ];
 
 const compatibility = [
-  { name: "Automóveis", percent: "100%", description: "Todos os modelos de passeio, sedans e utilitários" },
-  { name: "Caminhões", percent: "100%", description: "Frota pesada, leve e média compatível" },
-  { name: "Motos", percent: "95%", description: "Compatível com a maioria dos modelos" },
-  { name: "Ônibus", percent: "100%", description: "Solução completa para transporte coletivo" },
+  { name: "Automóveis", percent: "100%", description: "Todos os modelos de passeio, sedans e utilitários", icon: imgCar, color: "#52a4ff" },
+  { name: "Caminhões", percent: "100%", description: "Frota pesada, leve e média compatível", icon: imgTruck, color: "#40c6ee" },
+  { name: "Motos", percent: "95%", description: "Compatível com a maioria dos modelos", icon: imgMotorcycle, color: "#996cfb" },
+  { name: "Ônibus", percent: "100%", description: "Solução completa para transporte coletivo", icon: imgBus, color: "#20c4c3" },
 ];
 
 const screenshots = [
@@ -330,18 +332,29 @@ export default function Rastrear() {
                       style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
                     >
                       <div className="gap-3 md:gap-5 min-w-0" style={{ display: "flex", alignItems: "center" }}>
-                        <img
-                          src={imgCompatCircle}
-                          alt=""
+                        <div
                           className="w-[40px] h-[40px] md:w-[54px] md:h-[54px]"
-                          style={{ flexShrink: 0 }}
-                        />
+                          style={{
+                            flexShrink: 0,
+                            borderRadius: "14px",
+                            backgroundColor: item.color,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <img
+                            src={item.icon}
+                            alt=""
+                            className="w-[22px] h-[22px] md:w-[28px] md:h-[28px]"
+                          />
+                        </div>
                         <p
                           className="text-[20px] md:text-[24px] whitespace-normal md:whitespace-nowrap"
                           style={{
                             fontWeight: 700,
                             fontFamily: "var(--font-linear-grotesk)",
-                            color: "#52a4ff",
+                            color: item.color,
                             margin: 0,
                           }}
                         >
@@ -353,12 +366,22 @@ export default function Rastrear() {
                         style={{
                           fontWeight: 900,
                           fontFamily: "var(--font-linear-grotesk)",
-                          color: "#52a4ff",
+                          color: item.color,
                           margin: 0,
                         }}
                       >
                         {item.percent}
                       </p>
+                    </div>
+                    <div style={{ height: "6px", borderRadius: "999px", backgroundColor: "#272727", overflow: "hidden" }}>
+                      <div
+                        style={{
+                          height: "100%",
+                          width: item.percent,
+                          borderRadius: "999px",
+                          backgroundColor: item.color,
+                        }}
+                      />
                     </div>
                     <p
                       style={{

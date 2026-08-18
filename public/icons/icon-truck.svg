@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Truck">
+<path id="body" d="M2 8H20V22H2V8Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path id="cab" d="M20 13H27L30 17V22H20V13Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path id="wheel-left" d="M8 26C9.65685 26 11 24.6569 11 23C11 21.3431 9.65685 20 8 20C6.34315 20 5 21.3431 5 23C5 24.6569 6.34315 26 8 26Z" stroke="white" stroke-width="2"/>
+<path id="wheel-right" d="M25 26C26.6569 26 28 24.6569 28 23C28 21.3431 26.6569 20 25 20C23.3431 20 22 21.3431 22 23C22 24.6569 23.3431 26 25 26Z" stroke="white" stroke-width="2"/>
+</g>
+</svg>

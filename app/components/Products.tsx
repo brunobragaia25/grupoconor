@@ -20,7 +20,6 @@ interface ProductCard {
   color: string;
   whatsapp: string;
   eyebrow: string;
-  href: string;
   features: { label?: string; value: string }[];
 }
 
@@ -35,7 +34,6 @@ const products: ProductCard[] = [
     color: "#40c6ee",
     whatsapp: "/icons/product-whatsapp/4em1.svg",
     eyebrow: "Ative seu software",
-    href: "/conor-4em1",
     features: [
       { label: "Software 1:", value: "Recuperação veicular;" },
       { label: "Software 2:", value: "Telemetria avançada;" },
@@ -53,7 +51,6 @@ const products: ProductCard[] = [
     color: "#01c4c4",
     whatsapp: "/icons/product-whatsapp/admin.svg",
     eyebrow: "Zero de entrada",
-    href: "/conor-admin",
     features: [
       { label: "Gestão 1:", value: "Financeira" },
       { label: "Gestão 2:", value: "Administrativa" },
@@ -70,7 +67,6 @@ const products: ProductCard[] = [
     color: "#e01e5a",
     whatsapp: "/icons/product-whatsapp/estoque.svg",
     eyebrow: "Compre rastreadores e chips na quantidade que precisa",
-    href: "/conor-estoque",
     features: [
       { label: "Rastreadores:", value: "Modelo FMB920, TELTONIKA;" },
       { label: "Chips:", value: "Cartão micro-SD 32GB." },
@@ -86,7 +82,6 @@ const products: ProductCard[] = [
     color: "#ffc301",
     whatsapp: "/icons/product-whatsapp/seguro.svg",
     eyebrow: "Ative seu seguro",
-    href: "/conor-seguro",
     features: [{ value: "Preço fixo" }, { value: "Sem carência" }, { value: "Sem mínimo" }],
   },
   {
@@ -99,7 +94,6 @@ const products: ProductCard[] = [
     color: "#996cfb",
     whatsapp: "/icons/product-whatsapp/assist.svg",
     eyebrow: "Ative sua assistência",
-    href: "/conor-assist",
     features: [
       { value: "Preço fixo" },
       { value: "Atendimento em todo Brasil" },
@@ -117,7 +111,6 @@ const products: ProductCard[] = [
     color: "#fa7a22",
     whatsapp: "/icons/product-whatsapp/marketing.svg",
     eyebrow: "Ative o seu marketing e monte o seu combo",
-    href: "/conor-marketing",
     features: [{ value: "Criativos" }, { value: "Tráfego pago" }, { value: "Página de vendas" }],
   },
 ];
@@ -134,8 +127,7 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
         flexDirection: "column",
       }}
     >
-      <a
-        href={product.href}
+      <div
         className="h-[180px] md:h-[271px]"
         style={{
           display: "block",
@@ -160,7 +152,7 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
             }}
           />
         ))}
-      </a>
+      </div>
       <div
         className="p-6 md:px-12 md:py-16"
         style={{
@@ -205,31 +197,6 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
           </div>
 
           <div className="flex-col md:flex-row items-stretch md:items-center w-full md:w-auto" style={{ display: "flex", gap: "12px" }}>
-            <a
-              href={product.href}
-              className="w-full md:w-auto"
-              style={{
-                backgroundColor: product.color,
-                color: colors.white,
-                border: "none",
-                height: "40px",
-                padding: "0 16px",
-                borderRadius: "4px",
-                fontSize: "14px",
-                fontWeight: 500,
-                fontFamily: "var(--font-roboto)",
-                cursor: "pointer",
-                transition: "opacity 0.3s",
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-            >
-              Saiba mais
-            </a>
             <button
               className="w-full md:w-auto justify-center md:justify-start"
               style={{
@@ -252,7 +219,7 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
               <img src={product.whatsapp} alt="" style={{ width: "16px", height: "16px" }} />
-              Falar com um vendedor
+              Falar com um consultor
             </button>
           </div>
         </div>

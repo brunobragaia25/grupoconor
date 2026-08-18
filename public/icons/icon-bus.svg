@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Bus">
+<path id="body" d="M4 5H28C29.1046 5 30 5.89543 30 7V22H2V7C2 5.89543 2.89543 5 4 5Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path id="window-1" d="M6 9H14V15H6V9Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path id="window-2" d="M18 9H26V15H18V9Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+<path id="wheel-left" d="M9 27C10.6569 27 12 25.6569 12 24C12 22.3431 10.6569 21 9 21C7.34315 21 6 22.3431 6 24C6 25.6569 7.34315 27 9 27Z" stroke="white" stroke-width="2"/>
+<path id="wheel-right" d="M23 27C24.6569 27 26 25.6569 26 24C26 22.3431 24.6569 21 23 21C21.3431 21 20 22.3431 20 24C20 25.6569 21.3431 27 23 27Z" stroke="white" stroke-width="2"/>
+</g>
+</svg>
