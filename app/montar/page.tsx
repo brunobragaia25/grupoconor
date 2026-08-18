@@ -6,6 +6,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgRocketLarge = "/icons/icon-rocket-large.svg";
 const imgHeroIllustration = "/image-montar-hero.svg";
@@ -190,7 +191,7 @@ const pricingTiers = [
 export default function Montar() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
+      <div style={{ backgroundColor: colors.background.dark }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
@@ -574,7 +575,10 @@ export default function Montar() {
                       {tier.description}
                     </p>
 
-                    <button
+                    <a
+                      href={whatsappHref(`Olá! Quero montar um pedido na faixa de ${tier.title} e gostaria de falar com um consultor.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
                         height: "44px",
                         borderRadius: "8px",
@@ -582,16 +586,25 @@ export default function Montar() {
                         fontWeight: 600,
                         fontFamily: "var(--font-roboto)",
                         cursor: "pointer",
-                        transition: "opacity 0.3s",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                         ...(tier.buttonStyle === "solid"
                           ? { backgroundColor: colors.white, color: colors.black, border: "none" }
                           : { backgroundColor: "transparent", color: colors.white, border: "1px solid #3a3a3a" }),
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.03)";
+                        e.currentTarget.style.filter = "brightness(1.08)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                        e.currentTarget.style.filter = "brightness(1)";
+                      }}
                     >
                       {tier.buttonLabel}
-                    </button>
+                    </a>
 
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <div style={{ flex: 1, height: "1px", backgroundColor: "#2a2a2a" }} />
@@ -719,27 +732,10 @@ export default function Montar() {
                   </ul>
 
                   <div className="flex-col md:flex-row items-stretch md:items-center" style={{ display: "flex", gap: "12px" }}>
-                    <button
-                      className="w-full md:w-auto"
-                      style={{
-                        backgroundColor: "#e01e5a",
-                        color: colors.white,
-                        border: "none",
-                        height: "40px",
-                        padding: "0 16px",
-                        borderRadius: "4px",
-                        fontSize: "14px",
-                        fontWeight: 500,
-                        fontFamily: "var(--font-roboto)",
-                        cursor: "pointer",
-                        transition: "opacity 0.3s",
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                    >
-                      Saiba mais
-                    </button>
-                    <button
+                    <a
+                      href={whatsappHref("Olá! Tenho interesse no Conor Estoque e gostaria de falar com um consultor.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full md:w-auto justify-center md:justify-start"
                       style={{
                         backgroundColor: "transparent",
@@ -755,14 +751,20 @@ export default function Montar() {
                         display: "flex",
                         alignItems: "center",
                         gap: "6px",
-                        transition: "opacity 0.3s",
+                        transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.03)";
+                        e.currentTarget.style.filter = "brightness(1.08)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                        e.currentTarget.style.filter = "brightness(1)";
+                      }}
                     >
                       <WhatsappIcon color="#e01e5a" />
                       Falar com um vendedor
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -804,7 +806,10 @@ export default function Montar() {
                   Tudo o que você precisa por apenas R$500,00. Hardware,
                   configuração e conectividade inclusos.
                 </p>
-                <button
+                <a
+                  href={whatsappHref("Olá! Quero montar meu negócio de rastreamento com a Conor por R$500 e gostaria de falar com um consultor.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -818,15 +823,21 @@ export default function Montar() {
                     fontWeight: 500,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                     padding: "0 16px",
                     width: "fit-content",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   Comece agora
-                </button>
+                </a>
               </div>
 
               <img

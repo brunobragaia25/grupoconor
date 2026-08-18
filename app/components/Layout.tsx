@@ -3,6 +3,7 @@
 import { ReactNode, useState } from "react";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
+import { FloatingWhatsapp } from "./FloatingWhatsapp";
 import { layout } from "../styles/design-tokens";
 
 interface LayoutProps {
@@ -32,6 +33,7 @@ export function Layout({ children }: LayoutProps) {
           {children}
         </main>
       </div>
+      <FloatingWhatsapp />
     </div>
   );
 }

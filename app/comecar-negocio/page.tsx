@@ -7,6 +7,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgStorefront = "/icon-storefront.svg";
 const imgHeroIllustration = "/image-comecar-negocio-hero.jpg";
@@ -161,7 +162,7 @@ const comboProducts = [
 export default function ComecarNegocio() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:px-0">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -719,7 +720,10 @@ export default function ComecarNegocio() {
                     </span>
                   </p>
                 </div>
-                <button
+                <a
+                  href={whatsappHref("Olá! Quero começar um negócio de rastreamento com a Conor e gostaria de falar com um consultor sobre o combo de entrada.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -734,15 +738,21 @@ export default function ComecarNegocio() {
                     fontWeight: 700,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                     padding: "0 28px",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   <WhatsappIcon color={colors.black} />
                   Comprar combo
-                </button>
+                </a>
               </FadeIn>
             </div>
 
@@ -847,7 +857,10 @@ export default function ComecarNegocio() {
                   são rastreados em todo o Brasil.
                 </p>
                 <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
-                  <button
+                  <a
+                    href={whatsappHref("Olá! Quero começar um negócio de rastreamento com a Conor e gostaria de falar com um consultor.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full md:w-auto"
                     style={{
                       display: "flex",
@@ -862,37 +875,20 @@ export default function ComecarNegocio() {
                       fontWeight: 600,
                       cursor: "pointer",
                       fontFamily: "var(--font-roboto)",
-                      transition: "opacity 0.3s",
+                      transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                       padding: "0 28px",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.03)";
+                      e.currentTarget.style.filter = "brightness(1.08)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.filter = "brightness(1)";
+                    }}
                   >
                     Monte seu negócio já
-                  </button>
-                  <button
-                    className="w-full md:w-auto"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "48px",
-                      backgroundColor: "transparent",
-                      color: colors.white,
-                      border: `1px solid ${colors.white}`,
-                      borderRadius: "999px",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      cursor: "pointer",
-                      fontFamily: "var(--font-roboto)",
-                      transition: "opacity 0.3s",
-                      padding: "0 28px",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                  >
-                    Agendar demonstração
-                  </button>
+                  </a>
                 </div>
               </div>
 

@@ -436,13 +436,19 @@ export default function ConorEstoque() {
                         fontWeight: 600,
                         fontFamily: "var(--font-roboto)",
                         cursor: "pointer",
-                        transition: "opacity 0.3s",
+                        transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                         backgroundColor: tier.highlight ? colors.white : "transparent",
                         color: tier.highlight ? colors.black : colors.white,
                         border: tier.highlight ? "none" : "1px solid #3a3a3a",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.03)";
+                        e.currentTarget.style.filter = "brightness(1.08)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                        e.currentTarget.style.filter = "brightness(1)";
+                      }}
                     >
                       Montar pedido
                     </button>
@@ -610,7 +616,7 @@ export default function ConorEstoque() {
                     fontFamily: "var(--font-roboto)",
                     cursor: "pointer",
                     width: "fit-content",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                   onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
@@ -674,7 +680,7 @@ export default function ConorEstoque() {
                     fontWeight: 600,
                     fontFamily: "var(--font-roboto)",
                     cursor: "pointer",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                   }}
                   onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                   onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
@@ -825,7 +831,7 @@ export default function ConorEstoque() {
                   fontWeight: 700,
                   cursor: "pointer",
                   fontFamily: "var(--font-roboto)",
-                  transition: "opacity 0.3s",
+                  transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                   padding: "0 49px",
                   letterSpacing: "1.5px",
                   width: "fit-content",

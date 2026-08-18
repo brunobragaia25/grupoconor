@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgCtaIllustration = "/image-quem-somos-cta.svg";
 
@@ -53,7 +54,7 @@ const casesData = [
 export default function Cases() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:px-0">
         <div
           className="px-6 py-12 md:p-24"
           style={{
@@ -361,7 +362,10 @@ export default function Cases() {
                 Comece agora com as soluções Conor e transforme sua operação
                 de rastreamento veicular.
               </p>
-              <button
+              <a
+                href={whatsappHref("Olá! Vi os cases de sucesso da Conor e gostaria de falar com um consultor.")}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -375,15 +379,21 @@ export default function Cases() {
                   fontWeight: 500,
                   cursor: "pointer",
                   fontFamily: "var(--font-roboto)",
-                  transition: "opacity 0.3s",
+                  transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                   padding: "0 16px",
                   width: "fit-content",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.03)";
+                  e.currentTarget.style.filter = "brightness(1.08)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.filter = "brightness(1)";
+                }}
               >
                 Falar com especialista
-              </button>
+              </a>
             </div>
 
             <img

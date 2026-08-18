@@ -68,8 +68,9 @@ export function PromoBanner02() {
             brasileiros a crescerem.
           </AnimatedTitle>
 
-          {/* Button Tertiary — branco */}
-          <button
+          {/* Button Tertiary — preto */}
+          <a
+            href="/cases"
             className="text-[12px] md:text-[14px] px-3 md:px-5 w-full md:w-auto"
             style={{
               display: "flex",
@@ -77,18 +78,25 @@ export function PromoBanner02() {
               justifyContent: "center",
               gap: "6px",
               height: "40px",
-              backgroundColor: "transparent",
+              backgroundColor: colors.black,
               color: colors.white,
-              border: `1px solid ${colors.white}`,
+              border: `1px solid ${colors.black}`,
               borderRadius: "999px",
               fontWeight: 500,
               cursor: "pointer",
               fontFamily: "var(--font-roboto)",
-              transition: "opacity 0.3s",
+              textDecoration: "none",
+              transition: "transform 0.2s ease, filter 0.2s ease",
               whiteSpace: "nowrap",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.03)";
+              e.currentTarget.style.filter = "brightness(1.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.filter = "brightness(1)";
+            }}
           >
             <span>Veja o que nossos clientes estão dizendo</span>
             <img
@@ -96,7 +104,7 @@ export function PromoBanner02() {
               alt="arrow"
               style={{ width: "16px", height: "16px", flexShrink: 0 }}
             />
-          </button>
+          </a>
         </div>
 
         {/* Lado direito - Ilustração */}

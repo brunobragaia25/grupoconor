@@ -7,6 +7,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgHeroIcon = "/icon-montar-combo-hero.svg";
 const imgHeroIllustration = "/image-montar-combo-hero.jpg";
@@ -229,7 +230,7 @@ const existentePricing = [
 export default function MontarCombo() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:px-0">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -450,10 +451,16 @@ export default function MontarCombo() {
                     fontWeight: 700,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   <img src={imgCartIcon} alt="" style={{ width: "20px", height: "20px" }} />
                   Comprar combo
@@ -597,10 +604,16 @@ export default function MontarCombo() {
                           fontWeight: 700,
                           cursor: "pointer",
                           fontFamily: "var(--font-roboto)",
-                          transition: "opacity 0.3s",
+                          transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "scale(1.03)";
+                          e.currentTarget.style.filter = "brightness(1.08)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "scale(1)";
+                          e.currentTarget.style.filter = "brightness(1)";
+                        }}
                       >
                         {product.buttonLabel}
                       </button>
@@ -647,7 +660,10 @@ export default function MontarCombo() {
                   Comece do zero ou expanda o que você já construiu. Estamos
                   aqui para ajudar em qualquer etapa.
                 </p>
-                <button
+                <a
+                  href={whatsappHref("Olá! Tenho interesse em montar um combo Conor e gostaria de falar com um consultor.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full md:w-fit"
                   style={{
                     display: "flex",
@@ -662,14 +678,20 @@ export default function MontarCombo() {
                     fontWeight: 600,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                     padding: "0 28px",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   Falar com um consultor
-                </button>
+                </a>
               </div>
 
               <div className="w-full aspect-[722/539] md:aspect-auto md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto" style={{ position: "relative", overflow: "hidden" }}>

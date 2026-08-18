@@ -257,10 +257,16 @@ export function HeroSection() {
                   cursor: "pointer",
                   flexShrink: 0,
                   textDecoration: "none",
-                  transition: "opacity 0.3s",
+                  transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.03)";
+                  e.currentTarget.style.filter = "brightness(1.08)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.filter = "brightness(1)";
+                }}
               >
                 <span
                   style={{

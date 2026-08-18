@@ -3,6 +3,7 @@
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
 import { FadeIn } from "./motion/FadeIn";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 interface IllustrationLayer {
   src: string;
@@ -14,6 +15,7 @@ interface IllustrationLayer {
 
 interface ProductCard {
   id: number;
+  name: string;
   logo: string;
   logoWidth: number;
   layers: IllustrationLayer[];
@@ -26,6 +28,7 @@ interface ProductCard {
 const products: ProductCard[] = [
   {
     id: 1,
+    name: "Conor 4 em 1",
     logo: "/icons/product-logos/4em1.svg",
     logoWidth: 174,
     layers: [
@@ -43,6 +46,7 @@ const products: ProductCard[] = [
   },
   {
     id: 2,
+    name: "Conor Admin",
     logo: "/icons/product-logos/admin.svg",
     logoWidth: 178,
     layers: [
@@ -59,6 +63,7 @@ const products: ProductCard[] = [
   },
   {
     id: 3,
+    name: "Conor Estoque",
     logo: "/icons/product-logos/estoque.svg",
     logoWidth: 195,
     layers: [
@@ -74,6 +79,7 @@ const products: ProductCard[] = [
   },
   {
     id: 4,
+    name: "Conor Seguro",
     logo: "/icons/product-logos/seguro.svg",
     logoWidth: 184,
     layers: [
@@ -86,6 +92,7 @@ const products: ProductCard[] = [
   },
   {
     id: 5,
+    name: "Conor Assist",
     logo: "/icons/product-logos/assist.svg",
     logoWidth: 166,
     layers: [
@@ -102,6 +109,7 @@ const products: ProductCard[] = [
   },
   {
     id: 6,
+    name: "Conor Marketing",
     logo: "/icons/product-logos/marketing.svg",
     logoWidth: 221,
     layers: [
@@ -197,7 +205,10 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
           </div>
 
           <div className="flex-col md:flex-row items-stretch md:items-center w-full md:w-auto" style={{ display: "flex", gap: "12px" }}>
-            <button
+            <a
+              href={whatsappHref(`Olá! Tenho interesse no ${product.name} e gostaria de falar com um consultor.`)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full md:w-auto justify-center md:justify-start"
               style={{
                 backgroundColor: "transparent",
@@ -213,14 +224,20 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                transition: "opacity 0.3s",
+                transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.03)";
+                e.currentTarget.style.filter = "brightness(1.08)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.filter = "brightness(1)";
+              }}
             >
               <img src={product.whatsapp} alt="" style={{ width: "16px", height: "16px" }} />
               Falar com um consultor
-            </button>
+            </a>
           </div>
         </div>
       </div>

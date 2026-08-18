@@ -8,6 +8,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgHeartSmileLarge = "/icons/icon-heart-smile-large.svg";
 const imgHeroIllustration = "/image-fidelizar-hero.svg";
@@ -240,11 +241,11 @@ function RelatedFeatureCard({
 }) {
   return (
     <div
+      className="p-16"
       style={{
         backgroundColor: "#171717",
         border: "1px solid #272727",
         borderRadius: "32px",
-        padding: "64px",
         display: "flex",
         flexDirection: "column",
         gap: "26px",
@@ -264,7 +265,7 @@ function RelatedFeatureCard({
 export default function Fidelizar() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
+      <div style={{ backgroundColor: colors.background.dark }}>
         <div
           style={{
             display: "flex",
@@ -484,14 +485,14 @@ export default function Fidelizar() {
                   <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
-                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
-                          <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%", justifyContent: "flex-end" }} />
+                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
+                          <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
-                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
+                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
@@ -585,7 +586,10 @@ export default function Fidelizar() {
                   Implemente nossos programas de benefícios e comece a fazer
                   a diferença na retenção de seus clientes hoje mesmo.
                 </p>
-                <button
+                <a
+                  href={whatsappHref("Olá! Tenho interesse no programa de fidelização Conor e gostaria de falar com um consultor.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -599,15 +603,21 @@ export default function Fidelizar() {
                     fontWeight: 500,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                     padding: "0 16px",
                     width: "fit-content",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   Comece agora
-                </button>
+                </a>
               </div>
 
               <img

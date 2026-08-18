@@ -6,6 +6,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgBookmarkLarge = "/icons/icon-bookmark-large.svg";
 const imgHeroIllustration = "/image-administrar-hero.svg";
@@ -101,7 +102,7 @@ const benefits = [
 export default function Administrar() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
+      <div style={{ backgroundColor: colors.background.dark }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
@@ -480,7 +481,10 @@ export default function Administrar() {
                   Comece agora mesmo com a solução integrada Conor Admin e
                   tenha controle total sobre sua gestão.
                 </p>
-                <button
+                <a
+                  href={whatsappHref("Olá! Tenho interesse no Conor Admin e gostaria de falar com um consultor.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -494,15 +498,21 @@ export default function Administrar() {
                     fontWeight: 500,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                     padding: "0 16px",
                     width: "fit-content",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   Comece agora
-                </button>
+                </a>
               </div>
 
               <img

@@ -2,6 +2,7 @@
 
 import { colors } from "../styles/design-tokens";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgIllustration = "/image-ctahome-03.png";
 const imgWhatsapp = "/icons/whatsapp-icon.svg";
@@ -89,7 +90,10 @@ export function PromoBanner03() {
             ]}
           </AnimatedTitle>
 
-          <button
+          <a
+            href={whatsappHref("Olá! Gostaria de falar com um consultor da Conor.")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[12px] md:text-[14px] px-3 md:px-5 w-full md:w-auto"
             style={{
               display: "flex",
@@ -104,16 +108,24 @@ export function PromoBanner03() {
               fontWeight: 500,
               cursor: "pointer",
               fontFamily: "var(--font-roboto)",
-              transition: "opacity 0.3s",
+              transition: "transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease",
               minWidth: "fit-content",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#25D366";
+              e.currentTarget.style.backgroundColor = "rgba(37, 211, 102, 0.15)";
+              e.currentTarget.style.transform = "scale(1.03)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = colors.white;
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.transform = "scale(1)";
+            }}
           >
             <img src={imgWhatsapp} alt="WhatsApp" style={{ width: "16px", height: "16px" }} />
             <span>Converse com nosso consultor</span>
             <img src={imgKeyboardDoubleArrowRight} alt="arrow" style={{ width: "16px", height: "16px" }} />
-          </button>
+          </a>
         </div>
       </div>
     </section>

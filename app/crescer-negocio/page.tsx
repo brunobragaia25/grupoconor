@@ -7,6 +7,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgLoupeLarge = "/icons/icon-crescer-hero.svg";
 const imgHeroIllustration = "/image-crescer-negocio-hero.jpg";
@@ -105,7 +106,7 @@ const products = [
 export default function CrescerNegocio() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:pr-8 md:px-0">
+      <div style={{ backgroundColor: colors.background.dark }} className="px-4 md:px-0">
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
@@ -441,10 +442,16 @@ export default function CrescerNegocio() {
                           fontWeight: 700,
                           fontFamily: "var(--font-roboto)",
                           cursor: "pointer",
-                          transition: "opacity 0.3s",
+                          transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                        onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "scale(1.03)";
+                          e.currentTarget.style.filter = "brightness(1.08)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "scale(1)";
+                          e.currentTarget.style.filter = "brightness(1)";
+                        }}
                       >
                         {product.buttonLabel}
                       </button>
@@ -555,7 +562,10 @@ export default function CrescerNegocio() {
                   existem milhões de oportunidades para você conquistar.
                 </p>
                 <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
-                  <button
+                  <a
+                    href={whatsappHref("Olá! Quero fazer meu negócio de rastreamento crescer com a Conor e gostaria de falar com um consultor.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full md:w-auto"
                     style={{
                       display: "flex",
@@ -570,37 +580,20 @@ export default function CrescerNegocio() {
                       fontWeight: 600,
                       cursor: "pointer",
                       fontFamily: "var(--font-roboto)",
-                      transition: "opacity 0.3s",
+                      transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                       padding: "0 28px",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.03)";
+                      e.currentTarget.style.filter = "brightness(1.08)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                      e.currentTarget.style.filter = "brightness(1)";
+                    }}
                   >
                     Vamos juntos crescer
-                  </button>
-                  <button
-                    className="w-full md:w-auto"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "48px",
-                      backgroundColor: "transparent",
-                      color: colors.white,
-                      border: `1px solid ${colors.white}`,
-                      borderRadius: "999px",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      cursor: "pointer",
-                      fontFamily: "var(--font-roboto)",
-                      transition: "opacity 0.3s",
-                      padding: "0 28px",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                  >
-                    Agendar demonstração
-                  </button>
+                  </a>
                 </div>
               </div>
 

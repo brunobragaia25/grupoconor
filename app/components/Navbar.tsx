@@ -1,6 +1,7 @@
 "use client";
 
 import { colors } from "../styles/design-tokens";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 interface NavbarProps {
   onMenuClick: () => void;
@@ -94,7 +95,10 @@ export function Navbar({ onMenuClick, menuOpen }: NavbarProps) {
       </a>
 
       {/* CTA Button */}
-      <button
+      <a
+        href={whatsappHref("Olá! Gostaria de falar com um consultor da Conor.")}
+        target="_blank"
+        rel="noopener noreferrer"
         className="order-3 md:order-2"
         style={{
           display: "flex",
@@ -109,16 +113,18 @@ export function Navbar({ onMenuClick, menuOpen }: NavbarProps) {
           fontSize: "14px",
           cursor: "pointer",
           fontFamily: "var(--font-roboto)",
-          transition: "all 0.3s",
+          transition: "all 0.2s ease",
           whiteSpace: "nowrap",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = colors.white;
-          e.currentTarget.style.opacity = "0.8";
+          e.currentTarget.style.borderColor = "#25D366";
+          e.currentTarget.style.backgroundColor = "rgba(37, 211, 102, 0.12)";
+          e.currentTarget.style.transform = "scale(1.03)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.borderColor = colors.text.bodyLight;
-          e.currentTarget.style.opacity = "1";
+          e.currentTarget.style.backgroundColor = "transparent";
+          e.currentTarget.style.transform = "scale(1)";
         }}
       >
         <img
@@ -127,7 +133,7 @@ export function Navbar({ onMenuClick, menuOpen }: NavbarProps) {
           style={{ width: "16px", height: "16px", flexShrink: 0 }}
         />
         <span className="hidden sm:inline">Falar agora no WhatsApp</span>
-      </button>
+      </a>
     </nav>
   );
 }

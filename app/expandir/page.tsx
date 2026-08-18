@@ -6,6 +6,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgLoupeLarge = "/icons/icon-loupe-large.svg";
 const imgHeroIllustration = "/image-expandir-hero.svg";
@@ -74,16 +75,19 @@ const creatives = [
     title: "Anúncios em vídeo",
     description:
       "Vídeos promocionais de alta qualidade para campanhas de tráfego pago e redes sociais",
+    illustration: "/icons/illus-video-ad-v3.svg",
   },
   {
     title: "Design Gráfico",
     description:
       "Peças visuais profissionais: banners, stories, carrosséis e materiais para impressão",
+    illustration: "/icons/illus-design-grafico-v3.svg",
   },
   {
     title: "Copywriting",
     description:
       "Textos persuasivos que convertem visitantes em clientes. Desde anúncios até emails",
+    illustration: "/icons/illus-copywriting-v3.svg",
   },
 ];
 
@@ -127,7 +131,7 @@ const methodology = [
 export default function Expandir() {
   return (
     <Layout>
-      <div style={{ backgroundColor: colors.background.dark }} className="md:pr-8">
+      <div style={{ backgroundColor: colors.background.dark }}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
@@ -323,16 +327,24 @@ export default function Expandir() {
                   <FadeIn
                     key={item.title}
                     delay={idx * 0.08}
-                    className="w-full flex-none h-[360px] md:[flex:1_0_0] md:h-[560px]"
+                    className="w-full md:flex-1 md:w-auto md:min-w-0"
                     style={{
-                      backgroundColor: "#d9d9d9",
                       border: "1px solid #272727",
                       borderRadius: "32px",
+                      overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "flex-end",
                     }}
                   >
+                    {item.illustration && (
+                      <div style={{ flexShrink: 0, width: "100%", aspectRatio: "470 / 390" }}>
+                        <img
+                          src={item.illustration}
+                          alt=""
+                          style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                        />
+                      </div>
+                    )}
                     <div
                       className="p-6 md:p-10"
                       style={{
@@ -595,27 +607,10 @@ export default function Expandir() {
                   </ul>
 
                   <div className="flex-col md:flex-row items-stretch md:items-center" style={{ display: "flex", gap: "12px" }}>
-                    <button
-                      className="w-full md:w-auto"
-                      style={{
-                        backgroundColor: "#fa7a22",
-                        color: colors.white,
-                        border: "none",
-                        height: "40px",
-                        padding: "0 16px",
-                        borderRadius: "4px",
-                        fontSize: "14px",
-                        fontWeight: 500,
-                        fontFamily: "var(--font-roboto)",
-                        cursor: "pointer",
-                        transition: "opacity 0.3s",
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                    >
-                      Saiba mais
-                    </button>
-                    <button
+                    <a
+                      href={whatsappHref("Olá! Tenho interesse no Conor Marketing e gostaria de falar com um consultor.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full md:w-auto justify-center md:justify-start"
                       style={{
                         backgroundColor: "transparent",
@@ -631,14 +626,20 @@ export default function Expandir() {
                         display: "flex",
                         alignItems: "center",
                         gap: "6px",
-                        transition: "opacity 0.3s",
+                        transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.03)";
+                        e.currentTarget.style.filter = "brightness(1.08)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                        e.currentTarget.style.filter = "brightness(1)";
+                      }}
                     >
                       <img src={imgWhatsappOrange} alt="" style={{ width: "16px", height: "16px" }} />
                       Falar com um vendedor
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -680,7 +681,10 @@ export default function Expandir() {
                   Comece agora com nossas estratégias de marketing e
                   consultoria de vendas comprovadas.
                 </p>
-                <button
+                <a
+                  href={whatsappHref("Olá! Tenho interesse nos serviços de marketing e expansão da Conor e gostaria de falar com um consultor.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -694,15 +698,21 @@ export default function Expandir() {
                     fontWeight: 500,
                     cursor: "pointer",
                     fontFamily: "var(--font-roboto)",
-                    transition: "opacity 0.3s",
+                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
                     padding: "0 16px",
                     width: "fit-content",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.filter = "brightness(1.08)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.filter = "brightness(1)";
+                  }}
                 >
                   Comece agora
-                </button>
+                </a>
               </div>
 
               <img

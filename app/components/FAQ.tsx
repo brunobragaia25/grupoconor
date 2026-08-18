@@ -139,8 +139,14 @@ function FAQCard({ item, isExpanded, onToggle, delay = 0 }: { item: FAQItem; isE
               transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
               flexShrink: 0,
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.03)";
+              e.currentTarget.style.filter = "brightness(1.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.filter = "brightness(1)";
+            }}
           >
             <span
               style={{
