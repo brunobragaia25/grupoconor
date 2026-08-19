@@ -1,12 +1,24 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { AnimatedTitle } from "./motion/AnimatedTitle";
+import { useMotionDisabled } from "./motion/useMotionDisabled";
 
 const imgArrow = "/icons/keyboard_double_arrow_down.svg";
 
 export function HeroMain() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const motionDisabled = useMotionDisabled();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, motionDisabled ? 0 : 80]);
+
   return (
     <section
+      ref={sectionRef}
       className="px-4 py-10 md:pl-20 md:pr-0 md:py-0 md:h-[620px]"
       style={{
         backgroundColor: "#ffffff",
@@ -132,16 +144,17 @@ export function HeroMain() {
             position: "relative",
           }}
         >
-          <img
+          <motion.img
             src="/image-home-hero.svg"
             alt=""
             style={{
               position: "absolute",
-              inset: 0,
+              inset: "-10% 0",
               width: "100%",
-              height: "100%",
+              height: "120%",
               objectFit: "cover",
               objectPosition: "right center",
+              y: parallaxY,
             }}
           />
         </div>

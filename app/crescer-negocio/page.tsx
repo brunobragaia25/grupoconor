@@ -6,6 +6,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { AnimatedCounter } from "@/app/components/motion/AnimatedCounter";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
@@ -475,9 +476,11 @@ export default function CrescerNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
-                  +80 mil
-                </p>
+                <AnimatedCounter
+                  value="+80 mil"
+                  className="text-[36px] md:text-[56px]"
+                  style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}
+                />
                 <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   veículos rastreados
                 </p>
@@ -495,9 +498,11 @@ export default function CrescerNegocio() {
                   textAlign: "center",
                 }}
               >
-                <p className="text-[36px] md:text-[56px]" style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
-                  +350
-                </p>
+                <AnimatedCounter
+                  value="+350"
+                  className="text-[36px] md:text-[56px]"
+                  style={{ margin: 0, fontWeight: 900, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}
+                />
                 <p className="text-[16px] md:text-[24px]" style={{ margin: 0, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color: colors.white }}>
                   clientes em todo Brasil
                 </p>

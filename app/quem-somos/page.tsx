@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { AnimatedCounter } from "@/app/components/motion/AnimatedCounter";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgFundadoresIllustration = "/image-quem-somos-cta.svg";
@@ -12,23 +13,7 @@ const imgHeroIllustration = "/image-banner-quemsomos.png";
 const imgMapPinLine = "/icons/icon-map-pin-line.svg";
 const imgHeadset = "/icons/icon-headset.svg";
 
-const founders = [
-  {
-    name: "Fundador 01",
-    role: "Cargo/Descrição",
-    bio: "Breve bio e experiência profissional",
-  },
-  {
-    name: "Fundador 02",
-    role: "Cargo/Descrição",
-    bio: "Breve bio e experiência profissional",
-  },
-  {
-    name: "Fundador 03",
-    role: "Cargo/Descrição",
-    bio: "Breve bio e experiência profissional",
-  },
-];
+const founders = [{ name: "Vinicius Costa" }, { name: "Fundador 02" }];
 
 export default function QuemSomos() {
   return (
@@ -215,7 +200,8 @@ export default function QuemSomos() {
                   borderRadius: "32px",
                 }}
               >
-                <p
+                <AnimatedCounter
+                  value={stat.number}
                   className="text-4xl md:text-[72px]"
                   style={{
                     fontWeight: 900,
@@ -224,9 +210,7 @@ export default function QuemSomos() {
                     margin: 0,
                     width: "100%",
                   }}
-                >
-                  {stat.number}
-                </p>
+                />
                 <p
                   className="text-xl md:text-[40px]"
                   style={{
@@ -286,22 +270,6 @@ export default function QuemSomos() {
                   >
                     {founder.name}
                   </h3>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "10px",
-                      color: colors.text.bodyLight,
-                      fontFamily: "var(--font-roboto)",
-                    }}
-                  >
-                    <p style={{ fontSize: "16px", margin: 0, lineHeight: "21px" }}>
-                      {founder.role}
-                    </p>
-                    <p style={{ fontSize: "13px", margin: 0, lineHeight: "20px" }}>
-                      {founder.bio}
-                    </p>
-                  </div>
                 </FadeIn>
               ))}
             </div>

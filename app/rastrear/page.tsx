@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
+import { PulsingIconBadge } from "@/app/components/motion/PulsingIconBadge";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgEmergencyShareLarge = "/icons/icon-emergency-share-large.svg";
@@ -333,23 +334,17 @@ export default function Rastrear() {
                       style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
                     >
                       <div className="gap-3 md:gap-5 min-w-0" style={{ display: "flex", alignItems: "center" }}>
-                        <div
+                        <PulsingIconBadge
+                          color={item.color}
+                          delay={idx * 0.3}
                           className="w-[40px] h-[40px] md:w-[54px] md:h-[54px]"
-                          style={{
-                            flexShrink: 0,
-                            borderRadius: "14px",
-                            backgroundColor: item.color,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
                         >
                           <img
                             src={item.icon}
                             alt=""
                             className="w-[22px] h-[22px] md:w-[28px] md:h-[28px]"
                           />
-                        </div>
+                        </PulsingIconBadge>
                         <p
                           className="text-[20px] md:text-[24px] whitespace-normal md:whitespace-nowrap"
                           style={{

@@ -320,7 +320,7 @@ export default function Cases() {
 
           {/* CTA Final */}
           <div
-            className="flex flex-col md:flex-row items-center justify-between px-6 py-12 md:pl-24 md:pr-0 md:pt-24 md:pb-24 gap-8 md:gap-0"
+            className="flex flex-col md:flex-row items-center justify-between px-0 pt-12 pb-0 md:pl-24 md:pr-0 md:py-0 gap-8 md:h-[536px]"
             style={{
               backgroundColor: "#52a4ff",
               borderRadius: "20px",
@@ -328,7 +328,7 @@ export default function Cases() {
             }}
           >
             <div
-              className="max-w-[564px]"
+              className="px-6 md:px-0 max-w-[564px]"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -399,10 +399,10 @@ export default function Cases() {
             <img
               src={imgCtaIllustration}
               alt=""
-              className="w-full h-auto max-w-[300px] md:h-[536px] md:w-[718px]"
+              className="w-full h-auto aspect-[718/536] object-contain md:aspect-auto md:object-cover md:h-[536px] md:w-[718px]"
               style={{
-                objectFit: "cover",
                 flexShrink: 0,
+                maxWidth: "100%",
               }}
             />
           </div>
