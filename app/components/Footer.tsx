@@ -226,11 +226,11 @@ export function Footer() {
               </h3>
             </div>
             {[
+              "Venda de chips",
+              "Venda & locações de rastreadores",
+              "Seguros e benefícios",
+              "Suporte humanizado",
               "Consultoria 360º",
-              "Seguros & Benefícios",
-              "Suporte 24hrs",
-              "Venda & Locação de chips",
-              "Venda & Locação de rastreadores",
             ].map((item) => (
               <p
                 key={item}
