@@ -16,6 +16,7 @@ interface IllustrationLayer {
 interface ProductCard {
   id: number;
   name: string;
+  href: string;
   logo: string;
   logoWidth: number;
   layers: IllustrationLayer[];
@@ -29,6 +30,7 @@ const products: ProductCard[] = [
   {
     id: 1,
     name: "Conor 4 em 1",
+    href: "/rastrear#conor-4em1",
     logo: "/icons/product-logos/4em1.svg",
     logoWidth: 174,
     layers: [
@@ -40,13 +42,14 @@ const products: ProductCard[] = [
     features: [
       { label: "Software 1:", value: "Recuperação veicular;" },
       { label: "Software 2:", value: "Telemetria avançada;" },
-      { label: "Software 3:", value: "Homologação STC;" },
+      { label: "Software 3:", value: "Recuperação veicular telemetria avançada;" },
       { label: "Software 4:", value: "Associação veicular." },
     ],
   },
   {
     id: 2,
     name: "Conor Admin",
+    href: "/administrar",
     logo: "/icons/product-logos/admin.svg",
     logoWidth: 178,
     layers: [
@@ -64,6 +67,7 @@ const products: ProductCard[] = [
   {
     id: 3,
     name: "Conor Estoque",
+    href: "/montar#conor-estoque",
     logo: "/icons/product-logos/estoque.svg",
     logoWidth: 195,
     layers: [
@@ -80,6 +84,7 @@ const products: ProductCard[] = [
   {
     id: 4,
     name: "Conor Seguro",
+    href: "/fidelizar#conor-seguro",
     logo: "/icons/product-logos/seguro.svg",
     logoWidth: 184,
     layers: [
@@ -93,6 +98,7 @@ const products: ProductCard[] = [
   {
     id: 5,
     name: "Conor Assist",
+    href: "/fidelizar#conor-assist",
     logo: "/icons/product-logos/assist.svg",
     logoWidth: 166,
     layers: [
@@ -110,6 +116,7 @@ const products: ProductCard[] = [
   {
     id: 6,
     name: "Conor Marketing",
+    href: "/expandir#conor-marketing",
     logo: "/icons/product-logos/marketing.svg",
     logoWidth: 221,
     layers: [
@@ -205,6 +212,37 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
           </div>
 
           <div className="flex-col md:flex-row items-stretch md:items-center w-full md:w-auto" style={{ display: "flex", gap: "12px" }}>
+            <a
+              href={product.href}
+              className="w-full md:w-auto"
+              style={{
+                backgroundColor: product.color,
+                color: colors.white,
+                border: "none",
+                height: "40px",
+                padding: "0 16px",
+                borderRadius: "4px",
+                fontSize: "14px",
+                fontWeight: 500,
+                fontFamily: "var(--font-roboto)",
+                cursor: "pointer",
+                transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.03)";
+                e.currentTarget.style.filter = "brightness(1.08)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.filter = "brightness(1)";
+              }}
+            >
+              Saiba mais
+            </a>
             <a
               href={whatsappHref(`Olá! Tenho interesse no ${product.name} e gostaria de falar com um consultor.`)}
               target="_blank"

@@ -517,7 +517,7 @@ export default function Expandir() {
             </div>
 
             {/* Produto Relacionado */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
+            <div id="conor-marketing" style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center", scrollMarginTop: "100px" }}>
               <AnimatedTitle
                 as="h2"
                 className="text-3xl md:text-[56px]"

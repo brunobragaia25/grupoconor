@@ -6,6 +6,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { AnimatedCounter } from "@/app/components/motion/AnimatedCounter";
+import { VideoWithPlayButton } from "@/app/components/VideoWithPlayButton";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgFundadoresIllustration = "/image-quem-somos-cta.svg";
@@ -13,7 +14,10 @@ const imgHeroIllustration = "/image-banner-quemsomos.png";
 const imgMapPinLine = "/icons/icon-map-pin-line.svg";
 const imgHeadset = "/icons/icon-headset.svg";
 
-const founders = [{ name: "Vinicius Costa" }, { name: "Fundador 02" }];
+const founders = [
+  { name: "Vinicius Costa", photo: "/vinicius-costa.png" },
+  { name: "Fundador 02" },
+];
 
 export default function QuemSomos() {
   return (
@@ -162,22 +166,16 @@ export default function QuemSomos() {
               </a>
             </div>
 
-            <div
+            <VideoWithPlayButton
+              src="/video-sobrenos.mp4"
               className="w-full md:w-[699px] h-[300px] md:h-[480px]"
               style={{
                 backgroundColor: colors.black,
                 borderRadius: "32px",
                 flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: colors.text.bodyLight,
-                fontSize: "16px",
-                fontFamily: "var(--font-roboto)",
               }}
-            >
-              [Imagem sobre a empresa - 600x400px]
-            </div>
+              label="Assistir vídeo"
+            />
           </div>
 
           {/* Stats */}
@@ -251,14 +249,29 @@ export default function QuemSomos() {
                   className="p-6 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0 h-[320px] md:h-full"
                   style={{
                     backgroundColor: "#171717",
+                    backgroundImage: founder.photo ? `url(${founder.photo})` : undefined,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center 20%",
                     border: "1px solid #272727",
                     borderRadius: "32px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "flex-end",
                     gap: "20px",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
+                  {founder.photo && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%)",
+                        borderRadius: "32px",
+                      }}
+                    />
+                  )}
                   <h3
                     style={{
                       fontSize: "32px",
@@ -266,6 +279,8 @@ export default function QuemSomos() {
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
                       margin: 0,
+                      position: "relative",
+                      zIndex: 1,
                     }}
                   >
                     {founder.name}

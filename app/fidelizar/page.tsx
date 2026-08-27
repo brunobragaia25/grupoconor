@@ -459,7 +459,7 @@ export default function Fidelizar() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
                 {/* Bloco 1: Conor Seguro */}
-                <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                <div id="conor-seguro" className="flex flex-col md:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
                   <CroppedIllustration
                     src={imgRelacionadosSeguro}
                     alt="Conor Seguro"
@@ -501,7 +501,7 @@ export default function Fidelizar() {
                 </div>
 
                 {/* Bloco 2: Conor Assist */}
-                <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+                <div id="conor-assist" className="flex flex-col md:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
                   <div className="order-2 md:order-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" style={{  }}>
                       <RelatedFeatureCard

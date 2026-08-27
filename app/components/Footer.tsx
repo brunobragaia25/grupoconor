@@ -171,15 +171,16 @@ export function Footer() {
               </h3>
             </div>
             {[
-              "Conor 4 em 1",
-              "Conor Admin",
-              "Conor Assist",
-              "Conor Estoque",
-              "Conor Seguro",
-              "Conor Marketing",
-            ].map((label) => (
-              <span
-                key={label}
+              { label: "Conor 4 em 1", href: "/rastrear#conor-4em1" },
+              { label: "Conor Admin", href: "/administrar" },
+              { label: "Conor Assist", href: "/fidelizar#conor-assist" },
+              { label: "Conor Estoque", href: "/montar#conor-estoque" },
+              { label: "Conor Seguro", href: "/fidelizar#conor-seguro" },
+              { label: "Conor Marketing", href: "/expandir#conor-marketing" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
                 style={{
                   margin: 0,
                   fontSize: "14px",
@@ -189,10 +190,15 @@ export function Footer() {
                   height: "40px",
                   display: "flex",
                   alignItems: "center",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "opacity 0.3s",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
-                {label}
-              </span>
+                {item.label}
+              </a>
             ))}
           </div>
 

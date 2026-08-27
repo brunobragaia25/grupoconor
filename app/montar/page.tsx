@@ -6,6 +6,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { PriceCalculator } from "@/app/components/PriceCalculator";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgRocketLarge = "/icons/icon-rocket-large.svg";
@@ -16,10 +17,6 @@ const imgGearSix = "/icons/icon-gear-six.svg";
 const imgWifiHigh = "/icons/icon-wifi-high.svg";
 const imgEstoqueIllustration = "/image-montar-produto-relacionado.jpg";
 const imgEstoqueLogo = "/icon-montar-produto-relacionado-logo.svg";
-const imgPackage = "/icons/icon-package.svg";
-const imgPackage2 = "/icons/icon-package-2.svg";
-const imgChartLineUp = "/icons/icon-chart-line-up.svg";
-const imgHandshake = "/icons/icon-handshake.svg";
 const imgFotoJ16 = "/foto-j16.png";
 const imgFotoChip = "/foto-chip.png";
 const imgFotoTag = "/foto-tag.png";
@@ -117,73 +114,6 @@ const hardware = [
       "Cobertura 4G onde disponível",
       "Cobertura 3G/2G em todo Brasil",
       "Sem franquia adicional",
-    ],
-  },
-];
-
-const pricingTiers = [
-  {
-    title: "1-10 unidades",
-    icon: imgPackage,
-    description:
-      "Ideal para quem está começando a montar sua central de rastreamento e precisa de um lote inicial de equipamentos.",
-    buttonLabel: "Falar com consultor",
-    buttonStyle: "outline" as const,
-    popular: false,
-    rows: [
-      { label: "Quantidade:", value: "1-10 unidades" },
-      { label: "Prazo:", value: "7 dias úteis" },
-      { label: "Garantia:", value: "12 meses" },
-      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
-      { label: "Chip Vivo 20Mb:", value: "R$5,00 por chip" },
-    ],
-  },
-  {
-    title: "11-50 unidades",
-    icon: imgPackage2,
-    description:
-      "Para operações em crescimento que já têm uma base de clientes e precisam escalar a instalação de rastreadores.",
-    buttonLabel: "Falar com consultor",
-    buttonStyle: "solid" as const,
-    popular: true,
-    rows: [
-      { label: "Quantidade:", value: "11-50 unidades" },
-      { label: "Prazo:", value: "5 dias úteis" },
-      { label: "Garantia:", value: "12 meses" },
-      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
-      { label: "Chip Vivo 20Mb:", value: "R$4,50 por chip" },
-    ],
-  },
-  {
-    title: "51-100 unidades",
-    icon: imgChartLineUp,
-    description:
-      "Para centrais de rastreamento consolidadas que precisam de um volume maior de equipamentos com prazo reduzido.",
-    buttonLabel: "Falar com consultor",
-    buttonStyle: "outline" as const,
-    popular: false,
-    rows: [
-      { label: "Quantidade:", value: "51-100 unidades" },
-      { label: "Prazo:", value: "3 dias úteis" },
-      { label: "Garantia:", value: "12 meses" },
-      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
-      { label: "Chip Vivo 20Mb:", value: "R$3,90 por chip" },
-    ],
-  },
-  {
-    title: "+100 unidades",
-    icon: imgHandshake,
-    description:
-      "Para grandes operações e parceiros que precisam de um volume sob medida. Fale com nosso time comercial.",
-    buttonLabel: "Falar com consultor",
-    buttonStyle: "outline" as const,
-    popular: false,
-    rows: [
-      { label: "Quantidade:", value: "+100 unidades" },
-      { label: "Prazo:", value: "Sob demanda" },
-      { label: "Garantia:", value: "12 meses" },
-      { label: "Rast. J16:", value: "R$160 parcelado ou R$140 à vista" },
-      { label: "Chip Vivo 20Mb:", value: "R$3,40 por chip" },
     ],
   },
 ];
@@ -469,182 +399,11 @@ export default function Montar() {
               </div>
             </div>
 
-            {/* Tabela de preços */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "40px", alignItems: "center" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
-                <AnimatedTitle
-                  as="h2"
-                  className="text-3xl md:text-[56px]"
-                  style={{
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                    lineHeight: "normal",
-                  }}
-                >
-                  Escolha a quantidade ideal
-                </AnimatedTitle>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    fontFamily: "var(--font-roboto)",
-                    color: colors.text.bodyLight,
-                    margin: 0,
-                    lineHeight: "28px",
-                  }}
-                >
-                  Escolha a faixa de quantidade ideal para o seu negócio. Todos incluem garantia de 12 meses.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row gap-5" style={{ width: "100%" }}>
-                {pricingTiers.map((tier, idx) => (
-                  <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0"
-                    key={tier.title}
-                    delay={idx * 0.08}
-                    style={{
-                      backgroundColor: tier.popular ? "#151b24" : "#111111",
-                      border: tier.popular ? "1px solid #52a4ff" : "1px solid #2a2a2a",
-                      borderRadius: "16px",
-                      padding: "33px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "24px",
-                      position: "relative",
-                      boxShadow: tier.popular ? "0 0 32px 0 rgba(82, 164, 255, 0.25)" : undefined,
-                      transform: tier.popular ? "scale(1.03)" : undefined,
-                      zIndex: tier.popular ? 1 : undefined,
-                    }}
-                  >
-                    {tier.popular && (
-                      <div
-                        style={{
-                          position: "absolute",
-                          top: "20px",
-                          right: "20px",
-                          backgroundColor: "#52a4ff",
-                          borderRadius: "999px",
-                          padding: "5px 13px",
-                          fontSize: "10px",
-                          fontWeight: 700,
-                          color: colors.white,
-                          fontFamily: "var(--font-roboto)",
-                          boxShadow: "0 0 12px 0 rgba(82, 164, 255, 0.5)",
-                        }}
-                      >
-                        ★ POPULAR
-                      </div>
-                    )}
-
-                    <div
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "8px",
-                        backgroundColor: "#52a4ff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <img src={tier.icon} alt="" style={{ width: "20px", height: "20px" }} />
-                    </div>
-
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: 700,
-                        fontFamily: "var(--font-linear-grotesk)",
-                        color: colors.white,
-                        margin: 0,
-                      }}
-                    >
-                      {tier.title}
-                    </p>
-
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontFamily: "var(--font-roboto)",
-                        color: colors.text.bodyLight,
-                        margin: 0,
-                        lineHeight: "22px",
-                      }}
-                    >
-                      {tier.description}
-                    </p>
-
-                    <a
-                      href={whatsappHref(`Olá! Quero montar um pedido na faixa de ${tier.title} e gostaria de falar com um consultor.`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        height: "44px",
-                        borderRadius: "8px",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        fontFamily: "var(--font-roboto)",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
-                        ...(tier.buttonStyle === "solid"
-                          ? { backgroundColor: colors.white, color: colors.black, border: "none" }
-                          : { backgroundColor: "transparent", color: colors.white, border: "1px solid #3a3a3a" }),
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = "scale(1.03)";
-                        e.currentTarget.style.filter = "brightness(1.08)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = "scale(1)";
-                        e.currentTarget.style.filter = "brightness(1)";
-                      }}
-                    >
-                      {tier.buttonLabel}
-                    </a>
-
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <div style={{ flex: 1, height: "1px", backgroundColor: "#2a2a2a" }} />
-                      <span
-                        style={{
-                          fontSize: "10px",
-                          letterSpacing: "1.5px",
-                          color: colors.text.bodyLight,
-                          fontFamily: "var(--font-roboto)",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        DESTAQUES DO PLANO
-                      </span>
-                      <div style={{ flex: 1, height: "1px", backgroundColor: "#2a2a2a" }} />
-                    </div>
-
-                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                      {tier.rows.map((row) => (
-                        <p
-                          key={row.label}
-                          style={{
-                            fontSize: "13px",
-                            fontFamily: "var(--font-roboto)",
-                            color: "#40c6ee",
-                            margin: 0,
-                          }}
-                        >
-                          <span>✓ {row.label}</span>{" "}
-                          <span style={{ color: colors.white }}>{row.value}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-            </div>
+            {/* Calculadora e tabela de preços */}
+            <PriceCalculator />
 
             {/* Produto Relacionado */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
+            <div id="conor-estoque" style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center", scrollMarginTop: "100px" }}>
               <AnimatedTitle
                 as="h2"
                 className="text-3xl md:text-[56px]"

@@ -81,19 +81,6 @@ const compatibility = [
   { name: "Ônibus", percent: "100%", description: "Solução completa para transporte coletivo", icon: imgBus, color: "#20c4c3" },
 ];
 
-const screenshots = [
-  {
-    title: "Mapa em tempo real",
-    description:
-      "Acompanhe todos os seus veículos em um mapa interativo. Localize, trace rotas e receba alertas em tempo real.",
-  },
-  {
-    title: "Dashboard de Telemetria",
-    description:
-      "Monitore dados técnicos como velocidade, combustível, temperatura e muito mais para cada veículo.",
-  },
-];
-
 const whyItems = [
   {
     title: "Tecnologia Satelital",
@@ -395,94 +382,8 @@ export default function Rastrear() {
               </div>
             </div>
 
-            {/* Veja a plataforma em ação */}
-            <div className="flex flex-col md:flex-row gap-6 md:gap-16 md:items-center">
-              <div className="order-2 md:order-1 flex flex-col md:flex-row gap-5 w-full md:flex-1 md:w-auto md:min-w-0" style={{ alignItems: "center" }}>
-                {screenshots.map((screenshot, idx) => (
-                  <FadeIn
-                    key={screenshot.title}
-                    delay={idx * 0.08}
-                    className="w-full flex-none h-[360px] md:[flex:1_0_0] md:h-[560px]"
-                    style={{
-                      backgroundColor: "#d9d9d9",
-                      border: "1px solid #272727",
-                      borderRadius: "32px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "flex-end",
-                    }}
-                  >
-                    <div
-                      className="p-6 md:p-10"
-                      style={{
-                        backgroundColor: "#171717",
-                        border: "1px solid #272727",
-                        borderTop: "none",
-                        borderBottomLeftRadius: "32px",
-                        borderBottomRightRadius: "32px",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "10px",
-                      }}
-                    >
-                      <p
-                        style={{
-                          fontSize: "20px",
-                          fontWeight: 700,
-                          fontFamily: "var(--font-linear-grotesk)",
-                          color: colors.white,
-                          margin: 0,
-                          lineHeight: "30px",
-                        }}
-                      >
-                        {screenshot.title}
-                      </p>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          fontFamily: "var(--font-roboto)",
-                          color: colors.text.bodyLight,
-                          margin: 0,
-                          lineHeight: "24px",
-                        }}
-                      >
-                        {screenshot.description}
-                      </p>
-                    </div>
-                  </FadeIn>
-                ))}
-              </div>
-
-              <div className="order-1 md:order-2 md:w-[462px] items-center md:items-end text-center md:text-right gap-3 md:gap-10" style={{ display: "flex", flexDirection: "column", flexShrink: 0 }}>
-                <AnimatedTitle
-                  as="h2"
-                  className="text-3xl md:text-[56px]"
-                  style={{
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                    lineHeight: "normal",
-                  }}
-                >
-                  Veja a plataforma em ação
-                </AnimatedTitle>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    fontFamily: "var(--font-roboto)",
-                    color: colors.text.bodyLight,
-                    margin: 0,
-                    lineHeight: "28px",
-                  }}
-                >
-                  Interface intuitiva para monitoramento em tempo real
-                </p>
-              </div>
-            </div>
-
             {/* Porque escolher Conor 4 em 1 */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center" }}>
+            <div id="conor-4em1" style={{ display: "flex", flexDirection: "column", gap: "64px", alignItems: "center", scrollMarginTop: "100px" }}>
               <AnimatedTitle
                 as="h2"
                 className="text-3xl md:text-[56px]"
