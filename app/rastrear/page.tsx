@@ -402,16 +402,15 @@ export default function Rastrear() {
                 ]}
               </AnimatedTitle>
 
-              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+              <div className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%" }}>
                 {/* Crop do Figma (176:9774): viewport 737x590 sobre duas camadas */}
                 <div
-                  className="w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
+                  className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
                   style={{
                     position: "relative",
                     aspectRatio: `${737 / 590}`,
                     borderRadius: "32px",
                     overflow: "hidden",
-                    ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))",
                   }}
                 >
                   <img
@@ -463,7 +462,7 @@ export default function Rastrear() {
                 </div>
 
                 <div
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0"
                   style={{
                   }}
                 >

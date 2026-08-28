@@ -378,7 +378,7 @@ export default function Administrar() {
                 ]}
               </AnimatedTitle>
 
-              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
+              <div className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%" }}>
                 <CroppedIllustration
                   src={imgWhyIllustration}
                   alt="Conor Admin"
@@ -390,8 +390,7 @@ export default function Administrar() {
                     offsetYFraction: -371 / 590,
                   }}
                   borderRadius="32px"
-                  className="w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
-                  style={{ ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))" }}
+                  className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
                   logo={{
                     src: imgHeroLogo,
                     aspectRatio: 345 / 62,
@@ -403,7 +402,7 @@ export default function Administrar() {
                 />
 
                 <div
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0"
                 >
                   {benefits.map((benefit, idx) => (
                     <FadeIn

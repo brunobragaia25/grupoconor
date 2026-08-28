@@ -460,7 +460,7 @@ export default function Fidelizar() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
                 {/* Bloco 1: Conor Seguro */}
-                <div id="conor-seguro" className="flex flex-col md:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
+                <div id="conor-seguro" className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
                   <CroppedIllustration
                     src={imgRelacionadosSeguro}
                     alt="Conor Seguro"
@@ -472,8 +472,7 @@ export default function Fidelizar() {
                       offsetYFraction: -141 / 638,
                     }}
                     borderRadius="32px"
-                    className="w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
-                    style={{ ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))" }}
+                    className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
                     logo={{
                       src: imgRelacionadosSeguroLogo,
                       aspectRatio: 357 / 62,
@@ -484,17 +483,17 @@ export default function Fidelizar() {
                     }}
                   />
 
-                  <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                  <div className="w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
-                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
+                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
-                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
+                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
@@ -503,9 +502,9 @@ export default function Fidelizar() {
                 </div>
 
                 {/* Bloco 2: Conor Assist */}
-                <div id="conor-assist" className="flex flex-col md:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
-                  <div className="order-2 md:order-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" style={{  }}>
+                <div id="conor-assist" className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
+                  <div className="order-2 min-[1700px]:order-1 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <FadeIn className="w-full" style={{  }}>
                       <RelatedFeatureCard
                         title={assistFeatures[0].title}
                         description={assistFeatures[0].description}
@@ -513,9 +512,9 @@ export default function Fidelizar() {
                         style={{ height: "100%" }}
                       />
                     </FadeIn>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
                       {assistFeatures.slice(1, 3).map((feature, idx) => (
-                        <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
+                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.08} style={{  }}>
                           <RelatedFeatureCard
                             title={feature.title}
                             description={feature.description}
@@ -538,8 +537,7 @@ export default function Fidelizar() {
                       offsetYFraction: -236 / 590,
                     }}
                     borderRadius="32px"
-                    className="order-1 md:order-2 w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
-                    style={{ ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))" }}
+                    className="order-1 min-[1700px]:order-2 w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
                     logo={{
                       src: imgRelacionadosAssistLogo,
                       aspectRatio: 321 / 62,
