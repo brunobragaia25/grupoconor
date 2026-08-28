@@ -165,10 +165,11 @@ export default function Rastrear() {
             </div>
 
             <div
-              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(300px, calc(100vw - 804px)))" }}
             >
               <div
-                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1336.61px] md:h-[998px] md:left-[-506px] md:top-[-199px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1336.61px] md:h-[998px] md:left-[-506px] md:top-[-199px] md:bg-auto md:origin-top-left md:[transform:scale(calc(var(--hero-illus-w)/740px))]"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -404,12 +405,13 @@ export default function Rastrear() {
               <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
                 {/* Crop do Figma (176:9774): viewport 737x590 sobre duas camadas */}
                 <div
-                  className="w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
+                  className="w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
                   style={{
                     position: "relative",
                     aspectRatio: `${737 / 590}`,
                     borderRadius: "32px",
                     overflow: "hidden",
+                    ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))",
                   }}
                 >
                   <img
@@ -461,7 +463,7 @@ export default function Rastrear() {
                 </div>
 
                 <div
-                  className="grid grid-cols-1 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                   }}
                 >

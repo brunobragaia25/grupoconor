@@ -327,10 +327,11 @@ export default function Fidelizar() {
             </div>
 
             <div
-              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(300px, calc(100vw - 804px)))" }}
             >
               <div
-                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[4077.83px] md:h-[2276px] md:left-[-1697px] md:top-[-838px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[4077.83px] md:h-[2276px] md:left-[-1697px] md:top-[-838px] md:bg-auto md:origin-top-left md:[transform:scale(calc(var(--hero-illus-w)/740px))]"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -471,7 +472,8 @@ export default function Fidelizar() {
                       offsetYFraction: -141 / 638,
                     }}
                     borderRadius="32px"
-                    className="w-full md:w-[737px] md:h-[638px] md:flex-shrink-0"
+                    className="w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
+                    style={{ ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))" }}
                     logo={{
                       src: imgRelacionadosSeguroLogo,
                       aspectRatio: 357 / 62,
@@ -483,14 +485,14 @@ export default function Fidelizar() {
                   />
 
                   <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
                         <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
                     </div>
-                    <div className="grid grid-cols-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
                         <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
@@ -511,7 +513,7 @@ export default function Fidelizar() {
                         style={{ height: "100%" }}
                       />
                     </FadeIn>
-                    <div className="grid grid-cols-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {assistFeatures.slice(1, 3).map((feature, idx) => (
                         <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
                           <RelatedFeatureCard
@@ -536,7 +538,8 @@ export default function Fidelizar() {
                       offsetYFraction: -236 / 590,
                     }}
                     borderRadius="32px"
-                    className="order-1 md:order-2 w-full md:w-[737px] md:h-[590px] md:flex-shrink-0"
+                    className="order-1 md:order-2 w-full md:w-[var(--rel-illus-w)] md:flex-shrink-0"
+                    style={{ ["--rel-illus-w" as string]: "min(737px, max(300px, calc(100vw - 992px)))" }}
                     logo={{
                       src: imgRelacionadosAssistLogo,
                       aspectRatio: 321 / 62,

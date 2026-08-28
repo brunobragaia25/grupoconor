@@ -190,10 +190,11 @@ export default function Expandir() {
             </div>
 
             <div
-              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[740px] overflow-hidden pointer-events-none"
+              className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(300px, calc(100vw - 804px)))" }}
             >
               <div
-                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1405px] md:h-[1049.07px] md:left-[-299px] md:top-[-217px] md:bg-auto"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1405px] md:h-[1049.07px] md:left-[-299px] md:top-[-217px] md:bg-auto md:origin-top-left md:[transform:scale(calc(var(--hero-illus-w)/740px))]"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
