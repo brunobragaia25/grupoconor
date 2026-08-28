@@ -461,7 +461,7 @@ export default function Rastrear() {
                 </div>
 
                 <div
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="grid grid-cols-1 gap-5 w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                   }}
                 >

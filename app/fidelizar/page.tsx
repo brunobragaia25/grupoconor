@@ -483,14 +483,14 @@ export default function Fidelizar() {
                   />
 
                   <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(0, 2).map((feature, idx) => (
                         <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {seguroFeatures.slice(2, 4).map((feature, idx) => (
                         <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
                           <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
@@ -511,7 +511,7 @@ export default function Fidelizar() {
                         style={{ height: "100%" }}
                       />
                     </FadeIn>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
+                    <div className="grid grid-cols-1 w-full md:flex-1 md:w-auto md:min-w-0" style={{ gap: "20px" }}>
                       {assistFeatures.slice(1, 3).map((feature, idx) => (
                         <FadeIn className="w-full md:flex-1 md:w-auto md:min-w-0" key={feature.title} delay={idx * 0.08} style={{  }}>
                           <RelatedFeatureCard
