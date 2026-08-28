@@ -154,7 +154,7 @@ export default function Montar() {
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
                     lineHeight: "normal",
-                    maxWidth: "716px",
+                    maxWidth: "clamp(320px, calc(100vw - 1124px), 716px)",
                   }}
                 >
                   {[
@@ -169,7 +169,7 @@ export default function Montar() {
                     color: colors.white,
                     margin: 0,
                     lineHeight: "28px",
-                    maxWidth: "512px",
+                    maxWidth: "clamp(280px, calc(100vw - 1124px), 512px)",
                   }}
                 >
                   Temos tudo que é essencial para começar: rastreadores,

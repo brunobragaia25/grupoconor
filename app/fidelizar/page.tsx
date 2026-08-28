@@ -302,7 +302,7 @@ export default function Fidelizar() {
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
                     lineHeight: "normal",
-                    maxWidth: "716px",
+                    maxWidth: "clamp(320px, calc(100vw - 1124px), 716px)",
                   }}
                 >
                   {[
@@ -317,7 +317,7 @@ export default function Fidelizar() {
                     color: colors.white,
                     margin: 0,
                     lineHeight: "28px",
-                    maxWidth: "474px",
+                    maxWidth: "clamp(280px, calc(100vw - 1124px), 474px)",
                   }}
                 >
                   Garantimos programas de benefícios, serviços de seguro e

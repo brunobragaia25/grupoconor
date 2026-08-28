@@ -135,7 +135,7 @@ export default function Administrar() {
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
                     lineHeight: "normal",
-                    maxWidth: "716px",
+                    maxWidth: "clamp(320px, calc(100vw - 1124px), 716px)",
                   }}
                 >
                   {[
@@ -150,7 +150,7 @@ export default function Administrar() {
                     color: colors.white,
                     margin: 0,
                     lineHeight: "28px",
-                    maxWidth: "512px",
+                    maxWidth: "clamp(280px, calc(100vw - 1124px), 512px)",
                   }}
                 >
                   Garantimos ferramentas integradas à gestão administrativa,
