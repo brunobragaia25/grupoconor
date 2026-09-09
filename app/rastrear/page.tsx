@@ -23,6 +23,38 @@ const img4em1Bg = "/image-rastrear-4em1-bg.jpg";
 const img4em1Fg = "/image-rastrear-4em1-fg.jpg";
 const img4em1Logo = "/icon-rastrear-4em1-logo.svg";
 
+const imgPlataformaFurtoRoubo = "/plataforma-furto-e-roubo.png";
+const imgPlataformaRecuperacao = "/plataforma-recuperacao-veicular.png";
+const imgPlataformaTelemetria = "/plataforma-telemetria-avancada.png";
+const imgPlataformaProtecao = "/plataforma-protecao-veicular.png";
+
+const screenshots = [
+  {
+    title: "Furto e Roubo",
+    description:
+      "Acompanhe alertas de furto e roubo em tempo real, com a localização exata do veículo direto no mapa.",
+    image: imgPlataformaFurtoRoubo,
+  },
+  {
+    title: "Recuperação Veicular",
+    description:
+      "Localize e trace a rota do veículo para uma recuperação rápida e segura em caso de sinistro.",
+    image: imgPlataformaRecuperacao,
+  },
+  {
+    title: "Telemetria Avançada",
+    description:
+      "Gere percursos detalhados com dados de rota, velocidade e histórico completo das viagens.",
+    image: imgPlataformaTelemetria,
+  },
+  {
+    title: "Proteção Veicular",
+    description:
+      "Visualize o panorama completo da sua frota: veículos, dispositivos, chips e alertas em um só painel.",
+    image: imgPlataformaProtecao,
+  },
+];
+
 const features = [
   {
     icon: imgSpeedometer,
@@ -505,6 +537,102 @@ export default function Rastrear() {
                     </FadeIn>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Veja como funciona */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
+                <AnimatedTitle
+                  as="p"
+                  className="text-3xl md:text-[56px]"
+                  style={{
+                    fontWeight: 700,
+                    fontFamily: "var(--font-linear-grotesk)",
+                    color: colors.white,
+                    margin: 0,
+                    lineHeight: "normal",
+                  }}
+                >
+                  Veja como funciona
+                </AnimatedTitle>
+                <p
+                  style={{
+                    fontSize: "16px",
+                    fontFamily: "var(--font-roboto)",
+                    color: colors.text.bodyLight,
+                    margin: 0,
+                    lineHeight: "28px",
+                  }}
+                >
+                  Interface intuitiva e poderosa para monitorar sua frota
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
+                {screenshots.map((screenshot, idx) => (
+                  <FadeIn
+                    key={screenshot.title}
+                    delay={idx * 0.06}
+                    style={{
+                      border: "1px solid #272727",
+                      borderRadius: "32px",
+                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div
+                      style={{
+                        backgroundColor: "#d9d9d9",
+                        backgroundImage: `url(${screenshot.image})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        aspectRatio: "1241 / 945",
+                        width: "100%",
+                      }}
+                    />
+                    <div
+                      style={{
+                        backgroundColor: "#171717",
+                        border: "1px solid #272727",
+                        borderTop: "none",
+                        borderBottomLeftRadius: "32px",
+                        borderBottomRightRadius: "32px",
+                        padding: "40px",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "10px",
+                        flex: 1,
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          fontWeight: 700,
+                          fontFamily: "var(--font-linear-grotesk)",
+                          color: colors.white,
+                          margin: 0,
+                          lineHeight: "30px",
+                        }}
+                      >
+                        {screenshot.title}
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "14px",
+                          fontFamily: "var(--font-roboto)",
+                          color: colors.text.bodyLight,
+                          margin: 0,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        {screenshot.description}
+                      </p>
+                    </div>
+                  </FadeIn>
+                ))}
               </div>
             </div>
 
