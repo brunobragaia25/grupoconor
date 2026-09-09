@@ -53,7 +53,6 @@ const features = [
       "Configuração completa e profissional do seu rastreador. Nossa equipe garante instalação correta e testes de funcionamento.",
     checkColor: "#52a4ff",
     items: [
-      "Instalação profissional incluída",
       "Testes de funcionamento garantidos",
       "Suporte técnico pós-instalação",
       "Documentação e treinamento",
@@ -68,8 +67,6 @@ const features = [
     items: [
       "Chip Vivo 20Mb de dados",
       "Cobertura nacional completa",
-      "Acesso 24/7 à plataforma",
-      "Suporte técnico dedicado",
     ],
   },
 ];
@@ -158,8 +155,8 @@ export default function Montar() {
                   }}
                 >
                   {[
-                    { text: "Montar ", color: "#bcddfa" },
-                    { text: "seu negócio por apenas R$500.", color: colors.white },
+                    { text: "Monte ", color: "#bcddfa" },
+                    { text: "seu negócio adquirindo rastreadores e simcard.", color: colors.white },
                   ]}
                 </AnimatedTitle>
                 <p
@@ -325,7 +322,10 @@ export default function Montar() {
                     <div
                       className="h-[180px] md:h-[358px]"
                       style={{
-                        backgroundColor: "image" in product && product.image ? colors.white : "#d9d9d9",
+                        backgroundColor: "image" in product && product.image ? "#52a4ff" : "#d9d9d9",
+                        backgroundImage: "image" in product && product.image ? "url(/image-banner-quemsomos.png)" : undefined,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",

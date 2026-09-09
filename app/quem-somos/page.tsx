@@ -16,7 +16,7 @@ const imgHeadset = "/icons/icon-headset.svg";
 
 const founders = [
   { name: "Vinicius Costa", photo: "/vinicius-costa.png" },
-  { name: "Fundador 02" },
+  { name: "Fundador 02", photo: "/socio-02-bw.png", backgroundSize: "125%", backgroundPosition: "center 16%" },
 ];
 
 export default function QuemSomos() {
@@ -250,8 +250,8 @@ export default function QuemSomos() {
                   style={{
                     backgroundColor: "#171717",
                     backgroundImage: founder.photo ? `url(${founder.photo})` : undefined,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center 20%",
+                    backgroundSize: founder.backgroundSize ?? "cover",
+                    backgroundPosition: founder.backgroundPosition ?? "center 20%",
                     border: "1px solid #272727",
                     borderRadius: "32px",
                     display: "flex",
@@ -434,7 +434,7 @@ export default function QuemSomos() {
                       }}
                     >
                       <p style={{ margin: 0, lineHeight: "24px" }}>
-                        Tel: [CONTEÚDO A PREENCHER]
+                        Tel: (11) 3347-9400
                       </p>
                       <p style={{ margin: 0, lineHeight: "24px" }}>
                         Email: contato@grupoconor.com.br

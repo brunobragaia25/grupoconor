@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="House">
+<path d="M5 15L16 5L27 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 12.5V26C8 26.5523 8.44772 27 9 27H23C23.5523 27 24 26.5523 24 26V12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13 27V20C13 19.4477 13.4477 19 14 19H18C18.5523 19 19 19.4477 19 20V27" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

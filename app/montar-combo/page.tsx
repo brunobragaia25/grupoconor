@@ -1,6 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import { motion } from "framer-motion";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -39,26 +40,41 @@ const imgCardMarketing = "/image-montar-combo-card-marketing.jpg";
 const imgCtaIllustration = "/image-montar-combo-cta.jpg";
 
 function ComboVenn({ activeGroup }: { activeGroup: "iniciante" | "existente" }) {
-  const activeBg = "rgba(153, 108, 251, 0.6)";
-  const activeBorder = "#996cfb";
-  const inactiveBorder = "#3a3a3a";
+  const borderColor = "#996cfb";
+  const circleStyle: React.CSSProperties = {
+    border: `2px dashed ${borderColor}`,
+    backgroundColor: colors.white,
+  };
 
-  const isIniciante = activeGroup === "iniciante";
+  const circleVariants = {
+    hidden: { opacity: 0, scale: 0.6 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] as const },
+    }),
+  };
 
   return (
     <div className="overflow-x-auto max-w-full">
-    <div style={{ position: "relative", width: "560px", height: "480px", flexShrink: 0 }}>
+    <motion.div
+      style={{ position: "relative", width: "560px", height: "480px", flexShrink: 0 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.4 }}
+    >
       {/* Seguro + Assist */}
-      <div
+      <motion.div
+        custom={0.1}
+        variants={circleVariants}
         style={{
+          ...circleStyle,
           position: "absolute",
           left: "43px",
           top: "100px",
           width: "210px",
           height: "210px",
           borderRadius: "300px",
-          border: `2px ${isIniciante ? "dashed" : "solid"} ${isIniciante ? inactiveBorder : activeBorder}`,
-          backgroundColor: isIniciante ? "transparent" : activeBg,
           display: "flex",
           flexDirection: "column",
           gap: "8px",
@@ -68,57 +84,60 @@ function ComboVenn({ activeGroup }: { activeGroup: "iniciante" | "existente" }) 
       >
         <img src={imgVennSeguro} alt="" style={{ width: "118px", height: "19.175px" }} />
         <img src={imgVennAssist} alt="" style={{ width: "118px", height: "21.159px" }} />
-      </div>
+      </motion.div>
 
       {/* Admin */}
-      <div
+      <motion.div
+        custom={0.2}
+        variants={circleVariants}
         style={{
+          ...circleStyle,
           position: "absolute",
           left: "180px",
           top: "5px",
           width: "200px",
           height: "200px",
           borderRadius: "100px",
-          border: `2px ${isIniciante ? "solid" : "dashed"} ${isIniciante ? activeBorder : inactiveBorder}`,
-          backgroundColor: isIniciante ? activeBg : "transparent",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         <img src={imgVennAdmin} alt="" style={{ width: "118px", height: "19.793px" }} />
-      </div>
+      </motion.div>
 
       {/* 4 em 1 */}
-      <div
+      <motion.div
+        custom={0.3}
+        variants={circleVariants}
         style={{
+          ...circleStyle,
           position: "absolute",
           left: "307px",
           top: "100px",
           width: "210px",
           height: "210px",
           borderRadius: "105px",
-          border: `2px ${isIniciante ? "solid" : "dashed"} ${isIniciante ? activeBorder : inactiveBorder}`,
-          backgroundColor: isIniciante ? activeBg : "transparent",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         <img src={imgVenn4em1} alt="" style={{ width: "118px", height: "20.453px" }} />
-      </div>
+      </motion.div>
 
       {/* Marketing */}
-      <div
+      <motion.div
+        custom={0.4}
+        variants={circleVariants}
         style={{
+          ...circleStyle,
           position: "absolute",
           left: "92px",
           top: "265px",
           width: "210px",
           height: "210px",
           borderRadius: "300px",
-          border: `2px ${isIniciante ? "dashed" : "solid"} ${isIniciante ? inactiveBorder : activeBorder}`,
-          backgroundColor: isIniciante ? "transparent" : activeBg,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -127,32 +146,39 @@ function ComboVenn({ activeGroup }: { activeGroup: "iniciante" | "existente" }) 
       >
         <img src={imgVennMarketingIcon} alt="" style={{ width: "15.087px", height: "16.147px" }} />
         <img src={imgVennMarketingWordmark} alt="" style={{ width: "98.028px", height: "11.268px" }} />
-      </div>
+      </motion.div>
 
       {/* Estoque */}
-      <div
+      <motion.div
+        custom={0.5}
+        variants={circleVariants}
         style={{
+          ...circleStyle,
           position: "absolute",
           left: "257px",
           top: "265px",
           width: "210px",
           height: "210px",
           borderRadius: "105px",
-          border: `2px ${isIniciante ? "solid" : "dashed"} ${isIniciante ? activeBorder : inactiveBorder}`,
-          backgroundColor: isIniciante ? activeBg : "transparent",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         <img src={imgVennEstoque} alt="" style={{ width: "118px", height: "18.047px" }} />
-      </div>
+      </motion.div>
 
       {/* Center logo */}
-      <div style={{ position: "absolute", left: "252px", top: "219px", width: "56px", height: "56px" }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        style={{ position: "absolute", left: "252px", top: "219px", width: "56px", height: "56px" }}
+      >
         <img src={imgVennCenter} alt="" style={{ width: "100%", height: "100%" }} />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
     </div>
   );
 }
@@ -304,6 +330,19 @@ export default function MontarCombo() {
               gap: "96px",
             }}
           >
+            {/* Diagrama dos combos */}
+            <FadeIn
+              className="p-6 md:p-12"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                backgroundColor: "#F9F6F0",
+                borderRadius: "32px",
+              }}
+            >
+              <ComboVenn activeGroup="iniciante" />
+            </FadeIn>
+
             {/* Para quem está começando */}
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
               <FadeIn>

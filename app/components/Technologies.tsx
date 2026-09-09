@@ -124,14 +124,17 @@ export function Technologies() {
               borderRadius: "32px",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
             }}
           >
             {/* Icon badge */}
             <div
               className="rounded-[17px] md:rounded-[24px]"
               style={{
-                alignSelf: "flex-start",
+                alignSelf: "center",
+                marginBottom: "24px",
                 padding: "1px",
                 background: `linear-gradient(180deg, ${segment.color}ff, ${segment.color}00)`,
                 boxShadow: `0 0 19px 0 ${segment.color}26`,

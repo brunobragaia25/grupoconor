@@ -433,7 +433,7 @@ export default function Rastrear() {
                       position: "absolute",
                       left: `${(-362 / 737) * 100}%`,
                       top: `${(-70 / 590) * 100}%`,
-                      width: `${(1183 / 737) * 100}%`,
+                      width: `${(1242 / 737) * 100}%`,
                       height: "auto",
                       maxWidth: "none",
                       display: "block",

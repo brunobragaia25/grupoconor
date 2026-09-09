@@ -14,7 +14,6 @@ const imgHeartSmileLarge = "/icons/icon-heart-smile-large.svg";
 const imgHeroIllustration = "/image-fidelizar-hero.svg";
 const imgCtaIllustration = "/image-fidelizar-cta.svg";
 const imgShieldCheck = "/icons/icon-shield-check.svg";
-const imgPackage = "/icons/icon-package.svg";
 const imgHeadset = "/icons/icon-headset.svg";
 const imgGift = "/icons/icon-gift.svg";
 const imgRelacionadosSeguro = "/image-fidelizar-relacionados-seguro.jpg";
@@ -22,16 +21,23 @@ const imgRelacionadosSeguroLogo = "/icon-fidelizar-relacionados-seguro-logo2.svg
 const imgRelacionadosAssist = "/image-fidelizar-relacionados-assist.jpg";
 const imgRelacionadosAssistLogo = "/icon-fidelizar-relacionados-assist-logo.svg";
 
+const imgHandshake = "/icons/icon-handshake.svg";
+const imgShieldWarning = "/icons/icon-shield-warning.svg";
+const imgCoins = "/icons/icon-coins.svg";
+const imgCar = "/icons/icon-car.svg";
+const imgDrop = "/icons/icon-drop.svg";
+const imgHouse = "/icons/icon-house.svg";
+const imgHeartOutline = "/icons/icon-heart-outline.svg";
+const imgTruck = "/icons/icon-truck.svg";
+const imgLightning = "/icons/icon-lightning.svg";
+const imgFuel = "/icons/icon-fuel.svg";
+const imgBed = "/icons/icon-bed.svg";
+
 const pillars = [
   {
     icon: imgShieldCheck,
     title: "Seguro",
     description: "Detalhamento sobre o programa de seguro",
-  },
-  {
-    icon: imgPackage,
-    title: "Estoque",
-    description: "Como funciona o programa de estoque",
   },
   {
     icon: imgHeadset,
@@ -74,44 +80,23 @@ const steps = [
 ];
 
 const seguroFeatures = [
-  {
-    title: "Recuperação Veicular",
-    description:
-      "Em caso de furto ou roubo, o acionamento é imediato: equipe especializada trabalha junto com o rastreamento para localizar e recuperar o veículo do seu cliente.",
-  },
-  {
-    title: "Telemetria avançada",
-    description:
-      "Dados de rota, velocidade e comportamento de condução em tempo real. Mais informação para reduzir riscos, orientar o cliente e diminuir sinistros na sua base.",
-  },
-  {
-    title: "Homologação STC",
-    description:
-      "Equipamentos homologados no padrão exigido por seguradoras e gerenciadoras de risco — sua porta de entrada para frotas e cargas.",
-  },
-  {
-    title: "Associação Veicular",
-    description:
-      "Alternativa ao seguro tradicional, com mensalidade acessível e proteção por rateio. Amplia o leque de opções que a sua central oferece a cada perfil de cliente.",
-  },
+  { title: "Seguro Furto e Roubo", icon: imgShieldCheck },
+  { title: "Seguro RCFV (Seguro de Terceiros)", icon: imgHandshake },
+  { title: "Seguro APP", icon: imgShieldWarning },
+  { title: "Lucros Cessantes", icon: imgCoins },
+  { title: "Carro Reserva", icon: imgCar },
+  { title: "Assistência Vidro", icon: imgDrop },
+  { title: "Assistência Residencial", icon: imgHouse },
+  { title: "Assistência Funeral", icon: imgHeartOutline },
 ];
 
 const assistFeatures = [
-  {
-    title: "Financeira",
-    description:
-      "Cobrança recorrente, controle de inadimplência e conciliação das mensalidades da sua base — o financeiro da central rodando sem planilha e sem retrabalho.",
-  },
-  {
-    title: "Administrativa",
-    description:
-      "Contratos, cadastros e rotinas do dia a dia centralizados em um só lugar, com apoio da nossa equipe para o seu time focar em vender e atender.",
-  },
-  {
-    title: "Estoque",
-    description:
-      "Controle de rastreadores e chips por status: em estoque, instalado, em manutenção ou retornado. Você sabe exatamente onde está cada equipamento.",
-  },
+  { title: "Guincho", icon: imgTruck },
+  { title: "Reboque", icon: imgTruck },
+  { title: "Pane Elétrica", icon: imgLightning },
+  { title: "Pane Seca", icon: imgFuel },
+  { title: "Taxi", icon: imgCar },
+  { title: "Hospedagem Hotel", icon: imgBed },
 ];
 
 const accent = "#52a4ff";
@@ -231,33 +216,58 @@ function StepsTimeline() {
 function RelatedFeatureCard({
   title,
   description,
+  icon,
   color = "#fec22d",
   style,
+  className = "p-16",
+  titleFontSize = "24px",
 }: {
   title: string;
-  description: string;
+  description?: string;
+  icon?: string;
   color?: string;
   style?: CSSProperties;
+  className?: string;
+  titleFontSize?: string;
 }) {
   return (
     <div
-      className="p-16"
+      className={className}
       style={{
         backgroundColor: "#171717",
         border: "1px solid #272727",
         borderRadius: "32px",
         display: "flex",
         flexDirection: "column",
-        gap: "26px",
+        justifyContent: description ? "flex-start" : "center",
+        gap: "16px",
         ...style,
       }}
     >
-      <p style={{ margin: 0, fontSize: "24px", fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color }}>
+      {icon && (
+        <div
+          style={{
+            width: "36px",
+            height: "36px",
+            borderRadius: "8px",
+            backgroundColor: `${color}26`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}
+        >
+          <img src={icon} alt="" style={{ width: "20px", height: "20px" }} />
+        </div>
+      )}
+      <p style={{ margin: 0, fontSize: titleFontSize, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color }}>
         {title}
       </p>
-      <p style={{ margin: 0, fontSize: "14px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, lineHeight: "24px" }}>
-        {description}
-      </p>
+      {description && (
+        <p style={{ margin: 0, fontSize: "14px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, lineHeight: "24px" }}>
+          {description}
+        </p>
+      )}
     </div>
   );
 }
@@ -472,7 +482,7 @@ export default function Fidelizar() {
                       offsetYFraction: -141 / 638,
                     }}
                     borderRadius="32px"
-                    className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
+                    className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
                     logo={{
                       src: imgRelacionadosSeguroLogo,
                       aspectRatio: 357 / 62,
@@ -485,16 +495,9 @@ export default function Fidelizar() {
 
                   <div className="w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
-                      {seguroFeatures.slice(0, 2).map((feature, idx) => (
-                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
-                          <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
-                        </FadeIn>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
-                      {seguroFeatures.slice(2, 4).map((feature, idx) => (
-                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.08} style={{ height: "100%" }}>
-                          <RelatedFeatureCard title={feature.title} description={feature.description} style={{ height: "100%" }} />
+                      {seguroFeatures.map((feature, idx) => (
+                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.06} style={{ height: "100%" }}>
+                          <RelatedFeatureCard title={feature.title} icon={feature.icon} className="p-8" titleFontSize="16px" style={{ height: "100%" }} />
                         </FadeIn>
                       ))}
                     </div>
@@ -504,21 +507,15 @@ export default function Fidelizar() {
                 {/* Bloco 2: Conor Assist */}
                 <div id="conor-assist" className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
                   <div className="order-2 min-[1700px]:order-1 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <FadeIn className="w-full" style={{  }}>
-                      <RelatedFeatureCard
-                        title={assistFeatures[0].title}
-                        description={assistFeatures[0].description}
-                        color="#996cfb"
-                        style={{ height: "100%" }}
-                      />
-                    </FadeIn>
                     <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
-                      {assistFeatures.slice(1, 3).map((feature, idx) => (
-                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.08} style={{  }}>
+                      {assistFeatures.map((feature, idx) => (
+                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.06} style={{ height: "100%" }}>
                           <RelatedFeatureCard
                             title={feature.title}
-                            description={feature.description}
+                            icon={feature.icon}
                             color="#996cfb"
+                            className="p-8"
+                            titleFontSize="16px"
                             style={{ height: "100%" }}
                           />
                         </FadeIn>
@@ -537,7 +534,7 @@ export default function Fidelizar() {
                       offsetYFraction: -236 / 590,
                     }}
                     borderRadius="32px"
-                    className="order-1 min-[1700px]:order-2 w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
+                    className="order-1 min-[1700px]:order-2 w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
                     logo={{
                       src: imgRelacionadosAssistLogo,
                       aspectRatio: 321 / 62,

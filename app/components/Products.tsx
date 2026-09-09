@@ -42,7 +42,7 @@ const products: ProductCard[] = [
     features: [
       { label: "Software 1:", value: "Recuperação veicular;" },
       { label: "Software 2:", value: "Telemetria avançada;" },
-      { label: "Software 3:", value: "Recuperação veicular telemetria avançada;" },
+      { label: "Software 3:", value: "Furto e Roubo;" },
       { label: "Software 4:", value: "Associação veicular." },
     ],
   },
@@ -77,8 +77,9 @@ const products: ProductCard[] = [
     whatsapp: "/icons/product-whatsapp/estoque.svg",
     eyebrow: "Compre rastreadores e chips na quantidade que precisa",
     features: [
-      { label: "Rastreadores:", value: "Modelo FMB920, TELTONIKA;" },
-      { label: "Chips:", value: "Cartão micro-SD 32GB." },
+      { label: "Rastreadores:", value: "Rastreador J16 Original 4G;" },
+      { label: "Tags:", value: "Tag BLE - Bluetooth;" },
+      { label: "Chips:", value: "Chip Vivo 20Mb." },
     ],
   },
   {

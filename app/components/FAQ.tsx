@@ -24,7 +24,7 @@ const faqItems: FAQItem[] = [
     question:
       "Qual é o investimento necessário para abrir uma central de rastreamento veicular?",
     answer:
-      "Você começa a partir de R$500. Esse valor já cobre o essencial para operar: rastreador, chip Vivo com 20Mb de dados e acesso à plataforma. Conforme sua base de clientes cresce, você escala o volume de equipamentos — de lotes de 1 a 10 unidades até mais de 100.",
+      "A partir de R$500.",
   },
   {
     id: 3,
@@ -43,6 +43,12 @@ const faqItems: FAQItem[] = [
     question: "Qual é a margem de lucro de uma central de rastreamento?",
     answer:
       "A margem é alta porque o custo por item rastreado é baixo e previsível: na projeção com 10 itens, o lucro médio fica em torno de R$420 sobre R$500 faturados, já com o imposto MEI descontado. O resultado varia conforme o volume instalado e os serviços agregados, como seguro, assistência 24h e marketing.",
+  },
+  {
+    id: 6,
+    question: "Como migrar o meu software de rastreamento para a Conor?",
+    answer:
+      "Utilizamos um suporte humanizado VIP, com grupo de onboarding e especialistas 100% dedicados, para que sua operação de rastreamento seja migrada para um dos nossos sistemas.",
   },
 ];
 

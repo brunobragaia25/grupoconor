@@ -18,6 +18,7 @@ const imgHeartSmile = "/icon-heart-smile.svg";
 const imgBookmarkCheck = "/icon-bookmark-check.svg";
 const imgEmergencyShare = "/icon-emergency-share.svg";
 const imgRocket = "/icon-rocket.svg";
+const imgPayback = "/icons/icon-payback.svg";
 const imgLoupe = "/icon-loupe.svg";
 
 const imgProductAdmin = "/image-product-admin.jpg";
@@ -40,7 +41,7 @@ function WhatsappIcon({ color }: { color: string }) {
 
 const marketStats = [
   { number: "2 mil", label: "empresas de rastreamento no Brasil, gerando mais de 29 mil empregos" },
-  { number: "<5%", label: "da frota brasileira é rastreada atualmente pelo setor" },
+  { number: "5%", label: "da frota brasileira é rastreada atualmente pelo setor" },
   { number: "124 mi", label: "veículos estão em circulação no país em 2024" },
 ];
 
@@ -125,6 +126,18 @@ const pillars = [
 
 const comboProducts = [
   {
+    logo: imgLogo4em1,
+    logoWidth: 174,
+    image: imgProduct4em1,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
+    color: "#40c6ee",
+    checkColor: "#52a4ff",
+    title: "O que é essencial para o seu rastreamento?",
+    items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
+    buttonLabel: "Comprar agora",
+    whatsappMessage: "Olá! Quero comprar o Conor 4 em 1.",
+  },
+  {
     logo: imgLogoEstoque,
     logoWidth: 195,
     image: imgProductEstoque,
@@ -137,16 +150,8 @@ const comboProducts = [
       "Rastreador J16 Original e Tag BLE",
       "Chip Vivo 20Mb",
     ],
-  },
-  {
-    logo: imgLogo4em1,
-    logoWidth: 174,
-    image: imgProduct4em1,
-    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
-    color: "#40c6ee",
-    checkColor: "#52a4ff",
-    title: "O que é essencial para o seu rastreamento?",
-    items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
+    buttonLabel: "Comprar agora",
+    whatsappMessage: "Olá! Quero alugar o combo do Conor Estoque.",
   },
   {
     logo: imgLogoAdmin,
@@ -157,6 +162,8 @@ const comboProducts = [
     checkColor: "#67d2c4",
     title: "Software de gestão do seu negócio",
     items: ["Financeiro", "Administrativo", "Estoque"],
+    buttonLabel: "Comprar agora",
+    whatsappMessage: "Olá! Quero comprar o Conor Admin.",
   },
 ];
 
@@ -360,7 +367,7 @@ export default function ComecarNegocio() {
                     flexShrink: 0,
                   }}
                 >
-                  Projeção com 2 rastreadores instalados por mês, já
+                  Projeção com 10 rastreadores instalados por mês, já
                   descontando o imposto MEI.
                 </p>
               </div>
@@ -467,31 +474,47 @@ export default function ComecarNegocio() {
                   justifyContent: "space-between",
                 }}
               >
-                <div>
-                  <p
+                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                  <div
                     style={{
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      fontFamily: "var(--font-roboto)",
-                      color: "#20c4c3",
-                      margin: "0 0 4px 0",
-                      textTransform: "uppercase",
-                      letterSpacing: "1px",
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "14px",
+                      backgroundColor: "#20c4c3",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
                     }}
                   >
-                    Resultado final
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 700,
-                      fontFamily: "var(--font-linear-grotesk)",
-                      color: colors.white,
-                      margin: 0,
-                    }}
-                  >
-                    Retorno do investimento com instalação de 2 rastreadores por mês
-                  </p>
+                    <img src={imgPayback} alt="" style={{ width: "38px", height: "38px" }} />
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontSize: "11px",
+                        fontWeight: 700,
+                        fontFamily: "var(--font-roboto)",
+                        color: "#20c4c3",
+                        margin: "0 0 4px 0",
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                      }}
+                    >
+                      Resultado final
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "16px",
+                        fontWeight: 700,
+                        fontFamily: "var(--font-linear-grotesk)",
+                        color: colors.white,
+                        margin: 0,
+                      }}
+                    >
+                      Retorno do investimento com instalação de 10 rastreadores por mês
+                    </p>
+                  </div>
                 </div>
                 <p
                   style={{
@@ -569,6 +592,27 @@ export default function ComecarNegocio() {
               </div>
             </div>
 
+            {/* Diagrama dos módulos */}
+            <FadeIn
+              className="px-6 md:px-12"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#F9F6F0",
+                borderRadius: "32px",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+                marginTop: "-76px",
+              }}
+            >
+              <img
+                src="/img-circles-comecar.png"
+                alt="Diagrama dos módulos Conor: Montar, Rastrear, Fidelizar e Administrar, com Expandir como próximo passo"
+                style={{ width: "100%", maxWidth: "669px", height: "auto" }}
+              />
+            </FadeIn>
+
             {/* Construa seu negócio com R$2.500 */}
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>
@@ -582,7 +626,7 @@ export default function ComecarNegocio() {
                     margin: 0,
                   }}
                 >
-                  {["Construa seu negócio com ", { text: "R$2.500", color: "#20c4c3" }]}
+                  {"Como iniciar a minha central"}
                 </AnimatedTitle>
                 <p
                   style={{
@@ -660,6 +704,7 @@ export default function ComecarNegocio() {
                           fontSize: "13px",
                           lineHeight: "19.5px",
                           fontFamily: "var(--font-roboto)",
+                          flex: 1,
                         }}
                       >
                         {product.items.map((item) => (
@@ -679,82 +724,43 @@ export default function ComecarNegocio() {
                           </li>
                         ))}
                       </ul>
+
+                      <a
+                        href={whatsappHref(product.whatsappMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          backgroundColor: product.color,
+                          color: colors.white,
+                          border: "none",
+                          height: "44px",
+                          borderRadius: "8px",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          fontFamily: "var(--font-roboto)",
+                          cursor: "pointer",
+                          textDecoration: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "scale(1.03)";
+                          e.currentTarget.style.filter = "brightness(1.08)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "scale(1)";
+                          e.currentTarget.style.filter = "brightness(1)";
+                        }}
+                      >
+                        {product.buttonLabel}
+                      </a>
                     </div>
                   </FadeIn>
                 ))}
               </div>
 
-              <FadeIn
-                className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 px-6 py-8 md:px-12 md:py-8"
-                style={{
-                  backgroundColor: "#171717",
-                  border: "1px solid #272727",
-                  borderRadius: "24px",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div>
-                  <p
-                    style={{
-                      fontSize: "13px",
-                      fontFamily: "var(--font-roboto)",
-                      color: colors.text.bodyLight,
-                      margin: "0 0 4px 0",
-                      textTransform: "uppercase",
-                      letterSpacing: "1px",
-                    }}
-                  >
-                    Entrada
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "32px",
-                      fontWeight: 700,
-                      fontFamily: "var(--font-linear-grotesk)",
-                      color: colors.white,
-                      margin: 0,
-                    }}
-                  >
-                    R$2.500{" "}
-                    <span style={{ fontSize: "16px", fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}>
-                      + R$35,90 mensais
-                    </span>
-                  </p>
-                </div>
-                <a
-                  href={whatsappHref("Olá! Quero começar um negócio de rastreamento com a Conor e gostaria de falar com um consultor sobre o combo de entrada.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "6px",
-                    height: "48px",
-                    backgroundColor: "#20c4c3",
-                    color: colors.black,
-                    border: "none",
-                    borderRadius: "999px",
-                    fontSize: "14px",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    fontFamily: "var(--font-roboto)",
-                    transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
-                    padding: "0 28px",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.03)";
-                    e.currentTarget.style.filter = "brightness(1.08)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.filter = "brightness(1)";
-                  }}
-                >
-                  <WhatsappIcon color={colors.black} />
-                  Comprar combo
-                </a>
-              </FadeIn>
             </div>
 
             {/* Prova social */}

@@ -109,25 +109,6 @@ const stats = [
   },
 ];
 
-const methodology = [
-  {
-    title: "Diagnóstico",
-    description: "Análise completa do seu negócio, mercado e oportunidades de crescimento",
-  },
-  {
-    title: "Estratégia",
-    description: "Desenvolvimento de plano customizado com metas claras e mensuráveis",
-  },
-  {
-    title: "Execução",
-    description: "Implementação de campanhas, páginas e treinamento da equipe",
-  },
-  {
-    title: "Análise & Otimização",
-    description: "Acompanhamento de resultados com ajustes contínuos para maximizar ROI",
-  },
-];
-
 export default function Expandir() {
   return (
     <Layout>
@@ -444,77 +425,6 @@ export default function Expandir() {
                   </p>
                 </FadeIn>
               ))}
-            </div>
-
-            {/* Metodologia da Consultoria */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "40px", alignItems: "center" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", textAlign: "center" }}>
-                <AnimatedTitle
-                  as="h2"
-                  className="text-3xl md:text-[56px]"
-                  style={{
-                    fontWeight: 700,
-                    fontFamily: "var(--font-linear-grotesk)",
-                    color: colors.white,
-                    margin: 0,
-                    lineHeight: "normal",
-                  }}
-                >
-                  Metodologia da Consultoria
-                </AnimatedTitle>
-                <p
-                  style={{
-                    fontSize: "16px",
-                    fontFamily: "var(--font-roboto)",
-                    color: colors.text.bodyLight,
-                    margin: 0,
-                    lineHeight: "28px",
-                  }}
-                >
-                  Processo comprovado para garantir seu crescimento sustentável
-                </p>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-5" style={{ width: "100%" }}>
-                {methodology.map((step, idx) => (
-                  <FadeIn
-                    key={step.title}
-                    delay={idx * 0.08}
-                    className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
-                    style={{
-                      backgroundColor: "#171717",
-                      border: "1px solid #272727",
-                      borderRadius: "32px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "26px",
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "24px",
-                        fontWeight: 700,
-                        fontFamily: "var(--font-linear-grotesk)",
-                        color: "#52a4ff",
-                        margin: 0,
-                      }}
-                    >
-                      {step.title}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontFamily: "var(--font-roboto)",
-                        color: colors.text.bodyLight,
-                        margin: 0,
-                        lineHeight: "24px",
-                      }}
-                    >
-                      {step.description}
-                    </p>
-                  </FadeIn>
-                ))}
-              </div>
             </div>
 
             {/* Produto Relacionado */}

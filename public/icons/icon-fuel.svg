@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Fuel">
+<rect x="5" y="4" width="14" height="24" rx="1" stroke="white" stroke-width="2"/>
+<path d="M8 9H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<path d="M19 12L23 15V23C23 23.8284 23.6716 24.5 24.5 24.5C25.3284 24.5 26 23.8284 26 23V16C26 13 23 12 23 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

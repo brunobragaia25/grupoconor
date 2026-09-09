@@ -15,6 +15,8 @@ const imgHeroIllustration = "/image-crescer-negocio-hero.jpg";
 const imgCardSeguro = "/image-crescer-negocio-card-seguro.jpg";
 const imgCardAssist = "/image-crescer-negocio-card-assist.jpg";
 const imgCardMarketing = "/image-crescer-negocio-card-marketing.jpg";
+const imgCard4em1 = "/image-product-4em1.jpg";
+const imgCardAdmin = "/image-product-admin.jpg";
 const imgCtaIllustrationBack = "/image-crescer-negocio-cta-1.svg";
 const imgCtaIllustrationFront = "/image-crescer-negocio-cta-2.jpg";
 const imgHeartSmile = "/icon-heart-smile.svg";
@@ -26,6 +28,8 @@ const imgLoupe = "/icon-loupe.svg";
 const imgLogoSeguro = "/icons/product-logos/seguro.svg";
 const imgLogoAssist = "/icons/product-logos/assist.svg";
 const imgLogoMarketing = "/icons/product-logos/marketing.svg";
+const imgLogo4em1 = "/icons/product-logos/4em1.svg";
+const imgLogoAdmin = "/icons/product-logos/admin.svg";
 const imgWhatsappSeguro = "/icons/product-whatsapp/seguro.svg";
 const imgWhatsappAssist = "/icons/product-whatsapp/assist.svg";
 const imgWhatsappMarketing = "/icons/product-whatsapp/marketing.svg";
@@ -40,6 +44,7 @@ const pillars = [
     icon: imgHeartSmile,
     title: "Fidelizar",
     description: "Programas de benefícios, seguro e assistência 24h para a sua empresa.",
+    highlight: true,
   },
   {
     icon: imgBookmarkCheck,
@@ -60,7 +65,6 @@ const pillars = [
     icon: imgLoupe,
     title: "Expandir",
     description: "Ferramentas de captura de leads, marketing, tráfego pago e consultoria 360º.",
-    highlight: true,
   },
 ];
 
@@ -77,6 +81,7 @@ const products = [
     price: "R$3.000 de entrada + R$350 por mês",
     items: ["Preço fixo", "Sem carência", "Sem mínimo"],
     buttonLabel: "Comprar agora",
+    whatsappMessage: "Olá! Quero ativar o Conor Seguro para o meu escritório.",
   },
   {
     logo: imgLogoAssist,
@@ -89,6 +94,7 @@ const products = [
     price: "R$1.000 de entrada + R$550 por mês",
     items: ["Preço fixo", "Atendimento em todo Brasil", "Para centrais de rastreamento"],
     buttonLabel: "Comprar agora",
+    whatsappMessage: "Olá! Quero ativar o Conor Assist para a minha central de rastreamento.",
   },
   {
     logo: imgLogoMarketing,
@@ -101,6 +107,32 @@ const products = [
     price: "Monte o seu combo",
     items: ["Criativos", "Tráfego pago", "Página de vendas"],
     buttonLabel: "Montar pedido",
+    whatsappMessage: "Olá! Quero montar meu combo do Conor Marketing.",
+  },
+];
+
+const secondaryProducts = [
+  {
+    logo: imgLogo4em1,
+    logoWidth: 174,
+    color: "#40c6ee",
+    cardImage: imgCard4em1,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-85%" },
+    title: "O que é essencial para o seu rastreamento?",
+    price: "Recuperação veicular, telemetria e mais",
+    items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
+    buttonLabel: "Comprar agora",
+  },
+  {
+    logo: imgLogoAdmin,
+    logoWidth: 178,
+    color: "#01c4c4",
+    cardImage: imgCardAdmin,
+    imageCrop: { width: "125.96%", left: "-12.98%", top: "-125%" },
+    title: "Software de gestão do seu negócio",
+    price: "Financeiro, administrativo e estoque",
+    items: ["Financeiro", "Administrativo", "Estoque"],
+    buttonLabel: "Comprar agora",
   },
 ];
 
@@ -370,6 +402,126 @@ export default function CrescerNegocio() {
                           "--crop-t": product.imageCrop.top,
                           "--crop-w": product.imageCrop.width,
                           // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
+                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
+                          maxWidth: "none",
+                          display: "block",
+                        } as CSSProperties}
+                      />
+                    </div>
+                    <div
+                      className="p-6 md:p-10"
+                      style={{
+                        backgroundColor: colors.black,
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "20px",
+                        flex: 1,
+                      }}
+                    >
+                      <img src={product.logo} alt="" style={{ width: `${product.logoWidth}px`, maxWidth: "100%", height: "32px" }} />
+                      <div style={{ height: "1px", backgroundColor: "#333333", width: "100%" }} />
+
+                      <p
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: 700,
+                          fontFamily: "var(--font-linear-grotesk)",
+                          color: colors.white,
+                          margin: 0,
+                        }}
+                      >
+                        {product.title}
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "14px",
+                          fontFamily: "var(--font-roboto)",
+                          color: product.color,
+                          margin: 0,
+                        }}
+                      >
+                        {product.price}
+                      </p>
+
+                      <ul
+                        style={{
+                          margin: 0,
+                          padding: 0,
+                          listStyle: "none",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "8px",
+                          fontSize: "13px",
+                          fontFamily: "var(--font-roboto)",
+                          flex: 1,
+                        }}
+                      >
+                        {product.items.map((item) => (
+                          <li key={item} style={{ display: "flex", gap: "8px", color: colors.text.bodyLight }}>
+                            <span style={{ color: product.color, fontWeight: 700 }}>✓</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <a
+                        href={whatsappHref(product.whatsappMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          backgroundColor: product.color,
+                          color: colors.white,
+                          border: "none",
+                          height: "44px",
+                          borderRadius: "8px",
+                          fontSize: "14px",
+                          fontWeight: 700,
+                          fontFamily: "var(--font-roboto)",
+                          cursor: "pointer",
+                          textDecoration: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "scale(1.03)";
+                          e.currentTarget.style.filter = "brightness(1.08)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "scale(1)";
+                          e.currentTarget.style.filter = "brightness(1)";
+                        }}
+                      >
+                        {product.buttonLabel}
+                      </a>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-5">
+                {secondaryProducts.map((product, idx) => (
+                  <FadeIn
+                    key={product.title}
+                    delay={idx * 0.08}
+                    className="w-full md:w-[calc(50%-10px)] md:flex-none"
+                    style={{
+                      borderRadius: "32px",
+                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                      <img
+                        src={product.cardImage}
+                        alt=""
+                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
+                        style={{
+                          "--crop-l": product.imageCrop.left,
+                          "--crop-t": product.imageCrop.top,
+                          "--crop-w": product.imageCrop.width,
                           "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
                           maxWidth: "none",
                           display: "block",
