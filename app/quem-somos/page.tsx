@@ -167,7 +167,7 @@ export default function QuemSomos() {
             </div>
 
             <VideoWithPlayButton
-              src="/video-sobrenos.mp4"
+              src="/video-quem-somos.mp4"
               className="w-full md:w-[699px] h-[300px] md:h-[480px]"
               style={{
                 backgroundColor: colors.black,
