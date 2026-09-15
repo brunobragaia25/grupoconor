@@ -836,7 +836,7 @@ export default function ComecarNegocio() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col min-[1180px]:flex-row items-stretch justify-between px-0 pt-12 pb-0 min-[1180px]:pl-24 min-[1180px]:pt-0 min-[1180px]:pb-0 min-[1180px]:pr-0 gap-8 min-[1180px]:gap-0"
+              className="flex flex-col min-[1180px]:flex-row items-stretch justify-between px-0 pt-12 pb-0 min-[1180px]:pl-24 min-[1180px]:pt-0 min-[1180px]:pb-0 min-[1180px]:pr-0 gap-8 min-[1180px]:gap-12"
               style={{
                 backgroundColor: "#20c4c3",
                 boxSizing: "border-box",
