@@ -143,7 +143,7 @@ export default function CrescerNegocio() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center px-0 pt-10 pb-0 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0 md:min-h-[560px]"
+            className="flex flex-col min-[1100px]:flex-row items-center px-0 pt-10 pb-0 min-[1100px]:pl-20 min-[1100px]:pr-0 min-[1100px]:py-0 gap-8 min-[1100px]:gap-0 min-[1100px]:min-h-[560px]"
             style={{
               backgroundColor: "#fa7a22",
               borderTopLeftRadius: "12px",
@@ -152,25 +152,25 @@ export default function CrescerNegocio() {
               position: "relative",
             }}
           >
-            <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
-              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start flex-1 px-6 md:px-0">
+            <div className="flex flex-col min-[1100px]:flex-row gap-8 min-[1100px]:gap-10 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
+              <div className="flex flex-col min-[1100px]:flex-row gap-6 min-[1100px]:gap-10 items-start flex-1 px-6 min-[1100px]:px-0">
                 <img
                   src={imgLoupeLarge}
                   alt=""
-                  className="w-[40px] h-[40px] md:w-[64px] md:h-[64px]"
+                  className="w-[40px] h-[40px] min-[1100px]:w-[64px] min-[1100px]:h-[64px]"
                   style={{ flexShrink: 0 }}
                 />
-                <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div className="w-full min-[1100px]:flex-1 min-[1100px]:w-auto min-[1100px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <AnimatedTitle
                     as="h1"
-                    className="text-3xl md:text-[56px]"
+                    className="text-3xl min-[1100px]:text-[44px] min-[1400px]:text-[56px]"
                     style={{
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
                       margin: 0,
                       lineHeight: "normal",
-                      maxWidth: "463px",
+                      maxWidth: "clamp(300px, calc(100vw - 1164px), 463px)",
                     }}
                   >
                     Conquiste +100 novos clientes
@@ -182,7 +182,7 @@ export default function CrescerNegocio() {
                       color: colors.white,
                       margin: 0,
                       lineHeight: "28px",
-                      maxWidth: "512px",
+                      maxWidth: "clamp(280px, calc(100vw - 1164px), 512px)",
                     }}
                   >
                     Cresça. Fidelize. Lucre. Estamos aqui para ajudar você a
@@ -196,7 +196,11 @@ export default function CrescerNegocio() {
                 alt=""
                 aspectRatio={740 / 620}
                 objectPosition="0.3% 12.9%"
-                className="w-full md:w-[740px]"
+                className="w-full min-[1100px]:w-[var(--hero-illus-w)] min-[1100px]:flex-shrink-0 min-[1100px]:aspect-auto! min-[1100px]:h-[560px]"
+                style={{
+                  ["--hero-illus-w" as string]:
+                    "min(740px, max(320px, calc(100vw - 448px - clamp(300px, calc(100vw - 1164px), 463px))))",
+                }}
               />
             </div>
           </div>

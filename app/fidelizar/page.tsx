@@ -292,7 +292,7 @@ export default function Fidelizar() {
             }}
           >
             <div
-              className="flex flex-col md:flex-row gap-5 md:gap-10 items-start md:items-center"
+              className="flex flex-col md:flex-row gap-5 md:gap-10 items-start"
               style={{
                 position: "relative",
                 zIndex: 1,
@@ -306,7 +306,7 @@ export default function Fidelizar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl md:text-[56px]"
+                  className="text-4xl md:text-[44px] min-[1300px]:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -338,10 +338,10 @@ export default function Fidelizar() {
 
             <div
               className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
-              style={{ ["--hero-illus-w" as string]: "min(740px, max(300px, calc(100vw - 804px)))" }}
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(330px, calc(100vw - 424px - clamp(320px, calc(100vw - 1124px), 716px))))" }}
             >
               <div
-                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[4077.83px] md:h-[2276px] md:left-[-1697px] md:top-[-838px] md:bg-auto md:origin-top-left md:[transform:scale(calc(var(--hero-illus-w)/740px))]"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:w-[calc(var(--hero-illus-w)*4077.83/740)] md:h-[calc(var(--hero-illus-w)*2276/740)] md:left-[calc(var(--hero-illus-w)*-1697/740)] md:top-[calc(var(--hero-illus-w)*-838/740)] md:bg-[length:calc(var(--hero-illus-w)*4077.83/740)_calc(var(--hero-illus-w)*2276/740)]"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -482,7 +482,7 @@ export default function Fidelizar() {
                       offsetYFraction: -141 / 638,
                     }}
                     borderRadius="32px"
-                    className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
+                    className="w-full max-h-[420px] min-[1700px]:max-h-none min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
                     logo={{
                       src: imgRelacionadosSeguroLogo,
                       aspectRatio: 357 / 62,
@@ -534,7 +534,7 @@ export default function Fidelizar() {
                       offsetYFraction: -236 / 590,
                     }}
                     borderRadius="32px"
-                    className="order-1 min-[1700px]:order-2 w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
+                    className="order-1 min-[1700px]:order-2 w-full max-h-[420px] min-[1700px]:max-h-none min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
                     logo={{
                       src: imgRelacionadosAssistLogo,
                       aspectRatio: 321 / 62,
@@ -550,14 +550,14 @@ export default function Fidelizar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col min-[1024px]:flex-row items-center justify-between px-0 pt-10 pb-0 min-[1024px]:pl-24 min-[1024px]:pr-0 min-[1024px]:py-0 gap-8 min-[1024px]:gap-12 min-[1024px]:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #54a8fd, #52a4ff 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 min-[1024px]:px-0 min-[1024px]:flex-[0_1_489px] min-[1024px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -618,13 +618,13 @@ export default function Fidelizar() {
                 </a>
               </div>
 
-              <img
-                src={imgCtaIllustration}
-                alt=""
-                className="w-full h-auto aspect-[707/480] object-contain md:aspect-auto md:object-cover md:h-[480px] md:w-[707px]"
+              {/* Ilustração: o SVG tem preserveAspectRatio="none", então precisa de um
+                  background-size explícito na proporção original para não achatar. */}
+              <div
+                aria-hidden
+                className="w-full aspect-[707/480] bg-[length:100%_100%] bg-center bg-no-repeat min-[1024px]:aspect-auto min-[1024px]:h-full min-[1024px]:flex-[1_1_400px] min-[1024px]:min-w-0 min-[1024px]:max-w-[707px] min-[1024px]:bg-[length:707px_480px] min-[1024px]:bg-center"
                 style={{
-                  flexShrink: 0,
-                  maxWidth: "100%",
+                  backgroundImage: `url(${imgCtaIllustration})`,
                 }}
               />
             </div>

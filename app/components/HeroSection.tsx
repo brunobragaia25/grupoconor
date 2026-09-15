@@ -213,7 +213,7 @@ export function HeroSection() {
 
               {/* Heading */}
               <p
-                className="text-2xl md:text-[36px]"
+                className="text-2xl md:text-[18px] min-[1100px]:text-[24px]! min-[1400px]:text-[36px]!"
                 style={{
                   margin: 0,
                   fontFamily: "var(--font-linear-grotesk)",
@@ -244,15 +244,15 @@ export function HeroSection() {
               {/* Botão */}
               <a
                 href={card.href}
-                className="w-full md:w-auto"
+                className="w-full"
                 style={{
                   backgroundColor: card.color,
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "6px",
-                  height: "40px",
-                  padding: "0 16px",
+                  minHeight: "40px",
+                  padding: "8px 16px",
                   borderRadius: "4px",
                   cursor: "pointer",
                   flexShrink: 0,
@@ -274,12 +274,12 @@ export function HeroSection() {
                     fontWeight: 500,
                     fontSize: "14px",
                     color: colors.white,
-                    whiteSpace: "nowrap",
+                    textAlign: "center",
                   }}
                 >
                   {card.buttonText}
                 </span>
-                <img src={imgArrow} alt="" style={{ width: "16px", height: "16px", display: "block" }} />
+                <img src={imgArrow} alt="" style={{ width: "16px", height: "16px", display: "block", flexShrink: 0 }} />
               </a>
             </div>
           </FadeIn>

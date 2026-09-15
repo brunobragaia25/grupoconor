@@ -212,10 +212,10 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
             </ul>
           </div>
 
-          <div className="flex-col md:flex-row items-stretch md:items-center w-full md:w-auto" style={{ display: "flex", gap: "12px" }}>
+          <div className="flex-col items-stretch w-full" style={{ display: "flex", gap: "12px" }}>
             <a
               href={product.href}
-              className="w-full md:w-auto"
+              className="w-full"
               style={{
                 backgroundColor: product.color,
                 color: colors.white,
@@ -248,13 +248,14 @@ function ProductCardView({ product, delay = 0 }: { product: ProductCard; delay?:
               href={whatsappHref(`Olá! Tenho interesse no ${product.name} e gostaria de falar com um consultor.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full md:w-auto justify-center md:justify-start"
+              className="w-full justify-center"
               style={{
                 backgroundColor: "transparent",
                 color: product.color,
                 border: `1px solid ${product.color}`,
-                height: "40px",
-                padding: "0 16px",
+                minHeight: "40px",
+                padding: "8px 16px",
+                textAlign: "center",
                 borderRadius: "4px",
                 fontSize: "14px",
                 fontWeight: 500,

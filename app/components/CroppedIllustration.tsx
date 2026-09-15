@@ -13,6 +13,8 @@ interface LogoBoxProps {
   artWidthFraction?: number;
   /** Top corner radius of the white box. Defaults to "16px". */
   cornerRadius?: string;
+  /** Upper bound for the white box width. Defaults to "459px" (design size). */
+  maxWidth?: string;
 }
 
 /**
@@ -115,6 +117,9 @@ export function CroppedIllustration({
             [logo.corner === "bottom-left" ? "left" : "right"]: 0,
             bottom: 0,
             width: `${logoWidthFraction * 100}%`,
+            // Trava o selo no tamanho de design: sem isso ele cresce junto com a
+            // ilustração quando ela ocupa a largura toda (layout empilhado).
+            maxWidth: logo.maxWidth ?? "459px",
             aspectRatio: `${logo.boxAspectRatio ?? logo.aspectRatio}`,
             backgroundColor: "#ffffff",
             borderTopLeftRadius:

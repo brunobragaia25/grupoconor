@@ -122,7 +122,7 @@ export default function Montar() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
-            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[620px]"
+            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[520px]"
             style={{
               backgroundColor: "#52a4ff",
               borderTopLeftRadius: "12px",
@@ -145,7 +145,7 @@ export default function Montar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl md:text-[56px]"
+                  className="text-4xl md:text-[44px] min-[1300px]:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -177,10 +177,10 @@ export default function Montar() {
 
             <div
               className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
-              style={{ ["--hero-illus-w" as string]: "min(740px, max(300px, calc(100vw - 804px)))" }}
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(530px, calc(100vw - 424px - clamp(320px, calc(100vw - 1124px), 716px))))" }}
             >
               <div
-                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1141.07px] md:h-[852px] md:left-[-200.536px] md:top-[-116px] md:bg-auto md:origin-top-left md:[transform:scale(calc(var(--hero-illus-w)/740px))]"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:w-[calc(var(--hero-illus-w)*1141.07/740)] md:h-[calc(var(--hero-illus-w)*852/740)] md:left-[calc(var(--hero-illus-w)*-200.536/740)] md:top-[calc(var(--hero-illus-w)*-116/740)] md:bg-[length:calc(var(--hero-illus-w)*1141.07/740)_calc(var(--hero-illus-w)*852/740)]"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -431,7 +431,7 @@ export default function Montar() {
                     offsetYFraction: -160 / 400,
                   }}
                   borderRadius="32px"
-                  className="w-full md:w-[737px] md:h-[400px] md:flex-shrink-0"
+                  className="w-full md:aspect-auto! md:h-auto md:self-stretch md:flex-[1_1_420px] md:min-w-[280px] md:max-w-[737px]"
                   logo={{
                     src: imgEstoqueLogo,
                     aspectRatio: 387 / 64,
@@ -443,7 +443,7 @@ export default function Montar() {
                 />
 
                 <div
-                  className="p-8 md:p-16 w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="p-8 md:p-12 w-full md:w-auto md:flex-[1_1_360px] md:min-w-[320px]"
                   style={{
                     backgroundColor: "#171717",
                     border: "1px solid #272727",
@@ -532,14 +532,14 @@ export default function Montar() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col min-[1024px]:flex-row items-center justify-between px-0 pt-10 pb-0 min-[1024px]:pl-24 min-[1024px]:pr-0 min-[1024px]:py-0 gap-8 min-[1024px]:gap-12 min-[1024px]:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #670a24, #e01e5a 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 min-[1024px]:px-0 min-[1024px]:flex-[0_1_489px] min-[1024px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -600,13 +600,13 @@ export default function Montar() {
                 </a>
               </div>
 
-              <img
-                src={imgCtaIllustration}
-                alt=""
-                className="w-full h-auto aspect-[722/539] object-contain md:aspect-auto md:object-cover md:h-[480px] md:w-[722px]"
+              {/* Ilustração: o SVG tem preserveAspectRatio="none", então precisa de um
+                  background-size explícito na proporção original para não achatar. */}
+              <div
+                aria-hidden
+                className="w-full aspect-[722/539] bg-[length:100%_100%] bg-center bg-no-repeat min-[1024px]:aspect-auto min-[1024px]:h-full min-[1024px]:flex-[1_1_400px] min-[1024px]:min-w-0 min-[1024px]:max-w-[643px] min-[1024px]:bg-[length:643px_480px] min-[1024px]:bg-center"
                 style={{
-                  flexShrink: 0,
-                  maxWidth: "100%",
+                  backgroundImage: `url(${imgCtaIllustration})`,
                 }}
               />
             </div>

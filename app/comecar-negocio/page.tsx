@@ -174,7 +174,7 @@ export default function ComecarNegocio() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero */}
           <div
-            className="flex flex-col md:flex-row items-center md:items-center px-0 pt-10 pb-0 md:pl-20 md:pr-0 md:py-0 gap-8 md:gap-0 md:min-h-[560px]"
+            className="flex flex-col min-[1100px]:flex-row items-center px-0 pt-10 pb-0 min-[1100px]:pl-20 min-[1100px]:pr-0 min-[1100px]:py-0 gap-8 min-[1100px]:gap-0 min-[1100px]:min-h-[560px]"
             style={{
               backgroundColor: "#20c4c3",
               borderTopLeftRadius: "12px",
@@ -183,25 +183,25 @@ export default function ComecarNegocio() {
               position: "relative",
             }}
           >
-            <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
-              <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start flex-1 px-6 md:px-0">
+            <div className="flex flex-col min-[1100px]:flex-row gap-8 min-[1100px]:gap-10 items-center w-full" style={{ position: "relative", zIndex: 1 }}>
+              <div className="flex flex-col min-[1100px]:flex-row gap-6 min-[1100px]:gap-10 items-start flex-1 px-6 min-[1100px]:px-0">
                 <img
                   src={imgStorefront}
                   alt=""
-                  className="w-[40px] h-[37px] md:w-[64px] md:h-[59px]"
+                  className="w-[40px] h-[37px] min-[1100px]:w-[64px] min-[1100px]:h-[59px]"
                   style={{ flexShrink: 0 }}
                 />
-                <div className="w-full md:flex-1 md:w-auto md:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div className="w-full min-[1100px]:flex-1 min-[1100px]:w-auto min-[1100px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <AnimatedTitle
                     as="h1"
-                    className="text-3xl md:text-[56px]"
+                    className="text-3xl min-[1100px]:text-[44px] min-[1400px]:text-[56px]"
                     style={{
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
                       margin: 0,
                       lineHeight: "normal",
-                      maxWidth: "579px",
+                      maxWidth: "clamp(300px, calc(100vw - 1164px), 579px)",
                     }}
                   >
                     Monte seu negócio a partir de R$500
@@ -213,7 +213,7 @@ export default function ComecarNegocio() {
                       color: colors.black,
                       margin: 0,
                       lineHeight: "28px",
-                      maxWidth: "512px",
+                      maxWidth: "clamp(280px, calc(100vw - 1164px), 512px)",
                     }}
                   >
                     Comece pequeno, pense grande. Estamos aqui para ajudar você
@@ -227,7 +227,11 @@ export default function ComecarNegocio() {
                 alt=""
                 aspectRatio={740 / 620}
                 objectPosition="3.9% 3.1%"
-                className="w-full md:w-[740px]"
+                className="w-full min-[1100px]:w-[var(--hero-illus-w)] min-[1100px]:flex-shrink-0 min-[1100px]:aspect-auto! min-[1100px]:h-[560px]"
+                style={{
+                  ["--hero-illus-w" as string]:
+                    "min(740px, max(320px, calc(100vw - 448px - clamp(300px, calc(100vw - 1164px), 579px))))",
+                }}
               />
             </div>
           </div>
@@ -609,7 +613,7 @@ export default function ComecarNegocio() {
               <img
                 src="/img-circles-comecar.png"
                 alt="Diagrama dos módulos Conor: Montar, Rastrear, Fidelizar e Administrar, com Expandir como próximo passo"
-                style={{ width: "100%", maxWidth: "669px", height: "auto" }}
+                style={{ width: "100%", maxWidth: "745px", height: "auto" }}
               />
             </FadeIn>
 

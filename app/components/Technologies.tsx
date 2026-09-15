@@ -105,11 +105,10 @@ export function Technologies() {
 
       {/* Grid */}
       <div
-        className="flex-col md:flex-row"
+        className="grid grid-cols-1 sm:grid-cols-2 min-[1240px]:grid-cols-4!"
         style={{
           maxWidth: "1494px",
           margin: "0 auto",
-          display: "flex",
           gap: "20px",
         }}
       >
@@ -117,7 +116,7 @@ export function Technologies() {
           <FadeIn
             key={segment.id}
             delay={idx * 0.08}
-            className="w-full md:flex-1 md:w-auto md:min-w-0 min-h-[200px] md:min-h-[397px] p-6 md:p-10 gap-6 md:gap-0"
+            className="w-full min-w-0 min-h-[200px] md:min-h-[397px] p-6 md:p-10 gap-6 md:gap-0"
             style={{
               backgroundColor: "#171717",
               border: "1px solid #272727",
@@ -180,7 +179,7 @@ export function Technologies() {
 
             {/* Title */}
             <h3
-              className="text-[20px] md:text-[28px]"
+              className="text-[20px] md:text-[22px] min-[1240px]:text-[20px]! min-[1600px]:text-[28px]!"
               style={{
                 margin: 0,
                 fontWeight: 700,

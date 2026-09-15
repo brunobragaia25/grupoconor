@@ -35,7 +35,7 @@ export default function QuemSomos() {
         >
           {/* Hero Section */}
           <div
-            className="flex-col md:flex-row items-stretch md:items-center md:min-h-0"
+            className="flex-col min-[1100px]:flex-row items-stretch min-[1100px]:items-center min-[1100px]:min-h-0"
             style={{
               position: "relative",
               display: "flex",
@@ -48,12 +48,12 @@ export default function QuemSomos() {
             <img
               src={imgHeroIllustration}
               alt=""
-              className="order-2 md:order-none relative w-full h-[200px] object-cover object-right md:absolute md:right-0 md:top-0 md:h-full md:w-auto"
+              className="order-2 min-[1100px]:order-none relative w-full h-[200px] object-cover object-right min-[1100px]:absolute min-[1100px]:right-0 min-[1100px]:top-0 min-[1100px]:h-full min-[1100px]:w-[38%] min-[1100px]:max-w-[611px]"
               style={{ zIndex: 0 }}
             />
 
             <div
-              className="order-1 md:order-none px-6 py-12 md:px-20 md:py-16 w-full md:flex-1 md:w-auto md:min-w-0"
+              className="order-1 min-[1100px]:order-none px-6 py-12 min-[1100px]:px-20 min-[1100px]:py-16 w-full min-[1100px]:flex-1 min-[1100px]:w-auto min-[1100px]:min-w-0"
               style={{
                 display: "flex",
                 alignItems: "flex-start",
@@ -64,14 +64,14 @@ export default function QuemSomos() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl md:text-[72px]"
+                  className="text-4xl min-[1100px]:text-[52px] min-[1500px]:text-[72px]"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
                     margin: 0,
                     lineHeight: "normal",
-                    maxWidth: "768px",
+                    maxWidth: "clamp(320px, calc(0.62 * (100vw - 400px) - 120px), 768px)",
                   }}
                 >
                   {["Nosso negócio é fazer nosso cliente", { text: " crescer.", color: "#52a4ff" }]}
@@ -83,7 +83,7 @@ export default function QuemSomos() {
                     color: colors.text.bodyLight,
                     margin: 0,
                     lineHeight: "28px",
-                    maxWidth: "548px",
+                    maxWidth: "clamp(300px, calc(0.62 * (100vw - 400px) - 120px), 548px)",
                   }}
                 >
                   Ajudamos empresários brasileiros a fidelizar, administrar,
@@ -95,8 +95,8 @@ export default function QuemSomos() {
           </div>
 
           {/* Sobre Nós */}
-          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-            <div className="w-full md:flex-1 md:w-auto md:min-w-0"
+          <div className="flex flex-col md:flex-row gap-10 md:gap-12 items-center">
+            <div className="w-full md:w-auto md:flex-[1_1_380px] md:min-w-[320px]"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -168,11 +168,10 @@ export default function QuemSomos() {
 
             <VideoWithPlayButton
               src="/video-quem-somos.mp4"
-              className="w-full md:w-[699px] h-[300px] md:h-[480px]"
+              className="w-full md:w-auto md:flex-[1_1_520px] md:min-w-[300px] md:max-w-[699px] h-[300px] md:h-[480px]"
               style={{
                 backgroundColor: colors.black,
                 borderRadius: "32px",
-                flexShrink: 0,
               }}
               label="Assistir vídeo"
             />
@@ -448,7 +447,7 @@ export default function QuemSomos() {
 
           {/* CTA Final */}
           <div
-            className="flex flex-col md:flex-row items-center md:items-stretch justify-between px-0 pt-12 pb-0 md:p-0 gap-8 md:gap-0 md:h-[480px]"
+            className="flex flex-col min-[1024px]:flex-row items-center min-[1024px]:items-stretch justify-between px-0 pt-12 pb-0 min-[1024px]:p-0 gap-8 min-[1024px]:gap-12 min-[1024px]:h-[480px]"
             style={{
               backgroundColor: "#52a4ff",
               borderRadius: "20px",
@@ -456,7 +455,7 @@ export default function QuemSomos() {
             }}
           >
             <div
-              className="max-w-[564px] px-6 md:px-0 md:pl-24 md:py-24"
+              className="max-w-[564px] px-6 min-[1024px]:px-0 min-[1024px]:pl-24 min-[1024px]:py-24 min-[1024px]:flex-[0_1_564px] min-[1024px]:min-w-[300px]"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -525,27 +524,14 @@ export default function QuemSomos() {
               </a>
             </div>
 
-            {/* Ilustração — crop do Figma (270:2835): janela 722x480,
-                arte 717.857x536 deslocada +4.75 / -30 */}
+            {/* Ilustração — crop do Figma (270:2835): janela 722x480, arte 717.857x536
+                deslocada -30 no eixo Y. O SVG tem preserveAspectRatio="none", então usa
+                background-size explícito na proporção original para não achatar. */}
             <div
-              className="w-full aspect-[722/480] md:aspect-auto md:h-full md:w-[722px] md:flex-shrink-0"
-              style={{ position: "relative", overflow: "hidden" }}
-            >
-              <img
-                src={imgFundadoresIllustration}
-                alt=""
-                style={{
-                  position: "absolute",
-                  left: `${(4.75 / 722) * 100}%`,
-                  top: `${(-30 / 480) * 100}%`,
-                  width: `${(717.857 / 722) * 100}%`,
-                  height: `${(536 / 480) * 100}%`,
-                  maxWidth: "none",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
-            </div>
+              aria-hidden
+              className="w-full aspect-[722/480] bg-[length:100%_100%] bg-center bg-no-repeat min-[1024px]:aspect-auto min-[1024px]:h-full min-[1024px]:flex-[1_1_400px] min-[1024px]:min-w-0 min-[1024px]:max-w-[722px] min-[1024px]:bg-[length:718px_536px] min-[1024px]:bg-[position:center_-30px]"
+              style={{ backgroundImage: `url(${imgFundadoresIllustration})` }}
+            />
           </div>
         </div>
 

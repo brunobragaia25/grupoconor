@@ -54,7 +54,7 @@ export function PromoBanner02() {
 
           <AnimatedTitle
             as="h2"
-            className="text-xl md:text-[28px] w-full md:w-[600px]"
+            className="text-xl md:text-[28px] w-full"
             style={{
               margin: 0,
               fontWeight: 700,

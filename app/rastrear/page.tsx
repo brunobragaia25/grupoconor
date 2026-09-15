@@ -143,7 +143,7 @@ export default function Rastrear() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           {/* Hero Section */}
           <div
-            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[620px]"
+            className="flex flex-col md:flex-row items-start md:items-center overflow-hidden relative px-4 pt-10 pb-0 md:py-0 md:pl-20 gap-8 md:gap-0 md:min-h-[520px]"
             style={{
               backgroundColor: "#52a4ff",
               borderTopLeftRadius: "12px",
@@ -166,7 +166,7 @@ export default function Rastrear() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl md:text-[56px]"
+                  className="text-4xl md:text-[44px] min-[1300px]:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -198,10 +198,10 @@ export default function Rastrear() {
 
             <div
               className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
-              style={{ ["--hero-illus-w" as string]: "min(740px, max(300px, calc(100vw - 804px)))" }}
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(490px, calc(100vw - 424px - clamp(320px, calc(100vw - 1124px), 716px))))" }}
             >
               <div
-                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:bg-repeat md:w-[1336.61px] md:h-[998px] md:left-[-506px] md:top-[-199px] md:bg-auto md:origin-top-left md:[transform:scale(calc(var(--hero-illus-w)/740px))]"
+                className="absolute inset-0 bg-contain bg-no-repeat bg-center md:w-[calc(var(--hero-illus-w)*1336.61/740)] md:h-[calc(var(--hero-illus-w)*998/740)] md:left-[calc(var(--hero-illus-w)*-506/740)] md:top-[calc(var(--hero-illus-w)*-199/740)] md:bg-[length:calc(var(--hero-illus-w)*1336.61/740)_calc(var(--hero-illus-w)*998/740)]"
                 style={{
                   backgroundImage: `url(${imgHeroIllustration})`,
                 }}
@@ -437,7 +437,7 @@ export default function Rastrear() {
               <div className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%" }}>
                 {/* Crop do Figma (176:9774): viewport 737x590 sobre duas camadas */}
                 <div
-                  className="w-full min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
+                  className="w-full max-h-[420px] min-[1700px]:max-h-none min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
                   style={{
                     position: "relative",
                     aspectRatio: `${737 / 590}`,
@@ -638,14 +638,14 @@ export default function Rastrear() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-center justify-between px-0 pt-10 pb-0 md:pl-24 md:pr-0 md:py-24 gap-8 md:h-[480px]"
+              className="flex flex-col min-[1024px]:flex-row items-center justify-between px-0 pt-10 pb-0 min-[1024px]:pl-24 min-[1024px]:pr-0 min-[1024px]:py-0 gap-8 min-[1024px]:gap-12 min-[1024px]:h-[480px]"
               style={{
                 background: "linear-gradient(90deg, #6ebbf8, #52a4ff 43.269%)",
                 borderRadius: "20px",
                 overflow: "hidden",
               }}
             >
-              <div className="px-6 md:px-0" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
+              <div className="px-6 min-[1024px]:px-0 min-[1024px]:flex-[0_1_489px] min-[1024px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -706,18 +706,18 @@ export default function Rastrear() {
                 </a>
               </div>
 
-              <div className="w-full aspect-[722/480] md:aspect-auto md:w-[722px] md:h-[480px]" style={{ flexShrink: 0, position: "relative", overflow: "hidden" }}>
-                <img
-                  src={imgCtaLayer1}
-                  alt=""
-                  className="w-[97.92%] h-full top-0 md:w-[707px] md:h-[480px]"
-                  style={{ position: "absolute", left: 0, objectFit: "cover" }}
+              {/* Ilustração em 2 camadas: os SVGs têm preserveAspectRatio="none", então
+                  precisam de background-size explícito na proporção original para não achatar. */}
+              <div className="w-full aspect-[722/480] min-[1024px]:aspect-auto min-[1024px]:h-full min-[1024px]:flex-[1_1_400px] min-[1024px]:min-w-0 min-[1024px]:max-w-[722px]" style={{ position: "relative", overflow: "hidden" }}>
+                <div
+                  aria-hidden
+                  className="absolute left-0 top-0 w-[97.92%] h-full bg-[length:100%_100%] bg-no-repeat min-[1024px]:w-full min-[1024px]:bg-[length:707px_480px] min-[1024px]:bg-center"
+                  style={{ backgroundImage: `url(${imgCtaLayer1})` }}
                 />
-                <img
-                  src={imgCtaLayer2}
-                  alt=""
-                  className="w-full h-[112.31%] top-[-6.16%] md:w-[722px] md:h-[539.093px] md:top-[-29.547px]"
-                  style={{ position: "absolute", left: 0, objectFit: "cover" }}
+                <div
+                  aria-hidden
+                  className="absolute left-0 top-[-6.16%] w-full h-[112.31%] bg-[length:100%_100%] bg-no-repeat min-[1024px]:top-[-29.547px] min-[1024px]:h-[539.093px] min-[1024px]:bg-[length:722px_539.093px] min-[1024px]:bg-center"
+                  style={{ backgroundImage: `url(${imgCtaLayer2})` }}
                 />
               </div>
             </div>
