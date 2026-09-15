@@ -375,7 +375,7 @@ export default function Expandir() {
                 <FadeIn
                   key={stat.label}
                   delay={idx * 0.08}
-                  className="px-6 md:px-12 py-10 md:py-0 md:h-[320px] w-full md:flex-1 md:w-auto md:min-w-0"
+                  className="px-6 md:px-8 py-10 md:py-8 md:min-h-[320px] w-full md:flex-1 md:w-auto md:min-w-0"
                   style={{
                     backgroundColor: "#52a4ff",
                     display: "flex",
@@ -388,7 +388,7 @@ export default function Expandir() {
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
                     <p
-                      className="text-[36px] md:text-[72px]"
+                      className="text-[36px] md:text-[40px] min-[1400px]:text-[56px]! min-[1700px]:text-[72px]!"
                       style={{
                         fontWeight: 900,
                         fontFamily: "var(--font-linear-grotesk)",
@@ -400,7 +400,7 @@ export default function Expandir() {
                       {stat.number}
                     </p>
                     <p
-                      className="text-[24px] md:text-[40px]"
+                      className="text-[24px] md:text-[24px] min-[1400px]:text-[32px]! min-[1700px]:text-[40px]!"
                       style={{
                         fontWeight: 700,
                         fontFamily: "var(--font-linear-grotesk)",

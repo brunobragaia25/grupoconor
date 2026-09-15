@@ -302,11 +302,11 @@ export default function Rastrear() {
             </div>
 
             {/* Compatibilidade de Veículos */}
-            <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-              <div className="md:w-[392px]" style={{ display: "flex", flexDirection: "column", gap: "40px", flexShrink: 0 }}>
+            <div className="flex flex-col min-[1520px]:flex-row gap-10 min-[1520px]:gap-16 items-start">
+              <div className="min-[1520px]:flex-[0_1_392px] min-[1520px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
                 <AnimatedTitle
                   as="h2"
-                  className="text-3xl md:text-[56px]"
+                  className="text-3xl md:text-[44px] min-[1520px]:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -339,7 +339,7 @@ export default function Rastrear() {
                   <FadeIn
                     key={item.name}
                     delay={idx * 0.08}
-                    className="p-6 md:p-16"
+                    className="p-6 md:p-8 min-[1520px]:p-12!"
                     style={{
                       backgroundColor: "#171717",
                       border: "1px solid #272727",
@@ -366,7 +366,7 @@ export default function Rastrear() {
                           />
                         </PulsingIconBadge>
                         <p
-                          className="text-[20px] md:text-[24px] whitespace-normal md:whitespace-nowrap"
+                          className="text-[20px] md:text-[20px] min-[1600px]:text-[24px]! whitespace-normal"
                           style={{
                             fontWeight: 700,
                             fontFamily: "var(--font-linear-grotesk)",
@@ -378,7 +378,7 @@ export default function Rastrear() {
                         </p>
                       </div>
                       <p
-                        className="text-[24px] md:text-[32px]"
+                        className="text-[24px] md:text-[26px] min-[1600px]:text-[32px]!"
                         style={{
                           fontWeight: 900,
                           fontFamily: "var(--font-linear-grotesk)",
@@ -440,37 +440,50 @@ export default function Rastrear() {
                   className="w-full max-h-[420px] min-[1700px]:max-h-none min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0"
                   style={{
                     position: "relative",
-                    aspectRatio: `${737 / 590}`,
                     borderRadius: "32px",
                     overflow: "hidden",
                   }}
                 >
-                  <img
-                    src={img4em1Bg}
-                    alt=""
+                  {/* Os offsets das camadas são frações da janela 737x590, então precisam
+                      de um wrapper nessa proporção; o container acima corta na vertical. */}
+                  <div
+                    className="min-[1700px]:mt-0!"
                     style={{
-                      position: "absolute",
-                      left: `${(-716 / 737) * 100}%`,
-                      top: `${(-371 / 590) * 100}%`,
-                      width: `${(1744 / 737) * 100}%`,
-                      height: "auto",
-                      maxWidth: "none",
-                      display: "block",
+                      position: "relative",
+                      width: "100%",
+                      aspectRatio: `${737 / 590}`,
+                      // Centraliza a faixa visível: a % de margin é relativa à largura,
+                      // então acompanha a altura do wrapper (largura ÷ 1,249).
+                      marginTop: "min(0px, calc(-40.02% + 210px))",
                     }}
-                  />
-                  <img
-                    src={img4em1Fg}
-                    alt=""
-                    style={{
-                      position: "absolute",
-                      left: `${(-362 / 737) * 100}%`,
-                      top: `${(-70 / 590) * 100}%`,
-                      width: `${(1242 / 737) * 100}%`,
-                      height: "auto",
-                      maxWidth: "none",
-                      display: "block",
-                    }}
-                  />
+                  >
+                    <img
+                      src={img4em1Bg}
+                      alt=""
+                      style={{
+                        position: "absolute",
+                        left: `${(-716 / 737) * 100}%`,
+                        top: `${(-371 / 590) * 100}%`,
+                        width: `${(1744 / 737) * 100}%`,
+                        height: "auto",
+                        maxWidth: "none",
+                        display: "block",
+                      }}
+                    />
+                    <img
+                      src={img4em1Fg}
+                      alt=""
+                      style={{
+                        position: "absolute",
+                        left: `${(-362 / 737) * 100}%`,
+                        top: `${(-70 / 590) * 100}%`,
+                        width: `${(1242 / 737) * 100}%`,
+                        height: "auto",
+                        maxWidth: "none",
+                        display: "block",
+                      }}
+                    />
+                  </div>
                   <div
                     style={{
                       position: "absolute",
