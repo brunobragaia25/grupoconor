@@ -836,7 +836,7 @@ export default function ComecarNegocio() {
 
             {/* CTA Final */}
             <div
-              className="flex flex-col md:flex-row items-stretch justify-between px-0 pt-12 pb-0 md:pl-24 md:pt-0 md:pb-0 md:pr-0 gap-8 md:gap-0"
+              className="flex flex-col min-[1180px]:flex-row items-stretch justify-between px-0 pt-12 pb-0 min-[1180px]:pl-24 min-[1180px]:pt-0 min-[1180px]:pb-0 min-[1180px]:pr-0 gap-8 min-[1180px]:gap-0"
               style={{
                 backgroundColor: "#20c4c3",
                 boxSizing: "border-box",
@@ -844,7 +844,7 @@ export default function ComecarNegocio() {
                 overflow: "hidden",
               }}
             >
-              <div className="px-6 md:px-0 md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
+              <div className="px-6 min-[1180px]:px-0 min-[1180px]:flex-shrink-0 min-[1180px]:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
                 <AnimatedTitle
                   as="h2"
                   className="text-3xl md:text-[48px]"
@@ -908,7 +908,7 @@ export default function ComecarNegocio() {
               </div>
 
               <div
-                className="w-full aspect-[722/539] md:aspect-auto md:flex-1 md:min-w-0 md:max-w-[722px] md:h-auto"
+                className="w-full aspect-[722/539] min-[1180px]:aspect-auto min-[1180px]:flex-1 min-[1180px]:min-w-[240px] min-[1180px]:max-w-[722px] min-[1180px]:h-auto"
                 style={{ position: "relative", overflow: "hidden" }}
               >
                 <div
