@@ -12,42 +12,17 @@ const imgCtaIllustration = "/image-quem-somos-cta.svg";
 const casesData = [
   {
     id: 1,
-    company: "Logística Express",
-    industry: "Logística e Transportes",
-    problem:
-      "Perdia em média 3 veículos por mês para roubo. Não tinha visibilidade da frota e operação era desorganizada.",
-    solution:
-      "Implementamos Conor 4 em 1 com rastreamento em tempo real, telemetria avançada e associação veicular completa.",
-    result: "3 veículos",
-    metric: "Redução de 95% em roubos",
-    impact: "+R$200 mil economizados ao ano",
+    company: "Falcon Sat",
+    industry: "",
+    video: "/case-falcon-sat.mp4",
     color: "#40c6ee",
   },
   {
     id: 2,
-    company: "Central de Rastreamento RJ",
-    industry: "Rastreamento Veicular",
-    problem:
-      "Dificuldade em capturar novos clientes e expandir a base. Marketing manual e sem estrutura.",
-    solution:
-      "Contratou Conor Marketing com estratégia digital completa, páginas de captura e campanhas de tráfego pago.",
-    result: "+350 clientes",
-    metric: "Crescimento de 250% em leads",
-    impact: "+R$500 mil em receita nova",
+    company: "Brastek Rastreadores",
+    industry: "",
+    video: "/case-brastek.mp4",
     color: "#fa7a22",
-  },
-  {
-    id: 3,
-    company: "Frota de Ônibus Metropolitana",
-    industry: "Transporte Público",
-    problem:
-      "Gestão administrativa complexa, sem controle de estoque de equipamentos e financeiro desorganizado.",
-    solution:
-      "Implementou Conor Admin com módulos de Financeiro, Administrativo e Estoque integrados.",
-    result: "-40% em custos",
-    metric: "Eficiência operacional +200%",
-    impact: "Economia de R$150 mil/mês",
-    color: "#20c4c3",
   },
 ];
 
@@ -115,7 +90,7 @@ export default function Cases() {
 
           {/* Cases */}
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-6" style={{ maxWidth: "760px", margin: "0 auto", width: "100%" }}>
               {casesData.map((caseItem, idx) => (
                 <FadeIn
                   key={caseItem.id}
@@ -127,191 +102,65 @@ export default function Cases() {
                     overflow: "hidden",
                     display: "flex",
                     flexDirection: "column",
+                    width: "100%",
+                    maxWidth: "360px",
+                    height: "100%",
+                    margin: "0 auto",
                   }}
                 >
-                  {/* Vídeo - full width */}
+                  {/* Vídeo — formato stories (retrato) */}
                   <div
-                    className="h-[280px] md:h-[640px]"
-                    style={{
-                      width: "100%",
-                      backgroundColor: colors.black,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: colors.text.bodyLight,
-                      fontSize: "16px",
-                      fontFamily: "var(--font-roboto)",
-                    }}
+                    className="aspect-[9/16] w-full"
+                    style={{ backgroundColor: colors.black, border: "1px solid #272727", flexShrink: 0 }}
                   >
-                    [Vídeo do case — {caseItem.company}]
+                    <video
+                      src={caseItem.video}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
 
                   {/* Info */}
                   <div
-                    className="flex flex-col md:flex-row md:items-stretch"
+                    className="p-6"
                     style={{
-                      borderTop: "1px solid #272727",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      gap: "4px",
+                      border: "1px solid #272727",
+                      borderTop: "none",
+                      flex: 1,
                     }}
                   >
-                    {/* Company */}
-                    <div
-                      className="w-full md:w-[300px] p-6 md:p-10"
+                    <h3
                       style={{
-                        flexShrink: 0,
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "16px",
-                        justifyContent: "center",
-                        borderRight: "1px solid #272727",
+                        fontSize: "20px",
+                        fontWeight: 700,
+                        fontFamily: "var(--font-linear-grotesk)",
+                        color: colors.white,
+                        margin: 0,
+                        lineHeight: "1.2",
                       }}
                     >
-                      <div>
-                        <h3
-                          style={{
-                            fontSize: "24px",
-                            fontWeight: 700,
-                            fontFamily: "var(--font-linear-grotesk)",
-                            color: colors.white,
-                            margin: "0 0 4px 0",
-                            lineHeight: "1.2",
-                          }}
-                        >
-                          {caseItem.company}
-                        </h3>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            color: caseItem.color,
-                            margin: 0,
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          {caseItem.industry}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Challenge + Solution */}
-                    <div
-                      className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 p-6 md:p-10"
-                      style={{
-                        flex: 1,
-                        minWidth: 0,
-                        borderRight: "1px solid #272727",
-                      }}
-                    >
-                      <div style={{ flex: 1 }}>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            color: colors.text.bodyLight,
-                            margin: "0 0 6px 0",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          O Desafio
-                        </p>
-                        <p
-                          style={{
-                            fontSize: "14px",
-                            fontFamily: "var(--font-roboto)",
-                            color: colors.text.bodyLight,
-                            margin: 0,
-                            lineHeight: "22px",
-                          }}
-                        >
-                          {caseItem.problem}
-                        </p>
-                      </div>
-
-                      <div style={{ flex: 1 }}>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            color: colors.text.bodyLight,
-                            margin: "0 0 6px 0",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          A Solução
-                        </p>
-                        <p
-                          style={{
-                            fontSize: "14px",
-                            fontFamily: "var(--font-roboto)",
-                            color: colors.text.bodyLight,
-                            margin: 0,
-                            lineHeight: "22px",
-                          }}
-                        >
-                          {caseItem.solution}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Result */}
-                    <div
-                      className="w-full md:w-[280px] p-6 md:p-10"
-                      style={{
-                        flexShrink: 0,
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "8px",
-                        justifyContent: "center",
-                        backgroundColor: "#1b1b1b",
-                      }}
-                    >
+                      {caseItem.company}
+                    </h3>
+                    {caseItem.industry && (
                       <p
                         style={{
                           fontSize: "12px",
                           fontWeight: 600,
-                          color: colors.text.bodyLight,
+                          color: caseItem.color,
                           margin: 0,
                           textTransform: "uppercase",
                           letterSpacing: "0.5px",
                         }}
                       >
-                        Resultado
+                        {caseItem.industry}
                       </p>
-                      <div
-                        style={{
-                          fontSize: "32px",
-                          fontWeight: 700,
-                          fontFamily: "var(--font-linear-grotesk)",
-                          color: caseItem.color,
-                          margin: 0,
-                          lineHeight: "1.1",
-                        }}
-                      >
-                        {caseItem.result}
-                      </div>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          fontFamily: "var(--font-roboto)",
-                          color: colors.white,
-                          margin: 0,
-                        }}
-                      >
-                        {caseItem.metric}
-                      </p>
-                      <p
-                        style={{
-                          fontSize: "13px",
-                          fontFamily: "var(--font-roboto)",
-                          color: colors.text.bodyLight,
-                          margin: 0,
-                        }}
-                      >
-                        {caseItem.impact}
-                      </p>
-                    </div>
+                    )}
                   </div>
                 </FadeIn>
               ))}
