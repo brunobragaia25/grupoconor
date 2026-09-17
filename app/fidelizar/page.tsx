@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -29,6 +30,7 @@ const imgDrop = "/icons/icon-drop.svg";
 const imgHouse = "/icons/icon-house.svg";
 const imgHeartOutline = "/icons/icon-heart-outline.svg";
 const imgTruck = "/icons/icon-truck.svg";
+const imgTowTruck = "/icons/icon-tow-truck.svg";
 const imgLightning = "/icons/icon-lightning.svg";
 const imgFuel = "/icons/icon-fuel.svg";
 const imgBed = "/icons/icon-bed.svg";
@@ -91,7 +93,7 @@ const seguroFeatures = [
 ];
 
 const assistFeatures = [
-  { title: "Guincho", icon: imgTruck },
+  { title: "Guincho", icon: imgTowTruck },
   { title: "Reboque", icon: imgTruck },
   { title: "Pane Elétrica", icon: imgLightning },
   { title: "Pane Seca", icon: imgFuel },
@@ -215,31 +217,25 @@ function StepsTimeline() {
 
 function RelatedFeatureCard({
   title,
-  description,
   icon,
-  color = "#fec22d",
+  color = "#ffc301",
   style,
-  className = "p-16",
-  titleFontSize = "24px",
 }: {
   title: string;
-  description?: string;
   icon?: string;
   color?: string;
   style?: CSSProperties;
-  className?: string;
-  titleFontSize?: string;
 }) {
   return (
     <div
-      className={className}
+      className="p-8 md:p-12"
       style={{
         backgroundColor: "#171717",
         border: "1px solid #272727",
         borderRadius: "32px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: description ? "flex-start" : "center",
+        justifyContent: "space-between",
         gap: "16px",
         ...style,
       }}
@@ -247,27 +243,163 @@ function RelatedFeatureCard({
       {icon && (
         <div
           style={{
-            width: "36px",
-            height: "36px",
-            borderRadius: "8px",
-            backgroundColor: `${color}26`,
+            width: "48px",
+            height: "48px",
+            borderRadius: "12px",
+            backgroundColor: color,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
           }}
         >
-          <img src={icon} alt="" style={{ width: "20px", height: "20px" }} />
+          <img src={icon} alt="" style={{ width: "32px", height: "32px" }} />
         </div>
       )}
-      <p style={{ margin: 0, fontSize: titleFontSize, fontWeight: 700, fontFamily: "var(--font-linear-grotesk)", color }}>
+      <p
+        className="text-[16px] sm:text-[20px]"
+        style={{ margin: 0, fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}
+      >
         {title}
       </p>
-      {description && (
-        <p style={{ margin: 0, fontSize: "14px", fontFamily: "var(--font-roboto)", color: colors.text.bodyLight, lineHeight: "24px" }}>
-          {description}
-        </p>
-      )}
+    </div>
+  );
+}
+
+/** Setinha circular usada na navegação dos carrosséis de produtos relacionados.
+ *  O SVG usa fill/stroke "currentColor", então é aplicado via mask para poder
+ *  ser tingido com qualquer cor de destaque sem precisar de um arquivo por cor. */
+function CarouselArrow({
+  direction,
+  color,
+  onClick,
+  label,
+}: {
+  direction: "left" | "right";
+  color: string;
+  onClick: () => void;
+  label: string;
+}) {
+  const src = direction === "left" ? "/icons/icon-caret-circle-left.svg" : "/icons/icon-caret-circle-right.svg";
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      style={{
+        width: "52px",
+        height: "52px",
+        flexShrink: 0,
+        border: "none",
+        background: "none",
+        padding: 0,
+        cursor: "pointer",
+        transition: "transform 0.2s ease, opacity 0.2s ease",
+      }}
+      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
+      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+    >
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: color,
+          maskImage: `url(${src})`,
+          maskSize: "contain",
+          maskRepeat: "no-repeat",
+          WebkitMaskImage: `url(${src})`,
+          WebkitMaskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+        }}
+      />
+    </button>
+  );
+}
+
+/** Carrossel dos produtos relacionados: mostra 3 cards por vez, com setas
+ *  circulares para navegar entre as páginas (cíclico). */
+function RelatedFeatureCarousel({
+  features,
+  color,
+  align,
+}: {
+  features: { title: string; icon: string }[];
+  color: string;
+  align: "start" | "end";
+}) {
+  const pageSize = 3;
+  const pageCount = Math.ceil(features.length / pageSize);
+  const [page, setPage] = useState(0);
+  /** +1 ao avançar, -1 ao voltar — decide de que lado o slide entra. */
+  const [direction, setDirection] = useState(1);
+
+  // A última página trava no final da lista (em vez de sobrar só 1-2 itens),
+  // então sempre aparecem exatamente 3 cards, mesmo quando o total não é
+  // múltiplo de 3.
+  const maxStart = Math.max(0, features.length - pageSize);
+  const start = Math.min(page * pageSize, maxStart);
+  const visible = features.slice(start, start + pageSize);
+
+  const goTo = (nextPage: number, dir: 1 | -1) => {
+    setDirection(dir);
+    setPage(nextPage);
+  };
+
+  return (
+    <div
+      className="w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0"
+      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+    >
+      {/* Mobile: sem carrossel — os cards já empilham em coluna, então faz
+          mais sentido listar todos de uma vez do que escondê-los atrás de
+          setas. */}
+      <div className="flex sm:hidden flex-col gap-5 w-full">
+        {features.map((feature) => (
+          <RelatedFeatureCard key={feature.title} title={feature.title} icon={feature.icon} color={color} />
+        ))}
+      </div>
+
+      {/* Do sm pra cima: carrossel de 3 cards por página, com setas. */}
+      <div className="hidden sm:flex flex-col gap-5 w-full">
+        {pageCount > 1 && (
+          <div style={{ display: "flex", gap: "12px", justifyContent: align === "end" ? "flex-end" : "flex-start" }}>
+            <CarouselArrow
+              direction="left"
+              color={color}
+              label="Página anterior"
+              onClick={() => goTo((page - 1 + pageCount) % pageCount, -1)}
+            />
+            <CarouselArrow
+              direction="right"
+              color={color}
+              label="Próxima página"
+              onClick={() => goTo((page + 1) % pageCount, 1)}
+            />
+          </div>
+        )}
+        {/* min-height fixa: sem ela, títulos mais longos (2-3 linhas) fariam
+            a altura dos cards — e da ilustração ao lado, via stretch —
+            mudar a cada troca de página. */}
+        <div className="relative w-full min-h-[240px] overflow-hidden" style={{ flex: 1 }}>
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            <motion.div
+              key={page}
+              custom={direction}
+              initial={{ x: direction > 0 ? 40 : -40, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction > 0 ? -40 : 40, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 flex flex-row gap-5 w-full"
+            >
+              {visible.map((feature) => (
+                <div className="w-full h-full" key={feature.title}>
+                  <RelatedFeatureCard title={feature.title} icon={feature.icon} color={color} style={{ height: "100%" }} />
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 }
@@ -493,34 +625,13 @@ export default function Fidelizar() {
                     }}
                   />
 
-                  <div className="w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
-                      {seguroFeatures.map((feature, idx) => (
-                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.06} style={{ height: "100%" }}>
-                          <RelatedFeatureCard title={feature.title} icon={feature.icon} className="p-8" titleFontSize="16px" style={{ height: "100%" }} />
-                        </FadeIn>
-                      ))}
-                    </div>
-                  </div>
+                  <RelatedFeatureCarousel features={seguroFeatures} color="#ffc301" align="end" />
                 </div>
 
                 {/* Bloco 2: Conor Assist */}
                 <div id="conor-assist" className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
-                  <div className="order-2 min-[1700px]:order-1 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 w-full" style={{ gap: "20px" }}>
-                      {assistFeatures.map((feature, idx) => (
-                        <FadeIn className="w-full" key={feature.title} delay={idx * 0.06} style={{ height: "100%" }}>
-                          <RelatedFeatureCard
-                            title={feature.title}
-                            icon={feature.icon}
-                            color="#996cfb"
-                            className="p-8"
-                            titleFontSize="16px"
-                            style={{ height: "100%" }}
-                          />
-                        </FadeIn>
-                      ))}
-                    </div>
+                  <div className="order-2 min-[1700px]:order-1 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex" }}>
+                    <RelatedFeatureCarousel features={assistFeatures} color="#996cfb" align="start" />
                   </div>
 
                   <CroppedIllustration
