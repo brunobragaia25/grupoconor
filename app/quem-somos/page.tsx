@@ -16,7 +16,7 @@ const imgHeadset = "/icons/icon-headset.svg";
 
 const founders = [
   { name: "Vinicius Costa", photo: "/vinicius-costa.png" },
-  { name: "Fundador 02", photo: "/socio-02-bw.png", backgroundSize: "125%", backgroundPosition: "center 16%" },
+  { name: "Matheus Camargo", photo: "/socio-02-bw.png", backgroundSize: "125%", backgroundPosition: "center 16%" },
 ];
 
 export default function QuemSomos() {
