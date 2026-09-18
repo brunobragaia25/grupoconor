@@ -64,13 +64,13 @@ export default function QuemSomos() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl min-[1100px]:text-[52px] min-[1500px]:text-[72px]"
+                  className="text-4xl min-[1100px]:text-[52px] min-[1520px]:text-[72px]"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     color: colors.white,
                     margin: 0,
-                    lineHeight: "normal",
+                    lineHeight: "1.05",
                     maxWidth: "clamp(320px, calc(0.62 * (100vw - 400px) - 120px), 768px)",
                   }}
                 >
@@ -199,7 +199,7 @@ export default function QuemSomos() {
               >
                 <AnimatedCounter
                   value={stat.number}
-                  className="text-4xl md:text-[72px]"
+                  className="text-4xl md:text-[56px] min-[1520px]:text-[72px]"
                   style={{
                     fontWeight: 900,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -209,7 +209,7 @@ export default function QuemSomos() {
                   }}
                 />
                 <p
-                  className="text-xl md:text-[40px]"
+                  className="text-xl md:text-[28px] min-[1520px]:text-[40px]"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -465,7 +465,7 @@ export default function QuemSomos() {
             >
               <AnimatedTitle
                 as="h2"
-                className="text-3xl md:text-[48px]"
+                className="text-3xl md:text-[40px] min-[1520px]:text-[48px]"
                 style={{
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",

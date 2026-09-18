@@ -169,7 +169,7 @@ export default function Cases() {
 
           {/* CTA Final */}
           <div
-            className="flex flex-col md:flex-row items-center justify-between px-0 pt-12 pb-0 md:pl-24 md:pr-0 md:py-0 gap-8 md:h-[536px]"
+            className="flex flex-col min-[1024px]:flex-row items-center justify-between px-0 pt-10 pb-0 min-[1024px]:pl-24 min-[1024px]:pr-0 min-[1024px]:py-0 gap-8 min-[1024px]:gap-12 min-[1024px]:h-[480px]"
             style={{
               backgroundColor: "#52a4ff",
               borderRadius: "20px",
@@ -177,23 +177,23 @@ export default function Cases() {
             }}
           >
             <div
-              className="px-6 md:px-0 max-w-[564px]"
+              className="px-6 min-[1024px]:px-0 min-[1024px]:flex-[0_1_489px] min-[1024px]:min-w-[300px]"
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "24px",
+                gap: "20px",
+                maxWidth: "489px",
               }}
             >
               <AnimatedTitle
                 as="h2"
-                className="text-3xl md:text-[48px]"
+                className="text-3xl md:text-[40px] min-[1520px]:text-[48px]"
                 style={{
                   fontWeight: 700,
                   fontFamily: "var(--font-linear-grotesk)",
                   color: colors.white,
                   margin: 0,
                   lineHeight: "1.2",
-                  maxWidth: "554px",
                 }}
               >
                 Sua empresa pode ser o próximo case de sucesso
@@ -248,7 +248,7 @@ export default function Cases() {
             <img
               src={imgCtaIllustration}
               alt=""
-              className="w-full h-auto aspect-[718/536] object-contain md:aspect-auto md:object-cover md:h-[536px] md:w-[718px]"
+              className="w-full h-auto aspect-[718/536] object-contain min-[1024px]:aspect-auto min-[1024px]:object-cover min-[1024px]:h-[480px] min-[1024px]:w-[643px]"
               style={{
                 flexShrink: 0,
                 maxWidth: "100%",

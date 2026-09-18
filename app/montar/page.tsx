@@ -145,12 +145,12 @@ export default function Montar() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl md:text-[44px] min-[1300px]:text-[56px]!"
+                  className="text-4xl md:text-[44px] min-[1520px]:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
-                    lineHeight: "normal",
+                    lineHeight: "1.05",
                     maxWidth: "clamp(320px, calc(100vw - 1124px), 716px)",
                   }}
                 >
@@ -542,7 +542,7 @@ export default function Montar() {
               <div className="px-6 min-[1024px]:px-0 min-[1024px]:flex-[0_1_489px] min-[1024px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
-                  className="text-3xl md:text-[48px]"
+                  className="text-3xl md:text-[40px] min-[1520px]:text-[48px]"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",

@@ -166,12 +166,12 @@ export default function Rastrear() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <AnimatedTitle
                   as="h1"
-                  className="text-4xl md:text-[44px] min-[1300px]:text-[56px]!"
+                  className="text-4xl md:text-[44px] min-[1520px]:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
                     margin: 0,
-                    lineHeight: "normal",
+                    lineHeight: "1.05",
                     maxWidth: "clamp(320px, calc(100vw - 1124px), 716px)",
                   }}
                 >
@@ -302,11 +302,14 @@ export default function Rastrear() {
             </div>
 
             {/* Compatibilidade de Veículos */}
-            <div className="flex flex-col min-[1520px]:flex-row gap-10 min-[1520px]:gap-16 items-start">
-              <div className="min-[1520px]:flex-[0_1_392px] min-[1520px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+            <div className="flex flex-col min-[1520px]:flex-row gap-10 min-[1520px]:gap-16 min-[1520px]:items-start">
+              <div
+                className="text-center min-[1520px]:text-left min-[1520px]:flex-[0_1_392px] min-[1520px]:min-w-[300px]"
+                style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              >
                 <AnimatedTitle
                   as="h2"
-                  className="text-3xl md:text-[44px] min-[1520px]:text-[56px]!"
+                  className="text-3xl md:text-[56px]!"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
@@ -661,7 +664,7 @@ export default function Rastrear() {
               <div className="px-6 min-[1024px]:px-0 min-[1024px]:flex-[0_1_489px] min-[1024px]:min-w-[300px]" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px" }}>
                 <AnimatedTitle
                   as="h2"
-                  className="text-3xl md:text-[48px]"
+                  className="text-3xl md:text-[40px] min-[1520px]:text-[48px]"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",
