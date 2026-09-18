@@ -8,6 +8,7 @@ import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { AnimatedCounter } from "@/app/components/motion/AnimatedCounter";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { ComboVenn } from "@/app/components/ComboVenn";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgLoupeLarge = "/icons/icon-crescer-hero.svg";
@@ -216,6 +217,19 @@ export default function CrescerNegocio() {
               gap: "96px",
             }}
           >
+            {/* Diagrama dos produtos Conor para quem já tem uma base de clientes */}
+            <FadeIn
+              className="p-6 md:p-12"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                backgroundColor: "#F9F6F0",
+                borderRadius: "32px",
+              }}
+            >
+              <ComboVenn activeGroup="todos" />
+            </FadeIn>
+
             {/* Oportunidades de negócio */}
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", alignItems: "center" }}>

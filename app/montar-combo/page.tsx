@@ -8,6 +8,7 @@ import { colors } from "@/app/styles/design-tokens";
 import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { ComboVenn } from "@/app/components/ComboVenn";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgHeroIcon = "/icon-montar-combo-hero.svg";
@@ -21,15 +22,6 @@ const imgLogoSeguro = "/icons/product-logos/seguro.svg";
 const imgLogoAssist = "/icons/product-logos/assist.svg";
 const imgLogoMarketing = "/icons/product-logos/marketing.svg";
 
-const imgVennSeguro = "/icon-venn-seguro.svg";
-const imgVennAssist = "/icon-venn-assist.svg";
-const imgVennAdmin = "/icon-venn-admin.svg";
-const imgVenn4em1 = "/icon-venn-4em1.svg";
-const imgVennMarketingIcon = "/icon-venn-marketing-icon.svg";
-const imgVennMarketingWordmark = "/icon-venn-marketing-wordmark.svg";
-const imgVennEstoque = "/icon-venn-estoque.svg";
-const imgVennCenter = "/icon-venn-center.svg";
-
 const imgCardEstoque = "/image-montar-combo-card-estoque.jpg";
 const imgCard4em1 = "/image-montar-combo-card-4em1.jpg";
 const imgCardAdmin = "/image-montar-combo-card-admin.jpg";
@@ -38,150 +30,6 @@ const imgCardAssist = "/image-montar-combo-card-assist.jpg";
 const imgCardMarketing = "/image-montar-combo-card-marketing.jpg";
 
 const imgCtaIllustration = "/image-montar-combo-cta.jpg";
-
-function ComboVenn({ activeGroup }: { activeGroup: "iniciante" | "existente" }) {
-  const borderColor = "#996cfb";
-  const circleStyle: React.CSSProperties = {
-    border: `2px dashed ${borderColor}`,
-    backgroundColor: colors.white,
-  };
-
-  const circleVariants = {
-    hidden: { opacity: 0, scale: 0.6 },
-    visible: (delay: number) => ({
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] as const },
-    }),
-  };
-
-  return (
-    <div className="overflow-x-auto max-w-full">
-    <motion.div
-      style={{ position: "relative", width: "560px", height: "480px", flexShrink: 0 }}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
-    >
-      {/* Seguro + Assist */}
-      <motion.div
-        custom={0.1}
-        variants={circleVariants}
-        style={{
-          ...circleStyle,
-          position: "absolute",
-          left: "43px",
-          top: "100px",
-          width: "210px",
-          height: "210px",
-          borderRadius: "300px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "8px",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={imgVennSeguro} alt="" style={{ width: "118px", height: "19.175px" }} />
-        <img src={imgVennAssist} alt="" style={{ width: "118px", height: "21.159px" }} />
-      </motion.div>
-
-      {/* Admin */}
-      <motion.div
-        custom={0.2}
-        variants={circleVariants}
-        style={{
-          ...circleStyle,
-          position: "absolute",
-          left: "180px",
-          top: "5px",
-          width: "200px",
-          height: "200px",
-          borderRadius: "100px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={imgVennAdmin} alt="" style={{ width: "118px", height: "19.793px" }} />
-      </motion.div>
-
-      {/* 4 em 1 */}
-      <motion.div
-        custom={0.3}
-        variants={circleVariants}
-        style={{
-          ...circleStyle,
-          position: "absolute",
-          left: "307px",
-          top: "100px",
-          width: "210px",
-          height: "210px",
-          borderRadius: "105px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={imgVenn4em1} alt="" style={{ width: "118px", height: "20.453px" }} />
-      </motion.div>
-
-      {/* Marketing */}
-      <motion.div
-        custom={0.4}
-        variants={circleVariants}
-        style={{
-          ...circleStyle,
-          position: "absolute",
-          left: "92px",
-          top: "265px",
-          width: "210px",
-          height: "210px",
-          borderRadius: "300px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "6px",
-        }}
-      >
-        <img src={imgVennMarketingIcon} alt="" style={{ width: "15.087px", height: "16.147px" }} />
-        <img src={imgVennMarketingWordmark} alt="" style={{ width: "98.028px", height: "11.268px" }} />
-      </motion.div>
-
-      {/* Estoque */}
-      <motion.div
-        custom={0.5}
-        variants={circleVariants}
-        style={{
-          ...circleStyle,
-          position: "absolute",
-          left: "257px",
-          top: "265px",
-          width: "210px",
-          height: "210px",
-          borderRadius: "105px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={imgVennEstoque} alt="" style={{ width: "118px", height: "18.047px" }} />
-      </motion.div>
-
-      {/* Center logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        style={{ position: "absolute", left: "252px", top: "219px", width: "56px", height: "56px" }}
-      >
-        <img src={imgVennCenter} alt="" style={{ width: "100%", height: "100%" }} />
-      </motion.div>
-    </motion.div>
-    </div>
-  );
-}
 
 const iniciantePricing = [
   {
@@ -510,6 +358,19 @@ export default function MontarCombo() {
                 </button>
               </FadeIn>
             </div>
+
+            {/* Diagrama dos combos — grupo de quem já tem central */}
+            <FadeIn
+              className="p-6 md:p-12"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                backgroundColor: "#F9F6F0",
+                borderRadius: "32px",
+              }}
+            >
+              <ComboVenn activeGroup="existente" />
+            </FadeIn>
 
             {/* Para quem já tem uma base de clientes */}
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>

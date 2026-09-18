@@ -296,6 +296,58 @@ export function Footer() {
               </p>
             ))}
           </div>
+
+          {/* Menu 5 - Seu Negócio */}
+          <div
+            className="w-full md:w-[268px]"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "6px",
+              alignItems: "flex-start",
+            }}
+          >
+            <div style={{ paddingBottom: "24px", width: "100%" }}>
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "18px",
+                  fontWeight: 700,
+                  fontFamily: "var(--font-linear-grotesk)",
+                  color: colors.white,
+                }}
+              >
+                Seu Negócio
+              </h3>
+            </div>
+            {[
+              { label: "Começar Negócio", href: "/comecar-negocio" },
+              { label: "Crescer Negócio", href: "/crescer-negocio" },
+              { label: "Montar Combo", href: "/montar-combo" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                style={{
+                  margin: 0,
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontFamily: "var(--font-roboto)",
+                  color: colors.white,
+                  height: "40px",
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "opacity 0.3s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Social Media & Info Section */}
