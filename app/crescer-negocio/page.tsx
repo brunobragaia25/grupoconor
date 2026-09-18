@@ -1,6 +1,5 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -9,6 +8,7 @@ import { FadeIn } from "@/app/components/motion/FadeIn";
 import { AnimatedCounter } from "@/app/components/motion/AnimatedCounter";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 import { ComboVenn } from "@/app/components/ComboVenn";
+import { ProductCardImage } from "@/app/components/ProductCardImage";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgLoupeLarge = "/icons/icon-crescer-hero.svg";
@@ -76,7 +76,8 @@ const products = [
     color: "#ffc301",
     cardImage: imgCardSeguro,
     // Enquadramento da foto (crop do Figma 388:4334, relativo à faixa 477x180)
-    imageCrop: { width: "174.84%", left: "-64.15%", top: "-101.39%" },
+    imagePosition: "65% 58%",
+    imageZoom: 1.45,
     whatsapp: imgWhatsappSeguro,
     title: "Ative seu escritório",
     price: "R$3.000 de entrada + R$350 por mês",
@@ -89,7 +90,8 @@ const products = [
     logoWidth: 166,
     color: "#996cfb",
     cardImage: imgCardAssist,
-    imageCrop: { width: "224.32%", left: "-64.36%", top: "-124.17%" },
+    imagePosition: "51% 52%",
+    imageZoom: 1.45,
     whatsapp: imgWhatsappAssist,
     title: "Ative sua solução",
     price: "R$1.000 de entrada + R$550 por mês",
@@ -102,7 +104,8 @@ const products = [
     logoWidth: 221,
     color: "#fa7a22",
     cardImage: imgCardMarketing,
-    imageCrop: { width: "125.37%", left: "-23.69%", top: "-35.28%" },
+    imagePosition: "59% 45%",
+    imageZoom: 1.1,
     whatsapp: imgWhatsappMarketing,
     title: "Ative o seu marketing",
     price: "Monte o seu combo",
@@ -118,7 +121,8 @@ const secondaryProducts = [
     logoWidth: 174,
     color: "#40c6ee",
     cardImage: imgCard4em1,
-    imageCrop: { width: "125.96%", left: "-12.98%", top: "-85%" },
+    imagePosition: "50% 71%",
+    imageZoom: 1.15,
     title: "O que é essencial para o seu rastreamento?",
     price: "Recuperação veicular, telemetria e mais",
     items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
@@ -129,7 +133,8 @@ const secondaryProducts = [
     logoWidth: 178,
     color: "#01c4c4",
     cardImage: imgCardAdmin,
-    imageCrop: { width: "125.96%", left: "-12.98%", top: "-125%" },
+    imagePosition: "50% 92%",
+    imageZoom: 1.15,
     title: "Software de gestão do seu negócio",
     price: "Financeiro, administrativo e estoque",
     items: ["Financeiro", "Administrativo", "Estoque"],
@@ -410,22 +415,11 @@ export default function CrescerNegocio() {
                       flexDirection: "column",
                     }}
                   >
-                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
-                      <img
-                        src={product.cardImage}
-                        alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
-                        style={{
-                          "--crop-l": product.imageCrop.left,
-                          "--crop-t": product.imageCrop.top,
-                          "--crop-w": product.imageCrop.width,
-                          // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
-                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
-                          maxWidth: "none",
-                          display: "block",
-                        } as CSSProperties}
-                      />
-                    </div>
+                    <ProductCardImage
+                      src={product.cardImage}
+                      position={product.imagePosition}
+                      zoom={product.imageZoom}
+                    />
                     <div
                       className="p-6 md:p-10"
                       style={{
@@ -531,21 +525,11 @@ export default function CrescerNegocio() {
                       flexDirection: "column",
                     }}
                   >
-                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
-                      <img
-                        src={product.cardImage}
-                        alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
-                        style={{
-                          "--crop-l": product.imageCrop.left,
-                          "--crop-t": product.imageCrop.top,
-                          "--crop-w": product.imageCrop.width,
-                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
-                          maxWidth: "none",
-                          display: "block",
-                        } as CSSProperties}
-                      />
-                    </div>
+                    <ProductCardImage
+                      src={product.cardImage}
+                      position={product.imagePosition}
+                      zoom={product.imageZoom}
+                    />
                     <div
                       className="p-6 md:p-10"
                       style={{

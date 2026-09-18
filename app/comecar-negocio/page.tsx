@@ -1,6 +1,5 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -8,6 +7,7 @@ import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { AnimatedCounter } from "@/app/components/motion/AnimatedCounter";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
+import { ProductCardImage } from "@/app/components/ProductCardImage";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgStorefront = "/icon-storefront.svg";
@@ -129,7 +129,8 @@ const comboProducts = [
     logo: imgLogo4em1,
     logoWidth: 174,
     image: imgProduct4em1,
-    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
+    imagePosition: "50% 50%",
+    imageZoom: 1.15,
     color: "#40c6ee",
     checkColor: "#52a4ff",
     title: "O que é essencial para o seu rastreamento?",
@@ -141,8 +142,9 @@ const comboProducts = [
     logo: imgLogoEstoque,
     logoWidth: 195,
     image: imgProductEstoque,
-    // Enquadramento da foto no topo do card (crop do Figma 396:1224)
-    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
+    // Enquadramento da foto no topo do card (ponto focal do crop do Figma 396:1224)
+    imagePosition: "50% 50%",
+    imageZoom: 1.15,
     color: "#e01e5a",
     checkColor: "#dd245c",
     title: "Alugue 10 rastreadores e chips prontos para uso",
@@ -157,7 +159,8 @@ const comboProducts = [
     logo: imgLogoAdmin,
     logoWidth: 178,
     image: imgProductAdmin,
-    imageCrop: { width: "125.96%", left: "-12.98%", top: "-45%" },
+    imagePosition: "50% 50%",
+    imageZoom: 1.15,
     color: "#01c4c4",
     checkColor: "#67d2c4",
     title: "Software de gestão do seu negócio",
@@ -658,22 +661,11 @@ export default function ComecarNegocio() {
                       flexDirection: "column",
                     }}
                   >
-                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
-                      <img
-                        src={product.image}
-                        alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
-                        style={{
-                          "--crop-l": product.imageCrop.left,
-                          "--crop-t": product.imageCrop.top,
-                          "--crop-w": product.imageCrop.width,
-                          // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
-                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
-                          maxWidth: "none",
-                          display: "block",
-                        } as CSSProperties}
-                      />
-                    </div>
+                    <ProductCardImage
+                      src={product.image}
+                      position={product.imagePosition}
+                      zoom={product.imageZoom}
+                    />
                     <div
                       className="p-6 md:p-10"
                       style={{

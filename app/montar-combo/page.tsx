@@ -8,6 +8,7 @@ import { AnimatedTitle } from "@/app/components/motion/AnimatedTitle";
 import { FadeIn } from "@/app/components/motion/FadeIn";
 import { CroppedIllustration } from "@/app/components/CroppedIllustration";
 import { ComboVenn } from "@/app/components/ComboVenn";
+import { ProductCardImage } from "@/app/components/ProductCardImage";
 import { whatsappHref } from "@/app/lib/whatsapp";
 
 const imgHeroIcon = "/icon-montar-combo-hero.svg";
@@ -258,18 +259,12 @@ export default function MontarCombo() {
                       flexDirection: "column",
                     }}
                   >
-                    <div className="h-[180px] md:h-[220px] shrink-0 overflow-hidden">
-                      <img
-                        src={product.cardImage}
-                        alt=""
-                        className="block w-full h-full object-cover"
-                        style={{
-                          objectPosition: product.imagePosition,
-                          transformOrigin: product.imagePosition,
-                          transform: `scale(${product.imageZoom})`,
-                        }}
-                      />
-                    </div>
+                    <ProductCardImage
+                      src={product.cardImage}
+                      position={product.imagePosition}
+                      zoom={product.imageZoom}
+                      className="h-[180px] md:h-[220px]"
+                    />
                     <div
                       className="p-6 md:p-10"
                       style={{
@@ -419,18 +414,12 @@ export default function MontarCombo() {
                       flexDirection: "column",
                     }}
                   >
-                    <div className="h-[180px] md:h-[220px] shrink-0 overflow-hidden">
-                      <img
-                        src={product.cardImage}
-                        alt=""
-                        className="block w-full h-full object-cover"
-                        style={{
-                          objectPosition: product.imagePosition,
-                          transformOrigin: product.imagePosition,
-                          transform: `scale(${product.imageZoom})`,
-                        }}
-                      />
-                    </div>
+                    <ProductCardImage
+                      src={product.cardImage}
+                      position={product.imagePosition}
+                      zoom={product.imageZoom}
+                      className="h-[180px] md:h-[220px]"
+                    />
                     <div
                       className="p-6 md:p-10"
                       style={{
