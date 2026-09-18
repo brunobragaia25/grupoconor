@@ -280,13 +280,13 @@ export default function MontarCombo() {
                 <div className="w-full min-[1100px]:flex-1 min-[1100px]:w-auto min-[1100px]:min-w-0" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                   <AnimatedTitle
                     as="h1"
-                    className="text-3xl min-[1100px]:text-[44px] min-[1400px]:text-[56px]"
+                    className="text-3xl min-[1100px]:text-[44px] min-[1520px]:text-[56px]"
                     style={{
                       fontWeight: 700,
                       fontFamily: "var(--font-linear-grotesk)",
                       color: colors.white,
                       margin: 0,
-                      lineHeight: "normal",
+                      lineHeight: "1.05",
                       maxWidth: "clamp(300px, calc(100vw - 1164px), 543px)",
                     }}
                   >
@@ -679,7 +679,7 @@ export default function MontarCombo() {
               <div className="px-6 md:px-0 md:flex-shrink-0 md:py-24" style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "489px", justifyContent: "center" }}>
                 <AnimatedTitle
                   as="h2"
-                  className="text-3xl md:text-[48px]"
+                  className="text-3xl md:text-[40px] min-[1520px]:text-[48px]"
                   style={{
                     fontWeight: 700,
                     fontFamily: "var(--font-linear-grotesk)",

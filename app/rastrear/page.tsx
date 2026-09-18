@@ -198,7 +198,7 @@ export default function Rastrear() {
 
             <div
               className="relative w-full h-[200px] md:absolute md:right-0 md:top-0 md:bottom-0 md:h-auto md:w-[var(--hero-illus-w)] overflow-hidden pointer-events-none"
-              style={{ ["--hero-illus-w" as string]: "min(740px, max(490px, calc(100vw - 424px - clamp(320px, calc(100vw - 1124px), 716px))))" }}
+              style={{ ["--hero-illus-w" as string]: "min(740px, max(490px, calc(100vw - 464px - clamp(320px, calc(100vw - 1124px), 716px))))" }}
             >
               <div
                 className="absolute inset-0 bg-contain bg-no-repeat bg-center md:w-[calc(var(--hero-illus-w)*1336.61/740)] md:h-[calc(var(--hero-illus-w)*998/740)] md:left-[calc(var(--hero-illus-w)*-506/740)] md:top-[calc(var(--hero-illus-w)*-199/740)] md:bg-[length:calc(var(--hero-illus-w)*1336.61/740)_calc(var(--hero-illus-w)*998/740)]"
