@@ -1,6 +1,5 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
@@ -38,8 +37,10 @@ const iniciantePricing = [
     color: "#e01e5a",
     checkColor: "#dd245c",
     cardImage: imgCardEstoque,
-    // Crops do Figma 395:348 (faixa 477x180)
-    imageCrop: { width: "111.74%", left: "-5.87%", top: "-43.75%" },
+    // Ponto focal do crop do Figma 395:348, aplicado via object-position para o
+    // enquadramento se manter em qualquer largura de tela.
+    imagePosition: "50% 56%",
+    imageZoom: 1.4,
     title: "Alugue 10 rastreadores e chips prontos para uso",
     items: ["Rastreador J16 Original e Tag BLE", "Chip Vivo 20Mb"],
   },
@@ -49,7 +50,8 @@ const iniciantePricing = [
     color: "#40c6ee",
     checkColor: "#52a4ff",
     cardImage: imgCard4em1,
-    imageCrop: { width: "121.7%", left: "-10.85%", top: "-40%" },
+    imagePosition: "50% 49%",
+    imageZoom: 1.1,
     title: "O que é essencial para o seu rastreamento?",
     items: ["Recuperação veicular", "Telemetria avançada", "Furto & Roubo", "Associação veicular"],
   },
@@ -59,7 +61,8 @@ const iniciantePricing = [
     color: "#01c4c4",
     checkColor: "#67d2c4",
     cardImage: imgCardAdmin,
-    imageCrop: { width: "148.74%", left: "-28.14%", top: "-82.22%" },
+    imagePosition: "53% 59%",
+    imageZoom: 1.4,
     title: "Software de gestão do seu negócio",
     items: ["Financeiro", "Administrativo", "Estoque"],
   },
@@ -71,7 +74,8 @@ const existentePricing = [
     logoWidth: 184,
     color: "#ffc301",
     cardImage: imgCardSeguro,
-    imageCrop: { width: "174.84%", left: "-64.15%", top: "-101.39%" },
+    imagePosition: "65% 58%",
+    imageZoom: 1.45,
     title: "Ative seu escritório",
     price: "R$3.000 de entrada + R$350 por mês",
     buttonLabel: "Montar pedido",
@@ -82,7 +86,8 @@ const existentePricing = [
     logoWidth: 166,
     color: "#996cfb",
     cardImage: imgCardAssist,
-    imageCrop: { width: "224.32%", left: "-64.36%", top: "-124.17%" },
+    imagePosition: "51% 52%",
+    imageZoom: 1.45,
     title: "Ative sua solução",
     price: "R$1.000 de entrada + R$550 por mês",
     buttonLabel: "Comprar agora",
@@ -93,7 +98,8 @@ const existentePricing = [
     logoWidth: 221,
     color: "#fa7a22",
     cardImage: imgCardMarketing,
-    imageCrop: { width: "125.37%", left: "-23.69%", top: "-35.28%" },
+    imagePosition: "59% 45%",
+    imageZoom: 1.1,
     title: "Ative o seu marketing",
     price: "Monte o seu combo",
     buttonLabel: "Comprar agora",
@@ -252,20 +258,16 @@ export default function MontarCombo() {
                       flexDirection: "column",
                     }}
                   >
-                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                    <div className="h-[180px] md:h-[220px] shrink-0 overflow-hidden">
                       <img
                         src={product.cardImage}
                         alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
+                        className="block w-full h-full object-cover"
                         style={{
-                          "--crop-l": product.imageCrop.left,
-                          "--crop-t": product.imageCrop.top,
-                          "--crop-w": product.imageCrop.width,
-                          // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
-                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
-                          maxWidth: "none",
-                          display: "block",
-                        } as CSSProperties}
+                          objectPosition: product.imagePosition,
+                          transformOrigin: product.imagePosition,
+                          transform: `scale(${product.imageZoom})`,
+                        }}
                       />
                     </div>
                     <div
@@ -417,20 +419,16 @@ export default function MontarCombo() {
                       flexDirection: "column",
                     }}
                   >
-                    <div style={{ height: "180px", position: "relative", overflow: "hidden", flexShrink: 0 }}>
+                    <div className="h-[180px] md:h-[220px] shrink-0 overflow-hidden">
                       <img
                         src={product.cardImage}
                         alt=""
-                        className="absolute left-[var(--crop-l)] top-[var(--crop-t)] w-[var(--crop-w)] h-[var(--crop-h)] object-cover md:h-auto md:object-fill"
+                        className="block w-full h-full object-cover"
                         style={{
-                          "--crop-l": product.imageCrop.left,
-                          "--crop-t": product.imageCrop.top,
-                          "--crop-w": product.imageCrop.width,
-                          // altura equivalente ao crop do Figma (foto 2752x1536 num card de ~485px)
-                          "--crop-h": `${parseFloat(product.imageCrop.width) * 1.5027}%`,
-                          maxWidth: "none",
-                          display: "block",
-                        } as CSSProperties}
+                          objectPosition: product.imagePosition,
+                          transformOrigin: product.imagePosition,
+                          transform: `scale(${product.imageZoom})`,
+                        }}
                       />
                     </div>
                     <div
