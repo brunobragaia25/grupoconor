@@ -359,19 +359,6 @@ export default function MontarCombo() {
               </FadeIn>
             </div>
 
-            {/* Diagrama dos combos — grupo de quem já tem central */}
-            <FadeIn
-              className="p-6 md:p-12"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                backgroundColor: "#F9F6F0",
-                borderRadius: "32px",
-              }}
-            >
-              <ComboVenn activeGroup="existente" />
-            </FadeIn>
-
             {/* Para quem já tem uma base de clientes */}
             <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
               <FadeIn>
