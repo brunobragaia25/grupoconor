@@ -16,6 +16,9 @@ interface NavItem {
   label: string;
   href: string;
   icon: string;
+  /** Ícones sem respiro interno no próprio SVG (ex: hero icons) precisam
+   *  renderizar menores para bater visualmente com os demais do menu. */
+  iconSize?: number;
 }
 
 const needsItems: NavItem[] = [
@@ -27,9 +30,9 @@ const needsItems: NavItem[] = [
 ];
 
 const businessItems: NavItem[] = [
-  { label: "Começar Negócio", href: "/comecar-negocio", icon: imgStorefront },
-  { label: "Crescer Negócio", href: "/crescer-negocio", icon: imgCrescerHero },
-  { label: "Montar Combo", href: "/montar-combo", icon: imgMontarComboHero },
+  { label: "Começar Negócio", href: "/comecar-negocio", icon: imgStorefront, iconSize: 16 },
+  { label: "Crescer Negócio", href: "/crescer-negocio", icon: imgCrescerHero, iconSize: 16 },
+  { label: "Montar Combo", href: "/montar-combo", icon: imgMontarComboHero, iconSize: 16 },
 ];
 
 const institutionalItems: NavItem[] = [
@@ -184,15 +187,25 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
-          <img
-            src={item.icon}
-            alt=""
+          <div
             style={{
               width: "20px",
               height: "20px",
               flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
-          />
+          >
+            <img
+              src={item.icon}
+              alt=""
+              style={{
+                width: `${item.iconSize ?? 20}px`,
+                height: `${item.iconSize ?? 20}px`,
+              }}
+            />
+          </div>
           <p
             style={{
               margin: 0,
