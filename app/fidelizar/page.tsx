@@ -13,6 +13,18 @@ const imgHeartSmileLarge = "/icons/icon-heart-smile-large.svg";
 const imgHeroIllustration = "/image-fidelizar-hero.svg";
 const imgCtaIllustration = "/image-fidelizar-cta.svg";
 const imgShieldCheck = "/icons/icon-shield-check.svg";
+const imgHandshake = "/icons/icon-handshake.svg";
+const imgShieldWarning = "/icons/icon-shield-warning.svg";
+const imgCoins = "/icons/icon-coins.svg";
+const imgCar = "/icons/icon-car.svg";
+const imgDrop = "/icons/icon-drop.svg";
+const imgHouse = "/icons/icon-house.svg";
+const imgHeartOutline = "/icons/icon-heart-outline.svg";
+const imgTruck = "/icons/icon-truck.svg";
+const imgTowTruck = "/icons/icon-tow-truck.svg";
+const imgLightning = "/icons/icon-lightning.svg";
+const imgFuel = "/icons/icon-fuel.svg";
+const imgBed = "/icons/icon-bed.svg";
 const imgHeadset = "/icons/icon-headset.svg";
 const imgGift = "/icons/icon-gift.svg";
 const imgRelacionadosSeguro = "/image-fidelizar-relacionados-seguro.jpg";
@@ -26,16 +38,19 @@ const pillars = [
     icon: imgShieldCheck,
     title: "Seguro",
     description: "Detalhamento sobre o programa de seguro",
+   
   },
   {
     icon: imgHeadset,
     title: "Assistência 24h",
     description: "Detalhes sobre a assistência humanizada",
+   
   },
   {
     icon: imgGift,
     title: "Benefícios",
     description: "Benefícios adicionais para seus clientes",
+   
   },
 ];
 
@@ -67,24 +82,30 @@ const steps = [
   },
 ];
 
-const seguroFeatures: string[] = [
-  "Seguro Furto e Roubo",
-  "Seguro RCFV (Seguro de Terceiros)",
-  "Seguro APP",
-  "Lucros Cessantes",
-  "Carro Reserva",
-  "Assistência Vidro",
-  "Assistência Residencial",
-  "Assistência Funeral",
+interface RelatedFeature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const seguroFeatures: RelatedFeature[] = [
+  { title: "Seguro Furto e Roubo", description: "Indenização em caso de furto ou roubo.", icon: imgShieldCheck },
+  { title: "Seguro RCF-V", description: "Cobre danos causados a terceiros.", icon: imgHandshake },
+  { title: "Seguro APP", description: "Proteção a motorista e passageiros.", icon: imgShieldWarning },
+  { title: "Lucros Cessantes", description: "Compensa os dias de veículo parado.", icon: imgCoins },
+  { title: "Carro Reserva", description: "Veículo substituto enquanto o seu está parado.", icon: imgCar },
+  { title: "Assistência Vidro", description: "Reparo e troca de vidros e faróis.", icon: imgDrop },
+  { title: "Assistência Residencial", description: "Socorro emergencial em casa.", icon: imgHouse },
+  { title: "Assistência Funeral", description: "Amparo à família em momentos difíceis.", icon: imgHeartOutline },
 ];
 
-const assistFeatures: string[] = [
-  "Guincho",
-  "Reboque",
-  "Pane Elétrica",
-  "Pane Seca",
-  "Taxi",
-  "Hospedagem Hotel",
+const assistFeatures: RelatedFeature[] = [
+  { title: "Guincho", description: "Remoção do veículo após pane ou acidente.", icon: imgTowTruck },
+  { title: "Reboque", description: "Leva o veículo até a oficina.", icon: imgTruck },
+  { title: "Pane Elétrica", description: "Socorro no local para falha elétrica.", icon: imgLightning },
+  { title: "Pane Seca", description: "Combustível de emergência no local.", icon: imgFuel },
+  { title: "Taxi", description: "Transporte enquanto o veículo é atendido.", icon: imgCar },
+  { title: "Hospedagem Hotel", description: "Hospedagem se a viagem for interrompida.", icon: imgBed },
 ];
 
 const accent = "#52a4ff";
@@ -201,28 +222,34 @@ function StepsTimeline() {
   );
 }
 
-/** Card com a lista de itens do produto, cada um marcado com um check. */
-function RelatedChecklist({ features, color, className = "" }: { features: string[]; color: string; className?: string }) {
+/** Card com a lista de itens do produto: ícone, nome e uma frase curta por item. */
+function RelatedChecklist({ features, color, className = "" }: { features: RelatedFeature[]; color: string; className?: string }) {
   return (
     <div
-      className={`w-full lg:flex-1 lg:w-auto lg:min-w-0 p-8 md:p-12 ${className}`}
+      className={`w-full lg:flex-1 lg:w-auto lg:min-w-0 p-8 md:p-10 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 content-center ${className}`}
       style={{
         backgroundColor: "#171717",
         border: "1px solid #272727",
         borderRadius: "32px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: "20px",
       }}
     >
       {features.map((feature, idx) => (
-        <FadeIn key={feature} delay={0.25 + idx * 0.08} y={12} style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <FadeIn
+          key={feature.title}
+          delay={0.25 + idx * 0.08}
+          y={12}
+          className={`border-[#272727] ${idx === 0 ? "" : idx === 1 ? "border-t pt-6 sm:border-t-0 sm:pt-0" : "border-t pt-6"}`}
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "12px",
+          }}
+        >
           <div
             style={{
-              width: "20px",
-              height: "20px",
-              borderRadius: "999px",
+              width: "32px",
+              height: "32px",
+              borderRadius: "8px",
               backgroundColor: color,
               display: "flex",
               alignItems: "center",
@@ -230,15 +257,16 @@ function RelatedChecklist({ features, color, className = "" }: { features: strin
               flexShrink: 0,
             }}
           >
-            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8.5l3.2 3.2L13 4.8" stroke={colors.black} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img src={feature.icon} alt="" style={{ width: "20px", height: "20px" }} />
           </div>
-          <p
-            style={{ margin: 0, fontSize: "16px", fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}
-          >
-            {feature}
-          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "2px", flex: 1, minWidth: 0 }}>
+            <p style={{ margin: 0, fontSize: "14px", fontWeight: 500, fontFamily: "var(--font-roboto)", color: colors.white }}>
+              {feature.title}
+            </p>
+            <p style={{ margin: 0, fontSize: "12px", lineHeight: "18px", fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}>
+              {feature.description}
+            </p>
+          </div>
         </FadeIn>
       ))}
     </div>
