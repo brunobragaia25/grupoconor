@@ -493,6 +493,9 @@ export default function Rastrear() {
                       right: 0,
                       bottom: 0,
                       width: `${(459 / 737) * 100}%`,
+                      // Trava no tamanho de design: sem isso o selo cresce junto com a
+                      // ilustração quando ela ocupa a largura toda (layout empilhado).
+                      maxWidth: "340px",
                       aspectRatio: `${459 / 128}`,
                       backgroundColor: colors.white,
                       borderTopLeftRadius: "32px",

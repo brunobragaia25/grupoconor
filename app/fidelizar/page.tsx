@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { CSSProperties } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Layout } from "@/app/components/Layout";
 import { Footer } from "@/app/components/Footer";
 import { colors } from "@/app/styles/design-tokens";
@@ -22,18 +20,6 @@ const imgRelacionadosSeguroLogo = "/icon-fidelizar-relacionados-seguro-logo2.svg
 const imgRelacionadosAssist = "/image-fidelizar-relacionados-assist.jpg";
 const imgRelacionadosAssistLogo = "/icon-fidelizar-relacionados-assist-logo.svg";
 
-const imgHandshake = "/icons/icon-handshake.svg";
-const imgShieldWarning = "/icons/icon-shield-warning.svg";
-const imgCoins = "/icons/icon-coins.svg";
-const imgCar = "/icons/icon-car.svg";
-const imgDrop = "/icons/icon-drop.svg";
-const imgHouse = "/icons/icon-house.svg";
-const imgHeartOutline = "/icons/icon-heart-outline.svg";
-const imgTruck = "/icons/icon-truck.svg";
-const imgTowTruck = "/icons/icon-tow-truck.svg";
-const imgLightning = "/icons/icon-lightning.svg";
-const imgFuel = "/icons/icon-fuel.svg";
-const imgBed = "/icons/icon-bed.svg";
 
 const pillars = [
   {
@@ -81,24 +67,24 @@ const steps = [
   },
 ];
 
-const seguroFeatures = [
-  { title: "Seguro Furto e Roubo", icon: imgShieldCheck },
-  { title: "Seguro RCFV (Seguro de Terceiros)", icon: imgHandshake },
-  { title: "Seguro APP", icon: imgShieldWarning },
-  { title: "Lucros Cessantes", icon: imgCoins },
-  { title: "Carro Reserva", icon: imgCar },
-  { title: "Assistência Vidro", icon: imgDrop },
-  { title: "Assistência Residencial", icon: imgHouse },
-  { title: "Assistência Funeral", icon: imgHeartOutline },
+const seguroFeatures: string[] = [
+  "Seguro Furto e Roubo",
+  "Seguro RCFV (Seguro de Terceiros)",
+  "Seguro APP",
+  "Lucros Cessantes",
+  "Carro Reserva",
+  "Assistência Vidro",
+  "Assistência Residencial",
+  "Assistência Funeral",
 ];
 
-const assistFeatures = [
-  { title: "Guincho", icon: imgTowTruck },
-  { title: "Reboque", icon: imgTruck },
-  { title: "Pane Elétrica", icon: imgLightning },
-  { title: "Pane Seca", icon: imgFuel },
-  { title: "Taxi", icon: imgCar },
-  { title: "Hospedagem Hotel", icon: imgBed },
+const assistFeatures: string[] = [
+  "Guincho",
+  "Reboque",
+  "Pane Elétrica",
+  "Pane Seca",
+  "Taxi",
+  "Hospedagem Hotel",
 ];
 
 const accent = "#52a4ff";
@@ -215,191 +201,46 @@ function StepsTimeline() {
   );
 }
 
-function RelatedFeatureCard({
-  title,
-  icon,
-  color = "#ffc301",
-  style,
-}: {
-  title: string;
-  icon?: string;
-  color?: string;
-  style?: CSSProperties;
-}) {
+/** Card com a lista de itens do produto, cada um marcado com um check. */
+function RelatedChecklist({ features, color, className = "" }: { features: string[]; color: string; className?: string }) {
   return (
     <div
-      className="p-8 md:p-12"
+      className={`w-full lg:flex-1 lg:w-auto lg:min-w-0 p-8 md:p-12 ${className}`}
       style={{
         backgroundColor: "#171717",
         border: "1px solid #272727",
         borderRadius: "32px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        gap: "16px",
-        ...style,
+        justifyContent: "center",
+        gap: "20px",
       }}
     >
-      {icon && (
-        <div
-          style={{
-            width: "48px",
-            height: "48px",
-            borderRadius: "12px",
-            backgroundColor: color,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-          }}
-        >
-          <img src={icon} alt="" style={{ width: "32px", height: "32px" }} />
-        </div>
-      )}
-      <p
-        className="text-[16px] sm:text-[20px]"
-        style={{ margin: 0, fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}
-      >
-        {title}
-      </p>
-    </div>
-  );
-}
-
-/** Setinha circular usada na navegação dos carrosséis de produtos relacionados.
- *  O SVG usa fill/stroke "currentColor", então é aplicado via mask para poder
- *  ser tingido com qualquer cor de destaque sem precisar de um arquivo por cor. */
-function CarouselArrow({
-  direction,
-  color,
-  onClick,
-  label,
-}: {
-  direction: "left" | "right";
-  color: string;
-  onClick: () => void;
-  label: string;
-}) {
-  const src = direction === "left" ? "/icons/icon-caret-circle-left.svg" : "/icons/icon-caret-circle-right.svg";
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      style={{
-        width: "52px",
-        height: "52px",
-        flexShrink: 0,
-        border: "none",
-        background: "none",
-        padding: 0,
-        cursor: "pointer",
-        transition: "transform 0.2s ease, opacity 0.2s ease",
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-    >
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: color,
-          maskImage: `url(${src})`,
-          maskSize: "contain",
-          maskRepeat: "no-repeat",
-          WebkitMaskImage: `url(${src})`,
-          WebkitMaskSize: "contain",
-          WebkitMaskRepeat: "no-repeat",
-        }}
-      />
-    </button>
-  );
-}
-
-/** Carrossel dos produtos relacionados: mostra 3 cards por vez, com setas
- *  circulares para navegar entre as páginas (cíclico). */
-function RelatedFeatureCarousel({
-  features,
-  color,
-  align,
-}: {
-  features: { title: string; icon: string }[];
-  color: string;
-  align: "start" | "end";
-}) {
-  const pageSize = 3;
-  const pageCount = Math.ceil(features.length / pageSize);
-  const [page, setPage] = useState(0);
-  /** +1 ao avançar, -1 ao voltar — decide de que lado o slide entra. */
-  const [direction, setDirection] = useState(1);
-
-  // A última página trava no final da lista (em vez de sobrar só 1-2 itens),
-  // então sempre aparecem exatamente 3 cards, mesmo quando o total não é
-  // múltiplo de 3.
-  const maxStart = Math.max(0, features.length - pageSize);
-  const start = Math.min(page * pageSize, maxStart);
-  const visible = features.slice(start, start + pageSize);
-
-  const goTo = (nextPage: number, dir: 1 | -1) => {
-    setDirection(dir);
-    setPage(nextPage);
-  };
-
-  return (
-    <div
-      className="w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0"
-      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
-    >
-      {/* Mobile: sem carrossel — os cards já empilham em coluna, então faz
-          mais sentido listar todos de uma vez do que escondê-los atrás de
-          setas. */}
-      <div className="flex sm:hidden flex-col gap-5 w-full">
-        {features.map((feature) => (
-          <RelatedFeatureCard key={feature.title} title={feature.title} icon={feature.icon} color={color} />
-        ))}
-      </div>
-
-      {/* Do sm pra cima: carrossel de 3 cards por página, com setas. */}
-      <div className="hidden sm:flex flex-col gap-5 w-full">
-        {pageCount > 1 && (
-          <div style={{ display: "flex", gap: "12px", justifyContent: align === "end" ? "flex-end" : "flex-start" }}>
-            <CarouselArrow
-              direction="left"
-              color={color}
-              label="Página anterior"
-              onClick={() => goTo((page - 1 + pageCount) % pageCount, -1)}
-            />
-            <CarouselArrow
-              direction="right"
-              color={color}
-              label="Próxima página"
-              onClick={() => goTo((page + 1) % pageCount, 1)}
-            />
+      {features.map((feature, idx) => (
+        <FadeIn key={feature} delay={0.25 + idx * 0.08} y={12} style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div
+            style={{
+              width: "20px",
+              height: "20px",
+              borderRadius: "999px",
+              backgroundColor: color,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8.5l3.2 3.2L13 4.8" stroke={colors.black} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
-        )}
-        {/* min-height fixa: sem ela, títulos mais longos (2-3 linhas) fariam
-            a altura dos cards — e da ilustração ao lado, via stretch —
-            mudar a cada troca de página. */}
-        <div className="relative w-full min-h-[240px] overflow-hidden" style={{ flex: 1 }}>
-          <AnimatePresence initial={false} custom={direction} mode="popLayout">
-            <motion.div
-              key={page}
-              custom={direction}
-              initial={{ x: direction > 0 ? 40 : -40, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: direction > 0 ? -40 : 40, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex flex-row gap-5 w-full"
-            >
-              {visible.map((feature) => (
-                <div className="w-full h-full" key={feature.title}>
-                  <RelatedFeatureCard title={feature.title} icon={feature.icon} color={color} style={{ height: "100%" }} />
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+          <p
+            style={{ margin: 0, fontSize: "16px", fontWeight: 400, fontFamily: "var(--font-roboto)", color: colors.text.bodyLight }}
+          >
+            {feature}
+          </p>
+        </FadeIn>
+      ))}
     </div>
   );
 }
@@ -602,7 +443,7 @@ export default function Fidelizar() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
                 {/* Bloco 1: Conor Seguro */}
-                <div id="conor-seguro" className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
+                <FadeIn id="conor-seguro" className="flex flex-col lg:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
                   <CroppedIllustration
                     src={imgRelacionadosSeguro}
                     alt="Conor Seguro"
@@ -614,7 +455,7 @@ export default function Fidelizar() {
                       offsetYFraction: -141 / 638,
                     }}
                     borderRadius="32px"
-                    className="w-full max-h-[420px] min-[1700px]:max-h-none min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
+                    className="w-full max-h-[420px] lg:max-h-none lg:w-1/2 lg:flex-shrink-0 lg:aspect-auto!"
                     logo={{
                       src: imgRelacionadosSeguroLogo,
                       aspectRatio: 357 / 62,
@@ -625,15 +466,11 @@ export default function Fidelizar() {
                     }}
                   />
 
-                  <RelatedFeatureCarousel features={seguroFeatures} color="#ffc301" align="end" />
-                </div>
+                  <RelatedChecklist features={seguroFeatures} color="#ffc301" />
+                </FadeIn>
 
                 {/* Bloco 2: Conor Assist */}
-                <div id="conor-assist" className="flex flex-col min-[1700px]:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
-                  <div className="order-2 min-[1700px]:order-1 w-full min-[1700px]:flex-1 min-[1700px]:w-auto min-[1700px]:min-w-0" style={{ display: "flex" }}>
-                    <RelatedFeatureCarousel features={assistFeatures} color="#996cfb" align="start" />
-                  </div>
-
+                <FadeIn id="conor-assist" className="flex flex-col lg:flex-row gap-5" style={{ width: "100%", scrollMarginTop: "100px" }}>
                   <CroppedIllustration
                     src={imgRelacionadosAssist}
                     alt="Conor Assist"
@@ -645,7 +482,7 @@ export default function Fidelizar() {
                       offsetYFraction: -236 / 590,
                     }}
                     borderRadius="32px"
-                    className="order-1 min-[1700px]:order-2 w-full max-h-[420px] min-[1700px]:max-h-none min-[1700px]:w-[737px] min-[1700px]:flex-shrink-0 min-[1700px]:aspect-auto!"
+                    className="order-1 lg:order-2 w-full max-h-[420px] lg:max-h-none lg:w-1/2 lg:flex-shrink-0 lg:aspect-auto!"
                     logo={{
                       src: imgRelacionadosAssistLogo,
                       aspectRatio: 321 / 62,
@@ -655,7 +492,9 @@ export default function Fidelizar() {
                       cornerRadius: "32px",
                     }}
                   />
-                </div>
+
+                  <RelatedChecklist features={assistFeatures} color="#996cfb" className="order-2 lg:order-1" />
+                </FadeIn>
               </div>
             </div>
 

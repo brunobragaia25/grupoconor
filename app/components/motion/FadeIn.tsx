@@ -11,15 +11,16 @@ interface FadeInProps {
   delay?: number;
   y?: number;
   once?: boolean;
+  id?: string;
 }
 
 /** Simple fade + slide-up entrance used for cards, sections and general content blocks. */
-export function FadeIn({ children, style, className, delay = 0, y = 24, once = true }: FadeInProps) {
+export function FadeIn({ children, style, className, delay = 0, y = 24, once = true, id }: FadeInProps) {
   const motionDisabled = useMotionDisabled();
 
   if (motionDisabled) {
     return (
-      <div style={style} className={className}>
+      <div id={id} style={style} className={className}>
         {children}
       </div>
     );
@@ -27,6 +28,7 @@ export function FadeIn({ children, style, className, delay = 0, y = 24, once = t
 
   return (
     <motion.div
+      id={id}
       style={style}
       className={className}
       initial={{ opacity: 0, y }}

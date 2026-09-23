@@ -62,17 +62,17 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "6px",
-        padding: "32px 32px 24px 32px",
+        gap: "4px",
+        padding: "24px 32px 24px 32px",
       }}
-      className="md:!pt-24"
+      className="md:!pt-8"
     >
       {/* Section Header: O QUE VOCÊ PRECISA? */}
       <motion.div
         variants={itemVariants}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          height: "40px",
+          height: "38px",
           display: "flex",
           alignItems: "center",
           paddingLeft: 0,
@@ -102,7 +102,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
           variants={itemVariants}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            height: "40px",
+            height: "38px",
             display: "flex",
             alignItems: "center",
             gap: "8px",
@@ -143,7 +143,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
         variants={itemVariants}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          height: "40px",
+          height: "38px",
           display: "flex",
           alignItems: "center",
           paddingLeft: 0,
@@ -174,7 +174,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
           variants={itemVariants}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            height: "40px",
+            height: "38px",
             display: "flex",
             alignItems: "center",
             gap: "8px",
@@ -225,7 +225,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
         variants={itemVariants}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          height: "40px",
+          height: "38px",
           display: "flex",
           alignItems: "center",
           paddingLeft: 0,
@@ -256,7 +256,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
           variants={itemVariants}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            height: "40px",
+            height: "38px",
             display: "flex",
             alignItems: "center",
             gap: "8px",

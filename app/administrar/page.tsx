@@ -398,6 +398,7 @@ export default function Administrar() {
                     boxAspectRatio: 459 / 128,
                     artWidthFraction: 345 / 459,
                     cornerRadius: "32px",
+                    maxWidth: "340px",
                   }}
                 />
 
