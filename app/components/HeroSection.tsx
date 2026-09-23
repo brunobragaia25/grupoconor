@@ -37,7 +37,7 @@ const cards = [
     label: "PERSONALIZADO",
     title: "Montar combo de rastreamento veicular.",
     description: "Monte o combo ideal de Rastreamento Veicular de forma simples, rápida e totalmente personalizada para a sua necessidade. Escolha os recursos certos.",
-    buttonText: "Clique e monte seu combo agora",
+    buttonText: "Clique e monte seu combo",
     color: "#996cfb",
     href: "/montar-combo",
     imgType: "personalizado" as const,
@@ -213,7 +213,7 @@ export function HeroSection() {
 
               {/* Heading */}
               <p
-                className="text-2xl md:text-[18px] min-[1100px]:text-[24px]! min-[1400px]:text-[36px]!"
+                className="text-2xl md:text-[18px] min-[1100px]:text-[24px]! min-[1400px]:text-[32px]! min-[1700px]:text-[36px]!"
                 style={{
                   margin: 0,
                   fontFamily: "var(--font-linear-grotesk)",
@@ -269,12 +269,13 @@ export function HeroSection() {
                 }}
               >
                 <span
+                  className="text-[14px]"
                   style={{
                     fontFamily: "var(--font-roboto)",
                     fontWeight: 500,
-                    fontSize: "14px",
                     color: colors.white,
                     textAlign: "center",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {card.buttonText}

@@ -8,9 +8,6 @@ const imgBookmarkCheck = "/icon-bookmark-check.svg";
 const imgEmergencyShare = "/icon-emergency-share.svg";
 const imgRocket = "/icon-rocket.svg";
 const imgLoupe = "/icon-loupe.svg";
-const imgStorefront = "/icon-storefront.svg";
-const imgCrescerHero = "/icons/icon-crescer-hero.svg";
-const imgMontarComboHero = "/icon-montar-combo-hero.svg";
 
 interface NavItem {
   label: string;
@@ -27,12 +24,6 @@ const needsItems: NavItem[] = [
   { label: "Rastrear", href: "/rastrear", icon: imgEmergencyShare },
   { label: "Montar", href: "/montar", icon: imgRocket },
   { label: "Expandir", href: "/expandir", icon: imgLoupe },
-];
-
-const businessItems: NavItem[] = [
-  { label: "Começar Negócio", href: "/comecar-negocio", icon: imgStorefront, iconSize: 16 },
-  { label: "Crescer Negócio", href: "/crescer-negocio", icon: imgCrescerHero, iconSize: 16 },
-  { label: "Montar Combo", href: "/montar-combo", icon: imgMontarComboHero, iconSize: 16 },
 ];
 
 const institutionalItems: NavItem[] = [
@@ -62,17 +53,17 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "4px",
-        padding: "24px 32px 24px 32px",
+        gap: "6px",
+        padding: "32px 32px 24px 32px",
       }}
-      className="md:!pt-8"
+      className="md:!pt-24"
     >
       {/* Section Header: O QUE VOCÊ PRECISA? */}
       <motion.div
         variants={itemVariants}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          height: "38px",
+          height: "40px",
           display: "flex",
           alignItems: "center",
           paddingLeft: 0,
@@ -102,7 +93,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
           variants={itemVariants}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            height: "38px",
+            height: "40px",
             display: "flex",
             alignItems: "center",
             gap: "8px",
@@ -138,94 +129,12 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
         </motion.a>
       ))}
 
-      {/* Section Header: SEU NEGÓCIO DE RASTREAMENTO */}
-      <motion.div
-        variants={itemVariants}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        style={{
-          height: "38px",
-          display: "flex",
-          alignItems: "center",
-          paddingLeft: 0,
-          marginTop: "12px",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: "12px",
-            fontWeight: 600,
-            color: colors.text.bodyLight,
-            textTransform: "uppercase",
-            fontFamily: "var(--font-roboto)",
-            letterSpacing: "0.5px",
-          }}
-        >
-          Seu negócio de rastreamento
-        </p>
-      </motion.div>
-
-      {/* Navigation Items: Business */}
-      {businessItems.map((item) => (
-        <motion.a
-          key={item.label}
-          href={item.href}
-          onClick={onNavigate}
-          variants={itemVariants}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            height: "38px",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            paddingLeft: 0,
-            textDecoration: "none",
-            color: colors.white,
-            cursor: "pointer",
-            transition: "opacity 0.3s",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-        >
-          <div
-            style={{
-              width: "20px",
-              height: "20px",
-              flexShrink: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              src={item.icon}
-              alt=""
-              style={{
-                width: `${item.iconSize ?? 20}px`,
-                height: `${item.iconSize ?? 20}px`,
-              }}
-            />
-          </div>
-          <p
-            style={{
-              margin: 0,
-              fontSize: "14px",
-              fontWeight: 500,
-              fontFamily: "var(--font-roboto)",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {item.label}
-          </p>
-        </motion.a>
-      ))}
-
       {/* Section Header: INSTITUCIONAL */}
       <motion.div
         variants={itemVariants}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          height: "38px",
+          height: "40px",
           display: "flex",
           alignItems: "center",
           paddingLeft: 0,
@@ -256,7 +165,7 @@ function SidebarNav({ onNavigate }: { onNavigate: () => void }) {
           variants={itemVariants}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            height: "38px",
+            height: "40px",
             display: "flex",
             alignItems: "center",
             gap: "8px",
