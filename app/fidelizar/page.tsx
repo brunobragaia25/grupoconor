@@ -572,7 +572,7 @@ export default function Fidelizar() {
                   background-size explícito na proporção original para não achatar. */}
               <div
                 aria-hidden
-                className="w-full aspect-[707/480] bg-[length:100%_100%] bg-center bg-no-repeat min-[1024px]:aspect-auto min-[1024px]:h-full min-[1024px]:flex-[1_1_400px] min-[1024px]:min-w-0 min-[1024px]:max-w-[707px] min-[1024px]:bg-[length:707px_480px] min-[1024px]:bg-center"
+                className="w-full aspect-[707/480] bg-[length:100%_100%] bg-center bg-no-repeat min-[1024px]:aspect-auto min-[1024px]:h-full min-[1024px]:flex-[1_1_400px] min-[1024px]:min-w-0 min-[1024px]:max-w-[707px] min-[1024px]:bg-[length:707px_480px] min-[1024px]:bg-[position:60%_center]"
                 style={{
                   backgroundImage: `url(${imgCtaIllustration})`,
                 }}
