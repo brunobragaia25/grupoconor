@@ -438,8 +438,8 @@ export function Footer() {
                   lineHeight: "18px",
                 }}
               >
-                Av. Pres. Tancredo Neves, Nº: 2640, 12º andar, BH/MG - CEP:
-                31.330-472 | CNPJ: 29.808.063/0001-50
+                R. Castelo de Alcazar, 125, Bairro Castelo, BH/MG - CEP:
+                31.330-310 | CNPJ: 29.808.063/0001-50
               </p>
             </div>
 
