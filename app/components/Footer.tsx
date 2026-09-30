@@ -1,8 +1,10 @@
 "use client";
 
 import { colors } from "../styles/design-tokens";
+import { whatsappHref } from "../lib/whatsapp";
 
 const imgVector = "/icons/icon-conor.svg";
+const imgWhatsapp = "/icons/icon-whatsapp-white.svg";
 const imgYoutube = "/icons/youtube.svg";
 const imgFacebook = "/icons/facebook.svg";
 const imgInsta = "/icons/insta.svg";
@@ -410,37 +412,123 @@ export function Footer() {
               width: "100%",
             }}
           >
-            {/* Address */}
+            {/* Address + WhatsApp + Telefone */}
             <div
-              className="flex-col md:flex-row items-center md:items-start justify-center md:justify-start"
+              className="flex-col md:flex-row items-center md:items-start justify-center md:justify-between"
               style={{
                 display: "flex",
-                gap: "6px",
+                gap: "16px",
+                width: "100%",
               }}
             >
-              <img
-                src="/icons/icon-map-pin-line.svg"
-                alt="Location"
-                className="mt-0 md:mt-[2px]"
+              {/* Address */}
+              <div
+                className="flex-col md:flex-row items-center md:items-start justify-center md:justify-start"
                 style={{
-                  width: "14px",
-                  height: "14px",
-                  flexShrink: 0,
-                }}
-              />
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "12px",
-                  fontWeight: 400,
-                  fontFamily: "var(--font-roboto)",
-                  color: colors.text.bodyLight,
-                  lineHeight: "18px",
+                  display: "flex",
+                  gap: "6px",
                 }}
               >
-                R. Castelo de Alcazar, 125, Bairro Castelo, BH/MG - CEP:
-                31.330-310 | CNPJ: 29.808.063/0001-50
-              </p>
+                <img
+                  src="/icons/icon-map-pin-line.svg"
+                  alt="Location"
+                  className="mt-0 md:mt-[2px]"
+                  style={{
+                    width: "14px",
+                    height: "14px",
+                    flexShrink: 0,
+                  }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "12px",
+                    fontWeight: 400,
+                    fontFamily: "var(--font-roboto)",
+                    color: colors.text.bodyLight,
+                    lineHeight: "18px",
+                  }}
+                >
+                  R. Castelo de Alcazar, 125, Bairro Castelo, BH/MG - CEP:
+                  31.330-310 | CNPJ: 29.808.063/0001-50
+                </p>
+              </div>
+
+              {/* WhatsApp + Telefone */}
+              <div
+                className="flex-col md:flex-row items-center"
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  flexShrink: 0,
+                }}
+              >
+              <a
+                href={whatsappHref("Olá! Gostaria de falar com um consultor.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  textDecoration: "none",
+                }}
+              >
+                <img
+                  src={imgWhatsapp}
+                  alt="WhatsApp"
+                  style={{
+                    width: "14px",
+                    height: "14px",
+                    flexShrink: 0,
+                  }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "12px",
+                    fontWeight: 400,
+                    fontFamily: "var(--font-roboto)",
+                    color: colors.text.bodyLight,
+                    lineHeight: "18px",
+                  }}
+                >
+                  (31) 99293-7571
+                </p>
+              </a>
+
+              <a
+                href="tel:+553133479400"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  textDecoration: "none",
+                }}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 256 256"
+                  fill={colors.text.bodyLight}
+                  style={{ flexShrink: 0 }}
+                >
+                  <path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.13L97.54,33.63a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.89-48.92A16,16,0,0,0,222.37,158.46Z" />
+                </svg>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "12px",
+                    fontWeight: 400,
+                    fontFamily: "var(--font-roboto)",
+                    color: colors.text.bodyLight,
+                    lineHeight: "18px",
+                  }}
+                >
+                  (31) 3347-9400
+                </p>
+              </a>
+              </div>
             </div>
 
             {/* Bottom Footer */}
